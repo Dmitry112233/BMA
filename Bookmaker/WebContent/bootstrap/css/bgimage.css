@@ -1,0 +1,16 @@
+body {
+    margin-top: 50px;
+}
+
+.bgimage {
+background-image: url(../img/grass.jpg);
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+background-color: #464646;
+}
+.row div{
+  background: #222222;
+  color: #9d9d9d;
+}
