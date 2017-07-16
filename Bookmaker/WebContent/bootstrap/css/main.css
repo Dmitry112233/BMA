@@ -1,16 +1,40 @@
 body {
-    margin-top: 50px;
+	background-image: url(../img/grass.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
 }
 
-.bgimage {
-background-image: url(../img/grass.jpg);
-background-position: center center;
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-size: cover;
-background-color: #464646;
+#footer {
+	background: #333;
+	height: 70px;
+	color: #9d9d9d;
 }
-.row div{
-  background: #222222;
-  color: #9d9d9d;
+
+.backing {
+	background: #333;
+	color: #9d9d9d;
+}
+#bklist{
+	height: 500px;
+	background: #646464;
+	color: black;
+}
+
+#dayexp{
+	height: 500px;
+	background: #8d8d8d;
+	color: black;
+}
+
+.dayexptable {
+	padding: 7px;
+	background: #d3d3d3;
+	width: 100%;
+}
+
+.bknumlist {
+	line-height: 2;
 }
