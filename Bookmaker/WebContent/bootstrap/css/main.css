@@ -7,6 +7,11 @@ body {
 	background-color: #464646;
 }
 
+.n {
+	border-radius: 0;
+	width: 100%;
+}
+
 #footer {
 	background: #333;
 	height: 70px;
@@ -37,4 +42,30 @@ body {
 
 .bknumlist {
 	line-height: 2;
+}
+
+a:hover, a:focus {
+	color: #b2b2b2;
+    text-decoration: none;
+    outline: 0;
+}
+
+a {
+    color: black;
+}
+
+.tilt {
+    -webkit-transition: all 0.5s ease;
+       -moz-transition: all 0.5s ease;
+         -o-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+}
+
+.tilt:hover {
+    -webkit-transform: rotate(1deg);
+       -moz-transform: rotate(1deg);
+         -o-transform: rotate(1deg);
+        -ms-transform: rotate(1deg);
+            transform: rotate(1deg);
 }
