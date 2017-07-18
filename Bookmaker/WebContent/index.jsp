@@ -20,31 +20,35 @@
   	<div id="page">
 		<div id="header">
             <div class="container">
-                <h1>выигрывай на ставках</h1>
+                <div class="row">
+                    <h1>Выигрывай на ставках</h1>
+                </div>
             </div>
-
             <div class="container">
-                <div class="n navbar navbar-inverse">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapde-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a href="index.jsp" class="navbar-brand">BKA</a>
-                        </div>
-    	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapde-1">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="index.jsp">Главная<span class="sr-only"></span></a></li>
-    	                        <li><a href="football.jsp">Ставки на футбол</a></li>
-    	                        <li><a href="lessons.jsp">Уроки беттинга</a></li>
-    	                    </ul>
-                        </div>
-    	            </div>
+                <div class="row">
+                    <div class="n navbar navbar-inverse">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapde-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a href="index.jsp" class="navbar-brand">BKA</a>
+                            </div>
+        	                <div class="collapse navbar-collapse" id="bs-example-navbar-collapde-1">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="index.jsp">Главная<span class="sr-only"></span></a></li>
+        	                        <li><a href="football.jsp">Ставки на футбол</a></li>
+        	                        <li><a href="lessons.jsp">Уроки беттинга</a></li>
+        	                    </ul>
+                            </div>
+        	            </div>
+                    </div>
                 </div>
     	    </div>
+        </div>
 	    <div class="container backing">
 	      <div class="row">
 	        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Мы помогаем сделать ставки на спорт, которые приведут к выигрышу</div>
@@ -56,19 +60,13 @@
             <p><strong>Список букмейкеров</strong></p>
             <ol class="bknumlist">
               <li>
-                  <div class="tilt">
-                      <a href="https://winline.ru" target="_blank"><img src="bootstrap/img/logo_wl.png" width="80" alt="Winline"> на сайт</a>
-                  </div>
+                  <a href="https://winline.ru" target="_blank"><img class="tilt" src="bootstrap/img/logo_wl.png" width="80" alt="Winline"> на сайт</a>
               </li>
               <li>
-                  <div class="tilt">
-                      <a href="https://www.leon.ru" target="_blank"><img src="bootstrap/img/logo_leon.png" width="80" alt="Leon"> на сайт</a>
-                  </div>
+                  <a href="https://www.leon.ru" target="_blank"><img class="tilt" src="bootstrap/img/logo_leon.png" width="80" alt="Leon"> на сайт</a>
               </li>
               <li>
-                  <div class="tilt">
-                      <a href="https://www.fonbet.ru" target="_blank"><img src="bootstrap/img/logo_fb.png" width="80" alt="Фонбет"> на сайт</a>
-                  </div>
+                  <a href="https://www.fonbet.ru" target="_blank"><img class="tilt" src="bootstrap/img/logo_fb.png" width="80" alt="Фонбет"> на сайт</a>
               </li>
             </ol>
 	      	</div>

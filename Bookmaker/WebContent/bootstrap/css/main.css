@@ -7,6 +7,10 @@ body {
 	background-color: #464646;
 }
 
+h1 {
+	margin-left: 0px;
+}
+
 .n {
 	border-radius: 0;
 	width: 100%;

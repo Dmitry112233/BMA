@@ -1,0 +1,15 @@
+.active {
+	background-color: red;
+    color: white;
+}
+
+.menuItem {
+	display: inline;
+}
+
+.menu {
+	
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
