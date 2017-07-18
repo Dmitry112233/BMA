@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <html>
 <head>
@@ -6,7 +8,7 @@
 </head>
 
 <body>
-<c:import url="/test/menuTest.jsp">
+<c:import url="menuTest.jsp">
 	<c:param name="therdMenu">true</c:param>
 </c:import>
 

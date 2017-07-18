@@ -1,6 +1,6 @@
-<ul class="menu">
-	<li class="${param.fistMenu == 'true'?'active':''} menuItem"> 
-		| <a href="First.jsp">First menu</a></a> |
+ <ul class="menu">
+	<li class="${param.firstMenu == 'true'?'active':''} menuItem">
+		| <a href="First.jsp">First menu</a> |
 	</li>
 	<li class="${param.secondMenu == 'true'?'active':''} menuItem">
 		| <a href="Second.jsp">Second menu</a> |
