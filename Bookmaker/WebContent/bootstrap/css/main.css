@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Ubuntu');
+
 body {
 	background-image: url(../img/grass.jpg);
 	background-position: center center;
@@ -5,6 +7,7 @@ body {
 	background-attachment: fixed;
 	background-size: cover;
 	background-color: #464646;
+	font-family: Ubuntu;
 }
 
 h1 {
@@ -14,6 +17,8 @@ h1 {
 .n {
 	border-radius: 0;
 	width: 100%;
+	font-weight: bold;
+	font-size: 14pt;
 }
 
 #footer {
@@ -26,14 +31,15 @@ h1 {
 	background: #333;
 	color: #9d9d9d;
 }
-#bklist{
-	height: 500px;
+#bklist{	
+	height: 600px;
 	background: #646464;
 	color: black;
+	font-weight: bold;
 }
 
 #dayexp{
-	height: 500px;
+	height: 600px;
 	background: #8d8d8d;
 	color: black;
 }
