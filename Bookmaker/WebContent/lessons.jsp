@@ -23,7 +23,7 @@
       <div class="container">
          <div class="row">
             <c:import url="parts/bmList.jsp"></c:import>
-            <div id="lessonsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">тут будет отображаться информаия о ставках для начинающих</div>
+            <c:import url="parts/textLessons.jsp"></c:import>
          </div>
       </div>
       <c:import url="parts/footer.jsp"></c:import>

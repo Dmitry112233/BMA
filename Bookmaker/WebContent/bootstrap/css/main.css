@@ -32,7 +32,7 @@ h1 {
 	color: #9d9d9d;
 }
 #bklist{	
-	height: 600px;
+	height: 500px;
 	background: #646464;
 	color: black;
 	font-weight: bold;	
@@ -51,15 +51,30 @@ h1 {
 		list-style-type: none;	
 }
 
+#bklist li {
+		height: 50px;
+		border-bottom: 2px solid white;	
+}
+
+#bklist bmlogo {
+	
+}
+
+#bklist img {	
+	height: 26px;
+	margin-top: 12px;
+}
+
 .tobkbut {
 	background-color: #43a047;
 	padding: 8px;
 	float: right;
-	clear: none;	
+	clear: none;
+	margin-top: 7px;	
 }
 
 #dayexp{
-	height: 600px;
+	height: 500px;
 	background: #8d8d8d;
 	color: black;
 }
@@ -68,10 +83,6 @@ h1 {
 	padding: 7px;
 	background: #d3d3d3;
 	width: 100%;
-}
-
-.bknumlist {
-	line-height: 2;
 }
 
 a:hover, a:focus {
@@ -100,6 +111,9 @@ a {
             transform: rotate(1deg);
 }
 
-#bklist img {
-	width: 100px;
+#textLessons {
+	height: 500px;
+	background: #8d8d8d;
+	color: black;
 }
+
