@@ -2,13 +2,18 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <html>
    <head>
-      <title>Express of the day</title>
+      <title>Expresses of the day</title>
    </head>
    <body>
-      <h2>Express of the day</h2>
-      <form action="expressreplase.jsp" method="POST">
-         <button type="submit">Replase</button>
+   	  <form action="admin.jsp" method="POST">
+         <button type="submit">Log out</button>
       </form>
+      <hr>   
+      <h2>Express of the day</h2>
+      <form action="expressAdd.jsp" method="POST">
+         <button type="submit">Add new express</button>
+      </form>
+      <hr>
       <h3>express name</h3>
       <table border="1">
          <tr>
@@ -38,10 +43,15 @@
       <p>event starts</p>
       <br>
       <p>discription   </p>
-      <br><br><br>
-      <hr>
-      <form action="admin.jsp" method="POST">
-         <button type="submit">Log out</button>
+      <form action="#" method="POST">
+         <button type="submit">Edit</button>
       </form>
+      <br>
+      <form action="#" method="POST">
+         <button type="submit">Delete</button>
+      </form>
+      <hr>
+      <p>The number of entries depends on the content of the database (need a cycle)</p>
+      <hr>
    </body>
 </html>

@@ -26,9 +26,9 @@
          </div>
       </div>
       <div class="container">
-         <div class="row">
+         <div class="row mainHeight">
             <c:import url="parts/bmList.jsp"></c:import>
-            <c:import url="parts/expresses.jsp"></c:import>
+            <c:import url="parts/dayExpress.jsp"></c:import>
          </div>
       </div>
       <c:import url="parts/footer.jsp"></c:import>

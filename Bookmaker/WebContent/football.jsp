@@ -21,7 +21,7 @@
          <c:param name="secondMenu" value="true"/>
       </c:import>
       <div class="container">
-         <div class="row">
+         <div class="row mainHeight">
             <c:import url="parts/bmList.jsp"></c:import>
             <c:import url="parts/expresses.jsp"></c:import>
          </div>

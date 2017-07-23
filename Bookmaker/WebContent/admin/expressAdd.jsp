@@ -4,7 +4,13 @@
    <head>
       <title>Replase express</title>
    </head>
-   <body>
+   <body>   
+      <form action="admin.jsp" method="POST">
+         <button type="submit">Log out</button>
+      </form>
+      <hr>
+      <h2>Add new express of the day</h2>
+     
       <form action="dayexpress.jsp" method="POST">
          <p>
             <label>express name:</label>
@@ -67,11 +73,6 @@
          <p>
             <button type="submit">Save changes</button>
          </p>
-      </form>
-      <br><br><br>
-      <hr>
-      <form action="admin.jsp" method="POST">
-         <button type="submit">Log out</button>
       </form>
    </body>
 </html>

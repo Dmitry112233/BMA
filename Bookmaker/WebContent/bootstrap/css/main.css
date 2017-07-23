@@ -31,8 +31,23 @@ h1 {
 	background: #333;
 	color: #9d9d9d;
 }
-#bklist{	
-	height: 500px;
+
+.mainHeight {
+	height: 100%;
+	position: relative;
+}
+
+#allExp{
+	float:right;
+	height: auto;
+	background: #8d8d8d;
+	color: black;
+}
+
+#bklist{
+	position: absolute;
+	left: 0;
+	height: 100%;
 	background: #646464;
 	color: black;
 	font-weight: bold;	
@@ -74,7 +89,8 @@ h1 {
 }
 
 #dayexp{
-	height: 500px;
+	float:right;
+	height: auto;
 	background: #8d8d8d;
 	color: black;
 }
@@ -112,8 +128,50 @@ a {
 }
 
 #textLessons {
-	height: 500px;
+	float: right;
+	min-height: 500px;
+	height: auto;
 	background: #8d8d8d;
 	color: black;
 }
 
+.hide, .hide + label ~ div{
+    display: none;
+}
+
+.hide + label {	
+	text-decoration: underline;
+	font-weight: normal;
+	font-size: 13pt;   
+    padding: 0;
+    cursor: pointer;
+    display: inline-block; 
+}
+
+.hide:checked + label {
+    border-bottom: 0;
+}
+
+.hide:checked + label + div {
+    display: block; 
+    padding: 10px; 
+    margin-left: 30px;
+}
+
+.hide + label:before {
+    color: #000000;
+    content: "\002B";
+    display: block;
+    float: left;
+    font-size: 14px; 
+    font-weight: bold;
+    height: 16px;
+    line-height: 16px;
+    margin: 3px 5px;
+    text-align: center;
+    width: 16px;
+}
+
+.hide:checked + label:before {
+    content: "\2212";
+}
