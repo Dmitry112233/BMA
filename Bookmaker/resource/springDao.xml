@@ -21,11 +21,6 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="express_iventDao"
-		class="com.da.bookmaker.dao.template.Express_IventDaoTemplateImpl">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
 	<bean id="questionDao" class="com.da.bookmaker.dao.template.QuestionDaoTemplateImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
