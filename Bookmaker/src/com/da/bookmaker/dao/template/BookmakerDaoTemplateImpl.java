@@ -15,6 +15,8 @@ import com.da.bookmaker.dao.DaoException;
 
 public class BookmakerDaoTemplateImpl implements BookmakerDao{
 
+	private final static String GET_ALL_BOOKMAKERS = "SELECT ID, NAME, LINK FROM BOOKMAKERS";
+	
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -28,7 +30,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 	@Override
 	public List<BookmakerBean> getAllBookmakers() throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<BookmakerBean> list = template.query("SELECT ID, NAME, LINK FROM BOOKMAKERS", new RowMapper<BookmakerBean>() {
+		List<BookmakerBean> list = template.query(GET_ALL_BOOKMAKERS , new RowMapper<BookmakerBean>() {
 
 			@Override
 			public BookmakerBean mapRow(ResultSet rs, int rowNum) throws SQLException {

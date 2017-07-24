@@ -20,10 +20,8 @@ public class MainPageController {
 	public ModelAndView getMainList() throws DaoException {
 		List<BookmakerBean> bookmakerList = DaoFactory.getBookmakerDao().getAllBookmakers();
 		ExpressBean myExpress = DaoFactory.getExpressDao().getMyExpresses();
-		List<ExpressBean> expressList = DaoFactory.getExpressDao().getAllExpresses();
 
 		Map<String, Object> params = new HashMap<>();
-		params.put("expressList", expressList);
 		params.put("bookmakerList", bookmakerList);
 		params.put("myExpress", myExpress);
 

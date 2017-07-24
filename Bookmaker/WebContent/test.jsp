@@ -19,6 +19,10 @@
    <body>      
    <br><br><br><br>
    <h3><a href="MainList.spr">MainPageTest</a><h3>
+   <h3><a href="FootballExpressesList.spr">FootballExpressTest</a><h3>
+   <h3><a href="QuestionList.spr">Questions</a><h3>
+   
+   
       <div class="container">
          <div class="row">
             <c:import url="parts/bmList.jsp"></c:import>          

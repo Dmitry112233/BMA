@@ -44,7 +44,8 @@
 				<td>${ivent.date}</td>
 				<td>${ivent.competition}</td>
 			</tr>
-			<b>DESCRIBTION:</b> <br> 
+			<b>DESCRIBTION:</b>
+			<br>
 		</c:forEach>
 	</table>
 
@@ -71,7 +72,24 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<b>DESCRIBTION:</b> <br>
+		<b>DESCRIBTION:</b>
+		<br>
 	</c:forEach>
+
+	<h1>QUESTIONS</h1>
+	<table>
+		<tr>
+			<td>Question</td>
+			<td>Answer</td>
+		</tr>
+
+		<c:forEach var="question" items="${questionsList}">
+			<tr>
+				<td>${question.question}</td>
+				<td>${question.answer}"</td>
+			</tr>
+		</c:forEach>
+	</table>
+
 </body>
 </html>
