@@ -4,7 +4,7 @@
       <title>Knowledge</title>
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
-      <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>	
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -16,14 +16,14 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
    </head>
-   <body class="bgimage">
+   <body class="bgimage">   
       <c:import url="parts/nav.jsp">
          <c:param name="therdMenu" value="true"/>
       </c:import>
       <div class="container">
          <div class="row mainHeight">
-            <c:import url="parts/bmList.jsp"></c:import>
-            <c:import url="parts/textLessons.jsp"></c:import>
+            <c:import url="BookmakerList.spr"></c:import>            
+            <c:import url="QuestionList.spr"></c:import>
          </div>
       </div>
       <c:import url="parts/footer.jsp"></c:import>

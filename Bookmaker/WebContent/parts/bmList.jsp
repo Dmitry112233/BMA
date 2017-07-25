@@ -1,21 +1,13 @@
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="bklist" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
    <h2>Букмекеры</h2>
    <ol>
-      <li>
-         <a href="https://winline.ru" target="_blank" class="bmlogo"><img class="tilt" src="bootstrap/img/logo_wl.png" alt="Winline"></a>
-         <a class="tobkbut" href="https://winline.ru">На сайт</a>
-        
-      </li>      
-      <li>
-         <a href="https://www.leon.ru" target="_blank"><img class="tilt" src="bootstrap/img/logo_leon.png" alt="Leon"></a>
-         <a class="tobkbut" href="https://www.leon.ru">На сайт</a>
-        
-      </li>
-      <li>
-         <a href="https://www.fonbet.ru" target="_blank"><img class="tilt" src="bootstrap/img/logo_fb.png" alt="Фонбет"></a>
-         <a class="tobkbut" href="https://www.fonbet.ru">На сайт</a>
-        
-      </li>
+      <c:forEach var="bookmaker" items="${bookmakerList}">
+         <li>
+            <a href="${bookmaker.link}" target="_blank" class="bmlogo"><img class="tilt" src="bootstrap/img/logo_wl.png" alt="${bookmaker.name}"></a>
+            <a class="tobkbut" target="_blank" href="${bookmaker.link}">На сайт</a>        
+         </li>
+      </c:forEach>
    </ol>
 </div>

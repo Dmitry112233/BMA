@@ -1,13 +1,12 @@
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="textLessons" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <h2>Уроки беттинга для начинающих</h2>
+   <h2>Уроки беттинга для начинающих</h2> 
    <p>Вводный текст ..................</p>
-   <input type="checkbox" id="hd-1" class="hide"/>
-   <label for="hd-1" >Что да как?</label>
-   <div>Вот так вот</div>
-   <br>
-   <input type="checkbox" id="hd-2" class="hide"/>
-   <label for="hd-2" >Что да как  2?</label>
-   <div>Вот так вот 2</div>   
-   <br>   реализовать раскрывающиеся ответы
+   <c:forEach var="question" items="${questionsList}">
+	   <input type="checkbox" id="hd-${question.questionID}" class="hide"/>
+	   <label for="hd-${question.questionID}" >${question.question}</label>
+	   <div>${question.answer}</div>
+	   <br>
+   </c:forEach>
 </div>

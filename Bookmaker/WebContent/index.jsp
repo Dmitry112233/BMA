@@ -4,7 +4,7 @@
       <title>BookMaker Aggregator</title>
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
-      <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -27,8 +27,8 @@
       </div>
       <div class="container">
          <div class="row mainHeight">
-            <c:import url="parts/bmList.jsp"></c:import>
-            <c:import url="parts/dayExpress.jsp"></c:import>
+            <c:import url="BookmakerList.spr"></c:import>
+            <c:import url="MainList.spr"></c:import>
          </div>
       </div>
       <c:import url="parts/footer.jsp"></c:import>

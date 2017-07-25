@@ -25,6 +25,6 @@ public class MainPageController {
 		params.put("bookmakerList", bookmakerList);
 		params.put("myExpress", myExpress);
 
-		return new ModelAndView("mainPageTest", params);
+		return new ModelAndView("parts/dayExpress", params);
 	}
 }

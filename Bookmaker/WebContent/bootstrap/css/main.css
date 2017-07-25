@@ -42,6 +42,7 @@ h1 {
 	height: auto;
 	background: #8d8d8d;
 	color: black;
+	min-height: 500px;
 }
 
 #bklist{
@@ -93,12 +94,17 @@ h1 {
 	height: auto;
 	background: #8d8d8d;
 	color: black;
+	min-height: 500px;
 }
 
 .dayexptable {
 	padding: 7px;
 	background: #d3d3d3;
 	width: 100%;
+}
+
+.dayexptable tr td {
+	height: 40px;
 }
 
 a:hover, a:focus {

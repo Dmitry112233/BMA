@@ -17,6 +17,6 @@ public class FootballExpressController {
 	public ModelAndView getMainList() throws DaoException {
 		List<ExpressBean> expressList = DaoFactory.getExpressDao().getAllExpresses();
 
-		return new ModelAndView("mainPageTest", "expressList", expressList);
+		return new ModelAndView("parts/expresses", "expressList", expressList);
 	}
 }

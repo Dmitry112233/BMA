@@ -17,6 +17,6 @@ public class QuestionController {
 	public ModelAndView getMainList() throws DaoException {
 		List<QuestionBean> questionsList = DaoFactory.getQuestionDao().getAllQuestions();
 
-		return new ModelAndView("mainPageTest", "questionsList", questionsList);
+		return new ModelAndView("parts/textLessons", "questionsList", questionsList);
 	}
 }
