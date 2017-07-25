@@ -23,13 +23,12 @@ CREATE TABLE IF NOT EXISTS `bookmakers` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Дамп данных таблицы bma_data.bookmakers: ~4 rows (приблизительно)
+-- Дамп данных таблицы bma_data.bookmakers: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `bookmakers` DISABLE KEYS */;
 INSERT INTO `bookmakers` (`ID`, `NAME`, `LINK`) VALUES
-	(1, '1xBET', 'google.com'),
-	(2, 'PariMatch', 'google.com'),
-	(3, 'WeedLines', 'google.com'),
-	(4, 'adsfasf', 'asdfasd');
+	(1, '1xBET', 'https://www.1xbet.com/'),
+	(2, 'PariMatch', 'https://www.parimatch.com/'),
+	(3, 'Winline', 'https://winline.ru/');
 /*!40000 ALTER TABLE `bookmakers` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.expresses
@@ -47,7 +46,7 @@ INSERT INTO `expresses` (`ID`, `NAME`, `DATE`, `SOURCE`) VALUES
 	(1, 'first', '2017-07-15', 'link1'),
 	(2, 'second', '2017-07-16', 'link2'),
 	(3, 'third', '2017-07-17', 'link3'),
-	(4, 'for', '2017-07-23', NULL);
+	(4, 'new express for test', '2017-07-23', NULL);
 /*!40000 ALTER TABLE `expresses` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.express_ivent
@@ -60,15 +59,18 @@ CREATE TABLE IF NOT EXISTS `express_ivent` (
   KEY `FK_express_ivent_expresses` (`EXPRESSES_ID`),
   CONSTRAINT `FK_express_ivent_expresses` FOREIGN KEY (`EXPRESSES_ID`) REFERENCES `expresses` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `FK_express_ivent_ivents` FOREIGN KEY (`IVENTS_ID`) REFERENCES `ivents` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
--- Дамп данных таблицы bma_data.express_ivent: ~4 rows (приблизительно)
+-- Дамп данных таблицы bma_data.express_ivent: ~7 rows (приблизительно)
 /*!40000 ALTER TABLE `express_ivent` DISABLE KEYS */;
 INSERT INTO `express_ivent` (`ID`, `IVENTS_ID`, `EXPRESSES_ID`) VALUES
 	(1, 1, 1),
 	(3, 3, 3),
 	(4, 2, 2),
-	(5, 4, 4);
+	(5, 4, 4),
+	(6, 1, 4),
+	(7, 2, 4),
+	(11, 2, 1);
 /*!40000 ALTER TABLE `express_ivent` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.ivents
@@ -85,10 +87,10 @@ CREATE TABLE IF NOT EXISTS `ivents` (
 -- Дамп данных таблицы bma_data.ivents: ~4 rows (приблизительно)
 /*!40000 ALTER TABLE `ivents` DISABLE KEYS */;
 INSERT INTO `ivents` (`ID`, `NAME`, `DESCRIPTION`, `BET`, `DATE`, `COMPETITION`) VALUES
-	(1, 'MU-RM', 'description1', '1X', '2017-07-15', 'La Liga'),
-	(2, 'FCB-ATLETIC', 'description2', '1X', '2017-07-16', 'APL'),
-	(3, 'Arsena-City', 'description3', '1X', '2017-07-17', 'Seria A'),
-	(4, 'Juve - Milan', 'description4', 'P2', '2017-07-23', 'Seria A');
+	(1, 'MU-RM', 'description1', '1X', '2017-07-15', 'Football / La Liga'),
+	(2, 'FCB-ATLETIC', 'description2', '1X', '2017-07-16', 'Football / APL'),
+	(3, 'Arsena-City', 'description3', '1X', '2017-07-17', 'Football / Seria A'),
+	(4, 'Juve - Milan', 'description4', 'P2', '2017-07-23', 'Football / Seria A');
 /*!40000 ALTER TABLE `ivents` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.questions
@@ -99,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Дамп данных таблицы bma_data.questions: ~1 rows (приблизительно)
+-- Дамп данных таблицы bma_data.questions: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
 INSERT INTO `questions` (`ID`, `question`, `answer`) VALUES
 	(1, 'question1', 'answer1'),
