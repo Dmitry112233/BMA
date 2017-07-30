@@ -12,8 +12,18 @@ public class ExpressBean {
 	private Date date;
 
 	private String source;
-	
+
 	private ArrayList<IventBean> iventList;
+
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public ArrayList<IventBean> getIventList() {
 		return iventList;

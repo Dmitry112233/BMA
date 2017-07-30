@@ -16,6 +16,16 @@ public class IventBean {
 
 	private Date date;
 	
+	private Double coefficient;
+
+	public Double getCoefficient() {
+		return coefficient;
+	}
+
+	public void setCoefficient(Double coefficient) {
+		this.coefficient = coefficient;
+	}
+
 	public String getCompetition() {
 		return competition;
 	}

@@ -13,7 +13,7 @@
          <td>&nbsp;${ivent.competition}</td>
          <td>&nbsp;${ivent.name}</td>
          <td width="15%" align="center">${ivent.bet}</td>
-         <td width="15%" align="center">1.33</td>
+         <td width="15%" align="center">${ivent.coefficient}</td>
       </tr>
       </c:forEach>
    </table>
@@ -21,5 +21,5 @@
    <p>Итоговый коэф: !!!!как это рассчитать?!!!</p>
    <p>Начало события: ${myExpress.date}</p>
    <br>
-   <p>описание события, пока нет инфы на беке</p>
+   <p>описание события, пока нет инфы на беке ${myExpress.description}</p>
 </div>

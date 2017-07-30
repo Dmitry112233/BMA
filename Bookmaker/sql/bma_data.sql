@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `bookmakers` (
   `NAME` varchar(100) NOT NULL,
   `LINK` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Дамп данных таблицы bma_data.bookmakers: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `bookmakers` DISABLE KEYS */;
@@ -37,16 +37,17 @@ CREATE TABLE IF NOT EXISTS `expresses` (
   `NAME` varchar(200) DEFAULT NULL,
   `DATE` date NOT NULL,
   `SOURCE` varchar(200) DEFAULT NULL,
+  `DESCRIPTION` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Дамп данных таблицы bma_data.expresses: ~4 rows (приблизительно)
 /*!40000 ALTER TABLE `expresses` DISABLE KEYS */;
-INSERT INTO `expresses` (`ID`, `NAME`, `DATE`, `SOURCE`) VALUES
-	(1, 'first', '2017-07-15', 'link1'),
-	(2, 'second', '2017-07-16', 'link2'),
-	(3, 'third', '2017-07-17', 'link3'),
-	(4, 'new express for test', '2017-07-23', NULL);
+INSERT INTO `expresses` (`ID`, `NAME`, `DATE`, `SOURCE`, `DESCRIPTION`) VALUES
+	(1, 'first', '2017-07-15', 'link1', NULL),
+	(2, 'second', '2017-07-16', 'link2', NULL),
+	(3, 'third', '2017-07-17', 'link3', NULL),
+	(4, 'new express for test', '2017-07-23', NULL, 'OPISANIE NAH');
 /*!40000 ALTER TABLE `expresses` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.express_ivent
@@ -81,16 +82,17 @@ CREATE TABLE IF NOT EXISTS `ivents` (
   `BET` varchar(50) NOT NULL,
   `DATE` date NOT NULL,
   `COMPETITION` varchar(50) DEFAULT NULL,
+  `COEFFICIENT` double DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Дамп данных таблицы bma_data.ivents: ~4 rows (приблизительно)
 /*!40000 ALTER TABLE `ivents` DISABLE KEYS */;
-INSERT INTO `ivents` (`ID`, `NAME`, `DESCRIPTION`, `BET`, `DATE`, `COMPETITION`) VALUES
-	(1, 'MU-RM', 'description1', '1X', '2017-07-15', 'Football / La Liga'),
-	(2, 'FCB-ATLETIC', 'description2', '1X', '2017-07-16', 'Football / APL'),
-	(3, 'Arsena-City', 'description3', '1X', '2017-07-17', 'Football / Seria A'),
-	(4, 'Juve - Milan', 'description4', 'P2', '2017-07-23', 'Football / Seria A');
+INSERT INTO `ivents` (`ID`, `NAME`, `DESCRIPTION`, `BET`, `DATE`, `COMPETITION`, `COEFFICIENT`) VALUES
+	(1, 'MU-RM', 'description1', '1X', '2017-07-15', 'Football / La Liga', 1.1),
+	(2, 'FCB-ATLETIC', 'description2', '1X', '2017-07-16', 'Football / APL', NULL),
+	(3, 'Arsena-City', 'description3', '1X', '2017-07-17', 'Football / Seria A', NULL),
+	(4, 'Juve - Milan', 'description4', 'P2', '2017-07-23', 'Football / Seria A', 2.2);
 /*!40000 ALTER TABLE `ivents` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.questions

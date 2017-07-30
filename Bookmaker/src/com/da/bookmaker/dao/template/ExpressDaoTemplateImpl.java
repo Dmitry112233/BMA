@@ -3,6 +3,7 @@ package com.da.bookmaker.dao.template;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,13 +19,13 @@ import com.da.bookmaker.dao.ExpressDao;
 
 public class ExpressDaoTemplateImpl implements ExpressDao {
 
-	private final static String GET_ALL_EXPRESSES = "SELECT DISTINCT E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
-			+ "DESCRIPTION, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
+	private final static String GET_ALL_EXPRESSES = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
+			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE SOURCE IS NOT NULL";
 
-	private final static String GET_MY_EXPRESS = "SELECT DISTINCT E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
-			+ "DESCRIPTION, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
+	private final static String GET_MY_EXPRESS = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
+			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE SOURCE IS NULL "
 			+ "ORDER BY EXPRESS_DATE DESC";
@@ -41,7 +42,9 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 
 	public List<ExpressBean> getAllExpresses() {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		return template.query(GET_ALL_EXPRESSES, new ExpressSetExecuter());
+		List<ExpressBean> list = template.query(GET_ALL_EXPRESSES, new ExpressSetExecuter());
+		list.removeAll(Collections.singleton(null));
+		return list;
 	}
 
 	public ExpressBean getMyExpresses() {
@@ -68,6 +71,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 				bean.setIventList(new ArrayList<>());
 				bean.setName(rs.getString("EXPRESS_NAME"));
 				bean.setSource(rs.getString("SOURCE"));
+				bean.setDescription(rs.getString("EXPRESS_DESCRIPTION"));
 				bean.getIventList().add(createIvent(rs));
 				map.put(expresId, bean);
 				return bean;
@@ -82,9 +86,10 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			bean.setBet(rs.getString("BET"));
 			bean.setCompetition(rs.getString("COMPETITION"));
 			bean.setDate(rs.getDate("IVENT_DATE"));
-			bean.setDescription(rs.getString("DESCRIPTION"));
+			bean.setDescription(rs.getString("IVENT_DESCRIPTION"));
 			bean.setIventID(rs.getLong("IVENT_ID"));
 			bean.setName(rs.getString("IVENT_NAME"));
+			bean.setCoefficient(rs.getDouble("IVENT_COEFFICIENT"));
 			return bean;
 		}
 

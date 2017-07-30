@@ -19,9 +19,9 @@
                </div>
                <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">
-                  	<li class="${param.firstMenu == 'true'?'active':''}"><a href="index.jsp">Главная</a></li>
-                  	<li class="${param.secondMenu == 'true'?'active':''}"><a href="football.jsp">Ставки на футбол</a></li>
-                  	<li class="${param.therdMenu == 'true'?'active':''}"><a href="lessons.jsp">Уроки беттинга</a></li>
+                  	<li class="${param.firstMenu == 'true'?'active':''}"><a href="Index.spr">Главная</a></li>
+                  	<li class="${param.secondMenu == 'true'?'active':''}"><a href="FootballExpressesList.spr">Ставки на футбол</a></li>
+                  	<li class="${param.therdMenu == 'true'?'active':''}"><a href="FAQList.spr">Уроки беттинга</a></li>
                   </ul>
                </div>
             </div>

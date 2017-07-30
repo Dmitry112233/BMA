@@ -27,8 +27,8 @@
       </div>
       <div class="container">
          <div class="row mainHeight">
-            <c:import url="BookmakerList.spr"></c:import>
-            <c:import url="MainList.spr"></c:import>
+            <c:import url="parts/bmList.jsp"></c:import>
+            <c:import url="parts/dayExpress.jsp"></c:import>
          </div>
       </div>
       <c:import url="parts/footer.jsp"></c:import>
