@@ -18,8 +18,8 @@
       </c:forEach>
    </table>
    <br>
-   <p>Итоговый коэф: !!!!как это рассчитать?!!!</p>
+   <p>Итоговый коэф: ${myExpress.resultCoeff}</p>
    <p>Начало события: ${myExpress.date}</p>
    <br>
-   <p>описание события, пока нет инфы на беке ${myExpress.description}</p>
+   <p>описание события: ${myExpress.description}</p>
 </div>

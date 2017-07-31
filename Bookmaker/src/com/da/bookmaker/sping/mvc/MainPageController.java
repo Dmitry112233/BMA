@@ -12,13 +12,13 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class MainPageController extends BookmakerController{
-	
+public class MainPageController extends BookmakerController {
+
 	@RequestMapping("Index.spr")
-	public ModelAndView index() throws DaoException{
-		Map<String, Object> params = getMainList();
-		params.putAll(getBookmakerList());
-		return new ModelAndView("index", params);
+	public ModelAndView index() throws DaoException {
+		Map<String, Object> map = getMainList();
+		map.putAll(getBookmakerList());
+		return new ModelAndView("index", map);
 	}
 
 	public Map<String, Object> getMainList() throws DaoException {

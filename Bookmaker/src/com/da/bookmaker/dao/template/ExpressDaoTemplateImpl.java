@@ -1,5 +1,8 @@
 package com.da.bookmaker.dao.template;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,10 +14,13 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import com.da.bookmaker.bean.ExpressBean;
 import com.da.bookmaker.bean.IventBean;
+import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.ExpressDao;
 
 public class ExpressDaoTemplateImpl implements ExpressDao {
@@ -30,6 +36,8 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE SOURCE IS NULL "
 			+ "ORDER BY EXPRESS_DATE DESC";
 
+	private final static String INSERT_MY_EXPRESS = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION) VALUES (?,?,?)";
+
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -44,6 +52,9 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_ALL_EXPRESSES, new ExpressSetExecuter());
 		list.removeAll(Collections.singleton(null));
+		for (ExpressBean express : list) {
+			express.setResultCoeff();
+		}
 		return list;
 	}
 
@@ -51,6 +62,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_MY_EXPRESS, new ExpressSetExecuter());
 		if (list.size() > 0) {
+			list.get(0).setResultCoeff();
 			return list.get(0);
 		} else {
 			return null;
@@ -93,6 +105,24 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			return bean;
 		}
 
+	}
+
+	@Override
+	public void addMyExpress(ExpressBean myExpress) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		GeneratedKeyHolder holder = new GeneratedKeyHolder();
+		template.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement statement = con.prepareStatement(INSERT_MY_EXPRESS,
+						PreparedStatement.RETURN_GENERATED_KEYS);
+				statement.setString(1, myExpress.getName());
+				statement.setDate(2, new Date(myExpress.getDate().getTime()));
+				statement.setString(3, myExpress.getDescription());
+				return statement;
+			}
+		}, holder);
+		myExpress.setExpressID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
 	}
 
 }

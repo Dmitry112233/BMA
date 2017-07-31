@@ -1,5 +1,7 @@
 package com.da.bookmaker.bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,6 +18,22 @@ public class ExpressBean {
 	private ArrayList<IventBean> iventList;
 
 	private String description;
+
+	private Double resultCoeff;
+
+	public Double getResultCoeff() {
+		return resultCoeff;
+	}
+
+	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy");
+
+	public void setResultCoeff() {
+		Double resultCoeff = 1.0;
+		for (IventBean ivent : iventList) {
+			resultCoeff *= ivent.getCoefficient();
+		}
+		this.resultCoeff = resultCoeff;
+	}
 
 	public String getDescription() {
 		return description;
@@ -63,6 +81,17 @@ public class ExpressBean {
 
 	public void setSource(String source) {
 		this.source = source;
+	}
+
+	public String getDateStr() {
+		if (date == null) {
+			return "";
+		}
+		return FORMATTER.format(date);
+	}
+
+	public void setDateStr(String date) throws ParseException {
+		this.date = FORMATTER.parse(date);
 	}
 
 }

@@ -7,5 +7,9 @@ import com.da.bookmaker.bean.ExpressBean;
 public interface ExpressDao {
 
 	List<ExpressBean> getAllExpresses() throws DaoException;
+	
 	ExpressBean getMyExpresses() throws DaoException;
+	
+	void addMyExpress(ExpressBean myExpress) throws DaoException;
+	
 }
