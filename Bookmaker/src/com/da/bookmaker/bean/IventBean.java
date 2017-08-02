@@ -1,5 +1,7 @@
 package com.da.bookmaker.bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class IventBean {
@@ -17,6 +19,8 @@ public class IventBean {
 	private Date date;
 	
 	private Double coefficient;
+	
+	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy");
 
 	public Double getCoefficient() {
 		return coefficient;
@@ -72,6 +76,17 @@ public class IventBean {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	
+	public String getDateStr() {
+		if (date == null) {
+			return "";
+		}
+		return FORMATTER.format(date);
+	}
+
+	public void setDateStr(String date) throws ParseException {
+		this.date = FORMATTER.parse(date);
 	}
 
 }
