@@ -3,7 +3,7 @@
 <div id="dayexp" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <h2>Экспресс дня</h2>
    <!-- вывод одного экспресса дня -->      
-   <h3>${myExpress.name}</h3>
+   <h3>${myExpress.name} / ${myExpress.date}</h3>
    <table border="1" class="dayexptable">
       <!-- переменная для увеличивающегося номера строки в таблице с эвентами -->
       <c:set var="tableRow" value="0"/>
@@ -19,7 +19,6 @@
    </table>
    <br>
    <p>Итоговый коэф: ${myExpress.resultCoeff}</p>
-   <p>Начало события: ${myExpress.date}</p>
    <br>
    <p>описание события: ${myExpress.description}</p>
 </div>
