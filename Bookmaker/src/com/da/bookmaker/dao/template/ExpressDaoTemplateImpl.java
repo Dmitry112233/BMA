@@ -52,9 +52,6 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_ALL_EXPRESSES, new ExpressSetExecuter());
 		list.removeAll(Collections.singleton(null));
-		for (ExpressBean express : list) {
-			express.setResultCoeff();
-		}
 		return list;
 	}
 
@@ -62,7 +59,6 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_MY_EXPRESS, new ExpressSetExecuter());
 		if (list.size() > 0) {
-			list.get(0).setResultCoeff();
 			return list.get(0);
 		} else {
 			return null;

@@ -21,7 +21,8 @@ public class IventDaoTemplateImpl implements IventDao {
 
 	private final static String INSERT_MY_IVENT = "INSERT INTO IVENTS (NAME, BET, DATE, COMPETITION, COEFFICIENT) VALUES (?,?,?,?,?)";
 
-	private final static String LINK_MY_IVENT = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) VALUES (?, (SELECT ID FROM EXPRESSES WHERE SOURCE is NULL))";
+	private final static String LINK_MY_IVENT = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) "
+			+ "(SELECT ?, ID FROM EXPRESSES WHERE SOURCE is NULL ORDER BY DATE DESC LIMIT 1)";
 	
 
 	public DataSource getDataSource() {
@@ -53,6 +54,7 @@ public class IventDaoTemplateImpl implements IventDao {
 	}
 	
 	public void linkMyIvent(IventBean myIvent) throws DaoException {
+		addMyIvent(myIvent);
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		GeneratedKeyHolder holder = new GeneratedKeyHolder();
 		int count = template.update(new PreparedStatementCreator() {

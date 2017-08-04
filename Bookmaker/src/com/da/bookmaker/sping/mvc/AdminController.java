@@ -16,6 +16,7 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 
 	@RequestMapping("/Authenticate.spr")
@@ -55,7 +56,6 @@ public class AdminController {
 		myIvent.setCoefficient(coefficient);
 		myIvent.setCompetition(competition);
 		myIvent.setDateStr(date);
-		DaoFactory.getIventDao().addMyIvent(myIvent);
 		DaoFactory.getIventDao().linkMyIvent(myIvent);
 		ExpressBean myExpress1 = DaoFactory.getExpressDao().getMyExpresses();
 		return new ModelAndView("admin/adminMain", "myExpress", myExpress1);

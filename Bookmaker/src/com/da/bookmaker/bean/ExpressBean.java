@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class ExpressBean {
 
+	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy");
+
 	private long expressID;
 
 	private String name;
@@ -19,20 +21,12 @@ public class ExpressBean {
 
 	private String description;
 
-	private Double resultCoeff;
-
 	public Double getResultCoeff() {
-		return resultCoeff;
-	}
-
-	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy");
-
-	public void setResultCoeff() {
 		Double resultCoeff = 1.0;
 		for (IventBean ivent : iventList) {
 			resultCoeff *= ivent.getCoefficient();
 		}
-		this.resultCoeff = resultCoeff;
+		return resultCoeff;
 	}
 
 	public String getDescription() {
