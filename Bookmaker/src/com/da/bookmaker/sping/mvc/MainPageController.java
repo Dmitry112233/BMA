@@ -22,7 +22,7 @@ public class MainPageController extends BookmakerController {
 	}
 
 	public Map<String, Object> getMainList() throws DaoException {
-		ExpressBean myExpress = DaoFactory.getExpressDao().getMyExpresses();
+		ExpressBean myExpress = DaoFactory.getExpressDao().getMyExpress();
 
 		Map<String, Object> params = new HashMap<>();
 		params.put("myExpress", myExpress);

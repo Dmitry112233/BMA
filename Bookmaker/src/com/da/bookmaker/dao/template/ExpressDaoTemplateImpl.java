@@ -35,6 +35,8 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE SOURCE IS NULL "
 			+ "ORDER BY EXPRESS_DATE DESC";
+	
+	
 
 	private final static String INSERT_MY_EXPRESS = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION) VALUES (?,?,?)";
 
@@ -55,7 +57,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		return list;
 	}
 
-	public ExpressBean getMyExpresses() {
+	public ExpressBean getMyExpress() {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_MY_EXPRESS, new ExpressSetExecuter());
 		if (list.size() > 0) {
@@ -120,5 +122,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		}, holder);
 		myExpress.setExpressID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
 	}
+	
+	
 
 }

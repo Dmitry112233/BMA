@@ -28,7 +28,7 @@ public class AdminController {
 			return new ModelAndView("login", "message", "User doesn't exist");
 		} else {
 			request.getSession().setAttribute("user", user);
-			ExpressBean myExpress = DaoFactory.getExpressDao().getMyExpresses();
+			ExpressBean myExpress = DaoFactory.getExpressDao().getMyExpress();
 			return new ModelAndView("admin/adminMain", "myExpress", myExpress);
 		}
 	}
@@ -36,13 +36,17 @@ public class AdminController {
 	@RequestMapping("/AddMyExpress.spr")
 	public ModelAndView addMyExpress(@RequestParam("name") String name, @RequestParam("date") String date,
 			@RequestParam("description") String description) throws DaoException, ParseException {
-		ExpressBean myExpress = new ExpressBean();
-		myExpress.setDateStr(date);
-		myExpress.setName(name);
-		myExpress.setDescription(description);
-		DaoFactory.getExpressDao().addMyExpress(myExpress);
-		ExpressBean myExpress1 = DaoFactory.getExpressDao().getMyExpresses();
-		return new ModelAndView("admin/adminMain", "myExpress", myExpress1);
+		ExpressBean myNewExpress = new ExpressBean();
+		myNewExpress.setDateStr(date);
+		myNewExpress.setName(name);
+		myNewExpress.setDescription(description);
+		ExpressBean myCurrentExpress = DaoFactory.getExpressDao().getMyExpress();
+		if (myCurrentExpress.getDate().equals(myNewExpress.getDate())) {
+			throw new DaoException("Express with this date has already existed");
+		} else {
+			DaoFactory.getExpressDao().addMyExpress(myNewExpress);
+		}
+		return new ModelAndView("admin/adminMain", "myExpress", myNewExpress);
 	}
 
 	@RequestMapping("/AddMyIvent.spr")
@@ -57,7 +61,7 @@ public class AdminController {
 		myIvent.setCompetition(competition);
 		myIvent.setDateStr(date);
 		DaoFactory.getIventDao().linkMyIvent(myIvent);
-		ExpressBean myExpress1 = DaoFactory.getExpressDao().getMyExpresses();
+		ExpressBean myExpress1 = DaoFactory.getExpressDao().getMyExpress();
 		return new ModelAndView("admin/adminMain", "myExpress", myExpress1);
 	}
 }

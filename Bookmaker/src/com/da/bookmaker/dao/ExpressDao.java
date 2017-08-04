@@ -8,7 +8,7 @@ public interface ExpressDao {
 
 	List<ExpressBean> getAllExpresses() throws DaoException;
 	
-	ExpressBean getMyExpresses() throws DaoException;
+	ExpressBean getMyExpress() throws DaoException;
 	
 	void addMyExpress(ExpressBean myExpress) throws DaoException;
 	
