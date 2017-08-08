@@ -22,13 +22,13 @@ h1 {
 }
 
 #footer {
-	background: #333;
+	background: #222;
 	height: 70px;
 	color: #9d9d9d;
 }
 
 .backing {
-	background: #333;
+	background: #222;
 	color: #9d9d9d;
 }
 
@@ -40,7 +40,7 @@ h1 {
 #allExp{
 	float:right;
 	height: auto;
-	background: #8d8d8d;
+	background: #cecece;
 	color: black;
 	min-height: 500px;
 }
@@ -49,12 +49,12 @@ h1 {
 	position: absolute;
 	left: 0;
 	height: 100%;
-	background: #646464;
+	background: #4b4b4b;
 	color: black;
 	font-weight: bold;	
 }
 
-#bklist h2 {
+#bklist h2, #dayexp h2, #allExp h2, #textLessons h2 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -92,19 +92,27 @@ h1 {
 #dayexp{
 	float:right;
 	height: auto;
-	background: #8d8d8d;
+	background: #cecece;
 	color: black;
 	min-height: 500px;
 }
 
 .dayexptable {
-	padding: 7px;
-	background: #d3d3d3;
 	width: 100%;
 }
 
 .dayexptable tr td {
-	height: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 25px;
+}
+
+.mainLine {
+	background: #bbbbbb;
+}
+
+.slaveLine {
+	background: #c7c7c7;
 }
 
 a:hover, a:focus {
@@ -137,7 +145,7 @@ a {
 	float: right;
 	min-height: 500px;
 	height: auto;
-	background: #8d8d8d;
+	background: #cecece;
 	color: black;
 }
 

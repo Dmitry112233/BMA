@@ -3,22 +3,24 @@
 <div id="dayexp" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <h2>Экспресс дня</h2>
    <!-- вывод одного экспресса дня -->      
-   <h3>${myExpress.name} / ${myExpress.date}</h3>
-   <table border="1" class="dayexptable">
+   <br>
+   <table class="dayexptable">
       <!-- переменная для увеличивающегося номера строки в таблице с эвентами -->
       <c:set var="tableRow" value="0"/>
       <c:forEach var="ivent" items="${myExpress.iventList}">
-      <tr>
+      <tr class="mainLine">
+      	<td colspan="4">&nbsp;${ivent.competition}</td>
+      </tr>
+      <tr class="slaveLine">
          <td align="center"><c:out value="${tableRow=tableRow+1}" /></td>
-         <td>&nbsp;${ivent.competition}</td>
-         <td>&nbsp;${ivent.name}</td>
-         <td width="15%" align="center">${ivent.bet}</td>
-         <td width="15%" align="center">${ivent.coefficient}</td>
+         <td><b>&nbsp;${ivent.name}</b></td>
+         <td width="15%" align="center"><b>${ivent.bet}</b></td>
+         <td width="15%" align="center"><b>${ivent.coefficient}</b></td>
       </tr>
       </c:forEach>
    </table>
    <br>
-   <p>Итоговый коэф: ${myExpress.resultCoeff}</p>
-   <br>
-   <p>описание события: ${myExpress.description}</p>
+   <p>Итоговый коэф: <b>${myExpress.resultCoeff}</b></p>
+   <p>Дата начала: <b>${myExpress.date}</b></p>
+   <p>Описание события: ${myExpress.description}</p>
 </div>
