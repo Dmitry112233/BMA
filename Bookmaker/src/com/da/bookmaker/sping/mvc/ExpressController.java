@@ -13,16 +13,16 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class FootballExpressController extends BookmakerController{
+public class ExpressController extends BookmakerController{
 	
-	@RequestMapping("/FootballExpressesList.spr")
+	@RequestMapping("/ExpressesList.spr")
 	public ModelAndView getMainList() throws DaoException {
-		Map<String, Object> map = getFootballExpressList();
+		Map<String, Object> map = getExpressList();
 		map.putAll(getBookmakerList());
 		return new ModelAndView("football", map);
 	}
 	
-	private Map<String, Object> getFootballExpressList() throws DaoException {
+	private Map<String, Object> getExpressList() throws DaoException {
 		List<ExpressBean> expressList = DaoFactory.getExpressDao().getAllExpresses();
 
 		Map<String, Object> map = new HashMap<>();
