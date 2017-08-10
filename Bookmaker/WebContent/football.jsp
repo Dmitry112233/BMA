@@ -20,6 +20,11 @@
       <c:import url="parts/nav.jsp">
          <c:param name="secondMenu" value="true"/>
       </c:import>
+      <div class="container backing">
+         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Мы помогаем сделать ставки на спорт, которые приведут к выигрышу</div>
+         </div>
+      </div>
       <div class="container">
          <div class="row mainHeight">
             <c:import url="parts/bmList.jsp"></c:import>

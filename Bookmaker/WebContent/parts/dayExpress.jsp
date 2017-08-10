@@ -13,9 +13,9 @@
       </tr>
       <tr class="slaveLine">
          <td align="center"><c:out value="${tableRow=tableRow+1}" /></td>
-         <td><b>&nbsp;${ivent.name}</b></td>
-         <td width="15%" align="center"><b>${ivent.bet}</b></td>
-         <td width="15%" align="center"><b>${ivent.coefficient}</b></td>
+         <td ><b>&nbsp;${ivent.name}</b></td>
+         <td width="25%" align="center"><b>${ivent.bet}</b></td>
+         <td width="25%" align="center"><b>${ivent.coefficient}</b></td>
       </tr>
       </c:forEach>
    </table>
