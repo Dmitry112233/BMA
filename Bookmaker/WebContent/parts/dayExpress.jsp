@@ -22,6 +22,6 @@
    </table>
    <br>
    <p>Итоговый коэф: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${myExpress.resultCoeff}" /></b></p>
-   <p>Дата начала: <b>${myExpress.date}</b></p>
+   <p>Дата начала: <b>${myExpress.dateStr}</b></p>
    <p>Описание события: ${myExpress.description}</p>
 </div>
