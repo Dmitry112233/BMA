@@ -19,7 +19,7 @@ public class ExpressController extends BookmakerController{
 	public ModelAndView getMainList() throws DaoException {
 		Map<String, Object> map = getExpressList();
 		map.putAll(getBookmakerList());
-		return new ModelAndView("football", map);
+		return new ModelAndView("allExpresses", map);
 	}
 	
 	private Map<String, Object> getExpressList() throws DaoException {
