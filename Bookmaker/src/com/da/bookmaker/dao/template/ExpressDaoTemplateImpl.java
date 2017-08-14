@@ -158,7 +158,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 						statement.setDouble(4, ivent.getCoefficient());
 						return statement;
 					}
-				}, holder);
+				}, holder1);
 				ivent.setIventID(Long.parseLong(holder1.getKeys().get("GENERATED_KEY").toString()));
 				GeneratedKeyHolder holder2 = new GeneratedKeyHolder();
 				template.update(new PreparedStatementCreator() {
@@ -170,7 +170,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 						statement.setDouble(2, express.getExpressID());
 						return statement;
 					}
-				}, holder);
+				}, holder2);
 			}
 		}
 	}
