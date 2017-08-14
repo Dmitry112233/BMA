@@ -7,9 +7,19 @@ public class BookmakerBean {
 	private String name;
 
 	private String link;
+	
+	private String image;
 
 	public Long getBookMakerId() {
 		return bookMakerId;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public void setBookMakerId(Long bookMakerId) {

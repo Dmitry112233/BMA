@@ -35,10 +35,14 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE SOURCE IS NULL "
 			+ "ORDER BY EXPRESS_DATE DESC";
-	
-	
 
 	private final static String INSERT_MY_EXPRESS = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION) VALUES (?,?,?)";
+
+	private final static String INSERT_EXPRESS_LIST = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION, SOURCE) VALUES (?,?,?,?)";
+
+	private final static String INSERT_IVENT_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITON, COEFFICIENT) VALUES (?,?,?,?)";
+
+	private final static String LINKED_IVENT_LIST = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) VALUES (?,?)";
 
 	private DataSource dataSource;
 
@@ -122,7 +126,52 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		}, holder);
 		myExpress.setExpressID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
 	}
-	
-	
 
+	@Override
+	public void addListExpresses(List<ExpressBean> list) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		GeneratedKeyHolder holder = new GeneratedKeyHolder();
+		for (ExpressBean express : list) {
+			template.update(new PreparedStatementCreator() {
+				@Override
+				public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+					PreparedStatement statement = con.prepareStatement(INSERT_EXPRESS_LIST,
+							PreparedStatement.RETURN_GENERATED_KEYS);
+					statement.setString(1, express.getName());
+					statement.setDate(2, new Date(express.getDate().getTime()));
+					statement.setString(3, express.getDescription());
+					statement.setString(4, express.getSource());
+					return statement;
+				}
+			}, holder);
+			express.setExpressID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
+			GeneratedKeyHolder holder1 = new GeneratedKeyHolder();
+			for (IventBean ivent : express.getIventList()) {
+				template.update(new PreparedStatementCreator() {
+					@Override
+					public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+						PreparedStatement statement = con.prepareStatement(INSERT_IVENT_LIST,
+								PreparedStatement.RETURN_GENERATED_KEYS);
+						statement.setString(1, ivent.getName());
+						statement.setString(2, ivent.getBet());
+						statement.setString(3, ivent.getCompetition());
+						statement.setDouble(4, ivent.getCoefficient());
+						return statement;
+					}
+				}, holder);
+				ivent.setIventID(Long.parseLong(holder1.getKeys().get("GENERATED_KEY").toString()));
+				GeneratedKeyHolder holder2 = new GeneratedKeyHolder();
+				template.update(new PreparedStatementCreator() {
+					@Override
+					public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+						PreparedStatement statement = con.prepareStatement(LINKED_IVENT_LIST,
+								PreparedStatement.RETURN_GENERATED_KEYS);
+						statement.setDouble(1, ivent.getIventID());
+						statement.setDouble(2, express.getExpressID());
+						return statement;
+					}
+				}, holder);
+			}
+		}
+	}
 }

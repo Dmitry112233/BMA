@@ -18,6 +18,11 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+	
+	@RequestMapping("/login.spr")
+	public ModelAndView login(){
+		return new ModelAndView("admin/login");
+	}
 
 	@RequestMapping("/Authenticate.spr")
 	public ModelAndView authenticatete(HttpServletRequest request, @RequestParam("login") String login,
