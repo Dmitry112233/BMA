@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `bookmakers` (
   `LINK` varchar(250) DEFAULT NULL,
   `IMAGE` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.bookmakers: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `bookmakers` DISABLE KEYS */;
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `expresses` (
   `SOURCE` varchar(200) DEFAULT NULL,
   `DESCRIPTION` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.expresses: ~6 rows (приблизительно)
 /*!40000 ALTER TABLE `expresses` DISABLE KEYS */;
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `express_ivent` (
   KEY `FK_express_ivent_expresses` (`EXPRESSES_ID`),
   CONSTRAINT `FK_express_ivent_expresses` FOREIGN KEY (`EXPRESSES_ID`) REFERENCES `expresses` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `FK_express_ivent_ivents` FOREIGN KEY (`IVENTS_ID`) REFERENCES `ivents` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.express_ivent: ~15 rows (приблизительно)
 /*!40000 ALTER TABLE `express_ivent` DISABLE KEYS */;
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `ivents` (
   `COMPETITION` varchar(2000) DEFAULT NULL,
   `COEFFICIENT` double DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.ivents: ~12 rows (приблизительно)
 /*!40000 ALTER TABLE `ivents` DISABLE KEYS */;
@@ -120,12 +120,12 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `question` varchar(50) NOT NULL,
   `answer` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.questions: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
 INSERT INTO `questions` (`ID`, `question`, `answer`) VALUES
-	(1, '\\', ''),
+	(1, 'ываывавыа', 'ываываыв'),
 	(2, 'asdfadsf', 'adsfasdf'),
 	(3, 'adsfa', 'asdfa');
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `LOGIN` varchar(50) NOT NULL,
   `PASSWORD` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.users: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
