@@ -22,14 +22,18 @@ CREATE TABLE IF NOT EXISTS `bookmakers` (
   `LINK` varchar(250) DEFAULT NULL,
   `IMAGE` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.bookmakers: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `bookmakers` DISABLE KEYS */;
 INSERT INTO `bookmakers` (`ID`, `NAME`, `LINK`, `IMAGE`) VALUES
 	(1, '1xBET', 'https://www.1xbet.com/', 'https://www.1xbet.com/xbet/img/logo.png'),
 	(2, 'PariMatch', 'https://www.parimatch.com/', 'https://bookmaker-ratings.ru/wp-content/uploads/2014/12/parimatch-logo-156-1.png'),
-	(3, 'Winline', 'https://winline.ru/', 'https://winline.ru/assets/img/logo-header.png');
+	(3, 'Winline', 'https://winline.ru/', 'https://winline.ru/assets/img/logo-header.png'),
+	(4, 'Winline', 'https://winline.ru/', 'https://winline.ru/assets/img/logo-header.png'),
+	(5, 'Winline', 'https://winline.ru/', 'https://winline.ru/assets/img/logo-header.png'),
+	(6, 'Winline', 'https://winline.ru/', 'https://winline.ru/assets/img/logo-header.png'),
+	(7, 'Winline', 'https://winline.ru/', 'https://winline.ru/assets/img/logo-header.png');
 /*!40000 ALTER TABLE `bookmakers` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.expresses
@@ -40,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `expresses` (
   `SOURCE` varchar(200) DEFAULT NULL,
   `DESCRIPTION` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.expresses: ~6 rows (приблизительно)
 /*!40000 ALTER TABLE `expresses` DISABLE KEYS */;
@@ -50,7 +54,9 @@ INSERT INTO `expresses` (`ID`, `NAME`, `DATE`, `SOURCE`, `DESCRIPTION`) VALUES
 	(3, 'third', '2017-07-17', 'link3', 'OPISANIE:<br>\r\n1) THE BETTER BET YO. Man it\'s realy nice bet, folow me, take attention nigga.<br>\r\n2) IM THE BEST MAN FROM THE BEST WORLD. This bet give you a chacnce to win.<br>\r\n3) YO YO. What r u think about me nigga?<br>'),
 	(4, 'new express for test', '2017-07-23', NULL, 'OPISANIE NAH'),
 	(35, 'TEST', '2017-08-03', NULL, '1) Win<br> 2) Win'),
-	(36, 'new express 1', '2017-08-09', NULL, '1/Xnj ckexbkjcm c Rfhefyjq d gjcktlytv neht&!!E vtyz ghjcnj ytn ckjd/Rfr nfr vj;yj buhfnm?if[vfnbcne?rjnjhsq gj htqnbyue d[jlbn d gzn`hre?tckb z yt jib,f.cm!!!Buhfk ghjcnj yf ehjdyt nhtnmtuj hfphzlf/Yj ctujlyz yflt.cm jy cj,th`ncz b gjrf;tn ljcnjqye. buhe ghjnbd kblthf nehybhf/Cnfdk. yf ybxm./2/Ghtlgjkj;e?xnj Dbib pfceibn buhe b ,eltn cgjrjqyfz ybxtqrf/3/Tckb d yfxfkt nehybhf Zyxbr ,sk gjcnfdobrjv jxrjd?nj d gjcktlyb[ nh`[ nehf[ jy yf,hfk ldf jxrf!Yflt.cm ctujlyz jy ghjljk;bn edthtyyj buhfnm?b djpvj;yj lf;t j,suhftn Gtnhf Cdblkthf/');
+	(36, 'new express 1', '2017-08-09', NULL, '1/Xnj ckexbkjcm c Rfhefyjq d gjcktlytv neht&!!E vtyz ghjcnj ytn ckjd/Rfr nfr vj;yj buhfnm?if[vfnbcne?rjnjhsq gj htqnbyue d[jlbn d gzn`hre?tckb z yt jib,f.cm!!!Buhfk ghjcnj yf ehjdyt nhtnmtuj hfphzlf/Yj ctujlyz yflt.cm jy cj,th`ncz b gjrf;tn ljcnjqye. buhe ghjnbd kblthf nehybhf/Cnfdk. yf ybxm./2/Ghtlgjkj;e?xnj Dbib pfceibn buhe b ,eltn cgjrjqyfz ybxtqrf/3/Tckb d yfxfkt nehybhf Zyxbr ,sk gjcnfdobrjv jxrjd?nj d gjcktlyb[ nh`[ nehf[ jy yf,hfk ldf jxrf!Yflt.cm ctujlyz jy ghjljk;bn edthtyyj buhfnm?b djpvj;yj lf;t j,suhftn Gtnhf Cdblkthf/'),
+	(42, '4', '2017-07-17', 'link3', 'OPISANIE:<br>\r\n1) THE BETTER BET YO. Man it\'s realy nice bet, folow me, take attention nigga.<br>\r\n2) IM THE BEST MAN FROM THE BEST WORLD. This bet give you a chacnce to win.<br>\r\n3) YO YO. What r u think about me nigga?<br>'),
+	(43, '5', '2017-07-17', 'link3', 'OPISANIE:<br>\r\n1) THE BETTER BET YO. Man it\'s realy nice bet, folow me, take attention nigga.<br>\r\n2) IM THE BEST MAN FROM THE BEST WORLD. This bet give you a chacnce to win.<br>\r\n3) YO YO. What r u think about me nigga?<br>');
 /*!40000 ALTER TABLE `expresses` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.express_ivent
@@ -63,13 +69,13 @@ CREATE TABLE IF NOT EXISTS `express_ivent` (
   KEY `FK_express_ivent_expresses` (`EXPRESSES_ID`),
   CONSTRAINT `FK_express_ivent_expresses` FOREIGN KEY (`EXPRESSES_ID`) REFERENCES `expresses` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `FK_express_ivent_ivents` FOREIGN KEY (`IVENTS_ID`) REFERENCES `ivents` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bma_data.express_ivent: ~15 rows (приблизительно)
 /*!40000 ALTER TABLE `express_ivent` DISABLE KEYS */;
 INSERT INTO `express_ivent` (`ID`, `IVENTS_ID`, `EXPRESSES_ID`) VALUES
 	(1, 1, 1),
-	(3, 3, 3),
+	(3, 32, 3),
 	(4, 2, 2),
 	(5, 4, 4),
 	(6, 1, 4),
@@ -82,7 +88,10 @@ INSERT INTO `express_ivent` (`ID`, `IVENTS_ID`, `EXPRESSES_ID`) VALUES
 	(29, 31, 35),
 	(30, 32, 35),
 	(31, 33, 36),
-	(32, 34, 36);
+	(32, 34, 36),
+	(39, 33, 42),
+	(40, 22, 42),
+	(41, 1, 43);
 /*!40000 ALTER TABLE `express_ivent` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.ivents
@@ -117,17 +126,41 @@ INSERT INTO `ivents` (`ID`, `NAME`, `DESCRIPTION`, `BET`, `DATE`, `COMPETITION`,
 -- Дамп структуры для таблица bma_data.questions
 CREATE TABLE IF NOT EXISTS `questions` (
   `ID` bigint(255) NOT NULL AUTO_INCREMENT,
-  `question` varchar(50) NOT NULL,
-  `answer` varchar(50) DEFAULT NULL,
+  `question` varchar(2000) NOT NULL,
+  `answer` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bma_data.questions: ~3 rows (приблизительно)
+-- Дамп данных таблицы bma_data.questions: ~27 rows (приблизительно)
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
 INSERT INTO `questions` (`ID`, `question`, `answer`) VALUES
-	(1, 'ываывавыа', 'ываываыв'),
-	(2, 'asdfadsf', 'adsfasdf'),
-	(3, 'adsfa', 'asdfa');
+	(1, 'Ставка', '<a href="#last">деньги</a>, с помощью которых вы заключаете пари на какое-либо событие, на которое букмекерской конторой выставлен коэффициент'),
+	(2, 'Маржа букмекерской конторы', 'прибыль, закладываемая букмекером в предлагаемые коэффициенты. Например, William’s Hill, выставляя в футбольном  матче на событие четное/нечетное количество голов  коэффициенты 1,91/1,91 в каждый коэффициент закладывает свою маржу 4,5%'),
+	(3, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(4, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(5, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(6, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(7, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(8, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(9, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(10, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(11, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(12, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(13, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(14, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(15, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(16, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(17, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(18, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(19, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(20, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(21, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(22, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(23, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(24, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(25, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(26, 'Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам'),
+	(27, '<span id="last"></span>Коэффициент', 'числовое измерение вероятности наступления события, его выставляют букмекеры. Как правило, он бывает дробным и десятичным – этот вид более привычный и понятный нам');
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
 
 -- Дамп структуры для таблица bma_data.users
