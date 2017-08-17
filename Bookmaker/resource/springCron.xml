@@ -5,10 +5,10 @@
  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
- <bean id="scheduler" class="com.da.bookmaker.spring.sheduler.Scheduler"></bean>
+ <bean id="scheduler" class="com.da.bookmaker.parser.VprognozeParser"></bean>
  
  <task:scheduled-tasks>
-  <task:scheduled ref="scheduler" method="parseVprognoze" cron="0 0 0/4 * * ?"/>
+  <task:scheduled ref="scheduler" method="parseVprognoze" cron="0 0 0/2 * * ?"/>
  </task:scheduled-tasks>
 
 </beans>

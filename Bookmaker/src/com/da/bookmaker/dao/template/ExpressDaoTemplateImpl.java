@@ -21,6 +21,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import com.da.bookmaker.bean.ExpressBean;
 import com.da.bookmaker.bean.IventBean;
 import com.da.bookmaker.dao.DaoException;
+import com.da.bookmaker.dao.DaoFactory;
 import com.da.bookmaker.dao.ExpressDao;
 
 public class ExpressDaoTemplateImpl implements ExpressDao {
@@ -38,7 +39,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 
 	private final static String INSERT_MY_EXPRESS = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION) VALUES (?,?,?)";
 
-	private final static String INSERT_EXPRESS_LIST = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION, SOURCE) VALUES (?,?,?,?)";
+	private final static String INSERT_EXPRESSES_LIST = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION, SOURCE) VALUES (?,?,?,?)";
 
 	private final static String INSERT_IVENT_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITON, COEFFICIENT) VALUES (?,?,?,?)";
 
@@ -128,50 +129,47 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	}
 
 	@Override
-	public void addListExpresses(List<ExpressBean> list) throws DaoException {
+	public void addExpressesList(List<ExpressBean> list) throws DaoException {
+		for (ExpressBean express : list) {
+			addExpress(express);
+			DaoFactory.getIventDao().addIventsList(express.getIventList());
+			linkExpressesWithIvents(express, express.getIventList());
+		}
+	}
+
+	private void addExpress(ExpressBean express) {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		GeneratedKeyHolder holder = new GeneratedKeyHolder();
-		for (ExpressBean express : list) {
+		template.update(new PreparedStatementCreator() {
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement statement = con.prepareStatement(INSERT_EXPRESSES_LIST,
+						PreparedStatement.RETURN_GENERATED_KEYS);
+				statement.setString(1, express.getName());
+				statement.setDate(2, new Date(express.getDate().getTime()));
+				statement.setString(3, express.getDescription());
+				statement.setString(4, express.getSource());
+				return statement;
+			}
+		}, holder);
+		express.setExpressID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
+	}
+
+	private void linkExpressesWithIvents(ExpressBean express, List<IventBean> ivents) {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		for (IventBean ivent : ivents) {
+			GeneratedKeyHolder holder = new GeneratedKeyHolder();
 			template.update(new PreparedStatementCreator() {
 				@Override
 				public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-					PreparedStatement statement = con.prepareStatement(INSERT_EXPRESS_LIST,
+					PreparedStatement statement = con.prepareStatement(LINKED_IVENT_LIST,
 							PreparedStatement.RETURN_GENERATED_KEYS);
-					statement.setString(1, express.getName());
-					statement.setDate(2, new Date(express.getDate().getTime()));
-					statement.setString(3, express.getDescription());
-					statement.setString(4, express.getSource());
+					statement.setDouble(1, ivent.getIventID());
+					statement.setDouble(2, express.getExpressID());
 					return statement;
 				}
 			}, holder);
-			express.setExpressID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
-			GeneratedKeyHolder holder1 = new GeneratedKeyHolder();
-			for (IventBean ivent : express.getIventList()) {
-				template.update(new PreparedStatementCreator() {
-					@Override
-					public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-						PreparedStatement statement = con.prepareStatement(INSERT_IVENT_LIST,
-								PreparedStatement.RETURN_GENERATED_KEYS);
-						statement.setString(1, ivent.getName());
-						statement.setString(2, ivent.getBet());
-						statement.setString(3, ivent.getCompetition());
-						statement.setDouble(4, ivent.getCoefficient());
-						return statement;
-					}
-				}, holder1);
-				ivent.setIventID(Long.parseLong(holder1.getKeys().get("GENERATED_KEY").toString()));
-				GeneratedKeyHolder holder2 = new GeneratedKeyHolder();
-				template.update(new PreparedStatementCreator() {
-					@Override
-					public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-						PreparedStatement statement = con.prepareStatement(LINKED_IVENT_LIST,
-								PreparedStatement.RETURN_GENERATED_KEYS);
-						statement.setDouble(1, ivent.getIventID());
-						statement.setDouble(2, express.getExpressID());
-						return statement;
-					}
-				}, holder2);
-			}
 		}
+
 	}
 }
