@@ -1,4 +1,4 @@
-package com.da.bookmaker.spring.sheduler;
+package com.da.bookmaker.parser;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,7 +15,7 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-public class Scheduler {
+public class VprognozeParser {
 
 	public void parseVprognoze() {
 
@@ -51,7 +51,7 @@ public class Scheduler {
 
 				beans.add(bean);
 			}
-			DaoFactory.getExpressDao().addListExpresses(beans);
+			DaoFactory.getExpressDao().addExpressesList(beans);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {

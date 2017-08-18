@@ -12,6 +12,6 @@ public interface ExpressDao {
 	
 	void addMyExpress(ExpressBean myExpress) throws DaoException;
 	
-	void addListExpresses(List<ExpressBean> list) throws DaoException;
+	void addExpressesList(List<ExpressBean> list) throws DaoException;
 	
 }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -23,7 +24,8 @@ public class IventDaoTemplateImpl implements IventDao {
 
 	private final static String LINK_MY_IVENT = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) "
 			+ "(SELECT ?, ID FROM EXPRESSES WHERE SOURCE is NULL ORDER BY DATE DESC LIMIT 1)";
-	
+
+	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITON, COEFFICIENT) VALUES (?,?,?,?)";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -52,7 +54,7 @@ public class IventDaoTemplateImpl implements IventDao {
 		}, holder);
 		myIvent.setIventID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
 	}
-	
+
 	public void linkMyIvent(IventBean myIvent) throws DaoException {
 		addMyIvent(myIvent);
 		JdbcTemplate template = new JdbcTemplate(dataSource);
@@ -71,4 +73,24 @@ public class IventDaoTemplateImpl implements IventDao {
 		}
 	}
 
+	@Override
+	public void addIventsList(List<IventBean> ivents) throws DaoException{
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		GeneratedKeyHolder holder = new GeneratedKeyHolder();
+		for (IventBean ivent : ivents) {
+			template.update(new PreparedStatementCreator() {
+				@Override
+				public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+					PreparedStatement statement = con.prepareStatement(INSERT_IVENTS_LIST,
+							PreparedStatement.RETURN_GENERATED_KEYS);
+					statement.setString(1, ivent.getName());
+					statement.setString(2, ivent.getBet());
+					statement.setString(3, ivent.getCompetition());
+					statement.setDouble(4, ivent.getCoefficient());
+					return statement;
+				}
+			}, holder);
+			ivent.setIventID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
+		}
+	}
 }
