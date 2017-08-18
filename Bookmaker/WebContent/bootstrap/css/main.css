@@ -233,3 +233,7 @@ a {
 #footer h4 a:hover {
 	color: white;
 }
+
+#textLessons a {
+	text-decoration: underline;
+}
