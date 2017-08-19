@@ -17,7 +17,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 
 public class VprognozeParser {
-
+	
 	public void parseVprognoze() {
 
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
@@ -92,6 +92,6 @@ public class VprognozeParser {
 				list.add(bean);
 			}
 		}
-		return null;
+		return list;
 	}
 }

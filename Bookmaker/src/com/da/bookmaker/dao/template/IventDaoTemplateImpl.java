@@ -25,7 +25,7 @@ public class IventDaoTemplateImpl implements IventDao {
 	private final static String LINK_MY_IVENT = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) "
 			+ "(SELECT ?, ID FROM EXPRESSES WHERE SOURCE is NULL ORDER BY DATE DESC LIMIT 1)";
 
-	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITON, COEFFICIENT) VALUES (?,?,?,?)";
+	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT) VALUES (?,?,?,?)";
 
 	public DataSource getDataSource() {
 		return dataSource;

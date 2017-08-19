@@ -8,7 +8,7 @@
  <bean id="scheduler" class="com.da.bookmaker.parser.VprognozeParser"></bean>
  
  <task:scheduled-tasks>
- <task:scheduled ref="scheduler" method="parseVprognoze" cron="0/5 * * * *"/>
+ <task:scheduled ref="scheduler" method="parseVprognoze" cron="0 */4 * * * ?"/>
  </task:scheduled-tasks>
 
 </beans>

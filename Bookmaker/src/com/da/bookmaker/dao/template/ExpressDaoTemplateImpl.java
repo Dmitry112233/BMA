@@ -41,8 +41,6 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 
 	private final static String INSERT_EXPRESSES_LIST = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION, SOURCE) VALUES (?,?,?,?)";
 
-	private final static String INSERT_IVENT_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITON, COEFFICIENT) VALUES (?,?,?,?)";
-
 	private final static String LINKED_IVENT_LIST = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) VALUES (?,?)";
 
 	private DataSource dataSource;
