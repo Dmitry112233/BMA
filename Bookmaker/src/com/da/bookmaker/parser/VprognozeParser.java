@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import org.springframework.scheduling.annotation.Scheduled;
-
 import com.da.bookmaker.bean.ExpressBean;
 import com.da.bookmaker.bean.IventBean;
 import com.da.bookmaker.dao.DaoFactory;
@@ -20,7 +18,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class VprognozeParser {
 
-	@Scheduled
 	public void parseVprognoze() {
 
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
