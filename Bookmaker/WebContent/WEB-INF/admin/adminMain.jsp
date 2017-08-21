@@ -12,7 +12,7 @@
 	<center>
 		<h1>ACTUALY EXPRESS</h1>
 	</center>
-	 <center>
+	<center>
 		<br>ExpressName: ${myExpress.name} / ${myExpress.date}
 	</center>
 	<center>
@@ -36,16 +36,18 @@
 		</table>
 	</center>
 	<center>
-		<br>${myExpress.description}</center> 
+		<br>${myExpress.description}</center>
 
 	<center>
-		<input type="button" value="AddExpress"
-			onclick="document.location = 'expressAddPage.jsp'">
+		<form action=MyExpressForm.spr>
+			<input type="submit" value="Add Express">
+		</form>
 	</center>
 
 	<center>
-		<input type="button" value="AddEvent"
-			onclick="document.location = 'eventAddPage.jsp'">
+		<form action=MyIventForm.spr>
+			<input type="submit" value="Add Events">
+		</form>
 	</center>
 
 </body>

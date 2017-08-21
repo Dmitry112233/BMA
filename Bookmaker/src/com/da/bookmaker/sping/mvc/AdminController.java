@@ -37,6 +37,11 @@ public class AdminController {
 			return new ModelAndView("admin/adminMain", "myExpress", myExpress);
 		}
 	}
+	
+	@RequestMapping("/MyExpressForm.spr")
+	public ModelAndView myExpressForm(){
+		return new ModelAndView("admin/expressAddPage");
+	}
 
 	@RequestMapping("/AddMyExpress.spr")
 	public ModelAndView addMyExpress(@RequestParam("name") String name, @RequestParam("date") String date,
@@ -52,6 +57,11 @@ public class AdminController {
 			DaoFactory.getExpressDao().addMyExpress(myNewExpress);
 		}
 		return new ModelAndView("admin/adminMain", "myExpress", myNewExpress);
+	}
+	
+	@RequestMapping("/MyIventForm.spr")
+	public ModelAndView myIventForm(){
+		return new ModelAndView("admin/eventAddPage");
 	}
 
 	@RequestMapping("/AddMyIvent.spr")

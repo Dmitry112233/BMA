@@ -27,6 +27,8 @@ public class IventDaoTemplateImpl implements IventDao {
 
 	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT) VALUES (?,?,?,?)";
 
+	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM express_ivent);";
+
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -74,7 +76,7 @@ public class IventDaoTemplateImpl implements IventDao {
 	}
 
 	@Override
-	public void addIventsList(List<IventBean> ivents) throws DaoException{
+	public void addIventsList(List<IventBean> ivents) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		GeneratedKeyHolder holder = new GeneratedKeyHolder();
 		for (IventBean ivent : ivents) {
@@ -92,5 +94,11 @@ public class IventDaoTemplateImpl implements IventDao {
 			}, holder);
 			ivent.setIventID(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
 		}
+	}
+
+	@Override
+	public void deleteIventsList() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(DELETE_IVENTS_LIST);
 	}
 }

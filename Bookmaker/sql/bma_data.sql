@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS `expresses` (
   `SOURCE` varchar(200) DEFAULT NULL,
   `DESCRIPTION` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=313 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4139 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bma_data.expresses: ~8 rows (приблизительно)
+-- Дамп данных таблицы bma_data.expresses: ~27 rows (приблизительно)
 /*!40000 ALTER TABLE `expresses` DISABLE KEYS */;
 INSERT INTO `expresses` (`ID`, `NAME`, `DATE`, `SOURCE`, `DESCRIPTION`) VALUES
 	(1, 'first', '2017-07-15', 'link1', 'OPISANIE:<br>\r\n1) THE BETTER BET YO. Man it\'s realy nice bet, folow me, take attention nigga.<br>\r\n2) IM THE BEST MAN FROM THE BEST WORLD. This bet give you a chacnce to win.<br>\r\n3) YO YO. What r u think about me nigga?<br>'),
@@ -69,9 +69,9 @@ CREATE TABLE IF NOT EXISTS `express_ivent` (
   KEY `FK_express_ivent_expresses` (`EXPRESSES_ID`),
   CONSTRAINT `FK_express_ivent_expresses` FOREIGN KEY (`EXPRESSES_ID`) REFERENCES `expresses` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_express_ivent_ivents` FOREIGN KEY (`IVENTS_ID`) REFERENCES `ivents` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=682 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11862 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bma_data.express_ivent: ~18 rows (приблизительно)
+-- Дамп данных таблицы bma_data.express_ivent: ~53 rows (приблизительно)
 /*!40000 ALTER TABLE `express_ivent` DISABLE KEYS */;
 INSERT INTO `express_ivent` (`ID`, `IVENTS_ID`, `EXPRESSES_ID`) VALUES
 	(1, 1, 1),
@@ -97,16 +97,16 @@ INSERT INTO `express_ivent` (`ID`, `IVENTS_ID`, `EXPRESSES_ID`) VALUES
 -- Дамп структуры для таблица bma_data.ivents
 CREATE TABLE IF NOT EXISTS `ivents` (
   `ID` bigint(255) NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(50) NOT NULL,
+  `NAME` varchar(2000) NOT NULL,
   `DESCRIPTION` varchar(2000) DEFAULT NULL,
   `BET` varchar(50) NOT NULL,
   `DATE` date DEFAULT NULL,
   `COMPETITION` varchar(2000) DEFAULT NULL,
   `COEFFICIENT` double DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=694 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11874 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bma_data.ivents: ~11 rows (приблизительно)
+-- Дамп данных таблицы bma_data.ivents: ~46 rows (приблизительно)
 /*!40000 ALTER TABLE `ivents` DISABLE KEYS */;
 INSERT INTO `ivents` (`ID`, `NAME`, `DESCRIPTION`, `BET`, `DATE`, `COMPETITION`, `COEFFICIENT`) VALUES
 	(1, 'MU-RM', 'description1', '1X', '2017-07-15', 'Football / La Liga', 1.1),
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bma_data.questions: ~10 rows (приблизительно)
+-- Дамп данных таблицы bma_data.questions: ~15 rows (приблизительно)
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
 INSERT INTO `questions` (`ID`, `question`, `answer`) VALUES
 	(1, 'Как выбрать букмекера?', 'Подробное <a><b>описание и рейтинг букмекеров</b></a> - составлено на основе объективной оценки по четырем основным критериям: надежность букмекера, \r\nлиния, удобству работы и отношению к профессиональной игре. Все баллы детализированы в описаниях. \r\nСсылки ведут только на разрешенные в РФ сайты букмекерских контор.'),

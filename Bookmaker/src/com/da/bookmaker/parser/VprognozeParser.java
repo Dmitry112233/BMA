@@ -15,44 +15,54 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-
 public class VprognozeParser {
-	
+
 	public void parseVprognoze() {
 
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
-			String url = "https://vprognoze.ru/express/";
-			webClient.getOptions().setThrowExceptionOnScriptError(false);
-			HtmlPage page = webClient.getPage(url);
-
-			List<ExpressBean> beans = new ArrayList<>();
-			for (DomElement newsBox : page.getElementById("dle-content").getChildElements()) {
-				if (!newsBox.getAttribute("class").equals("news_boxing")) {
-					continue;
+			DaoFactory.getExpressDao().deleteExpressesList();
+			DaoFactory.getIventDao().deleteIventsList();
+			String url = null;
+			for (int i = 1; i < 5; i++) {
+				if (i == 1) {
+					url = "https://vprognoze.ru/express/";
+				} else {
+					url = "https://vprognoze.ru/express/page/" + i + "/";
+					i++;
 				}
-				Iterator<DomElement> newsBoxChildren = newsBox.getChildElements().iterator();
-				newsBoxChildren.next(); // title_news
-				DomElement news = newsBoxChildren.next(); // news
+				webClient.getOptions().setThrowExceptionOnScriptError(false);
+				HtmlPage page = webClient.getPage(url);
 
-				Iterator<DomElement> newsChildren = news.getFirstElementChild().getChildElements().iterator();
-				newsChildren.next();
-				newsChildren.next();
-				DomElement expressList = newsChildren.next();
-				newsChildren.next();
-				DomElement blockMatch = newsChildren.next();
-				newsChildren.next();
-				DomElement description = newsChildren.next();
+				List<ExpressBean> beans = new ArrayList<>();
+				for (DomElement newsBox : page.getElementById("dle-content").getChildElements()) {
+					if (!newsBox.getAttribute("class").equals("news_boxing")) {
+						continue;
+					}
+					Iterator<DomElement> newsBoxChildren = newsBox.getChildElements().iterator();
+					newsBoxChildren.next(); // title_news
+					DomElement news = newsBoxChildren.next(); // news
 
-				ExpressBean bean = new ExpressBean();
-				bean.setIventList(createEvents(expressList));
-				bean.setDescription(description.getTextContent());
-				bean.setDate(getDate(blockMatch));
-				bean.setSource("https://vprognoze.ru");
+					Iterator<DomElement> newsChildren = news.getFirstElementChild().getChildElements().iterator();
+					newsChildren.next();
+					newsChildren.next();
+					DomElement expressList = newsChildren.next();
+					newsChildren.next();
+					DomElement blockMatch = newsChildren.next();
+					newsChildren.next();
+					DomElement description = newsChildren.next();
 
-				beans.add(bean);
+					ExpressBean bean = new ExpressBean();
+					bean.setIventList(createEvents(expressList));
+
+					bean.setDescription(description.getTextContent());
+					bean.setDate(getDate(blockMatch));
+					bean.setSource("https://vprognoze.ru");
+
+					beans.add(bean);
+				}
+				DaoFactory.getExpressDao().addExpressesList(beans);
 			}
-			DaoFactory.getExpressDao().addExpressesList(beans);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {

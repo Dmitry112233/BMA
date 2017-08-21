@@ -11,4 +11,6 @@ public interface IventDao {
 	void linkMyIvent(IventBean myIvent) throws DaoException;
 	
 	void addIventsList(List<IventBean> ivents) throws DaoException;
+	
+	void deleteIventsList() throws DaoException;
 }

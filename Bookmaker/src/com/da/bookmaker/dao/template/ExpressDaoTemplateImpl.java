@@ -43,6 +43,8 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 
 	private final static String LINKED_IVENT_LIST = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) VALUES (?,?)";
 
+	private final static String DELETE_EXPRESSES_LIST = "DELETE FROM EXPRESSES WHERE SOURCE = 'https://vprognoze.ru' ";
+
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -133,6 +135,12 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			DaoFactory.getIventDao().addIventsList(express.getIventList());
 			linkExpressesWithIvents(express, express.getIventList());
 		}
+	}
+
+	@Override
+	public void deleteExpressesList() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(DELETE_EXPRESSES_LIST);
 	}
 
 	private void addExpress(ExpressBean express) {
