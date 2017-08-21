@@ -27,7 +27,7 @@ public class IventDaoTemplateImpl implements IventDao {
 
 	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT) VALUES (?,?,?,?)";
 
-	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM express_ivent);";
+	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT);";
 
 	public DataSource getDataSource() {
 		return dataSource;
