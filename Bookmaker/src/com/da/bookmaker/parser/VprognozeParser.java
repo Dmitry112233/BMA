@@ -19,6 +19,8 @@ public class VprognozeParser {
 
 	public void parseVprognoze() {
 
+		Date date = new Date();
+		System.out.println("PARSE STARTED" + date.toString());
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
 			DaoFactory.getExpressDao().deleteExpressesList();
