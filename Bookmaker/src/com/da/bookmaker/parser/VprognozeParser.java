@@ -29,7 +29,6 @@ public class VprognozeParser {
 					url = "https://vprognoze.ru/express/";
 				} else {
 					url = "https://vprognoze.ru/express/page/" + i + "/";
-					i++;
 				}
 				webClient.getOptions().setThrowExceptionOnScriptError(false);
 				HtmlPage page = webClient.getPage(url);
