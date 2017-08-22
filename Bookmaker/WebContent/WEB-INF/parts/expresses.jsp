@@ -12,7 +12,12 @@
 			<hr>
 		</c:if>
 		<c:set var="separator" value="true" />
-		<p>Экспресс. Дата начала: <b>${express.dateStr}</b></p>
+		<div class="expData">
+			<p>Экспресс. Дата начала: <b>${express.dateStr}</b></p>
+		</div>
+		<div class="expSourse">
+			<p><a target="_blank" href="${express.source}">vprognoze.ru</a></p>
+		</div>
 		<table class="dayexptable">
 			<!-- переменная для увеличивающегося номера строки в таблице с эвентами -->
 			<c:set var="tableRow" value="0" />
