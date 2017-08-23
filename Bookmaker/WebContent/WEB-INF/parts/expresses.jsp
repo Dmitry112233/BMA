@@ -35,6 +35,6 @@
 		</table>
 		<br>
 		<p>Итоговый коэф: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${express.resultCoeff}" /></b></p>		
-		<p>Описание события: ${express.description}</p>		
+		<p>Описание события:<br>${express.description}</p>		
 	</c:forEach>
 </div>

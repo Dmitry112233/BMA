@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
    <head>
-      <title>Ставка дня</title>
+      <title>FindBestBet - Ставка дня</title>
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

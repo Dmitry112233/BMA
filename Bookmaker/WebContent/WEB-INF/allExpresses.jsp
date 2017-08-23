@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
    <head>
-      <title>Экспрессы</title>
+      <title>FindBestBet - Экспрессы</title>
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
