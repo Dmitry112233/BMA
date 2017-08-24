@@ -1,6 +1,10 @@
 package com.da.bookmaker.sping.mvc;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.text.ParseException;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,9 +22,9 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-	
+
 	@RequestMapping("/login.spr")
-	public ModelAndView login(){
+	public ModelAndView login() {
 		return new ModelAndView("admin/login");
 	}
 
@@ -37,9 +41,9 @@ public class AdminController {
 			return new ModelAndView("admin/adminMain", "myExpress", myExpress);
 		}
 	}
-	
+
 	@RequestMapping("/MyExpressForm.spr")
-	public ModelAndView myExpressForm(){
+	public ModelAndView myExpressForm() {
 		return new ModelAndView("admin/expressAddPage");
 	}
 
@@ -58,9 +62,9 @@ public class AdminController {
 		}
 		return new ModelAndView("admin/adminMain", "myExpress", myNewExpress);
 	}
-	
+
 	@RequestMapping("/MyIventForm.spr")
-	public ModelAndView myIventForm(){
+	public ModelAndView myIventForm() {
 		return new ModelAndView("admin/eventAddPage");
 	}
 
@@ -69,14 +73,20 @@ public class AdminController {
 			@RequestParam("bet") String bet, @RequestParam("competition") String competition,
 			@RequestParam("coefficient") Double coefficient) throws DaoException, ParseException {
 
+		ExpressBean myExpress1;
 		IventBean myIvent = new IventBean();
 		myIvent.setName(name);
 		myIvent.setBet(bet);
 		myIvent.setCoefficient(coefficient);
 		myIvent.setCompetition(competition);
-		myIvent.setDateStr(date);
+		if (date.equals("") || date == "") {
+			Date today = new Date();
+			myIvent.setDate(today);
+		} else {
+			myIvent.setDateStr(date);
+		}
 		DaoFactory.getIventDao().linkMyIvent(myIvent);
-		ExpressBean myExpress1 = DaoFactory.getExpressDao().getMyExpress();
+		myExpress1 = DaoFactory.getExpressDao().getMyExpress();
 		return new ModelAndView("admin/adminMain", "myExpress", myExpress1);
 	}
 }

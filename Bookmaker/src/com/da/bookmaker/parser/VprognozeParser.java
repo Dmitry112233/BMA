@@ -7,6 +7,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import com.da.bookmaker.bean.ExpressBean;
 import com.da.bookmaker.bean.IventBean;
 import com.da.bookmaker.dao.DaoFactory;
@@ -15,57 +18,74 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
+
 public class VprognozeParser {
 
+	private static final Logger logger = Logger.getLogger(VprognozeParser.class);
+	
+	static{
+		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
+		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
+	}
+	
 	public void parseVprognoze() {
-
-		Date date = new Date();
-		System.out.println("PARSE STARTED" + date.toString());
-		WebClient webClient = new WebClient(BrowserVersion.CHROME);
+		logger.info("Vprognoze parser starts...");
+		
 		try {
+			List<ExpressBean> beans = new ArrayList<>();
+			for (int i = 1; i < 5; i++) {
+				String url = i == 1 ? "https://vprognoze.ru/express/" : "https://vprognoze.ru/express/page/" + i + "/";
+				beans.addAll(parsePage(url));
+			}
+			
 			DaoFactory.getExpressDao().deleteExpressesList();
 			DaoFactory.getIventDao().deleteIventsList();
-			String url = null;
-			for (int i = 1; i < 5; i++) {
-				if (i == 1) {
-					url = "https://vprognoze.ru/express/";
-				} else {
-					url = "https://vprognoze.ru/express/page/" + i + "/";
-				}
-				webClient.getOptions().setThrowExceptionOnScriptError(false);
-				HtmlPage page = webClient.getPage(url);
-
-				List<ExpressBean> beans = new ArrayList<>();
-				for (DomElement newsBox : page.getElementById("dle-content").getChildElements()) {
-					if (!newsBox.getAttribute("class").equals("news_boxing")) {
-						continue;
-					}
-					Iterator<DomElement> newsBoxChildren = newsBox.getChildElements().iterator();
-					newsBoxChildren.next(); // title_news
-					DomElement news = newsBoxChildren.next(); // news
-
-					Iterator<DomElement> newsChildren = news.getFirstElementChild().getChildElements().iterator();
-					newsChildren.next();
-					newsChildren.next();
-					DomElement expressList = newsChildren.next();
-					newsChildren.next();
-					DomElement blockMatch = newsChildren.next();
-					newsChildren.next();
-					DomElement description = newsChildren.next();
-
-					ExpressBean bean = new ExpressBean();
-					bean.setIventList(createEvents(expressList));
-
-					bean.setDescription(description.getTextContent());
-					bean.setDate(getDate(blockMatch));
-					bean.setSource("https://vprognoze.ru");
-
-					beans.add(bean);
-				}
-				DaoFactory.getExpressDao().addExpressesList(beans);
-			}
+			DaoFactory.getExpressDao().addExpressesList(beans);
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			logger.warn("Vprognoze failed!. ", ex);
+		}
+		
+		logger.info("Vprognoze parser finished.");
+	}
+	
+	private List<ExpressBean> parsePage(String url) throws Exception{
+		logger.info("Vprognoze parse : " + url);
+		
+		WebClient webClient = new WebClient(BrowserVersion.CHROME);
+		try{
+			webClient.getOptions().setThrowExceptionOnScriptError(false);
+			HtmlPage page = webClient.getPage(url);
+			List<ExpressBean> beans = new ArrayList<>();
+			
+			for (DomElement newsBox : page.getElementById("dle-content").getChildElements()) {
+				if (!newsBox.getAttribute("class").equals("news_boxing")) {
+					continue;
+				}
+				Iterator<DomElement> newsBoxChildren = newsBox.getChildElements().iterator();
+				newsBoxChildren.next(); // title_news
+				DomElement news = newsBoxChildren.next(); // news
+		
+				Iterator<DomElement> newsChildren = news.getFirstElementChild().getChildElements().iterator();
+				newsChildren.next();
+				newsChildren.next();
+				DomElement expressList = newsChildren.next();
+				newsChildren.next();
+				DomElement blockMatch = newsChildren.next();
+				newsChildren.next();
+				DomElement description = newsChildren.next();
+		
+				ExpressBean bean = new ExpressBean();
+				bean.setIventList(createEvents(expressList));
+		
+				bean.setDescription(description.getTextContent());
+				bean.setDate(getDate(blockMatch));
+				bean.setSource("https://vprognoze.ru");
+		
+				logger.debug( "bean was created: " + bean);
+				
+				beans.add(bean);
+			}
+			return beans;
 		} finally {
 			webClient.closeAllWindows();
 		}
@@ -100,6 +120,8 @@ public class VprognozeParser {
 				bean.setCoefficient(Double.parseDouble(datas[6].trim()));
 				bean.setCompetition(competition);
 
+				logger.debug("Event was created : " + bean);
+				
 				list.add(bean);
 			}
 		}

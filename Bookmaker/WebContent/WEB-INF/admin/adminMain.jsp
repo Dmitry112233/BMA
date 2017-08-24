@@ -39,13 +39,13 @@
 		<br>${myExpress.description}</center>
 
 	<center>
-		<form action=MyExpressForm.spr>
+		<form action=MyExpressForm.spr method = "post">
 			<input type="submit" value="Add Express">
 		</form>
 	</center>
 
 	<center>
-		<form action=MyIventForm.spr>
+		<form action=MyIventForm.spr method = "post">
 			<input type="submit" value="Add Events">
 		</form>
 	</center>
