@@ -13,7 +13,7 @@
          <br><br>
          <label for="exdata">Data: </label><input id="exdata" type="text" name="date" placeholder="01.01.2017">
          <br><br>
-         <label for="exdesc">Desc: </label><textarea rows="7" cols="100" id="exdesc" name="description" placeholder="Full express description"></textarea>
+         <label for="exdesc">Desc: </label><textarea rows="7" cols="100" id="exdesc" name="description" placeholder="<br>1. First event description. <br>2. Second event description "></textarea>
          <br><br>
          <input type="submit" value="OK">
       </form>
