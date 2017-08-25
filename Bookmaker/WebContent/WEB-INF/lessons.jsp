@@ -22,7 +22,7 @@
       </c:import>
       <div class="container backing">
          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Здесь Вы найдете ответы на Ваши вопросы, стратегии по ставкам, и видео которые помогут Вам начать играть и выигрывать на ставках.</div>
+            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Найдите ответы на Ваши вопросы. Подберите оптимальную стратегию по ставкам. Начните выигрывать на ставках.</div>
          </div>
       </div>
       <div class="container">
