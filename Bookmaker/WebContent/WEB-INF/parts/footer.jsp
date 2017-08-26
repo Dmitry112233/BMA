@@ -2,7 +2,7 @@
 <div id="footer" class="container">
    <div class="row">
       <div class="col-lg-2 col-md-3 col-sm-3 col-xs-5">
-         <h4><a href="Index.spr"><b>FindBestBet</b></a></h4>
+         <h4><a href="Index.spr"><b>BestBet</b></a></h4>
          <p>© 2017</p>
       </div>
       <div class="col-lg-10 col-md-9 col-sm-9 col-xs-7">
