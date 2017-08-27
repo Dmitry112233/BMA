@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Admin - Add event page</title>
+      <title>Admin - Authorization</title>
+      <link rel="shortcut icon" href="../bootstrap/img/favicon_a.ico" type="image/x-icon">
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
       <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
