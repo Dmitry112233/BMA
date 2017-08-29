@@ -13,13 +13,13 @@ public class IventBean {
 	private String description;
 
 	private String bet;
-	
+
 	private String competition;
 
 	private Date date;
-	
+
 	private Double coefficient;
-	
+
 	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy");
 
 	public Double getCoefficient() {
@@ -77,7 +77,7 @@ public class IventBean {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
+
 	public String getDateStr() {
 		if (date == null) {
 			return "";
@@ -87,6 +87,33 @@ public class IventBean {
 
 	public void setDateStr(String date) throws ParseException {
 		this.date = FORMATTER.parse(date);
+	}
+
+	public String getSportIcon() {
+
+		if (this.competition.contains("Футбол")) {
+			return "bootstrap/img/sportsIcons/football.jpg";
+		}
+		if (this.competition.contains("Теннис")) {
+			return "bootstrap/img/sportsIcons/tennis.jpg";
+		}
+		if (this.competition.contains("Хоккей")) {
+			return "bootstrap/img/sportsIcons/icehockey.jpg";
+		}
+		if (this.competition.contains("Баскетбол")) {
+			return "bootstrap/img/sportsIcons/bascketball.jpg";
+		}
+		if (this.competition.contains("Волейбол")) {
+			return "bootstrap/img/sportsIcons/voleyball.jpg";
+		}
+		if (this.competition.contains("Бейсбол")) {
+			return "bootstrap/img/sportsIcons/baseball.jpg";
+		}
+		if (this.competition.contains("Настольный теннис")) {
+			return "bootstrap/img/sportsIcons/pinpong.jpg";
+		} else {
+			return null;
+		}
 	}
 
 }

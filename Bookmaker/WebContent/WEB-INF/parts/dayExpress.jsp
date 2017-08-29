@@ -10,7 +10,7 @@
       <c:set var="tableRow" value="0"/>
       <c:forEach var="ivent" items="${myExpress.iventList}">
       <tr class="mainLine">
-      	<td colspan="4">&nbsp;${ivent.competition}</td>
+      	<td colspan="4"><img src="${ivent.sportIcon}">&nbsp;${ivent.competition}</td>
       </tr>
       <tr class="slaveLine">
          <td align="center"><c:out value="${tableRow=tableRow+1}" /></td>
