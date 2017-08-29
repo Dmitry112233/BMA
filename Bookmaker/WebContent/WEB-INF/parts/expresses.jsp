@@ -12,18 +12,16 @@
 			<hr>
 		</c:if>
 		<c:set var="separator" value="true" />
-		<div class="expData">
+		<div>
 			<p>Экспресс. Дата начала: <b>${express.dateStr}</b></p>
 		</div>
-		<div class="expSourse">
-			<p><a target="_blank" href="${express.source}">vprognoze.ru</a></p>
-		</div>
+		
 		<table class="dayexptable">
 			<!-- переменная для увеличивающегося номера строки в таблице с эвентами -->
 			<c:set var="tableRow" value="0" />
 			<c:forEach var="ivent" items="${express.iventList}">
 				<tr class="mainLine">
-					<td colspan="4"><img src="${ivent.sportIcon}">&nbsp;${ivent.competition}</td>
+					<td colspan="4"><img class="sportIcon" src="${ivent.sportIcon}">&nbsp;${ivent.competition}</td>
 				</tr>
 				<tr class="slaveLine">
 					<td align="center"><c:out value="${tableRow=tableRow+1}" /></td>
@@ -33,8 +31,14 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<br>
-		<p>Итоговый коэф: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${express.resultCoeff}" /></b></p>		
-		<p>Описание события:<br>${express.description}</p>		
+		<div class="expSourse">
+			<p>Источник: <a target="_blank" href="${express.source}">vprognoze.ru</a></p>
+		</div>
+		<div>
+			<p>Итоговый коэф: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${express.resultCoeff}" /></b></p>
+		</div>		
+		<div>			
+			<p>Описание события:<br>${express.description}</p>
+		</div>		
 	</c:forEach>
 </div>

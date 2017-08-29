@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <div id="dayexp" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <h2>Экспресс дня</h2>
+   <h2>Ставка дня</h2>
    <!-- вывод одного экспресса дня -->      
    <br>
    <table class="dayexptable">
@@ -10,7 +10,7 @@
       <c:set var="tableRow" value="0"/>
       <c:forEach var="ivent" items="${myExpress.iventList}">
       <tr class="mainLine">
-      	<td colspan="4"><img src="${ivent.sportIcon}">&nbsp;${ivent.competition}</td>
+      	<td colspan="4"><img class="sportIcon" src="${ivent.sportIcon}">&nbsp;${ivent.competition}</td>
       </tr>
       <tr class="slaveLine">
          <td align="center"><c:out value="${tableRow=tableRow+1}" /></td>

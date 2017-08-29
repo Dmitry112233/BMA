@@ -215,7 +215,7 @@ a {
 
 .footerMenu {
 	list-style-type: none;
-	margin-top: 25px;
+	margin-top: 15px;
 	margin-left: 50px;
 }
 
@@ -250,18 +250,12 @@ a {
 	cursor: pointer;
 }
 
-.expData {
-	width: 65%;
-	float: left;
-}
-
 .expSourse {
-	width: 35%;
-	float: left;
-	text-align: right;
 	font-size: 7pt;
-	padding-right: 20px;
+	text-align: right;
+	padding-right: 5px;
 	margin-top: 5px;
+	height: 15px;
 }
 
 #textLessons img {
@@ -273,6 +267,17 @@ a {
 	padding: 3px 10px 3px;
 }
 
+.icons, .icons a {
+	color: #9d9d9d;
+	text-align: right;
+	font-size: 7px;
+}
+
+.sportIcon {
+	height: 16px;	
+}
+
+/* адаптивная верстка */
 @media (min-width: 992px) and (max-width: 1200px) {
 	.bkListContent {
 		width: 212.5px;
@@ -302,7 +307,7 @@ a {
 	.footerMenu li {		
 		padding-right: 10px;
 		padding-left: 10px;
-		margin-top: 20px; 
+		margin-top: 10px; 
 		margin-bottom: 20px;		
 	}
 	
@@ -334,7 +339,7 @@ a {
 	}
 	
 	.footerMenu {
-		margin-top: 5px;
+		margin-top: 0px;
 	}
 	
 	.bkListContent h2 {
@@ -354,6 +359,10 @@ a {
 	
 	.footerMenu li {
 		display: block;
-		padding-right: 30px;
+		padding-right: 5px;
+	}
+	
+	.icons {
+		padding-right: 5px;
 	}		
 }

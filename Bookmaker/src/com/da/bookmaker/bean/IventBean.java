@@ -92,25 +92,25 @@ public class IventBean {
 	public String getSportIcon() {
 
 		if (this.competition.contains("Футбол")) {
-			return "bootstrap/img/sportsIcons/football.jpg";
+			return "bootstrap/img/sportsIcons/football.png";
 		}
 		if (this.competition.contains("Теннис")) {
-			return "bootstrap/img/sportsIcons/tennis.jpg";
+			return "bootstrap/img/sportsIcons/tennis.png";
 		}
 		if (this.competition.contains("Хоккей")) {
-			return "bootstrap/img/sportsIcons/icehockey.jpg";
+			return "bootstrap/img/sportsIcons/icehockey.png";
 		}
 		if (this.competition.contains("Баскетбол")) {
-			return "bootstrap/img/sportsIcons/bascketball.jpg";
+			return "bootstrap/img/sportsIcons/bascketball.png";
 		}
 		if (this.competition.contains("Волейбол")) {
-			return "bootstrap/img/sportsIcons/voleyball.jpg";
+			return "bootstrap/img/sportsIcons/voleyball.png";
 		}
 		if (this.competition.contains("Бейсбол")) {
-			return "bootstrap/img/sportsIcons/baseball.jpg";
+			return "bootstrap/img/sportsIcons/baseball.png";
 		}
 		if (this.competition.contains("Настольный теннис")) {
-			return "bootstrap/img/sportsIcons/pinpong.jpg";
+			return "bootstrap/img/sportsIcons/pinpong.png";
 		} else {
 			return null;
 		}
