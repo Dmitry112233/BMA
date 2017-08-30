@@ -17,7 +17,15 @@ public class CronJob implements ServletContextListener {
 
 	@SuppressWarnings("resource")
 	@Override
-	public void contextInitialized(ServletContextEvent arg0) {
-		new ClassPathXmlApplicationContext("springCron.xml");
+	public void contextInitialized(ServletContextEvent event) {
+		new Thread( new Runnable() {
+			
+			@Override
+			public void run() {
+				new ClassPathXmlApplicationContext("springCron.xml").getBean(VprognozeParser.class).parseVprognoze();
+			}
+		}).start();
+		
+		event.getServletContext().setAttribute("cssVersion", "1.0");
 	}
 }

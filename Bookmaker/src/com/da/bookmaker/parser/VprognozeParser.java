@@ -31,11 +31,12 @@ public class VprognozeParser {
 	public void parseVprognoze() {
 		logger.info("Vprognoze parser starts...");
 		
+		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
 			List<ExpressBean> beans = new ArrayList<>();
 			for (int i = 1; i < 5; i++) {
 				String url = i == 1 ? "https://vprognoze.ru/express/" : "https://vprognoze.ru/express/page/" + i + "/";
-				beans.addAll(parsePage(url));
+				beans.addAll(parsePage(webClient, url));
 			}
 			
 			DaoFactory.getExpressDao().deleteExpressesList();
@@ -43,16 +44,16 @@ public class VprognozeParser {
 			DaoFactory.getExpressDao().addExpressesList(beans);
 		} catch (Exception ex) {
 			logger.warn("Vprognoze failed!. ", ex);
+		} finally{
+			webClient.closeAllWindows();
 		}
 		
 		logger.info("Vprognoze parser finished.");
 	}
 	
-	private List<ExpressBean> parsePage(String url) throws Exception{
+	private List<ExpressBean> parsePage(WebClient webClient, String url) throws Exception{
 		logger.info("Vprognoze parse : " + url);
-		
-		WebClient webClient = new WebClient(BrowserVersion.CHROME);
-		try{
+	
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			HtmlPage page = webClient.getPage(url);
 			List<ExpressBean> beans = new ArrayList<>();
@@ -86,9 +87,6 @@ public class VprognozeParser {
 				beans.add(bean);
 			}
 			return beans;
-		} finally {
-			webClient.closeAllWindows();
-		}
 	}
 
 	private Date getDate(DomElement blockMatch) throws ParseException {

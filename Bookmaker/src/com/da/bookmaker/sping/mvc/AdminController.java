@@ -8,6 +8,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,11 +50,11 @@ public class AdminController {
 
 	@RequestMapping("/AddMyExpress.spr")
 	public ModelAndView addMyExpress(@RequestParam("name") String name, @RequestParam("date") String date,
-			@RequestParam("description") String description) throws DaoException, ParseException {
+			@RequestParam("description") String description) throws DaoException, ParseException, UnsupportedEncodingException {
 		ExpressBean myNewExpress = new ExpressBean();
 		myNewExpress.setDateStr(date);
 		myNewExpress.setName(name);
-		myNewExpress.setDescription(description);
+		myNewExpress.setDescription(StringEscapeUtils.unescapeHtml4(description));
 		ExpressBean myCurrentExpress = DaoFactory.getExpressDao().getMyExpress();
 		if (myCurrentExpress.getDate().equals(myNewExpress.getDate())) {
 			throw new DaoException("Express with this date has already existed");
