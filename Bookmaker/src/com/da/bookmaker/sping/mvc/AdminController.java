@@ -53,7 +53,7 @@ public class AdminController {
 			@RequestParam("description") String description) throws DaoException, ParseException, UnsupportedEncodingException {
 		ExpressBean myNewExpress = new ExpressBean();
 		myNewExpress.setDateStr(date);
-		myNewExpress.setName(name);
+		myNewExpress.setName(StringEscapeUtils.unescapeHtml4(name));
 		myNewExpress.setDescription(StringEscapeUtils.unescapeHtml4(description));
 		ExpressBean myCurrentExpress = DaoFactory.getExpressDao().getMyExpress();
 		if (myCurrentExpress.getDate().equals(myNewExpress.getDate())) {
@@ -76,10 +76,10 @@ public class AdminController {
 
 		ExpressBean myExpress1;
 		IventBean myIvent = new IventBean();
-		myIvent.setName(name);
-		myIvent.setBet(bet);
+		myIvent.setName(StringEscapeUtils.unescapeHtml4(name));
+		myIvent.setBet(StringEscapeUtils.unescapeHtml4(bet));
 		myIvent.setCoefficient(coefficient);
-		myIvent.setCompetition(competition);
+		myIvent.setCompetition(StringEscapeUtils.unescapeHtml4(competition));
 		if (date.equals("") || date == "") {
 			Date today = new Date();
 			myIvent.setDate(today);
