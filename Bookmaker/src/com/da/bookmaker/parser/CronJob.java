@@ -26,6 +26,6 @@ public class CronJob implements ServletContextListener {
 			}
 		}).start();
 		
-		event.getServletContext().setAttribute("cssVersion", "1.0");
+		event.getServletContext().setAttribute("cssVersion", "0001");
 	}
 }

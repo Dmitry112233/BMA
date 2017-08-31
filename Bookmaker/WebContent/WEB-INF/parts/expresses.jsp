@@ -24,8 +24,8 @@
 					<td colspan="4"><img class="sportIcon" src="${ivent.sportIcon}">&nbsp;${ivent.competition}</td>
 				</tr>
 				<tr class="slaveLine">
-					<td align="center"><c:out value="${tableRow=tableRow+1}" /></td>
-					<td><b>&nbsp;${ivent.name}</b></td>
+					<td width="5%" align="center"><c:out value="${tableRow=tableRow+1}" /></td>
+					<td width="45%"><b>&nbsp;${ivent.name}</b></td>
 					<td width="25%" align="center"><b>${ivent.bet}</b></td>
 					<td width="25%" align="center"><b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${ivent.coefficient}" /></b></td>
 				</tr>

@@ -6,7 +6,7 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
-	background-color: #464646;
+	background-color: #e0e0e0;
 	font-family: Ubuntu;
 }
 
@@ -22,14 +22,14 @@ h1 {
 }
 
 #footer {
-	background: #222;
+	background: #2b2b2b;
 	height: 70px;
 	color: #9d9d9d;
 }
 
 .backing {
-	background: #222;
-	color: #9d9d9d;
+	background: #2b2b2b;
+	color: #d2d2d2;
 }
 
 .mainHeight {
@@ -40,7 +40,7 @@ h1 {
 #allExp{
 	float:right;
 	height: auto;
-	background: #cecece;
+	background: #efefef;
 	color: black;
 	min-height: 500px;
 	box-shadow: inset 1px 1px 5px -2px black;
@@ -53,11 +53,11 @@ h1 {
 	width: 96%;
 }
 
-#bklist{
+#bklist {
 	position: absolute;
 	left: 0;
 	height: 100%;
-	background: #5f5f5f;
+	background: #9c9c9c;
 	box-shadow: inset -1px 1px 5px -2px black;	
 }
 
@@ -83,16 +83,22 @@ h1 {
 
 .bkListContent li {
 		height: 50px;
-		border-bottom: 2px solid white;
+		border-bottom: 1px solid #efefef;
 }
 
 .bkListContent img {	
-	height: 26px;
-	margin-top: 12px;
+	width: 100px;
+	vertical-align: middle;	
+	padding-bottom: 4px;
+}
+
+.bmlogo {
+	line-height: 50px;	
 }
 
 .tobkbut {
-	background-color: #43a047;
+	line-height: 16px;
+	background-color: #63bf67;
 	padding: 8px;
 	float: right;
 	clear: none;
@@ -105,10 +111,14 @@ h1 {
 	color: black;
 }
 
+.tobkbut:visited {
+	color: black;
+}
+
 #dayexp{
 	float:right;
 	height: auto;
-	background: #cecece;
+	background: #efefef;
 	color: black;
 	min-height: 500px;
 	box-shadow: inset 1px 1px 5px -2px black;
@@ -126,11 +136,11 @@ h1 {
 }
 
 .mainLine {
-	background: #bbbbbb;
+	background: #e0e0e0;
 }
 
 .slaveLine {
-	background: #c7c7c7;
+	background: #eaeaea;
 }
 
 a:hover, a:focus {
@@ -143,7 +153,7 @@ a {
     color: black;
 }
 
-.tilt {
+.tilt {	
     -webkit-transition: all 0.5s ease;
        -moz-transition: all 0.5s ease;
          -o-transition: all 0.5s ease;
@@ -163,7 +173,7 @@ a {
 	float: right;
 	min-height: 500px;
 	height: auto;
-	background: #cecece;
+	background: #efefef;
 	color: black;
 	box-shadow: inset 1px 1px 5px -2px black;
 }
@@ -225,7 +235,7 @@ a {
 }
 
 .footerMenu li a {
-	color: #9d9d9d;
+	color: #d2d2d2;
 	text-decoration: underline;
 }
 
@@ -233,12 +243,17 @@ a {
 	color: white;
 }
 
-#footer h4, p {
+#footer h4, #footer p {
 	margin-left: 20px;
+	color: #d2d2d2;
+}
+
+#dayexp p, #allExp p {
+	margin-left: 10px;	
 }
 
 #footer h4 a {
-	color: #9d9d9d;
+	color: #d2d2d2;
 }
 
 #footer h4 a:hover {
@@ -364,5 +379,11 @@ a {
 	
 	.icons {
 		padding-right: 5px;
+	}
+	
+	.dayexptable tr td {
+		font-size: 10pt;
+		padding-left: 2px;
+		padding-right: 2px;		 
 	}		
 }

@@ -6,7 +6,7 @@
          <p>© 2017</p>
       </div>
       <div class="col-lg-10 col-md-9 col-sm-9 col-xs-7">
-         <div class="icons">Icons designed by <a href="https://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
+         <div class="icons">Icons designed by <a target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
          <ul class="footerMenu">
             <li><a href="Index.spr">Ставка дня</a></li>
             <li><a href="ExpressesList.spr">Экспрессы</a></li>

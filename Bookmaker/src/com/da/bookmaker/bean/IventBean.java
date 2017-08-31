@@ -111,6 +111,9 @@ public class IventBean {
 		}
 		if (this.competition.contains("Настольный теннис")) {
 			return "bootstrap/img/sportsIcons/pinpong.png";
+		} 
+		if (this.competition.contains("Киберспорт")) {
+			return "bootstrap/img/sportsIcons/cybersport.png";
 		} else {
 			return null;
 		}
