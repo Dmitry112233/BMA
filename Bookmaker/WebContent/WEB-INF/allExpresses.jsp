@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
    <head>
-      <title>BestBet - Экспрессы</title>
+      <!-- теги для индексации -->
+      <title>Подборка лучших ставок на спорт</title>      
+      <meta name="Description" content="Подборка актуальных экспрессов с наилучшими коэффициентами и большой проходимостью со всей сети"/>      
+      <meta name="Keywords" content="ставки на спорт букмекеры прогнозы экспресс bet лучшая прогноз букмекер футбол теннис хоккей"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="robots" content="all"/>
+      <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
+      <!-- конец тегов для индексации -->
       <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">      
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
       <link href="bootstrap/css/main-${cssVersion}.css" rel="stylesheet">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,7 +29,7 @@
       </c:import>
       <div class="container backing">
          <div class="row">
-            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Лучшие экспрессы со всей сети.</div>
+            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Подборка актуальных экспрессов с наилучшими коэффициентами и большой проходимостью со всей сети.</div>
          </div>
       </div>
       <div class="container">

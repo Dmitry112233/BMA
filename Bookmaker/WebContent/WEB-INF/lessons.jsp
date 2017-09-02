@@ -1,13 +1,19 @@
 <!DOCTYPE html>	
 <html lang="ru">
    <head>
-      <title>BestBet - Теория</title>
+      <!-- теги для индексации -->
+      <title>Ответы на Ваши вопросы, которые помогут начать играть и выигрывать</title>      
+      <meta name="Description" content="Ответы на Ваши вопросы про ставки на спорт. Оптимальные стратегии по ставкам. Стабильный выигрыш на ставках."/>      
+      <meta name="Keywords" content="ставки спорт вопросы ответы букмекеры прогнозы экспрессы bet коэффициент регистрация выигрыш деньги карточка исход ординар информация знания теория FAQ"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="robots" content="all"/>
+      <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
+      <!-- конец тегов для индексации -->
       <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">      
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
       <link href="bootstrap/css/main-${cssVersion}.css" rel="stylesheet">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,7 +29,7 @@
       </c:import>
       <div class="container backing">
          <div class="row">
-            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Найдите ответы на Ваши вопросы. Подберите оптимальную стратегию по ставкам. Начните выигрывать на ставках.</div>
+            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Найдите ответы на Ваши вопросы. Подберите оптимальную стратегию по ставкам. Начните стабильно выигрывать на ставках.</div>
          </div>
       </div>
       <div class="container">
