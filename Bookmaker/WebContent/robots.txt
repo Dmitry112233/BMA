@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /META-INF
+Disallow: /WEB-INF/admin
+Disallow: /WEB-INF/bookmaker-servlet.xml
+Disallow: /WEB-INF/web.xml
+Disallow: /404.html
+Disallow: /index.html
+Allow: /
+sitemap: http://findbestbet.ru/sitemap.xml

@@ -4,7 +4,7 @@
       <!-- теги для индексации -->
       <title>Экспресс дня - лучшая ставка на сегодня</title>      
       <meta name="Description" content="Лучший экспресс на сегодняшний день, подобранный группой аналитиков, напрямую связанных с букмекерами и спортом"/>      
-      <meta name="Keywords" content="ставки на спорт букмекеры прогнозы экспресс дня  bet лучшая прогноз букмекер футбол теннис хоккей"/>
+      <meta name="Keywords" content="ставки на спорт букмекеры прогнозы экспресс дня bet лучшая прогноз букмекер футбол теннис хоккей"/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
@@ -12,8 +12,7 @@
       <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
-      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">      
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>     
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
       <link href="bootstrap/css/main-${cssVersion}.css" rel="stylesheet">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,6 +23,7 @@
       <![endif]-->      
    </head>
    <body>
+      <div class="bg"></div>
       <c:import url="parts/nav.jsp">
          <c:param name="firstMenu" value="true"/>
       </c:import>

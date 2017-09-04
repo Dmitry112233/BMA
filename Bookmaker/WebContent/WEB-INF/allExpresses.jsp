@@ -12,8 +12,7 @@
       <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
-      <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">      
+      <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>    
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
       <link href="bootstrap/css/main-${cssVersion}.css" rel="stylesheet">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,7 +22,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
    </head>
-   <body class="bgimage">
+   <body>
+      <div class="bg"></div>
       <c:import url="parts/nav.jsp">
          <c:param name="secondMenu" value="true"/>
       </c:import>
@@ -43,5 +43,6 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="bootstrap/js/bootstrap.js"></script>
+      
    </body>
 </html>
