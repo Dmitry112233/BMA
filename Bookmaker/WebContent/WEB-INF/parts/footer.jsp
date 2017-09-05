@@ -6,7 +6,7 @@
          <p>© 2017</p>
       </div>
       <div class="col-lg-10 col-md-9 col-sm-9 col-xs-7">
-         <div class="icons">Icons designed by <a target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
+         <div class="icons">Icons designed by <a rel="nofollow" target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a rel="nofollow" target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
          <ul class="footerMenu">
             <li><a href="Index.spr">Ставка дня</a></li>
             <li><a href="ExpressesList.spr">Экспрессы</a></li>
@@ -15,6 +15,7 @@
       </div>
    </div>      
 </div>
+<!--noindex-->
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
     (function (d, w, c) {
@@ -44,3 +45,4 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/45605802" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<!--/noindex-->

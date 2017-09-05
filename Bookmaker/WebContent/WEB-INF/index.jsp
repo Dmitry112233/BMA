@@ -8,6 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
+      <meta name="google-site-verification" content="zxpjmOEovT6ZSjOnOYmVyz0q1t-7QcqfxAd41aUkP8M" />
       <!-- конец тегов для индексации -->       
       <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
       <meta charset="utf-8">

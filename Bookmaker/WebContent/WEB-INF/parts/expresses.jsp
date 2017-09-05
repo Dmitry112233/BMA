@@ -32,7 +32,7 @@
 			</c:forEach>
 		</table>
 		<div class="expSourse">
-			<p>Источник: <a target="_blank" href="${express.source}">vprognoze.ru</a></p>
+			<p>Источник: <a rel="nofollow" target="_blank" href="${express.source}">vprognoze.ru</a></p>
 		</div>
 		<div>
 			<p>Итоговый коэф: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${express.resultCoeff}" /></b></p>
