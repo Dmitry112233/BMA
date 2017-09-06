@@ -9,8 +9,7 @@
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
       <!-- конец тегов для индексации -->
-      <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
-      <meta charset="utf-8">
+      <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">      
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
