@@ -9,6 +9,16 @@ public class BookmakerBean {
 	private String link;
 	
 	private String image;
+	
+	private String description;
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public Long getBookMakerId() {
 		return bookMakerId;

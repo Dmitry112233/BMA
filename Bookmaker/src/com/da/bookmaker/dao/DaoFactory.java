@@ -7,6 +7,7 @@ import com.da.bookmaker.dao.template.BookmakerDaoTemplateImpl;
 import com.da.bookmaker.dao.template.ExpressDaoTemplateImpl;
 import com.da.bookmaker.dao.template.IventDaoTemplateImpl;
 import com.da.bookmaker.dao.template.QuestionDaoTemplateImpl;
+import com.da.bookmaker.dao.template.SportNewsDaoTemplateImpl;
 import com.da.bookmaker.dao.template.UserDaoTemplateImpl;
 
 public class DaoFactory {
@@ -15,7 +16,7 @@ public class DaoFactory {
 
 	public static BookmakerDao getBookmakerDao() {
 
-		return context.getBean(BookmakerDaoTemplateImpl.class); 
+		return context.getBean(BookmakerDaoTemplateImpl.class);
 	}
 
 	public static ExpressDao getExpressDao() {
@@ -36,5 +37,9 @@ public class DaoFactory {
 	public static QuestionDao getQuestionDao() {
 
 		return context.getBean(QuestionDaoTemplateImpl.class);
+	}
+
+	public static SportNewsDao SportNewsDao() {
+		return context.getBean(SportNewsDaoTemplateImpl.class);
 	}
 }

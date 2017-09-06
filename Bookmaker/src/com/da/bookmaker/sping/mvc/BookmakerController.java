@@ -12,12 +12,15 @@ import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class BookmakerController {
-
+	
+	
 	public Map<String, Object> getBookmakerList() throws DaoException {
 		List<BookmakerBean> bookmakerList = DaoFactory.getBookmakerDao().getAllBookmakers();
 		Map<String, Object> map = new HashMap<>();
 		map.put("bookmakerList", bookmakerList);
 		return map;
 	}
+	
+	
 
 }
