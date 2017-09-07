@@ -15,7 +15,7 @@ import com.da.bookmaker.dao.DaoException;
 
 public class BookmakerDaoTemplateImpl implements BookmakerDao{
 
-	private final static String GET_ALL_BOOKMAKERS = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION FROM BOOKMAKERS";
+	private final static String GET_ALL_BOOKMAKERS = "SELECT ID, NAME, LINK, IMAGE FROM BOOKMAKERS";
 	
 	private DataSource dataSource;
 
@@ -38,8 +38,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setBookMakerId(rs.getLong("ID"));
 				bookmaker.setName(rs.getString("NAME"));
 				bookmaker.setLink(rs.getString("LINK"));
-				bookmaker.setImage(rs.getString("IMAGE"));
-				bookmaker.setDescription(rs.getString("DESCRIPTION"));
+				bookmaker.setImage(rs.getString("IMAGE"));				
 				return bookmaker;
 			}
 		}); 

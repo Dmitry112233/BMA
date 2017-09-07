@@ -313,6 +313,11 @@ a {
 	margin-right: 5px;	
 }
 
+#topAdBanner img {
+	position: relative;
+	width: 100%;	
+}
+
 /* адаптивная верстка */
 @media (min-width: 992px) and (max-width: 1200px) {
 	.bkListContent {

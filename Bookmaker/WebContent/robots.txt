@@ -8,5 +8,7 @@ Disallow: /404.html
 Disallow: /index.html
 Disallow: /.htaccess
 Disallow: /MANIFEST.MF
+Disallow: */parts/topAdBanner.jsp
 Allow: /
+Host: http://findbestbet.ru
 sitemap: http://findbestbet.ru/sitemap.xml

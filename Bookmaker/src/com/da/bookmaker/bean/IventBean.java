@@ -114,7 +114,11 @@ public class IventBean {
 		} 
 		if (this.competition.contains("Киберспорт")) {
 			return "bootstrap/img/sportsIcons/cybersport.png";
-		} else {
+		}
+		if (this.competition.contains("Бадминтон")) {
+			return "bootstrap/img/sportsIcons/racket.png";
+		}
+		else {
 			return null;
 		}
 	}
