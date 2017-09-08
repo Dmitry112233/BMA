@@ -26,6 +26,7 @@
       <c:import url="parts/nav.jsp">
          <c:param name="secondMenu" value="true"/>
       </c:import>
+      <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="row">
             <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Подборка актуальных экспрессов с наилучшими коэффициентами и большой проходимостью со всей сети.</div>
