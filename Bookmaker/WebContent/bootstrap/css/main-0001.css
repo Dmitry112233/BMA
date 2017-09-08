@@ -55,7 +55,16 @@ h1 {
 	box-shadow: inset 1px 1px 5px -2px black;
 }
 
-#allExp hr {
+#bkReitBlock{
+	float:right;
+	height: auto;
+	background: #efefef;
+	color: black;
+	min-height: 500px;
+	box-shadow: inset 1px 1px 5px -2px black;
+}
+
+#allExp hr, #bkReitBlock hr {
 	border: none;
 	background-color: #5f5f5f;
 	height: 3px;
@@ -77,7 +86,7 @@ h1 {
 	width: 262.5px;
 }
 
-.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2 {
+.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -105,9 +114,13 @@ h1 {
 	line-height: 50px;	
 }
 
+.bmReitLogo {
+	width: 100%;
+}
+
 .tobkbut {
 	line-height: 16px;
-	background-color: #63bf67;
+	background-color: #ff6269;
 	padding: 8px;
 	float: right;
 	clear: none;
@@ -121,6 +134,26 @@ h1 {
 }
 
 .tobkbut:visited {
+	color: black;
+}
+
+.toBkDescr {
+	line-height: 16px;
+	background-color: #63bf67;
+	padding: 8px;
+	float: right;
+	clear: none;
+	margin-top: 7px;
+	margin-left: 5px;
+	color: #222;	
+}
+
+.toBkDescr:hover {
+	box-shadow: inset 1px 1px 5px -2px black;
+	color: black;
+}
+
+.toBkDescr:visited {
 	color: black;
 }
 
@@ -257,7 +290,7 @@ a {
 	color: #d2d2d2;
 }
 
-#dayexp p, #allExp p {
+#dayexp p, #allExp p, #bkReitBlock p {
 	margin-left: 10px;	
 }
 
