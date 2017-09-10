@@ -351,6 +351,18 @@ a {
 	width: 100%;	
 }
 
+.progressBar {
+	width: 200px;
+	height: 20px;
+}
+
+.progressBarDone {
+    text-align:right; 
+	height: 100%;
+	border-radius: 4px;
+	box-shadow: inset 10px 10px 5px rgba(0,0,0,0.2);
+}
+
 /* адаптивная верстка */
 @media (min-width: 992px) and (max-width: 1200px) {
 	.bkListContent {
