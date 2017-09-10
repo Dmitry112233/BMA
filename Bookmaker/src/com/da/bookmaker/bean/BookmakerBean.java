@@ -13,8 +13,8 @@ public class BookmakerBean {
 	private String description;
 	
 	private String pluses;
-	
-	private String mines;
+
+	private String minuses;
 	
 	private String currency;
 	
@@ -28,20 +28,20 @@ public class BookmakerBean {
 	
 	private int result;
 
+	public String getMinuses() {
+		return minuses;
+	}
+
+	public void setMinuses(String minuses) {
+		this.minuses = minuses;
+	}
+	
 	public String getPluses() {
 		return pluses;
 	}
 
 	public void setPluses(String pluses) {
 		this.pluses = pluses;
-	}
-
-	public String getMines() {
-		return mines;
-	}
-
-	public void setMines(String mines) {
-		this.mines = mines;
 	}
 
 	public String getCurrency() {
