@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Ubuntu');
 
-body {
-	
+body {	
 	font-family: Ubuntu;
 }
 
@@ -38,7 +37,7 @@ h1 {
 .backing {
 	position: relative;
 	background: #2b2b2b;
-	color: #d2d2d2;
+	color: #c6c6c6;
 }
 
 .mainHeight {
@@ -75,7 +74,7 @@ h1 {
 	position: absolute;
 	left: 0;
 	height: 100%;
-	background: #9c9c9c;
+	background: #c7c7c7;
 	box-shadow: inset -1px 1px 5px -2px black;	
 }
 
@@ -115,26 +114,7 @@ h1 {
 }
 
 .bmReitLogo {
-	width: 100%;
-}
-
-.tobkbut {
-	line-height: 16px;
-	background-color: #ff6269;
-	padding: 8px;
-	float: right;
-	clear: none;
-	margin-top: 7px;
-	color: #222;	
-}
-
-.tobkbut:hover {
-	box-shadow: inset 1px 1px 5px -2px black;
-	color: black;
-}
-
-.tobkbut:visited {
-	color: black;
+	height: 26px;
 }
 
 .toBkDescr {
@@ -186,7 +166,7 @@ h1 {
 }
 
 a:hover, a:focus {
-	color: #8a8a8a;
+	color: #c6c6c6;
     text-decoration: none;
     outline: 0;
 }
@@ -277,7 +257,7 @@ a {
 }
 
 .footerMenu li a {
-	color: #d2d2d2;
+	color: #c6c6c6;
 	text-decoration: underline;
 }
 
@@ -287,15 +267,15 @@ a {
 
 .miniLogo, #footer p {
 	margin-left: 20px;
-	color: #d2d2d2;
+	color: #c6c6c6;
 }
 
-#dayexp p, #allExp p, #bkReitBlock p {
+#dayexp p, #allExp p {
 	margin-left: 10px;	
 }
 
 .miniLogo {
-	color: #d2d2d2;
+	color: #c6c6c6;
 	font-size: 18px;
 	line-height: 40px;
 }
@@ -332,13 +312,13 @@ a {
 }
 
 .icons, .icons a {
-	color: #9d9d9d;
+	color: #c6c6c6;
 	text-align: right;
 	font-size: 8px;
 }
 
 .icons a:hover {
-	color: #cacaca;
+	color: #969696;
 }
 
 .sportIcon {
@@ -361,6 +341,42 @@ a {
 	height: 100%;
 	border-radius: 4px;
 	box-shadow: inset 10px 10px 5px rgba(0,0,0,0.2);
+}
+
+.tobkbut {
+	line-height: 16px;
+	background-color: #52c153;
+	padding: 8px;
+	float: right;
+	clear: none;
+	margin-top: 7px;
+	color: #ffffff;	
+}
+
+.tobkbut:visited, .tobkbut:focus {
+	color: #ffffff;
+}
+
+.tobkbut:hover {
+	box-shadow: inset 1px 1px 5px -2px black;
+	color: #dadada;
+}
+
+.bkName {
+	text-align: center;
+}
+
+.bkName a, .bkName h3 {
+	display: inline;
+}
+
+#bkReitBlock р4 {
+	text-align: left;
+}
+
+#bkReitBlock p {
+	margin-bottom: 0px;
+	margin-left: 0px;
 }
 
 /* адаптивная верстка */

@@ -4,30 +4,51 @@
 <div id="bkReitBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="bkReit">
       <h2>Описание, рейтинг...</h2>
-      <c:forEach var="bookmaker" items="${bookmakerList}">
-      
-      	<div class="progressBar">
-		<div class="progressBarDone">6</div>
-		</div>
-		<div class="progressBar">
-		<div class="progressBarDone">6</div>
-		</div>
-		
-		
-      	Якорь: <span id="bk_id_${bookmaker.bookMakerId}">#bk_id_${bookmaker.bookMakerId}</span><br>      	
-      	Имя: ${bookmaker.name}<br>
-      	Ссылка: <a rel="nofollow" target="_blank" href="${bookmaker.link}">${bookmaker.name}</a><br>
-      	Лого: <a rel="nofollow" href="${bookmaker.link}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a><br>
-      	Описание: ${bookmaker.description} <br>
-      	плюсы: ${bookmaker.pluses} <br>
-      	минусы: ${bookmaker.minuses} <br>	
-      	пол1: ${bookmaker.reliability} <br> 
-      	пол2: ${bookmaker.line} <br>
-      	пол3: ${bookmaker.usability} <br>
-      	главная полоска: ${bookmaker.result} <br>
-      	валюты: ${bookmaker.currency} <br> 
-      	платежные системы: ${bookmaker.payments} <br>
-      	<hr>         
+      <c:forEach var="bookmaker" items="${bookmakerList}">		
+      	<span id="bk_id_${bookmaker.bookMakerId}"></span><br><!-- якорь -->
+      	<div class="bkName">
+      		<a rel="nofollow" href="${bookmaker.link}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>
+      		<h3><a rel="nofollow" target="_blank" href="${bookmaker.link}">${bookmaker.name}</a></h3>
+      	</div>      	
+      	<br>
+      	<div id="desc1" class="container-fluid">
+      		<div class="row">
+      			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      				<h4>Критерии</h4>
+      				<p>надежность</p>
+      				<div>полоска со значением ${bookmaker.reliability}</div>
+      				<p>линия</p>
+      				<div>полоска со значением ${bookmaker.line}</div>
+      				<p>удобство работы</p>
+      				<div>полоска со значением ${bookmaker.usability}</div>
+      			</div>
+      			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      				<h4>Плюсы</h4>
+      				<div>${bookmaker.pluses}</div>
+      			</div>
+      			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      				<h4>Минусы</h4>
+      				<div>${bookmaker.minuses}</div>
+      			</div>
+      		</div> 
+      	</div>
+      	<br>
+      	<div class="container-fluid">
+      		<div class="row">
+      			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      				<h4>Валюты</h4>
+      				<div>${bookmaker.currency}</div>
+      			</div>
+      			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      				<h4>Платежные системы</h4>
+      				<div>${bookmaker.payments}</div>
+      			</div>
+      		</div> 
+      	</div>
+      	<br>
+      	<h4>Общий рейтинг</h4>
+      	<div>большая полоска со значением ${bookmaker.result}</div>
+      	<div><a rel="nofollow" target="_blank" href="${bookmaker.link}">Перейти на сайт ${bookmaker.name}</a></div>
       </c:forEach>      
    </div>
 </div>
