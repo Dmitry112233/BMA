@@ -105,25 +105,6 @@ h1 {
 	line-height: 50px;	
 }
 
-.tobkbut {
-	line-height: 16px;
-	background-color: #52c153;
-	padding: 8px;
-	float: right;
-	clear: none;
-	margin-top: 7px;
-	color: #ffffff;	
-}
-
-.tobkbut:hover {
-	box-shadow: inset 1px 1px 5px -2px black;
-	color: black;
-}
-
-.tobkbut:visited {
-	color: black;
-}
-
 #dayexp{
 	float:right;
 	height: auto;
@@ -153,7 +134,7 @@ h1 {
 }
 
 a:hover, a:focus {
-	color: #8a8a8a;
+	color: #c6c6c6;
     text-decoration: none;
     outline: 0;
 }
@@ -305,7 +286,7 @@ a {
 }
 
 .icons a:hover {
-	color: #cacaca;
+	color: #969696;
 }
 
 .sportIcon {
@@ -316,6 +297,25 @@ a {
 #topAdBanner img {
 	position: relative;
 	width: 100%;	
+}
+
+.tobkbut {
+	line-height: 16px;
+	background-color: #52c153;
+	padding: 8px;
+	float: right;
+	clear: none;
+	margin-top: 7px;
+	color: #ffffff;	
+}
+
+.tobkbut:visited, .tobkbut:focus {
+	color: #ffffff;
+}
+
+.tobkbut:hover {
+	box-shadow: inset 1px 1px 5px -2px black;
+	color: #dadada;
 }
 
 /* адаптивная верстка */
