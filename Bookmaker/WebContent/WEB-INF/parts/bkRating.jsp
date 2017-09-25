@@ -4,7 +4,11 @@
 <div id="bkReitBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="bkReit">
       <h2>Описание, рейтинг...</h2>
-      <c:forEach var="bookmaker" items="${bookmakerList}">		
+      <c:forEach var="bookmaker" items="${bookmakerList.values()}">	
+      
+      <div class="progressBar">
+		<div class="progressBarDone">${bookmaker.line}</div>
+	 </div>	
       	<span id="bk_id_${bookmaker.bookMakerId}"></span><br><!-- якорь -->
       	<div class="bkName">
       		<a rel="nofollow" href="${bookmaker.link}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>

@@ -1,5 +1,6 @@
 package com.da.bookmaker.rss;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -19,11 +20,13 @@ public class EurosportXmlImpl {
 	private static ArrayList<NewsBean> buffer;
 	
 	public static void main(String[] args) {
-	
+		
+	// сокетом сложить строки из ксмл
 		try {
 			Unmarshaller m = JAXBContext.newInstance(Rss.class).createUnmarshaller();
 			@SuppressWarnings("unchecked")
-			Rss root = (Rss) m.unmarshal(XML);
+			String xml = "kjhgkjlk";
+			Rss root = (Rss) m.unmarshal(new ByteArrayInputStream(xml.getBytes()));
 
 			buffer = new ArrayList<>();
 			if (root.getChannels() != null) {

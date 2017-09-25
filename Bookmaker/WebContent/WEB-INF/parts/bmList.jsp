@@ -4,7 +4,7 @@
    <div class="bkListContent">
       <h2>Букмекеры</h2>
       <ol>
-         <c:forEach var="bookmaker" items="${bookmakerList}">
+         <c:forEach var="bookmaker" items="${bookmakerList.values()}">
             <li>
                <a rel="nofollow" href="${bookmaker.link}" target="_blank" class="bmlogo"><img class="tilt" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>
                <a class="toBkDescr" href="Bookmakers.spr#bk_id_${bookmaker.bookMakerId}">Обзор</a> 				

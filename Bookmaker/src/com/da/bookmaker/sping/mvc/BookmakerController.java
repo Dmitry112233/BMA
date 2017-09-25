@@ -1,7 +1,6 @@
 package com.da.bookmaker.sping.mvc;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -14,9 +13,9 @@ import com.da.bookmaker.dao.DaoFactory;
 public class BookmakerController {
 	
 	
-	public Map<String, Object> getBookmakerList() throws DaoException {
-		List<BookmakerBean> bookmakerList = DaoFactory.getBookmakerDao().getAllBookmakers();
-		Map<String, Object> map = new HashMap<>();
+	public Map<String, Map<String, BookmakerBean>> getBookmakerList() throws DaoException {
+		Map<String, BookmakerBean> bookmakerList = DaoFactory.getBookmakerDao().getAllBookmakers();
+		Map<String, Map<String, BookmakerBean>> map = new HashMap<>();
 		map.put("bookmakerList", bookmakerList);
 		return map;
 	}
