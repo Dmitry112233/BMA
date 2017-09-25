@@ -31,10 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		var progressBarDoneList = document.getElementsByClassName('progressBarDone');
 		for (var i = 0; i < progressBarDoneList.length; i++){
 			var progressBarDone = progressBarDoneList[i];
-			var number = progressBarDone.text; // текст или хуй пойми там че)
+			var number = progressBarDone.firstChild.nodeValue;
+			
+
 		    percent = percent < 10*number ? percent + 1 : 10*number;
 		    setColor(number,progressBarDone);
 		    setPosition(percent, progressBarDone);
 		}
-	  }, 100);
+	  }, 50);
   });
