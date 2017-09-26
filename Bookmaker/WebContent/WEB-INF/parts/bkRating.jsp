@@ -80,8 +80,8 @@
 			</div>
 		</div>
 		<br>
-      	<div><a rel="nofollow" target="_blank" href="${bookmaker.link}">Перейти на сайт ${bookmaker.name}</a></div> 
-      	<br>     	
-      </c:forEach>      
+      	<div><a class="bkReitLink" rel="nofollow" target="_blank" href="${bookmaker.link}">Перейти на сайт ${bookmaker.name}</a></div>    	
+      </c:forEach>
+      <br>      
    </div>
 </div>

@@ -381,7 +381,42 @@ a {
 	margin-left: 0px;
 }
 
+.topbutton {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 60px;
+	background: rgba(199, 199, 199, 0.2);
+	text-align: center;	
+	cursor: pointer;
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 12px;
+	padding-bottom: 100%;
+	line-height: 100px;
+}
+
+.topbutton:hover {
+	background: rgba(199, 199, 199, 0.3);
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.bkReitLink {
+	text-decoration: underline;
+	margin-left: 15px;
+}
+
+.bkReitLink:hover {
+	color: #8a8a8a;
+	text-decoration: underline;
+}
+
 /* адаптивная верстка */
+@media (max-width: 1305px) {
+	.topbutton {
+		display: none;
+	}
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.bkListContent {
 		width: 212.5px;
