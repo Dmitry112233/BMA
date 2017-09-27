@@ -7,4 +7,7 @@ import com.da.bookmaker.bean.NewsBean;
 public interface NewsDao {
 
 	List<NewsBean> getAllNews() throws DaoException;
+	
+	void addNewsList(List<NewsBean> newsList) throws DaoException;
+	
 }
