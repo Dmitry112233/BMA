@@ -1,8 +1,5 @@
 package com.da.bookmaker.bean;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.da.bookmaker.rss.eurosport.Item;
 
 public class NewsBean {
@@ -35,6 +32,10 @@ public class NewsBean {
 		this.title = item.getTitle();
 	}
 	
+	public NewsBean() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getTitle() {
 		return title;
 	}
