@@ -14,25 +14,31 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class QuestionController extends BookmakerController{
+public class QuestionController extends BookmakerController {
 
 	@RequestMapping("/FAQList.spr")
 	public ModelAndView getMainList() throws DaoException {
 		Map<String, Object> map = getFAQList();
 
-		
 		map.putAll(getBookmakerList());
 		return new ModelAndView("lessons", map);
 	}
-	
-	private Map<String, Object> getFAQList() throws DaoException{
+
+	private Map<String, Object> getFAQList() throws DaoException {
 		List<QuestionBean> questionsList = DaoFactory.getQuestionDao().getAllQuestions();
-		BookmakerBean xbet = (BookmakerBean) getBookmakerList().get("1xBET");
-		for(QuestionBean bean : questionsList){			
+
+		for (QuestionBean bean : questionsList) {
 			String str = bean.getAnswer();
-			str = str.replaceAll("%{1xBet_link}", "${" + xbet.getLink() + "}");
-			bean.setAnswer(str);
+			BookmakerBean xBet = getBookmakerList().get("bookmakerList").get("1xBet");
+			if (str.contains("TESTTEST")){
+			String replaceString = str.replace("TESTTEST", xBet.getLink());
+			System.out.println(replaceString);
+			bean.setAnswer(replaceString);
+			}else{
+				continue;
+			}
 		}
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("questionsList", questionsList);
 		return map;
