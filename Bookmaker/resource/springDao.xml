@@ -30,6 +30,10 @@
 	<bean id="userDao" class="com.da.bookmaker.dao.template.UserDaoTemplateImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<bean id="NewsDao" class="com.da.bookmaker.dao.template.NewsDaoTemplateImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
