@@ -30,8 +30,8 @@ public class QuestionController extends BookmakerController {
 		for (QuestionBean bean : questionsList) {
 			String str = bean.getAnswer();
 			BookmakerBean xBet = getBookmakerList().get("bookmakerList").get("1xBet");
-			if (str.contains("TESTTEST")){
-			String replaceString = str.replace("TESTTEST", xBet.getLink());
+			if (str.contains("BKLINKBET")){
+			String replaceString = str.replace("BKLINKBET", xBet.getLink());
 			System.out.println(replaceString);
 			bean.setAnswer(replaceString);
 			}else{
