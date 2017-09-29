@@ -45,8 +45,8 @@ h1 {
 	position: relative;
 }
 
-#allExp{
-	float:right;
+#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons {
+	float: right;
 	height: auto;
 	background: #efefef;
 	color: black;
@@ -54,16 +54,7 @@ h1 {
 	box-shadow: inset 1px 1px 5px -2px black;
 }
 
-#bkReitBlock{
-	float:right;
-	height: auto;
-	background: #efefef;
-	color: black;
-	min-height: 500px;
-	box-shadow: inset 1px 1px 5px -2px black;
-}
-
-#allExp hr, #bkReitBlock hr {
+#allExp hr, #bkReitBlock hr, #newsBlock hr {
 	border: none;
 	background-color: #5f5f5f;
 	height: 3px;
@@ -85,7 +76,7 @@ h1 {
 	width: 262.5px;
 }
 
-.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2 {
+.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2, #newsBlock h2 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -137,15 +128,6 @@ h1 {
 	color: #dadada;
 }
 
-#dayexp{
-	float:right;
-	height: auto;
-	background: #efefef;
-	color: black;
-	min-height: 500px;
-	box-shadow: inset 1px 1px 5px -2px black;
-}
-
 .dayexptable {
 	width: 100%;
 	box-shadow: 1px 1px 12px 0px #aeaeae;
@@ -189,15 +171,6 @@ a {
          -o-transform: rotate(1deg);
         -ms-transform: rotate(1deg);
             transform: rotate(1deg);
-}
-
-#textLessons {
-	float: right;
-	min-height: 500px;
-	height: auto;
-	background: #efefef;
-	color: black;
-	box-shadow: inset 1px 1px 5px -2px black;
 }
 
 .hide, .hide + label ~ div{
@@ -408,6 +381,15 @@ a {
 .bkReitLink:hover {
 	color: #8a8a8a;
 	text-decoration: underline;
+}
+
+#newsBlock h3 {
+	font-size: 18px;
+	text-align: center;
+}
+
+.newsPic {
+	width: 100%;
 }
 
 /* адаптивная верстка */

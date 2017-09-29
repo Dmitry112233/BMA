@@ -2,14 +2,14 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Описание букмекеров...</title>      
-      <meta name="Description" content="Описание букмекеров..."/>      
+      <title>Описание букмекеров...</title>
+      <meta name="Description" content="Описание букмекеров..."/>
       <meta name="Keywords" content="букмекеры..."/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
-      <meta http-equiv="Content-Type" content="type; charset=utf-8"/>      
+      <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
       <!-- конец тегов для индексации -->       
-      <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">      
+      <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>     
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
