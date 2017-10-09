@@ -1,34 +1,50 @@
 package com.da.bookmaker.rss;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import com.da.bookmaker.bean.NewsBean;
+import com.da.bookmaker.dao.DaoException;
+import com.da.bookmaker.dao.DaoFactory;
 import com.da.bookmaker.rss.eurosport.Channel;
 import com.da.bookmaker.rss.eurosport.Item;
 import com.da.bookmaker.rss.eurosport.Rss;
 
 public class EurosportXmlImpl {
 	
-	private static final File XML = new File("d:\\exe\\rss.xml");
-	
-	private static ArrayList<NewsBean> buffer;
-	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException {
 		
 	// сокетом сложить строки из ксмл
-		try {
+		URL eurosport = new URL("http://www.eurosport.ru/rss.xml");
+		try(InputStream socketInStream = new BufferedInputStream(eurosport.openStream());) {
+			
+			byte[] byteMass = new byte[0];
+			
+			Thread.sleep(500);
+			int count = 0;
+			while ((count = socketInStream.available()) > 0){
+				byte[] buffer = new byte[count];
+				socketInStream.read(buffer);
+				byte tmp[] = byteMass;
+				byteMass = new byte[byteMass.length + count];
+				System.arraycopy(tmp, 0, byteMass, 0, tmp.length);
+				System.arraycopy(buffer, 0, byteMass, tmp.length, buffer.length);
+			}
+			
 			Unmarshaller m = JAXBContext.newInstance(Rss.class).createUnmarshaller();
-			@SuppressWarnings("unchecked")
-			String xml = "kjhgkjlk";
-			Rss root = (Rss) m.unmarshal(new ByteArrayInputStream(xml.getBytes()));
+			Rss root = (Rss) m.unmarshal(new ByteArrayInputStream(byteMass));
 
-			buffer = new ArrayList<>();
+			ArrayList<NewsBean> buffer = new ArrayList<>();
 			if (root.getChannels() != null) {
 				for (Channel channel : root.getChannels()) {
 					for (Item item : channel.getItems()){
@@ -38,8 +54,8 @@ public class EurosportXmlImpl {
 					}
 				}
 			} 
-		} catch (JAXBException e) {
-			e.printStackTrace();
+			DaoFactory.getNewsDao().addNewsList(buffer);
+		} catch (JAXBException | DaoException e) {
 		}
 	}
 	

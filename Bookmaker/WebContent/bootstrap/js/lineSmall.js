@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
  
  <!-- задаем начальный percent ширины ProgressBarDone равный нулю -->
-  var percent = 0;
+  
   
  
 	  
@@ -32,9 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		for (var i = 0; i < progressBarDoneList.length; i++){
 			var progressBarDone = progressBarDoneList[i];
 			var number = progressBarDone.firstChild.nodeValue;
-			
+			var percent = progressBarDone.getAttribute('percent');
+			if (!percent){
+				percent = 0;
+			}
 
 		    percent = percent < 10*number ? percent + 1 : 10*number;
+		    
+		    progressBarDone.setAttribute('percent', percent);
+		    
 		    setColor(number,progressBarDone);
 		    setPosition(percent, progressBarDone);
 		}
