@@ -39,6 +39,21 @@
 		</div>		
 		<div>			
 			<p>Описание события:<br>${express.description}</p>
-		</div>		
+		</div>
+		<div id="randomBK">
+		   <!-- количество букмекеров в БД (-1) -->
+		   <c:set var="countBK" value="${bookmakerList.size()-1}" />
+		   <c:out value="${countBK}" />
+		   <!-- рендомный ID -->
+		   <c:set var="randID"><%= java.lang.Math.round(java.lang.Math.random() * 2) %></c:set>
+		   <c:out value="${randID}" />
+		   <c:set var="randIDtest" value="0" />
+		   <!-- вывод БК с рендомным ID -->
+		   <c:forEach var="randomBookmaker" items="${bookmakerList.values()}">
+		      <c:if test="${bookmaker.bookMakerId == randIDtest}">
+		         <c:out value="${bookmaker.name}" />
+		      </c:if>
+		   </c:forEach>
+		</div>
 	</c:forEach>
 </div>
