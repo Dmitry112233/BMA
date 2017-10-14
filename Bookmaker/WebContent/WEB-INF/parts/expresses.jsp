@@ -46,7 +46,7 @@
 		   <!-- вывод БК с рендомным ID -->		   
 		   <c:forEach var="randomBookmaker" items="${bookmakerList.values()}">     
         	<c:if test="${randomBookmaker.bookMakerId==randID}">
-           		<p>Лучший коэффициент на этот экспресс у: </p> 
+           		<p>Наилучший коэффициент у </p> 
            		<a rel="nofollow" href="${randomBookmaker.link}" target="_blank"><img src="${randomBookmaker.image}" alt="${randomBookmaker.name} logo"></a>
         	</c:if>
      		</c:forEach>		   		   

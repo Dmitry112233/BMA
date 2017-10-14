@@ -10,10 +10,12 @@
       <c:if test="${separatorNews != false}">
          <hr>
       </c:if>
-      <c:set var="separatorNews" value="true" />
+      <c:set var="separatorNews" value="true" />      
+      <div class="newsComp">
+      	<p>${newsItem.sport} - ${newsItem.competition}</p>   
+      </div>   
       <h3>${newsItem.title}</h3>
-      <p>${newsItem.sport} ${newsItem.competition}</p>
-      <p><img class="newsPic" src="${newsItem.image}"></img></p>
       <p>${newsItem.description}</p>
+      <p><img class="newsPic" src="${newsItem.image}"></img></p>
    </c:forEach>
 </div>

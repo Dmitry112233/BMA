@@ -386,10 +386,35 @@ a {
 #newsBlock h3 {
 	font-size: 18px;
 	text-align: center;
+	margin-top: 0px;
 }
 
 .newsPic {
 	width: 100%;
+}
+
+.newsComp {
+	text-align: center;	
+}
+
+.newsComp p {
+	margin-bottom: 0px;s
+}
+
+#newsBlock p {
+	margin-left: 10px;
+}
+
+#randomBK img {
+	height: 20px;
+}
+
+#randomBK a, #randomBK p  {
+	display: inline;
+}
+
+#randomBK {
+	margin-bottom: 10px;
 }
 
 /* адаптивная верстка */
