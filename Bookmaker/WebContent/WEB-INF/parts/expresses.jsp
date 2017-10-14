@@ -33,27 +33,26 @@
 		</table>
 		<div class="expSourse">
 			<p>Источник: <a rel="nofollow" target="_blank" href="${express.source}">vprognoze.ru</a></p>
-		</div>
+		</div>		
 		<div>
-			<p>Итоговый коэф: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${express.resultCoeff}" /></b></p>
+			<p>Итоговый коэффициент: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${express.resultCoeff}" /></b></p>
+		</div>
+		<div id="randomBK">			
+		   <!-- количество букмекеров в БД (-1) -->
+		   <c:set var="countBK" value="${bookmakerList.size()}" />
+		   <!-- рендомный ID -->
+		   <jsp:useBean id="random" class="java.util.Random" scope="application"/>
+		   <c:set var="randID">${random.nextInt(countBK)+1}</c:set>
+		   <!-- вывод БК с рендомным ID -->		   
+		   <c:forEach var="randomBookmaker" items="${bookmakerList.values()}">     
+        	<c:if test="${randomBookmaker.bookMakerId==randID}">
+           		<p>Лучший коэффициент на этот экспресс у: </p> 
+           		<a rel="nofollow" href="${randomBookmaker.link}" target="_blank"><img src="${randomBookmaker.image}" alt="${randomBookmaker.name} logo"></a>
+        	</c:if>
+     		</c:forEach>		   		   
 		</div>		
 		<div>			
 			<p>Описание события:<br>${express.description}</p>
-		</div>
-		<div id="randomBK">
-		   <!-- количество букмекеров в БД (-1) -->
-		   <c:set var="countBK" value="${bookmakerList.size()-1}" />
-		   <c:out value="${countBK}" />
-		   <!-- рендомный ID -->
-		   <c:set var="randID"><%= java.lang.Math.round(java.lang.Math.random() * 2) %></c:set>
-		   <c:out value="${randID}" />
-		   <c:set var="randIDtest" value="0" />
-		   <!-- вывод БК с рендомным ID -->
-		   <c:forEach var="randomBookmaker" items="${bookmakerList.values()}">
-		      <c:if test="${bookmaker.bookMakerId == randIDtest}">
-		         <c:out value="${bookmaker.name}" />
-		      </c:if>
-		   </c:forEach>
-		</div>
+		</div>		
 	</c:forEach>
 </div>
