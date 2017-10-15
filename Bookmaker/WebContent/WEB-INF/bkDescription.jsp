@@ -15,6 +15,7 @@
       <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
       <link href="bootstrap/css/main-${cssVersion}.css" rel="stylesheet">
       <script src="bootstrap/js/lineSmall.js"></script>
+      <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
