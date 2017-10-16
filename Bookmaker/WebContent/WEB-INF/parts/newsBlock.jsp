@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="newsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <h2>Новости...</h2>
+   <h2>Новости</h2>
    <br>
    <!-- переменная для вывода полоски над каждой новостью, кроме первой -->
    <c:set var="separatorNews" value="false" />
@@ -12,10 +12,10 @@
       </c:if>
       <c:set var="separatorNews" value="true" />      
       <div class="newsComp">
-      	<p>${newsItem.sport} - ${newsItem.competition}</p>   
+      	<p>${newsItem.sport}<br>${newsItem.competition}</p>   
       </div>   
       <h3>${newsItem.title}</h3>
       <p>${newsItem.description}</p>
-      <p><img class="newsPic" src="${newsItem.image}"></img></p>
+      <img class="newsPic" src="${newsItem.image}"></img>
    </c:forEach>
 </div>

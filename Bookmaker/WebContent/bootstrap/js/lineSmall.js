@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
  
 	  function setColor(number, progressBarDone){
 		  if(number <= 4){
-			  progressBarDone.style.background = 'red';
+			  progressBarDone.style.background = '#ce6464';
 		  }
 		  if(number > 4 && number <= 7){
-			  progressBarDone.style.background = 'yellow';
+			  progressBarDone.style.background = '#ecec71';
 		  }
 		  if(7 < number){
-			  progressBarDone.style.background = 'green';
+			  progressBarDone.style.background = '#52c153';
 		  }
 	  }
 	
