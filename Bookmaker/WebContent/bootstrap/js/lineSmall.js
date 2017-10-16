@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		var progressBarDoneList = document.getElementsByClassName('progressBarDone');
 		for (var i = 0; i < progressBarDoneList.length; i++){
 			var progressBarDone = progressBarDoneList[i];
-			var number = Number.parseInt(progressBarDone.firstChild.nodeValue);
+			var number = Number.parseInt(progressBarDone.firstChild.firstChild.nodeValue);
 			setColor(number,progressBarDone);
 			
 			var targetPos = progressBarDone.getBoundingClientRect().top;
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		    
 		    if(alredyStarted == true || $(window).height() > targetPos){
-		    	var number = Number.parseInt(progressBarDone.firstChild.nodeValue);
+		    	var number = Number.parseInt(progressBarDone.firstChild.firstChild.nodeValue);
 				var percent = Number.parseFloat(progressBarDone.getAttribute('percent'));
 				if (!percent){
 					percent = -20;

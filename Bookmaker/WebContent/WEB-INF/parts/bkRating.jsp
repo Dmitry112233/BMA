@@ -30,15 +30,15 @@
                   <h4>Критерии</h4>
                   <p>надежность</p>
                   <div class="progressBar">
-                     <div class="progressBarDone">${bookmaker.reliability}</div>
+                     <div class="progressBarDone"><p>${bookmaker.reliability}</p></div>
                   </div>
                   <p>линия</p>
                   <div class="progressBar">
-                     <div class="progressBarDone">${bookmaker.line}</div>
+                     <div class="progressBarDone"><p>${bookmaker.line}</p></div>
                   </div>
                   <p>удобство работы</p>
                   <div class="progressBar">
-                     <div class="progressBarDone">${bookmaker.usability}</div>
+                     <div class="progressBarDone"><p>${bookmaker.usability}</p></div>
                   </div>
                </div>
                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -72,7 +72,7 @@
                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                   <h4>Общий рейтинг</h4>
                   <div class="progressBar">
-                     <div class="progressBarDone">${bookmaker.result}</div>
+                     <div class="progressBarDone"><p>${bookmaker.result}</p></div>
                   </div>
                </div>
                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0"></div>

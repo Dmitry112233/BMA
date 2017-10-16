@@ -312,7 +312,7 @@ a {
 }
 
 .progressBarDone {
-    text-align:right; 
+    text-align: right; 
 	height: 100%;
 	border-radius: 0px;
 	box-shadow: inset 1px 1px 5px -2px black;
@@ -415,6 +415,10 @@ a {
 
 #randomBK {
 	margin-bottom: 10px;
+}
+
+.progressBarDone p {
+	margin-right: 5px;	
 }
 
 /* адаптивная верстка */
