@@ -24,6 +24,8 @@ public class NewsDaoTemplateImpl implements NewsDao {
 	private final static String GET_ALL_NEWS = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS";
 	
 	private final static String INSERT_NEWS_LIST = "INSERT INTO SPORT_NEWS (SPORT, COMPETITION, TITLE, DESCRIPTION, IMAGE) VALUES (?,?,?,?,?)";
+	
+	private final static String DELETE_ALL_NEWS = "DELETE FROM SPORT_NEWS";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -75,6 +77,11 @@ public class NewsDaoTemplateImpl implements NewsDao {
 			news.setId(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
 		}
 
+	}
+	
+	public void deleteAllNews() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(DELETE_ALL_NEWS);
 	}
 
 }

@@ -10,4 +10,6 @@ public interface NewsDao {
 	
 	void addNewsList(List<NewsBean> newsList) throws DaoException;
 	
+	void deleteAllNews() throws DaoException;
+	
 }
