@@ -1,5 +1,6 @@
 package com.da.bookmaker.sping.mvc;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,7 @@ public class EventController extends BookmakerController{
 
 	@RequestMapping("/EventsList.spr")
 	public ModelAndView getMainList() throws DaoException {
-		Map<String, Object> map = null; 
+		Map<String, Object> map = new HashMap<>();; 
 		map.putAll(getBookmakerList());
 		return new ModelAndView("allEvents", map);
 	}
