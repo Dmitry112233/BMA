@@ -54,7 +54,7 @@ h1 {
 	box-shadow: inset 1px 1px 5px -2px black;
 }
 
-#allExp hr, #allEv hr, #bkReitBlock hr, #newsBlock hr {
+#allExp hr, #allEv hr, #bkReitBlock hr, #newsBlock hr, #allEv hr {
 	border: none;
 	background-color: #5f5f5f;
 	height: 3px;
@@ -128,12 +128,12 @@ h1 {
 	color: #dadada;
 }
 
-.dayexptable {
+.dayexptable, .evtable {
 	width: 100%;
 	box-shadow: 1px 1px 12px 0px #aeaeae;
 }
 
-.dayexptable tr td {
+.dayexptable tr td, .evtable tr td {
 	padding-left: 10px;
 	padding-right: 10px;
 	height: 25px;
@@ -214,6 +214,18 @@ a {
     content: "\2212";
 }
 
+#allEv .hide + label:before {
+    content: none;
+}
+
+#allEv .hide:checked + label:before {
+    content: none;
+}
+
+.evDesc {
+	text-align: center; 	
+}
+
 .hide + label:hover {
 	color: #8a8a8a;
 }
@@ -266,7 +278,7 @@ a {
 	color: #8a8a8a;
 }
 
-.expSourse {
+.dataSourse {
 	font-size: 7pt;
 	text-align: right;
 	padding-right: 5px;
@@ -386,6 +398,13 @@ a {
 #newsBlock h3 {
 	font-size: 18px;
 	text-align: center;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+#allEv h3 {
+	font-size: 18px;	
+	margin-left: 10px;
 	margin-top: 10px;
 	font-weight: bold;
 }
@@ -527,7 +546,7 @@ a {
 		padding-right: 5px;
 	}
 	
-	.dayexptable tr td {
+	.dayexptable tr td, .evtable tr td {
 		font-size: 10pt;
 		padding-left: 2px;
 		padding-right: 2px;		 

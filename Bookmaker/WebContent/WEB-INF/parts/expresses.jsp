@@ -31,7 +31,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<div class="expSourse">
+		<div class="dataSourse">
 			<p>Источник: <a rel="nofollow" target="_blank" href="${express.source}">vprognoze.ru</a></p>
 		</div>		
 		<div>
