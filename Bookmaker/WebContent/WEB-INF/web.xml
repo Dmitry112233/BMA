@@ -18,4 +18,9 @@
 		<url-pattern>*.spr</url-pattern>
 	</servlet-mapping>
 
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/ExpressesList.spr</location>
+	</error-page>
 </web-app>
