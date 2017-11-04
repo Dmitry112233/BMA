@@ -52,12 +52,43 @@ public class BetFaqParser {
 							String name = getName(title);
 							double coefficient = getCoefficient(tdChild.next());
 							System.out.println(name + " " + coefficient + " " + competition);
+							
+							String matchUrl = getMatchUrl(title);
+							
 						}
 					}
 			}
 		} finally {
 			webClient.closeAllWindows();
 		}
+	}
+	
+	private void parseMatch(String url) throws Exception{
+		WebClient webClient = new WebClient(BrowserVersion.CHROME);
+		try {
+
+			webClient.getOptions().setThrowExceptionOnScriptError(false);
+			HtmlPage page = (HtmlPage) webClient.getPage(url);
+			Iterator<DomElement> iterator = page.getElementById("content").getChildElements().iterator();
+			iterator.next(); 
+			iterator.next();
+			iterator.next();
+			iterator.next();
+			DomElement grid10 = iterator.next(); // grid_10
+			
+			
+		}finally {
+			webClient.closeAllWindows();
+		}
+	}
+	
+	private String getMatchUrl(DomElement title){
+		Iterator<DomElement> iterator = title.getChildElements().iterator();
+		iterator.next();
+		DomElement aElement = iterator.next();
+		String href = aElement.getAttribute("href");
+		String url = URL + href;		
+		return url;
 	}
 	
 	private double getCoefficient(DomElement coeff){
