@@ -19,6 +19,16 @@ public class IventBean {
 	private Date date;
 
 	private Double coefficient;
+	
+	private String source;
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
 
 	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy");
 

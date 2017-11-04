@@ -3,6 +3,7 @@ package com.da.bookmaker.dao.template;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -10,9 +11,11 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import com.da.bookmaker.bean.IventBean;
+import com.da.bookmaker.bean.NewsBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.IventDao;
 
@@ -25,9 +28,11 @@ public class IventDaoTemplateImpl implements IventDao {
 	private final static String LINK_MY_IVENT = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) "
 			+ "(SELECT ?, ID FROM EXPRESSES WHERE SOURCE is NULL ORDER BY DATE DESC LIMIT 1)";
 
-	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT) VALUES (?,?,?,?)";
+	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE) VALUES (?,?,?,?,?)";
 
-	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT);";
+	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT)";
+	
+	private final static String GET_IVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE FROM IVENTS WHERE SOURCE = 'betFaq'";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -89,6 +94,7 @@ public class IventDaoTemplateImpl implements IventDao {
 					statement.setString(2, ivent.getBet());
 					statement.setString(3, ivent.getCompetition());
 					statement.setDouble(4, ivent.getCoefficient());
+					statement.setString(5, ivent.getSource());
 					return statement;
 				}
 			}, holder);
@@ -100,5 +106,25 @@ public class IventDaoTemplateImpl implements IventDao {
 	public void deleteIventsList() throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		template.update(DELETE_IVENTS_LIST);
+	}
+
+	@Override
+	public List<IventBean> getIvents() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<IventBean> list = template.query(GET_IVENTS_LIST, new RowMapper<IventBean>() {
+
+			@Override
+			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				IventBean bean = new IventBean();
+				bean.setIventID(rs.getLong("ID"));
+				bean.setCompetition(rs.getString("COMPETITION"));
+				bean.setBet(rs.getString("BET"));
+				bean.setName(rs.getString("NAME"));
+				bean.setCoefficient(rs.getDouble("COEFFICIENT"));
+				bean.setSource(rs.getString("SOURCE"));
+				return bean;
+			}
+		});
+		return list;
 	}
 }
