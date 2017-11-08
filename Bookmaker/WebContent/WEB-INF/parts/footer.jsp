@@ -49,3 +49,18 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/45605802" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <!--/noindex-->
+<!--noindex-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108802252-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108802252-1');
+</script>
+<!-- /Google Analytics -->
+<!--/noindex-->
+
+
+
