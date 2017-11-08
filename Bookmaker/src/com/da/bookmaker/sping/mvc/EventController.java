@@ -23,9 +23,15 @@ public class EventController extends BookmakerController{
 	}
 	
 	private Map<String, Object> getIventList() throws DaoException {
-		List<IventBean> iventList = DaoFactory.getIventDao().getIvents();
+		List<IventBean> footballList = DaoFactory.getIventDao().getFootballEvents();
+		List<IventBean> tennisList = DaoFactory.getIventDao().getTennisEvents();
+		List<IventBean> hockeyList = DaoFactory.getIventDao().getHockeyEvents();
+		List<IventBean> bascketballList = DaoFactory.getIventDao().getBascketballEvents();
 		Map<String, Object> map = new HashMap<>();
-		map.put("iventList", iventList);
+		map.put("footballList", footballList);
+		map.put("tennisList", tennisList);
+		map.put("hockeyList", hockeyList);
+		map.put("bascketballList", bascketballList);
 		return map;
 	}
 }

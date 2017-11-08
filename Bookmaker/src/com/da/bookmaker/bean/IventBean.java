@@ -21,6 +21,16 @@ public class IventBean {
 	private Double coefficient;
 	
 	private String source;
+	
+	private String sport;
+
+	public String getSport() {
+		return sport;
+	}
+
+	public void setSport(String sport) {
+		this.sport = sport;
+	}
 
 	public String getSource() {
 		return source;

@@ -54,6 +54,7 @@ public class BetFaqParser {
 							System.out.println(name + " " + coefficient + " " + competition);
 							
 							String matchUrl = getMatchUrl(title);
+							parseMatch(matchUrl);
 							
 						}
 					}
@@ -64,21 +65,33 @@ public class BetFaqParser {
 	}
 	
 	private void parseMatch(String url) throws Exception{
-		WebClient webClient = new WebClient(BrowserVersion.CHROME);
+		WebClient webClient1 = new WebClient(BrowserVersion.CHROME);
 		try {
 
-			webClient.getOptions().setThrowExceptionOnScriptError(false);
-			HtmlPage page = (HtmlPage) webClient.getPage(url);
+			webClient1.getOptions().setThrowExceptionOnScriptError(false);
+			HtmlPage page = (HtmlPage) webClient1.getPage(url);
 			Iterator<DomElement> iterator = page.getElementById("content").getChildElements().iterator();
 			iterator.next(); 
 			iterator.next();
 			iterator.next();
 			iterator.next();
+			iterator.next();
+			iterator.next();
 			DomElement grid10 = iterator.next(); // grid_10
+			DomElement grayBg = grid10.getFirstElementChild();
+			DomElement prognozSoccer = grayBg.getFirstElementChild();
+			DomElement coeffSelector = prognozSoccer.getFirstElementChild();
+			Iterator<DomElement> coeffSelectorChild = coeffSelector.getChildElements().iterator();
+			coeffSelectorChild.next();
+			coeffSelectorChild.next();
+			coeffSelectorChild.next();
+			coeffSelectorChild.next();
+			String bet = coeffSelectorChild.next().getTextContent();
+			System.out.println(bet);
 			
 			
 		}finally {
-			webClient.closeAllWindows();
+			webClient1.closeAllWindows();
 		}
 	}
 	
