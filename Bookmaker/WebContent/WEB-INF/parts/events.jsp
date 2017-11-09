@@ -55,6 +55,12 @@
 		</div>
 	
 	
+	<c:forEach var="sport" items="${allEvents.keySet()}">
+	<c:forEach var="ivent" items="${allEvants.get(sport)}">
+	${ivent.name}
+	</c:forEach>
+	</c:forEach>
+	
 	
 	
 	

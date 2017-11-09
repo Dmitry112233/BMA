@@ -71,12 +71,11 @@ public class BetFaqParser {
 			webClient1.getOptions().setThrowExceptionOnScriptError(false);
 			HtmlPage page = (HtmlPage) webClient1.getPage(url);
 			Iterator<DomElement> iterator = page.getElementById("content").getChildElements().iterator();
-			iterator.next(); 
-			iterator.next();
-			iterator.next();
-			iterator.next();
-			iterator.next();
-			iterator.next();
+			DomElement item1 = iterator.next(); 
+			item1 = iterator.next();
+			item1 = iterator.next();
+			item1 = iterator.next();
+			item1 = iterator.next();
 			DomElement grid10 = iterator.next(); // grid_10
 			DomElement grayBg = grid10.getFirstElementChild();
 			DomElement prognozSoccer = grayBg.getFirstElementChild();

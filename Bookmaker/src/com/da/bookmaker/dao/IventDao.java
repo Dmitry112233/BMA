@@ -1,6 +1,7 @@
 package com.da.bookmaker.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.da.bookmaker.bean.IventBean;
 
@@ -8,7 +9,7 @@ public interface IventDao {
 
 	void addMyIvent(IventBean myIvent) throws DaoException;
 	
-	List<IventBean> getFootballEvents() throws DaoException;
+	Map<String, Object> getEvents() throws DaoException;
 	
 	List<IventBean> getTennisEvents() throws DaoException;
 	

@@ -5,7 +5,10 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -32,8 +35,8 @@ public class IventDaoTemplateImpl implements IventDao {
 
 	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT)";
 	
-	private final static String GET_FOOTBALL_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT FROM IVENTS WHERE SOURCE_IVENT = 'betFaq' AND " +
-	"SPORT = 'football'";
+	private final static String GET_FOOTBALL_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT FROM IVENTS WHERE SOURCE_IVENT = 'betFaq'";
+	
 	
 	private final static String GET_HOCKEY_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT FROM IVENTS WHERE SOURCE_IVENT = 'betFaq' AND " +
 			"SPORT = 'hockey'";
@@ -119,12 +122,20 @@ public class IventDaoTemplateImpl implements IventDao {
 	}
 
 	@Override
-	public List<IventBean> getFootballEvents() throws DaoException {
+	public Map<String, Object> getEvents() throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<IventBean> list = template.query(GET_FOOTBALL_LIST, new RowMapper<IventBean>() {
+		Map<String, Object> result = new HashMap<>();
+		
+		template.query(GET_FOOTBALL_LIST, new RowMapper<IventBean>() {
 
 			@Override
 			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				String sport = rs.getString("SPORT");
+				List<IventBean> list = (List<IventBean>) result.get(sport);
+				if(list == null){
+					list = new ArrayList<>();
+					result.put(sport, list);
+				}
 				IventBean bean = new IventBean();
 				bean.setIventID(rs.getLong("ID"));
 				bean.setCompetition(rs.getString("COMPETITION"));
@@ -133,10 +144,11 @@ public class IventDaoTemplateImpl implements IventDao {
 				bean.setCoefficient(rs.getDouble("COEFFICIENT"));
 				bean.setSource(rs.getString("SOURCE_IVENT"));
 				bean.setSport(rs.getString("SPORT"));
+				list.add(bean);
 				return bean;
 			}
 		});
-		return list;
+		return result;
 	}
 
 	@Override
