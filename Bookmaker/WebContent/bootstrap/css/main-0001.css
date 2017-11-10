@@ -45,7 +45,7 @@ h1 {
 	position: relative;
 }
 
-#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv {
+#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf {
 	float: right;
 	height: auto;
 	background: #efefef;
@@ -76,7 +76,7 @@ h1 {
 	width: 262.5px;
 }
 
-.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2, #newsBlock h2, #allEv h2 {
+.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2, #newsBlock h2, #allEv h2, #pnf h2 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -214,16 +214,24 @@ a {
     content: "\2212";
 }
 
-#allEv .hide + label:before {
+#allEv .hide + label:before, #allExp .hide + label:before {
     content: none;
 }
 
-#allEv .hide:checked + label:before {
+#allEv .hide:checked + label:before, #allExp .hide:checked + label:before {
     content: none;
+}
+
+#allExp .hide:checked + label + div {
+	margin-left: 0px;
 }
 
 .evDesc {
 	text-align: center; 	
+}
+
+.expDesc {
+	margin-left: 10px;
 }
 
 .hide + label:hover {
@@ -449,6 +457,13 @@ a {
 
 #newsBlock hr {
 	width: 57%;
+}
+
+.pnfout {
+	text-align: center;
+	text-decoration: underline;
+	font-size: 14pt;	
+	display: block;
 }
 
 /* адаптивная верстка */

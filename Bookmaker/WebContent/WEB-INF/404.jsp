@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
    <head>      
-      <title>404 Not Found</title>
+      <title>Страница не найдена</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="none"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
@@ -19,23 +19,20 @@
       <![endif]-->            
    </head>
    <body>
-      <div class="bg"></div>
-      <!--
-      попробовать показать меню без активного пункта
+      <div class="bg"></div>      
       <c:import url="parts/nav.jsp">
-         <c:param name="firstMenu" value="true"/>
-      </c:import>
-      -->
+         <c:param name="noneMenu" value="true"/>
+      </c:import>      
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="row">
-            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">404 Not Found</div>
+            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Страница не найдена</div>
          </div>
       </div>
       <div class="container">
          <div class="row mainHeight">
             <c:import url="parts/bmList.jsp"></c:import>
-            <c:import url="parts/dayExpress.jsp"></c:import>
+            <c:import url="parts/404part.jsp"></c:import>
          </div>
       </div>
       <c:import url="parts/footer.jsp"></c:import>

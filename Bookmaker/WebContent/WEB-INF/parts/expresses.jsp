@@ -51,8 +51,10 @@
         	</c:if>
      		</c:forEach>		   		   
 		</div>		
-		<div>			
-			<p>Описание события:<br>${express.description}</p>
+		<div class="expDesc">
+			<input type="checkbox" id="hd-${express.expressID}" class="hide"/>
+			<label for="hd-${express.expressID}" >Описание события</label>
+			<div>${express.description}</div>
 		</div>		
 	</c:forEach>
 </div>
