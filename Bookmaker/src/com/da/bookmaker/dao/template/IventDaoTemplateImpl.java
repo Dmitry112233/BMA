@@ -35,7 +35,7 @@ public class IventDaoTemplateImpl implements IventDao {
 
 	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT)";
 	
-	private final static String GET_EVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION FROM IVENTS WHERE SOURCE_IVENT = 'betFaq'";
+	private final static String GET_EVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE FROM IVENTS WHERE SOURCE_IVENT = 'betFaq'";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -137,6 +137,7 @@ public class IventDaoTemplateImpl implements IventDao {
 				bean.setSource(rs.getString("SOURCE_IVENT"));
 				bean.setSport(rs.getString("SPORT"));
 				bean.setDescription(rs.getString("DESCRIPTION"));
+				bean.setDate(rs.getDate("DATE"));
 				list.add(bean);
 				return bean;
 			}
