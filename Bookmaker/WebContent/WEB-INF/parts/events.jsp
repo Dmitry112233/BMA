@@ -3,59 +3,37 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div id="allEv" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <h2>Прогнозы на спорт</h2>
-   <!-- 
-      <br>-->
-   <!-- переменная для вывода полоски над каждым экспрессом, кроме первого -->
-   <!-- <c:set var="separator" value="false" />-->
-   <!-- вывод экспрессов в цикле -->
-   <!-- <c:forEach var="express" items="${expressList}">
-      <c:if test="${separator != false}">
-      	<hr>
-      </c:if>
-      <c:set var="separator" value="true" />			
-      </c:forEach>
-      -->	
-      
-      
-      
-      
-   <p>servtest</p>
+   <br>
    <c:forEach var="sport" items="${allEvents.keySet()}">
-      <h3>Прогнозы на ${sport} на ${allEvents.get(sport).get(0).dateStr} xx xxxxxx 20xx</h3>
+      <h3>Прогнозы на ${sport} на ${allEvents.get(sport).get(0).dateStr}</h3>
+      <table class="evtable">
+      <c:set var="tableRow" value="0" />
       <c:forEach var="ivent" items="${allEvents.get(sport)}">
-         ${ivent.name}
-      </c:forEach>
-   </c:forEach>
-   <p>servtest</p>
-   
-   
-   
-   <h3>Прогнозы на футбол 23 октября 2017</h3>
-   <table class="evtable">
-      <tr class="mainLine">
-         <td colspan="4"><img class="sportIcon" src="${ivent.sportIcon}">&nbsp;${ivent.competition}спортиконка - (Футбол?) - Испания - Ла Лига</td>
+      	<tr class="mainLine">
+         <td colspan="3">
+         	<c:out value="${tableRow=tableRow+1}." />
+         	<img class="sportIcon" src="${ivent.sportIcon}">&nbsp;${ivent.competition}
+         </td>
       </tr>
       <tr class="slaveLine">
-         <td width="5%" align="center">
-            <c:out value="${tableRow=tableRow+1}" />
-         </td>
-         <td width="45%"><b>&nbsp;${ivent.name}Депортиво - Гирона</b></td>
-         <td width="25%" align="center"><b>${ivent.bet}1х</b></td>
+         <td width="50%"><b>&nbsp;${ivent.name}</b></td>
+         <td width="25%" align="center"><b>${ivent.bet}</b></td>
          <td width="25%" align="center">
-            <b>
-               <!--<fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${ivent.coefficient}" />-->1.3
-            </b>
+            <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${ivent.coefficient}" /></b>
          </td>
       </tr>
       <tr class="slaveLine">
-         <td colspan="4" class="evDesc">
-            <input type="checkbox" id="1d" class="hide"/>
-            <label for="1d" >описание прогноза</label>
-            <div>Большое описание описание описание описание описание описание описание</div>
+         <td colspan="4" class="expDesc">
+            <input type="checkbox" id="ev-${ivent.iventID}" class="hide"/>
+            <label for="ev-${ivent.iventID}">Описание прогноза</label>
+            <div>${ivent.description}</div>
          </td>
-      </tr>
-   </table>
-   <div class="dataSourse">
-      <p>Источник: <a rel="nofollow" target="_blank" href="#">betfaq.ru</a></p>
-   </div>
+      </tr>         
+      </c:forEach>
+      </table>
+      <div class="dataSourse">
+      	<p>Источник: <a rel="nofollow" target="_blank" href="#">betfaq.ru</a></p>
+      </div>
+      <br>
+   </c:forEach>
 </div>
