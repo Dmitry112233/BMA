@@ -17,9 +17,11 @@ public class EventController extends BookmakerController{
 
 	@RequestMapping("/EventsList.spr")
 	public ModelAndView getMainList() throws DaoException {
-		Map<String, Object> map = getIventList(); 
-		map.putAll(getBookmakerList());
-		return new ModelAndView("allEvents", map);
+		Map<String, Object> map = getIventList();
+		ModelAndView modelAndView = new ModelAndView("allEvents");
+		modelAndView.addAllObjects(getBookmakerList());
+		modelAndView.addObject("allEvents", map);
+		return modelAndView;
 	}
 	
 	private Map<String, Object> getIventList() throws DaoException {

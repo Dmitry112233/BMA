@@ -21,8 +21,8 @@
       
    <p>servtest</p>
    <c:forEach var="sport" items="${allEvents.keySet()}">
-      <h3>Прогнозы на ${sport.sport} xx xxxxxx 20xx</h3>
-      <c:forEach var="ivent" items="${allEvants.get(sport)}">
+      <h3>Прогнозы на ${sport} на ${allEvents.get(sport).get(0).dateStr} xx xxxxxx 20xx</h3>
+      <c:forEach var="ivent" items="${allEvents.get(sport)}">
          ${ivent.name}
       </c:forEach>
    </c:forEach>
