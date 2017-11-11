@@ -31,21 +31,11 @@ public class IventDaoTemplateImpl implements IventDao {
 	private final static String LINK_MY_IVENT = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) "
 			+ "(SELECT ?, ID FROM EXPRESSES WHERE SOURCE is NULL ORDER BY DATE DESC LIMIT 1)";
 
-	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE) VALUES (?,?,?,?,?)";
+	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION) VALUES (?,?,?,?,?,?,?)";
 
 	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT)";
 	
-	private final static String GET_FOOTBALL_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT FROM IVENTS WHERE SOURCE_IVENT = 'betFaq'";
-	
-	
-	private final static String GET_HOCKEY_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT FROM IVENTS WHERE SOURCE_IVENT = 'betFaq' AND " +
-			"SPORT = 'hockey'";
-	
-	private final static String GET_TENNIS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT FROM IVENTS WHERE SOURCE_IVENT = 'betFaq' AND " +
-			"SPORT = 'tennis'";
-	
-	private final static String GET_BASCKETBALL_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT FROM IVENTS WHERE SOURCE_IVENT = 'betFaq' AND " +
-			"SPORT = 'bascketball'";
+	private final static String GET_EVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION FROM IVENTS WHERE SOURCE_IVENT = 'betFaq'";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -108,6 +98,8 @@ public class IventDaoTemplateImpl implements IventDao {
 					statement.setString(3, ivent.getCompetition());
 					statement.setDouble(4, ivent.getCoefficient());
 					statement.setString(5, ivent.getSource());
+					statement.setString(6, ivent.getSport());
+					statement.setString(7, ivent.getDescription());
 					return statement;
 				}
 			}, holder);
@@ -126,7 +118,7 @@ public class IventDaoTemplateImpl implements IventDao {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		Map<String, Object> result = new HashMap<>();
 		
-		template.query(GET_FOOTBALL_LIST, new RowMapper<IventBean>() {
+		template.query(GET_EVENTS_LIST, new RowMapper<IventBean>() {
 
 			@Override
 			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -144,73 +136,11 @@ public class IventDaoTemplateImpl implements IventDao {
 				bean.setCoefficient(rs.getDouble("COEFFICIENT"));
 				bean.setSource(rs.getString("SOURCE_IVENT"));
 				bean.setSport(rs.getString("SPORT"));
+				bean.setDescription(rs.getString("DESCRIPTION"));
 				list.add(bean);
 				return bean;
 			}
 		});
 		return result;
-	}
-
-	@Override
-	public List<IventBean> getTennisEvents() throws DaoException {
-		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<IventBean> list = template.query(GET_TENNIS_LIST, new RowMapper<IventBean>() {
-
-			@Override
-			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
-				IventBean bean = new IventBean();
-				bean.setIventID(rs.getLong("ID"));
-				bean.setCompetition(rs.getString("COMPETITION"));
-				bean.setBet(rs.getString("BET"));
-				bean.setName(rs.getString("NAME"));
-				bean.setCoefficient(rs.getDouble("COEFFICIENT"));
-				bean.setSource(rs.getString("SOURCE_IVENT"));
-				bean.setSport(rs.getString("SPORT"));
-				return bean;
-			}
-		});
-		return list;
-	}
-
-	@Override
-	public List<IventBean> getHockeyEvents() throws DaoException {
-		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<IventBean> list = template.query(GET_HOCKEY_LIST, new RowMapper<IventBean>() {
-
-			@Override
-			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
-				IventBean bean = new IventBean();
-				bean.setIventID(rs.getLong("ID"));
-				bean.setCompetition(rs.getString("COMPETITION"));
-				bean.setBet(rs.getString("BET"));
-				bean.setName(rs.getString("NAME"));
-				bean.setCoefficient(rs.getDouble("COEFFICIENT"));
-				bean.setSource(rs.getString("SOURCE_IVENT"));
-				bean.setSport(rs.getString("SPORT"));
-				return bean;
-			}
-		});
-		return list;
-	}
-
-	@Override
-	public List<IventBean> getBascketballEvents() throws DaoException {
-		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<IventBean> list = template.query(GET_BASCKETBALL_LIST, new RowMapper<IventBean>() {
-
-			@Override
-			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
-				IventBean bean = new IventBean();
-				bean.setIventID(rs.getLong("ID"));
-				bean.setCompetition(rs.getString("COMPETITION"));
-				bean.setBet(rs.getString("BET"));
-				bean.setName(rs.getString("NAME"));
-				bean.setCoefficient(rs.getDouble("COEFFICIENT"));
-				bean.setSource(rs.getString("SOURCE_IVENT"));
-				bean.setSport(rs.getString("SPORT"));
-				return bean;
-			}
-		});
-		return list;
 	}
 }

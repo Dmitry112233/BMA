@@ -10,12 +10,6 @@ public interface IventDao {
 	void addMyIvent(IventBean myIvent) throws DaoException;
 	
 	Map<String, Object> getEvents() throws DaoException;
-	
-	List<IventBean> getTennisEvents() throws DaoException;
-	
-	List<IventBean> getHockeyEvents() throws DaoException;
-	
-	List<IventBean> getBascketballEvents() throws DaoException;
 
 	void linkMyIvent(IventBean myIvent) throws DaoException;
 	
