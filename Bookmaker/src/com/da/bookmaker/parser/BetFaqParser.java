@@ -1,6 +1,7 @@
 package com.da.bookmaker.parser;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,36 +18,33 @@ public class BetFaqParser {
 
 	static final private String URL = "https://betfaq.ru";
 
-	public static void main(String[] args) throws Exception {
-		new BetFaqParser().parse();
-	}
-
-	public void parse() throws Exception {
+	public void parseBetFaq() throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			HtmlPage page = (HtmlPage) webClient.getPage(URL);
+			System.out.println("PARSE HAS STARTED");
+			List<IventBean> beans = new ArrayList<>();		
 			for (DomElement sport : page.getElementById("sticky").getChildElements()) {
-				List<IventBean> beans = new ArrayList<>();
 				String sportName = null;
-				if (!sport.getAttribute("class").equals("soccer") && 
-				!sport.getAttribute("class").equals("hockey") && 
-                !sport.getAttribute("class").equals("tennis") && 
-                !sport.getAttribute("class").equals("basketball")) 
-                {
+				if (!sport.getAttribute("class").equals("soccer") && !sport.getAttribute("class").equals("hockey")
+						&& !sport.getAttribute("class").equals("tennis")
+						&& !sport.getAttribute("class").equals("basketball")) {
 					continue;
 				}
-				if (sport.getAttribute("class").equals("soccer")) {
+				switch (sport.getAttribute("class")) {
+				case "soccer":
 					sportName = "Футбол";
-				}
-				if (sport.getAttribute("class").equals("hockey")) {
+					break;
+				case "hockey":                              
 					sportName = "Хоккей";
-				}
-                if(sport.getAttribute("class").equals("tennis")){
-                	sportName = "Теннис";
-				}
-                if(sport.getAttribute("class").equals("basketball")){
-                	sportName = "Баскетбол";
+					break;
+				case "tennis":
+					sportName = "Теннис";
+					break;
+				case "basketball":
+					sportName = "Баскетбол";
+					break;
 				}
 				Iterator<DomElement> soccerChildren = sport.getChildElements().iterator();
 				soccerChildren.next(); // follow-wrapper
@@ -66,32 +64,33 @@ public class BetFaqParser {
 						String competition = getCompetision(title);
 						String name = getName(title);
 						double coefficient = getCoefficient(tdChild.next());
-						System.out.println(name + " " + coefficient + " " + competition);
 						String matchUrl = getMatchUrl(title);
-						List<String> betAndDescription = parseMatch(matchUrl);
+						parseMatch(matchUrl, bean);
 						bean.setSport(sportName);
 						bean.setName(name);
-						System.out.println(betAndDescription.get(0) + " " + betAndDescription.get(1));
 						bean.setCoefficient(coefficient);
 						bean.setCompetition(competition);
-						bean.setBet(betAndDescription.get(0));
-						bean.setDescription(betAndDescription.get(1));
-						bean.setSource("betFaq");
+						bean.setSource("https://betfaq.ru");
+						bean.setDate(new Date());
 						beans.add(bean);
+						System.out.println(bean.getSport() + " " + bean.getName() + " " + bean.getCompetition() + " "
+								+ bean.getCoefficient() + " " + bean.getDescription() + " " + bean.getBet() + " " + bean.getDateStr());
 					}
 				}
-				DaoFactory.getIventDao().addIventsList(beans);
 			}
-		} finally {
+			DaoFactory.getIventDao().deletBetFaqList();
+			DaoFactory.getIventDao().addIventsList(beans);
+		} finally
+
+		{
 			webClient.closeAllWindows();
 		}
 	}
 
-	private List<String> parseMatch(String url) throws Exception {
+	private void parseMatch(String url, IventBean bean) throws Exception {
 		WebClient webClient1 = new WebClient(BrowserVersion.CHROME);
 		try {
 
-			List<String> betAndDescription = new ArrayList<>();
 			webClient1.getOptions().setThrowExceptionOnScriptError(false);
 			HtmlPage page = (HtmlPage) webClient1.getPage(url);
 			Iterator<DomElement> iterator = page.getElementById("content").getChildElements().iterator();
@@ -111,7 +110,7 @@ public class BetFaqParser {
 			coeffSelectorChild.next();
 			String bet = coeffSelectorChild.next().getTextContent();
 			bet = editBet(bet);
-			betAndDescription.add(bet);
+			bean.setBet(bet);
 			Iterator<DomElement> iteratorDesc = prognozSoccer.getChildElements().iterator();
 			iteratorDesc.next();
 			iteratorDesc.next();
@@ -123,9 +122,7 @@ public class BetFaqParser {
 			iteratorSimpleTest.next();
 			iteratorSimpleTest.next();
 			String description = iteratorSimpleTest.next().getTextContent();
-			betAndDescription.add(description);
-
-			return betAndDescription;
+			bean.setDescription(description);
 
 		} finally {
 			webClient1.closeAllWindows();

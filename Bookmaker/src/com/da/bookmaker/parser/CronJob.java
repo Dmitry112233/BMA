@@ -26,6 +26,18 @@ public class CronJob implements ServletContextListener {
 			}
 		}).start();*/
 		
+		new Thread( new Runnable() {
+			
+			@Override
+			public void run() {	
+				try {
+					new ClassPathXmlApplicationContext("springCron.xml").getBean(BetFaqParser.class).parseBetFaq();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+		
 		event.getServletContext().setAttribute("cssVersion", "0001");
 	}
 }

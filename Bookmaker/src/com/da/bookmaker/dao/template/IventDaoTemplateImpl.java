@@ -31,12 +31,14 @@ public class IventDaoTemplateImpl implements IventDao {
 	private final static String LINK_MY_IVENT = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) "
 			+ "(SELECT ?, ID FROM EXPRESSES WHERE SOURCE is NULL ORDER BY DATE DESC LIMIT 1)";
 
-	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION) VALUES (?,?,?,?,?,?,?)";
+	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE) VALUES (?,?,?,?,?,?,?,?)";
 
-	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT)";
+	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT) AND SOURCE_IVENT <> 'https://betfaq.ru'";
 	
-	private final static String GET_EVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE FROM IVENTS WHERE SOURCE_IVENT = 'betFaq'";
+	private final static String GET_EVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru'";
 
+	private final static String DELETE_BETFAQ_IVENTS = "DELETE FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru'";
+	
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -100,6 +102,7 @@ public class IventDaoTemplateImpl implements IventDao {
 					statement.setString(5, ivent.getSource());
 					statement.setString(6, ivent.getSport());
 					statement.setString(7, ivent.getDescription());
+					statement.setDate(8, new Date(ivent.getDate().getTime()));
 					return statement;
 				}
 			}, holder);
@@ -112,6 +115,7 @@ public class IventDaoTemplateImpl implements IventDao {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		template.update(DELETE_IVENTS_LIST);
 	}
+	
 
 	@Override
 	public Map<String, Object> getEvents() throws DaoException {
@@ -143,5 +147,11 @@ public class IventDaoTemplateImpl implements IventDao {
 			}
 		});
 		return result;
+	}
+
+	@Override
+	public void deletBetFaqList() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(DELETE_BETFAQ_IVENTS);
 	}
 }
