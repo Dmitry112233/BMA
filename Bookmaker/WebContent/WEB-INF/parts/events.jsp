@@ -12,7 +12,7 @@
       	<tr class="mainLine">
          <td colspan="3">
          	<c:out value="${tableRow=tableRow+1}." />
-         	<img class="sportIcon" src="${ivent.sportIcon}">&nbsp;${ivent.competition}
+         	<img class="sportIcon" src="${ivent.icon}">&nbsp;${ivent.competition}
          </td>
       </tr>
       <tr class="slaveLine">
@@ -32,7 +32,7 @@
       </c:forEach>
       </table>
       <div class="dataSourse">
-      	<p>Источник: <a rel="nofollow" target="_blank" href="#">betfaq.ru</a></p>
+      	<p>Источник: <a rel="nofollow" target="_blank" href="${allEvents.get(sport).get(0).source}">betfaq.ru</a></p>
       </div>
       <br>
    </c:forEach>
