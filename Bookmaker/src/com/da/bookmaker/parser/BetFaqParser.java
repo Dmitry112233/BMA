@@ -44,16 +44,16 @@ public class BetFaqParser {
 				}
 				switch (sport.getAttribute("class")) {
 				case "soccer":
-					sportName = "Футбол";
+					sportName = "футбол";
 					break;
 				case "hockey":                              
-					sportName = "Хоккей";
+					sportName = "хоккей";
 					break;
 				case "tennis":
-					sportName = "Теннис";
+					sportName = "теннис";
 					break;
 				case "basketball":
-					sportName = "Баскетбол";
+					sportName = "баскетбол";
 					break;
 				}
 				Iterator<DomElement> soccerChildren = sport.getChildElements().iterator();

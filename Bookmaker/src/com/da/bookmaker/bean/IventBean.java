@@ -144,16 +144,16 @@ public class IventBean {
 
 	public String getIcon() {
 
-		if (this.sport.contains("Футбол")) {
+		if (this.sport.contains("футбол")) {
 			return "bootstrap/img/sportsIcons/football.png";
 		}
-		if (this.sport.contains("Теннис")) {
+		if (this.sport.contains("теннис")) {
 			return "bootstrap/img/sportsIcons/tennis.png";
 		}
-		if (this.sport.contains("Хоккей")) {
+		if (this.sport.contains("хоккей")) {
 			return "bootstrap/img/sportsIcons/icehockey.png";
 		}
-		if (this.sport.contains("Баскетбол")) {
+		if (this.sport.contains("баскетбол")) {
 			return "bootstrap/img/sportsIcons/bascketball.png";
 		} else {
 			return null;
