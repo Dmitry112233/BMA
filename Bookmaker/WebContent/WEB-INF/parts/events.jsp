@@ -12,11 +12,11 @@
       	<tr class="mainLine">
          <td colspan="3">
          	<c:out value="${tableRow=tableRow+1}." />
-         	<img class="sportIcon" src="${ivent.icon}">&nbsp;${ivent.competition}
+         	&nbsp;${ivent.competition}
          </td>
       </tr>
       <tr class="slaveLine">
-         <td width="50%"><b>&nbsp;${ivent.name}</b></td>
+         <td width="50%"><img class="sportIcon" src="${ivent.icon}"><b>&nbsp;${ivent.name}</b></td>
          <td width="25%" align="center"><b>${ivent.bet}</b></td>
          <td width="25%" align="center">
             <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${ivent.coefficient}" /></b>
