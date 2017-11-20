@@ -19,9 +19,9 @@ public class IventBean {
 	private Date date;
 
 	private Double coefficient;
-	
+
 	private String source;
-	
+
 	private String sport;
 
 	public String getSport() {
@@ -131,14 +131,31 @@ public class IventBean {
 		}
 		if (this.competition.contains("Настольный теннис")) {
 			return "bootstrap/img/sportsIcons/pinpong.png";
-		} 
+		}
 		if (this.competition.contains("Киберспорт")) {
 			return "bootstrap/img/sportsIcons/cybersport.png";
 		}
 		if (this.competition.contains("Бадминтон")) {
 			return "bootstrap/img/sportsIcons/racket.png";
+		} else {
+			return null;
 		}
-		else {
+	}
+
+	public String getIcon() {
+
+		if (this.sport.contains("Футбол")) {
+			return "bootstrap/img/sportsIcons/football.png";
+		}
+		if (this.sport.contains("Теннис")) {
+			return "bootstrap/img/sportsIcons/tennis.png";
+		}
+		if (this.sport.contains("Хоккей")) {
+			return "bootstrap/img/sportsIcons/icehockey.png";
+		}
+		if (this.sport.contains("Баскетбол")) {
+			return "bootstrap/img/sportsIcons/bascketball.png";
+		} else {
 			return null;
 		}
 	}

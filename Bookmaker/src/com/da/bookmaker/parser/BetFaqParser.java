@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Node;
 
 import com.da.bookmaker.bean.IventBean;
@@ -17,13 +19,21 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 public class BetFaqParser {
 
 	static final private String URL = "https://betfaq.ru";
+	
+	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
+	
+	static{
+		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
+		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
+	}
 
 	public void parseBetFaq() throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
+		
+		logger.info("BetFaq parser starts...");
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			HtmlPage page = (HtmlPage) webClient.getPage(URL);
-			System.out.println("PARSE HAS STARTED");
 			List<IventBean> beans = new ArrayList<>();		
 			for (DomElement sport : page.getElementById("sticky").getChildElements()) {
 				String sportName = null;
@@ -57,14 +67,19 @@ public class BetFaqParser {
 							&& !tr.getAttribute("class").trim().equals("premium")
 							&& !tr.getAttribute("class").trim().equals("locked-vip")
 							&& !tr.getAttribute("class").trim().equals("foot")) {
+						logger.info("Bean has created.");
 						IventBean bean = new IventBean();
 						Iterator<DomElement> tdChild = tr.getChildElements().iterator();
 						tdChild.next(); // flag
 						DomElement title = tdChild.next(); // title
+						logger.info("Try to get Competision.");
 						String competition = getCompetision(title);
+						logger.info("Try to get Name.");
 						String name = getName(title);
+						logger.info("Try to get Coefficient.");
 						double coefficient = getCoefficient(tdChild.next());
 						String matchUrl = getMatchUrl(title);
+						logger.info("Try parse match bet and description:" + matchUrl);
 						parseMatch(matchUrl, bean);
 						bean.setSport(sportName);
 						bean.setName(name);
@@ -80,9 +95,8 @@ public class BetFaqParser {
 			}
 			DaoFactory.getIventDao().deletBetFaqList();
 			DaoFactory.getIventDao().addIventsList(beans);
-		} finally
-
-		{
+			logger.info("Parser has finished.");
+		} finally{
 			webClient.closeAllWindows();
 		}
 	}
