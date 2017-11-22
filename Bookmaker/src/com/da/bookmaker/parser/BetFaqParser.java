@@ -80,7 +80,9 @@ public class BetFaqParser {
 						double coefficient = getCoefficient(tdChild.next());
 						String matchUrl = getMatchUrl(title);
 						logger.info("Try parse match bet and description:" + matchUrl);
-						parseMatch(matchUrl, bean);
+						if (!parseMatch(matchUrl, bean)){
+							continue;
+						}
 						bean.setSport(sportName);
 						bean.setName(name);
 						bean.setCoefficient(coefficient);
@@ -101,7 +103,7 @@ public class BetFaqParser {
 		}
 	}
 
-	private void parseMatch(String url, IventBean bean) throws Exception {
+	private boolean parseMatch(String url, IventBean bean) throws Exception {
 		WebClient webClient1 = new WebClient(BrowserVersion.CHROME);
 		try {
 
@@ -137,7 +139,10 @@ public class BetFaqParser {
 			iteratorSimpleTest.next();
 			String description = iteratorSimpleTest.next().getTextContent();
 			bean.setDescription(description);
-
+			return true;
+		}catch(Exception e){
+			logger.warn("can not parse sub page", e);
+			return false;
 		} finally {
 			webClient1.closeAllWindows();
 		}

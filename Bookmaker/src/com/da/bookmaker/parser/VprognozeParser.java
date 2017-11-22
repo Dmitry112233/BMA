@@ -41,8 +41,8 @@ public class VprognozeParser extends AbstractParser{
 				beans.addAll(parsePage(url));
 			}
 			
-			DaoFactory.getExpressDao().deleteExpressesList();
-			DaoFactory.getIventDao().deleteIventsList();
+			DaoFactory.getExpressDao().deleteExpressesList(URL);
+			DaoFactory.getIventDao().deleteIventsList(URL);
 			DaoFactory.getExpressDao().addExpressesList(beans);
 		} catch (Exception ex) {
 			logger.warn("Vprognoze failed! ", ex);
@@ -78,14 +78,14 @@ public class VprognozeParser extends AbstractParser{
 				DomElement description = newsChildren.next();
 		
 				ExpressBean bean = new ExpressBean();
-				bean.setIventList(createEvents(expressList));
-		
-				bean.setDescription(description.getTextContent());
 				bean.setDate(getDate(blockMatch));
+				bean.setDescription(description.getTextContent());
+				
 				bean.setSource("https://vprognoze.ru");
+				
+				bean.setIventList(createEvents(expressList, bean));
 		
 				logger.debug( "bean was created: " + bean);
-				
 				beans.add(bean);
 			}
 			return beans;
@@ -103,7 +103,7 @@ public class VprognozeParser extends AbstractParser{
 		return format.parse(str);
 	}
 
-	private ArrayList<IventBean> createEvents(DomElement expressList) {
+	private ArrayList<IventBean> createEvents(DomElement expressList, ExpressBean express) {
 		ArrayList<IventBean> list = new ArrayList<>();
 
 		String competition = null;
@@ -122,6 +122,8 @@ public class VprognozeParser extends AbstractParser{
 				bean.setBet(datas[3].trim());
 				bean.setCoefficient(Double.parseDouble(datas[6].trim()));
 				bean.setCompetition(competition);
+				bean.setDate(express.getDate());
+				bean.setSource(URL);
 
 				logger.debug("Event was created : " + bean);
 				

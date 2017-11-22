@@ -5,10 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +44,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 
 	private final static String LINKED_IVENT_LIST = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) VALUES (?,?)";
 
-	private final static String DELETE_EXPRESSES_LIST = "DELETE FROM EXPRESSES WHERE SOURCE = 'https://vprognoze.ru' ";
+	private final static String DELETE_EXPRESSES_LIST = "DELETE FROM EXPRESSES WHERE SOURCE = ? ";
 
 	private DataSource dataSource;
 
@@ -139,9 +136,9 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	}
 
 	@Override
-	public void deleteExpressesList() throws DaoException {
+	public void deleteExpressesList(String url) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		template.update(DELETE_EXPRESSES_LIST);
+		template.update(DELETE_EXPRESSES_LIST, url);
 	}
 
 	private void addExpress(ExpressBean express) {

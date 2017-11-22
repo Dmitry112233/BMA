@@ -18,7 +18,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import com.da.bookmaker.bean.IventBean;
-import com.da.bookmaker.bean.NewsBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.IventDao;
 
@@ -33,7 +32,7 @@ public class IventDaoTemplateImpl implements IventDao {
 
 	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE) VALUES (?,?,?,?,?,?,?,?)";
 
-	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT) AND SOURCE_IVENT <> 'https://betfaq.ru'";
+	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT) AND SOURCE_IVENT = ?";
 	
 	private final static String GET_EVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru'";
 
@@ -111,9 +110,9 @@ public class IventDaoTemplateImpl implements IventDao {
 	}
 
 	@Override
-	public void deleteIventsList() throws DaoException {
+	public void deleteIventsList(String url) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		template.update(DELETE_IVENTS_LIST);
+		template.update(DELETE_IVENTS_LIST, url);
 	}
 	
 

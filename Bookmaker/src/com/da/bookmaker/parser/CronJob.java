@@ -14,6 +14,10 @@ public class CronJob implements ServletContextListener {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public static void main(String[] args) {
+		new VprognozeParser().parseVprognoze();
+	}
 
 	@SuppressWarnings("resource")
 	@Override
