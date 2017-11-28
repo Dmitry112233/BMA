@@ -12,15 +12,15 @@
 <bean id="betFaq" class="com.da.bookmaker.parser.BetFaqParser"></bean>
 
  <task:scheduled-tasks>
- 	<task:scheduled ref="betFaq" method="parseBetFaq" cron="0 */5 * * * ?"/>                                            
+ 	<task:scheduled ref="betFaq" method="parseBetFaq" cron="0 0 */1 * * ?"/>                                            
  </task:scheduled-tasks>
  
  <task:scheduled-tasks>
- 	<task:scheduled ref="rss" method="parseRss" cron="0 */5 * * * ?"/>                                            
+ 	<task:scheduled ref="rss" method="parseRss" cron="0 0 */1 * * ?"/>                                            
  </task:scheduled-tasks>
  
 <task:scheduled-tasks>
- 	<task:scheduled ref="vprognoze" method="parseVprognoze" cron="0 */5 * * * ?"/>
+ 	<task:scheduled ref="vprognoze" method="parseVprognoze" cron="0 0 */1 * * ?"/>
 </task:scheduled-tasks>
 
 
