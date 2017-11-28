@@ -87,7 +87,7 @@ public class BetFaqParser {
 						bean.setName(name);
 						bean.setCoefficient(coefficient);
 						bean.setCompetition(competition);
-						bean.setSource("https://betfaq.ru");
+						bean.setSource(URL);
 						bean.setDate(new Date());
 						beans.add(bean);
 						System.out.println(bean.getSport() + " " + bean.getName() + " " + bean.getCompetition() + " "
@@ -110,11 +110,11 @@ public class BetFaqParser {
 			webClient1.getOptions().setThrowExceptionOnScriptError(false);
 			HtmlPage page = (HtmlPage) webClient1.getPage(url);
 			Iterator<DomElement> iterator = page.getElementById("content").getChildElements().iterator();
-			DomElement item1 = iterator.next();
-			item1 = iterator.next();
-			item1 = iterator.next();
-			item1 = iterator.next();
-			item1 = iterator.next();
+			iterator.next();
+			iterator.next();
+			iterator.next();
+			iterator.next();
+			iterator.next();
 			DomElement grid10 = iterator.next(); // grid_10
 			DomElement grayBg = grid10.getFirstElementChild();
 			DomElement prognozSoccer = grayBg.getFirstElementChild();

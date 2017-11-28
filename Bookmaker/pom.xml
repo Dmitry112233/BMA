@@ -71,5 +71,10 @@
 			<artifactId>spring-integration-core</artifactId>
 			<version>4.3.9.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>Bookmaker</groupId>
+			<artifactId>bookmaker-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

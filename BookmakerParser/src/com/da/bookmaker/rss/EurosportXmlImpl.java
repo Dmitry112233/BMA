@@ -8,19 +8,13 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
-import javax.servlet.annotation.WebListener;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.springframework.scheduling.annotation.Scheduled;
-
 import com.da.bookmaker.bean.NewsBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
-import com.da.bookmaker.parser.VprognozeParser;
 import com.da.bookmaker.rss.eurosport.Channel;
 import com.da.bookmaker.rss.eurosport.Item;
 import com.da.bookmaker.rss.eurosport.Rss;
@@ -54,7 +48,16 @@ public class EurosportXmlImpl {
 			if (root.getChannels() != null) {
 				for (Channel channel : root.getChannels()) {
 					for (Item item : channel.getItems()) {
-						NewsBean bean = new NewsBean(item);
+						NewsBean bean = new NewsBean();
+						if (item.getCategorys().size() > 0){
+							bean.setSport(item.getCategorys().get(0));
+						}
+						if (item.getCategorys().size() > 1){
+							bean.setCompetition(item.getCategorys().get(1));
+						}
+						bean.setDescription(item.getDescription());
+						bean.setImage(item.getImage().getUrl());
+						bean.setTitle(item.getTitle());
 						buffer.add(bean);
 						System.out.println(bean.getTitle());
 					}

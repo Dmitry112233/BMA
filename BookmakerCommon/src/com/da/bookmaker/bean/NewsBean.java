@@ -1,15 +1,9 @@
 package com.da.bookmaker.bean;
 
-import com.da.bookmaker.rss.eurosport.Item;
-
 public class NewsBean {
-	
+
 	private long id;
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	
 	private String sport;
 	
 	private String competition;
@@ -20,20 +14,24 @@ public class NewsBean {
 	
 	private String title;
 
-	public NewsBean(Item item) {
-		if (item.getCategorys().size() > 0){
-			this.sport = item.getCategorys().get(0);
-		}
-		if (item.getCategorys().size() > 1){
-			this.competition = item.getCategorys().get(1);
-		}
-		this.description = item.getDescription();
-		this.image = item.getImage().getUrl();
-		this.title = item.getTitle();
+//	public NewsBean(Item item) {
+//		if (item.getCategorys().size() > 0){
+//			this.sport = item.getCategorys().get(0);
+//		}
+//		if (item.getCategorys().size() > 1){
+//			this.competition = item.getCategorys().get(1);
+//		}
+//		this.description = item.getDescription();
+//		this.image = item.getImage().getUrl();
+//		this.title = item.getTitle();
+//	}
+	
+	public long getId() {
+		return id;
 	}
 	
-	public NewsBean() {
-		// TODO Auto-generated constructor stub
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getTitle() {

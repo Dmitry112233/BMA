@@ -123,6 +123,7 @@ public class IventDaoTemplateImpl implements IventDao {
 		
 		template.query(GET_EVENTS_LIST, new RowMapper<IventBean>() {
 
+			@SuppressWarnings("unchecked")
 			@Override
 			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				String sport = rs.getString("SPORT");
