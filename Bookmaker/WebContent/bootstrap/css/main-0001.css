@@ -462,6 +462,15 @@ a {
 	display: block;
 }
 
+.BMALogo {
+	height: 46px;
+	padding-top: 2px;
+}
+
+.navbar-brand {
+	padding: 2px 15px;
+}
+
 /* адаптивная верстка */
 @media (max-width: 1305px) {
 	.topbutton {
