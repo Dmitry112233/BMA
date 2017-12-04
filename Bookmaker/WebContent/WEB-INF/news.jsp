@@ -2,9 +2,9 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Новости...</title>
-      <meta name="Description" content="Новости..."/>
-      <meta name="Keywords" content="Новости..."/>
+      <title>Новости спорта - футбол, хоккей, теннис, баскетбол</title>
+      <meta name="Description" content="Самые свежие новости мирового спорта с обзорами и фото"/>
+      <meta name="Keywords" content="последние новости спорт футбол теннис хоккей баскетбол фигурное катание"/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
@@ -29,7 +29,7 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="row">
-            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Новости...</div>
+            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Самые свежие новости мирового спорта.</div>
          </div>
       </div>
       <div class="container">

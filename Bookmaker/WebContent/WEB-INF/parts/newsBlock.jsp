@@ -16,6 +16,6 @@
       </div>   
       <h3>${newsItem.title}</h3>
       <p>${newsItem.description}</p>
-      <img class="newsPic" src="${newsItem.image}"></img>
+      <img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img>
    </c:forEach>
 </div>
