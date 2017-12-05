@@ -238,6 +238,7 @@ a {
 	list-style-type: none;
 	margin-top: 15px;
 	margin-left: 50px;
+	text-align: center;
 }
 
 .footerMenu li {
@@ -463,12 +464,12 @@ a {
 }
 
 .BMALogo {
-	height: 46px;
+	height: 38px;
 	padding-top: 2px;
 }
 
 .navbar-brand {
-	padding: 2px 15px;
+	padding: 6px 15px;
 }
 
 /* адаптивная верстка */
@@ -484,8 +485,22 @@ a {
 	}
 	
 	.footerMenu {
-		margin-left: 0px;
 		padding-left: 0px;
+		margin-left: 0px;
+		margin-bottom: 5px;
+		margin-top: 5px;	
+		text-align: center;
+	}	
+	
+	.footerMenu li {		
+		padding-right: 10px;
+		padding-left: 10px;
+		margin-top: 10px; 
+		margin-bottom: 20px;		
+	}
+	
+	.tobkbut {
+		display: none;
 	}
 }
 
@@ -494,7 +509,7 @@ a {
 		width: 157.5px;
 	}
 	
-	.tobkbut {
+	.tobkbut, .toBkDescr {
 		display: none;
 	}
 	
@@ -518,6 +533,15 @@ a {
 		margin-top: 5px;	
 		text-align: center;
 	}	
+	
+	.navbar-right {
+		float: left !important;
+		margin-left: -15px;
+	}
+	
+	.navbar-brand {
+		padding-left: 0px;
+	}
 }
 
 @media (max-width: 768px) {
@@ -525,7 +549,7 @@ a {
 		width: 157.5px;
 	}
 	
-	.tobkbut {
+	.tobkbut, .toBkDescr {
 		display: none;
 	}
 	
