@@ -4,11 +4,12 @@ Disallow: */maven
 Disallow: */admin
 Disallow: */bookmaker-servlet.xml
 Disallow: */web.xml
-Disallow: /404.html
+Disallow: */404.jsp
 Disallow: /index.html
 Disallow: /.htaccess
 Disallow: /MANIFEST.MF
 Disallow: */parts/topAdBanner.jsp
+Disallow: */parts/404part.jsp
 Disallow: /$
 Allow: /*.jsp
 Allow: /*.spr

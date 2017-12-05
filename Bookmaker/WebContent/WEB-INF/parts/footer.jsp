@@ -2,16 +2,16 @@
 <div id="footer" class="container">
    <div class="row">
       <div class="col-lg-2 col-md-3 col-sm-3 col-xs-5">
-         <a class="miniLogo" href="Index.spr"><b>BestBet</b></a>
+         <a class="miniLogo" href="Bookmakers.spr"><b>BestBet</b></a>
          <p>© 2017</p>
       </div>
       <div class="col-lg-10 col-md-9 col-sm-9 col-xs-7">
          <div class="icons">Icons designed by <a rel="nofollow" target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a rel="nofollow" target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
          <ul class="footerMenu">
-            <li><a href="Index.spr">Ставка дня</a></li>
-            <li><a href="ExpressesList.spr">Экспрессы</a></li>
-            <li><a href="EventsList.spr">Прогнозы</a></li>
             <li><a href="Bookmakers.spr">Букмекеры</a></li>
+            <li><a href="ExpressesList.spr">Экспрессы</a></li>
+            <li><a href="EventsList.spr">Прогнозы</a></li>            
+            <li><a href="Index.spr">Ставка дня</a></li>
             <li><a href="News.spr">Новости</a></li>
             <li><a href="FAQList.spr">Теория</a></li>
          </ul>         
