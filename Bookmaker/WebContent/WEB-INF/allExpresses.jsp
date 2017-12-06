@@ -2,7 +2,7 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Подборка лучших ставок на спорт</title>      
+      <title>Подборка лучших экспрессов на спорт</title>      
       <meta name="Description" content="Подборка актуальных экспрессов с наилучшими коэффициентами и большой проходимостью со всей сети"/>      
       <meta name="Keywords" content="ставки на спорт букмекеры прогнозы экспресс bet лучшая прогноз букмекер футбол теннис хоккей"/>
       <meta name="viewport" content="width=device-width, initial-scale=1">

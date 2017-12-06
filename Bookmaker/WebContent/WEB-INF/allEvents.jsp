@@ -2,9 +2,9 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Прогнозы на спорт...</title>      
-      <meta name="Description" content="Прогнозы на спорт..."/>      
-      <meta name="Keywords" content="прогнозы..."/>
+      <title>Подборка лучших ставок на спорт от профессионалов</title>      
+      <meta name="Description" content="Подборка одиночных ставок на спорт с проходимостью более 70 процентов и большими коэффициентами от профессиональной команды аналитиков"/>      
+      <meta name="Keywords" content="ставки на спорт прогнозы ординар bet лучшая прогноз букмекер футбол теннис хоккей баскетбол"/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
@@ -29,7 +29,7 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="row">
-            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Прогнозы на спорт...</div>
+            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Подборка одиночных ставок на спорт с проходимостью более 70 процентов и большими коэффициентами от профессиональной команды аналитиков.</div>
          </div>
       </div>
       <div class="container">
