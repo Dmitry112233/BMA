@@ -18,12 +18,11 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-
-public class VprognozeParser extends AbstractParser{
+public class VprognozeParser {
 
 	private static final Logger logger = Logger.getLogger(VprognozeParser.class);
 	
-	private static final String URL =  "vprognoze.ru";
+	private static final String URL =  "https://vprognoze.ru";
 	
 	static{
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
@@ -37,7 +36,9 @@ public class VprognozeParser extends AbstractParser{
 		try {
 			List<ExpressBean> beans = new ArrayList<>();
 			for (int i = 1; i < 5; i++) {
-				String url = getProxyUrl(URL, i == 1?"/express/":"/express/page/" + i + "/");
+				String page = (i == 1?"/express/":"/express/page/" + i + "/");
+				String url = URL + page;
+				// String url = getProxyUrl(URL, i == 1?"/express/":"/express/page/" + i + "/");
 				beans.addAll(parsePage(url));
 			}
 			
@@ -81,7 +82,7 @@ public class VprognozeParser extends AbstractParser{
 				bean.setDate(getDate(blockMatch));
 				bean.setDescription(description.getTextContent());
 				
-				bean.setSource("https://vprognoze.ru");
+				bean.setSource(URL);
 				
 				bean.setIventList(createEvents(expressList, bean));
 		
