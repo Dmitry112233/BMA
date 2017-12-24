@@ -18,11 +18,11 @@ import com.da.bookmaker.dao.DaoException;
 public class BookmakerDaoTemplateImpl implements BookmakerDao{
 
 	private final static String GET_ALL_BOOKMAKERS = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
-	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT FROM BOOKMAKERS";
+	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT FROM BOOKMAKERS";
 
 
 	private static final String GET_BY_NAME = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
-	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT FROM BOOKMAKERS WHERE NAME = ?";
+	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT FROM BOOKMAKERS WHERE NAME = ?";
 	
 	
 	private DataSource dataSource;
@@ -56,6 +56,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setLine(rs.getInt("LINE"));
 				bookmaker.setUsability(rs.getInt("USABILITY"));
 				bookmaker.setResult(rs.getInt("RESULT"));
+				bookmaker.setWeight(rs.getInt("WEIGHT"));
 				return bookmaker;
 			}
 		}); 
@@ -88,6 +89,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setLine(rs.getInt("LINE"));
 				bookmaker.setUsability(rs.getInt("USABILITY"));
 				bookmaker.setResult(rs.getInt("RESULT"));
+				bookmaker.setWeight(rs.getInt("WEIGHT"));
 				return bookmaker;
 			}
 		}); 

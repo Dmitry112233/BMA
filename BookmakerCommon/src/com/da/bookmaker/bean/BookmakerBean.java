@@ -28,6 +28,16 @@ public class BookmakerBean {
 	
 	private int result;
 
+	private int weight;
+	
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
 	public String getMinuses() {
 		return minuses;
 	}
