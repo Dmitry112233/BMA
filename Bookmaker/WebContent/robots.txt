@@ -14,9 +14,9 @@ Disallow: /$
 Disallow: */Bookmakers.spr
 Disallow: */EventsList.spr
 Disallow: */News.spr
-Disallow: */allEvents.jsp
-Disallow: */allExpresses.jsp
 Disallow: */bkDescription.jsp
+Disallow: */allEvents.jsp
+Disallow: */news.jsp
 Disallow: */parts/bkRating.jsp
 Disallow: */parts/events.jsp
 Disallow: */parts/newsBlock.jsp
