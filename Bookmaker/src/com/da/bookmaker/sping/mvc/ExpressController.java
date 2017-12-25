@@ -39,22 +39,9 @@ public class ExpressController extends BookmakerController{
 		ArrayList<BookmakerBean> bookmakerWeightList = new ArrayList<>();
 		
 		for (BookmakerBean bean : bookmakerList.values()){
-			if(bean.getName().equals("1xBet")){
-				for(int i = 0; i<=bean.getWeight() - 1; i++){
+				for(int i = 0; i <=bean.getWeight() - 1; i++){
 					bookmakerWeightList.add(bean);
 				}
-			}
-			if(bean.getName().equals("БК ЛЕОН")) {
-				for(int i = 0; i<=bean.getWeight() - 1; i++){
-					bookmakerWeightList.add(bean);
-				}
-			}
-			if(bean.getName().equals("Лига Ставок")) {
-				for(int i = 0; i<=bean.getWeight() - 1; i++){
-					bookmakerWeightList.add(bean);
-				}
-			}
-
 	   }
 		
 		mapWeight.put("BookmakerWeightList", bookmakerWeightList);

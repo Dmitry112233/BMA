@@ -14,7 +14,7 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class MainPageController extends BookmakerController {
 
-	@RequestMapping("/Index.spr")
+	@RequestMapping("/DayBet.spr")
 	public ModelAndView index() throws DaoException {
 		Map<String, Object> map = getMainList();
 		map.putAll(getBookmakerList());
