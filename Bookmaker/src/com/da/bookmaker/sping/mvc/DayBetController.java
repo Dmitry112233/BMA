@@ -12,7 +12,7 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class MainPageController extends BookmakerController {
+public class DayBetController extends BookmakerController {
 
 	@RequestMapping("/DayBet.spr")
 	public ModelAndView index() throws DaoException {
