@@ -67,6 +67,7 @@ public class EurosportXmlImpl {
 			DaoFactory.getNewsDao().addNewsList(buffer);
 			
 		} catch (JAXBException | DaoException e) {
+			e.printStackTrace();
 		}
 	}
 
