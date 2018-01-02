@@ -17,7 +17,7 @@
                   	<li class="${param.fourthMenu == 'true'?'active':''}"><a href="Bookmakers.spr">Букмекеры</a></li>
                   	<li class="${param.secondMenu == 'true'?'active':''}"><a href="ExpressesList.spr">Экспрессы</a></li>
                   	<li class="${param.sixthMenu == 'true'?'active':''}"><a href="EventsList.spr">Прогнозы</a></li>                  	
-                  	<li class="${param.firstMenu == 'true'?'active':''}"><a href="Index.spr">Ставка дня</a></li>
+                  	<li class="${param.firstMenu == 'true'?'active':''}"><a href="DayBet.spr">Ставка дня</a></li>
                   	<li class="${param.fifthMenu == 'true'?'active':''}"><a href="News.spr">Новости</a></li>
                   	<li class="${param.therdMenu == 'true'?'active':''}"><a href="FAQList.spr">Теория</a></li>
                   	<li class="${param.noneMenu == 'true'?'fakeMenu':''}"></li>                  	

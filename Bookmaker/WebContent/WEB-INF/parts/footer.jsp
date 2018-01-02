@@ -11,7 +11,7 @@
             <li><a href="Bookmakers.spr">Букмекеры</a></li>
             <li><a href="ExpressesList.spr">Экспрессы</a></li>
             <li><a href="EventsList.spr">Прогнозы</a></li>            
-            <li><a href="Index.spr">Ставка дня</a></li>
+            <li><a href="DayBet.spr">Ставка дня</a></li>
             <li><a href="News.spr">Новости</a></li>
             <li><a href="FAQList.spr">Теория</a></li>
          </ul>         
