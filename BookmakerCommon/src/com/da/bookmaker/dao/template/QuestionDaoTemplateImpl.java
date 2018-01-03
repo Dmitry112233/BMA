@@ -16,6 +16,8 @@ import com.da.bookmaker.dao.QuestionDao;
 public class QuestionDaoTemplateImpl implements QuestionDao {
 
 	private final static String GET_ALL_QUESTIONS = "SELECT ID, QUESTION, ANSWER FROM QUESTIONS";
+	
+	private final static String GET_ALL_VIDEOS = "SELECT ID, QUESTION, VIDEO FROM QUESTIONS WHERE VIDEO IS NOT NULL";
 
 	private DataSource dataSource;
 
@@ -38,6 +40,23 @@ public class QuestionDaoTemplateImpl implements QuestionDao {
 				question.setQuestionID(rs.getLong("ID"));
 				question.setQuestion(rs.getString("QUESTION"));
 				question.setAnswer(rs.getString("ANSWER"));
+				return question;
+			}
+		});
+		return list;
+	}
+
+	@Override
+	public List<QuestionBean> getAllVideos() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<QuestionBean> list = template.query(GET_ALL_VIDEOS, new RowMapper<QuestionBean>() {
+
+			@Override
+			public QuestionBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				QuestionBean question = new QuestionBean();
+				question.setQuestionID(rs.getLong("ID"));
+				question.setQuestion(rs.getString("QUESTION"));
+				question.setVideo(rs.getString("VIDEO"));
 				return question;
 			}
 		});
