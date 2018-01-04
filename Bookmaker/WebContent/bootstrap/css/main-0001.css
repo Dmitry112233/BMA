@@ -45,7 +45,7 @@ h1 {
 	position: relative;
 }
 
-#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf {
+#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #videoPart {
 	float: right;
 	height: auto;
 	background: #efefef;
@@ -54,7 +54,7 @@ h1 {
 	box-shadow: inset 1px 1px 5px -2px black;
 }
 
-#allExp hr, #allEv hr, #bkReitBlock hr, #newsBlock hr, #allEv hr {
+#allExp hr, #allEv hr, #bkReitBlock hr, #newsBlock hr, #allEv hr, #videoPart hr {
 	border: none;
 	background-color: #5f5f5f;
 	height: 3px;
@@ -76,7 +76,7 @@ h1 {
 	width: 262.5px;
 }
 
-.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2, #newsBlock h2, #allEv h2, #pnf h2 {
+.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2, #newsBlock h2, #allEv h2, #pnf h2, #videoPart h2 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -243,7 +243,7 @@ a {
 
 .footerMenu li {
 	display: inline-block;
-	padding-right: 60px;		
+	padding-right: 40px;		
 }
 
 .footerMenu li a {
@@ -274,7 +274,7 @@ a {
 	color: white;
 }
 
-#textLessons a {
+#textLessons a, #videoPart a {
 	text-decoration: underline;
 	cursor: pointer;
 }
@@ -400,7 +400,7 @@ a {
 	text-decoration: underline;
 }
 
-#newsBlock h3 {
+#newsBlock h3, #videoPart h3 {
 	font-size: 18px;
 	text-align: center;
 	margin-top: 10px;
@@ -414,12 +414,16 @@ a {
 	font-weight: bold;
 }
 
-.newsPic {
+.newsPic, .video {
 	width: 60%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid #5f5f5f;
+}
+
+.video {
+	height: 300px;
 }
 
 .newsComp {
@@ -472,6 +476,28 @@ a {
 	padding: 6px 15px;
 }
 
+.dropdown-menu {
+	background-color: #333;
+	border-radius: 0; 
+	
+}
+
+.dropdown-menu .active a, .dropdown-menu .active a:hover, .dropdown-menu .active a:focus {
+	background-color: #6f6f6f;			
+}
+
+.dropdown-menu li a {
+	color: #c6c6c6;
+	font-size: 12pt;
+	font-family: Ubuntu;
+	font-weight: bold;
+}
+
+.dropdown-menu li a:hover {
+	background-color: #333;
+	color: #fff;
+}
+
 /* адаптивная верстка */
 @media (max-width: 1305px) {
 	.topbutton {
@@ -502,7 +528,13 @@ a {
 	.tobkbut {
 		display: none;
 	}
+	
+	.video {
+	height: 200px;
+	}
 }
+
+
 
 @media (min-width: 768px) and (max-width: 992px) {
 	.bkListContent {
@@ -520,8 +552,8 @@ a {
 	}
 	
 	.footerMenu li {		
-		padding-right: 10px;
-		padding-left: 10px;
+		padding-right: 4px;
+		padding-left: 4px;
 		margin-top: 10px; 
 		margin-bottom: 20px;		
 	}
@@ -541,6 +573,10 @@ a {
 	
 	.navbar-brand {
 		padding-left: 0px;
+	}
+	
+	.video {
+	height: 150px;
 	}
 }
 
@@ -594,5 +630,9 @@ a {
 		font-size: 10pt;
 		padding-left: 2px;
 		padding-right: 2px;		 
-	}		
+	}
+	
+	.video {
+	height: 150px;
+	}
 }
