@@ -14,6 +14,7 @@
             <li><a href="DayBet.spr">Ставка дня</a></li>
             <li><a href="News.spr">Новости</a></li>
             <li><a href="FAQList.spr">Теория</a></li>
+            <li><a href="VedioList.spr">Видео</a></li>
          </ul>         
       </div>
    </div>      

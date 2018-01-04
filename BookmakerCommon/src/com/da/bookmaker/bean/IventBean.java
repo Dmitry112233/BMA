@@ -135,10 +135,13 @@ public class IventBean {
 		if (this.competition.contains("Киберспорт")) {
 			return "bootstrap/img/sportsIcons/cybersport.png";
 		}
+		if (this.competition.contains("Бильярд")) {
+			return "bootstrap/img/sportsIcons/pool.png";
+		}
 		if (this.competition.contains("Бадминтон")) {
 			return "bootstrap/img/sportsIcons/racket.png";
 		} else {
-			return null;
+			return "bootstrap/img/sportsIcons/podium.png";
 		}
 	}
 
