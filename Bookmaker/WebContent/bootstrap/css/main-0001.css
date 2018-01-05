@@ -30,7 +30,7 @@ h1 {
 #footer {
 	position: relative;
 	background: #2b2b2b;
-	height: 70px;
+	height: 152px;
 	color: #9d9d9d;
 }
 
@@ -235,43 +235,35 @@ a {
 }
 
 .footerMenu {
-	list-style-type: none;
-	margin-top: 15px;
-	margin-left: 50px;
-	text-align: center;
+	list-style-type: none;	
+	text-align: center;	
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
-.footerMenu li {
-	display: inline-block;
-	padding-right: 40px;		
+.Alogo {
+	text-align: center;
+	display: block;	
 }
 
 .footerMenu li a {
-	color: #c6c6c6;
-	text-decoration: underline;
+	color: #c6c6c6;	
 }
 
 .footerMenu li a:hover {
 	color: white;
 }
 
-.miniLogo, #footer p {
-	margin-left: 20px;
+#footer p {	
 	color: #c6c6c6;
+}
+
+.menuName {
+	font-size: 16pt;
 }
 
 #dayexp p, #allExp p, #allEv p {
 	margin-left: 10px;	
-}
-
-.miniLogo {
-	color: #c6c6c6;
-	font-size: 18px;
-	line-height: 40px;
-}
-
-.miniLogo:hover {
-	color: white;
 }
 
 #textLessons a, #videoPart a {
@@ -498,6 +490,12 @@ a {
 	color: #fff;
 }
 
+.BMAminiLogo {
+	height: 20px;
+	margin-top: 55px;
+	margin-bottom: 55px;	
+}
+
 /* адаптивная верстка */
 @media (max-width: 1305px) {
 	.topbutton {
@@ -510,33 +508,18 @@ a {
 		width: 212.5px;
 	}
 	
-	.footerMenu {
-		padding-left: 0px;
-		margin-left: 0px;
-		margin-bottom: 5px;
-		margin-top: 5px;	
-		text-align: center;
-	}	
-	
-	.footerMenu li {		
-		padding-right: 10px;
-		padding-left: 10px;
-		margin-top: 10px; 
-		margin-bottom: 20px;		
-	}
-	
 	.tobkbut {
 		display: none;
 	}
 	
 	.video {
-	height: 200px;
+		height: 200px;
 	}
 }
 
 
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 991px) {
 	.bkListContent {
 		width: 157.5px;
 	}
@@ -552,18 +535,9 @@ a {
 	}
 	
 	.footerMenu li {		
-		padding-right: 4px;
-		padding-left: 4px;
-		margin-top: 10px; 
-		margin-bottom: 20px;		
 	}
 	
 	.footerMenu {
-		padding-left: 0px;
-		margin-left: 0px;
-		margin-bottom: 5px;
-		margin-top: 5px;	
-		text-align: center;
 	}	
 	
 	.navbar-right {
@@ -576,11 +550,11 @@ a {
 	}
 	
 	.video {
-	height: 150px;
+		height: 150px;
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.bkListContent {
 		width: 157.5px;
 	}
@@ -598,10 +572,6 @@ a {
 		height: auto;
 	}
 	
-	.footerMenu {
-		margin-top: 0px;
-	}
-	
 	.bkListContent h2 {
 		display: none;
 	}
@@ -611,15 +581,13 @@ a {
 	}
 	
 	.footerMenu {
-		padding-left: 0px;
-		margin-left: 0px;
-		margin-bottom: 5px;
-		text-align: right;
+		margin-top: 0px;
+		margin-bottom: 11px;
 	}
 	
-	.footerMenu li {
-		display: block;
-		padding-right: 5px;
+	.BMAminiLogo {
+		margin-top: 0px;
+		margin-bottom: 11px;
 	}
 	
 	.icons {
@@ -633,6 +601,6 @@ a {
 	}
 	
 	.video {
-	height: 150px;
+		height: 150px;
 	}
 }
