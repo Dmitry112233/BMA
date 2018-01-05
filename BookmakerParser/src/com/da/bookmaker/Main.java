@@ -2,16 +2,20 @@ package com.da.bookmaker;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.da.bookmaker.rss.EurosportXmlImpl;
+
 public class Main {
 
 	@SuppressWarnings("resource")
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws Exception {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				new ClassPathXmlApplicationContext("springCron.xml");
 			}
 		}).start();
+		
+		new EurosportXmlImpl().parseRss();
 		
 
 	}
