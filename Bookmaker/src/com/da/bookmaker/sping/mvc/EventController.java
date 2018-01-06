@@ -26,10 +26,10 @@ public class EventController extends BookmakerController{
 		Map<String, Object> map = getIventList();
 		List<String> sports = getSortedSports(map.keySet());
 		map.put("sports", sports);
-		map.putAll(getBookmakerWeight());
+		//map.putAll(getBookmakerWeight());
 		ModelAndView modelAndView = new ModelAndView("allEvents");
 		modelAndView.addAllObjects(getBookmakerList());
-		
+		modelAndView.addAllObjects(getBookmakerWeight());
 		modelAndView.addObject("allEvents", map);
 		return modelAndView;
 	}
