@@ -8,7 +8,7 @@
             <li>
                <a rel="nofollow" href="${bookmaker.link}" target="_blank" class="bmlogo"><img class="tilt" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>
                <a class="toBkDescr" href="Bookmakers.spr#bk_id_${bookmaker.bookMakerId}">Обзор</a> 				
-               <a rel="nofollow" class="tobkbut" target="_blank" href="${bookmaker.link}">На сайт</a>        
+               <a rel="nofollow" class="tobkbut" target="_blank" href="Counter.spr?id=${bookmaker.bookMakerId}">На сайт</a>        
             </li>
          </c:forEach>
       </ol>

@@ -24,6 +24,12 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 	private static final String GET_BY_NAME = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
 	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT FROM BOOKMAKERS WHERE NAME = ?";
 	
+	private static final String UPDATE_BOOKMAKER_BY_ID = "UPDATE BOOKMAKERS SET COUNTER = ? WHERE ID = ?";
+	
+	
+	private static final String GET_BY_ID = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
+			"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT, COUNTER FROM BOOKMAKERS WHERE ID = ?";
+	
 	
 	private DataSource dataSource;
 
@@ -97,6 +103,48 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 			return list.get(0);
 		} else {
 			return null;
+		}
+	}
+
+	@Override
+	public BookmakerBean getById(long id) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<BookmakerBean> list = template.query(GET_BY_ID , new Object[]{id}, new RowMapper<BookmakerBean>() {
+
+			@Override
+			public BookmakerBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				BookmakerBean bookmaker = new BookmakerBean();
+				bookmaker.setBookMakerId(rs.getLong("ID"));
+				bookmaker.setName(rs.getString("NAME"));
+				bookmaker.setLink(rs.getString("LINK"));
+				bookmaker.setImage(rs.getString("IMAGE"));
+				bookmaker.setDescription(rs.getString("DESCRIPTION"));
+				bookmaker.setPluses(rs.getString("PLUSES"));
+				bookmaker.setMinuses(rs.getString("MINUSES"));
+				bookmaker.setCurrency(rs.getString("CURRENCY"));
+				bookmaker.setPayments(rs.getString("PAYMENTS"));
+				bookmaker.setReliability(rs.getShort("RELIABILITY"));
+				bookmaker.setLine(rs.getInt("LINE"));
+				bookmaker.setUsability(rs.getInt("USABILITY"));
+				bookmaker.setResult(rs.getInt("RESULT"));
+				bookmaker.setWeight(rs.getInt("WEIGHT"));
+				bookmaker.setCounter(rs.getInt("COUNTER"));
+				return bookmaker;
+			}
+		}); 
+		if (list.size() >0){
+			return list.get(0);
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void updBookmakerById(long id, BookmakerBean bean) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		int count = template.update(UPDATE_BOOKMAKER_BY_ID, bean.getCounter(), id);
+		if (count == 0) {
+			throw new DaoException("Bookmaker ID hasn't founded");
 		}
 	}
 }
