@@ -15,11 +15,7 @@ public class CounterController {
 	public String setBookmakerCounter(@RequestParam("id") long id) throws DaoException {
 		
 		BookmakerBean bean = DaoFactory.getBookmakerDao().getById(id);
-		bean.setCounter(bean.getCounter() + 1);
-		DaoFactory.getBookmakerDao().updBookmakerById(id, bean);
-		
-		
-		// return new RedirectView(bean.getLink());
+		DaoFactory.getBookmakerDao().updBookmakerById(id);
 		return "redirect:" + bean.getLink();
 	}
 }

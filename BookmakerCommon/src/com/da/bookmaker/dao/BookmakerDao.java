@@ -12,5 +12,5 @@ public interface BookmakerDao {
 	
 	BookmakerBean getById(long id) throws DaoException;
 	
-	void updBookmakerById(long id, BookmakerBean bean) throws DaoException;
+	void updBookmakerById(long id) throws DaoException;
 }

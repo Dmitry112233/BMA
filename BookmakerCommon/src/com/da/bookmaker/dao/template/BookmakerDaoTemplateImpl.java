@@ -24,7 +24,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 	private static final String GET_BY_NAME = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
 	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT FROM BOOKMAKERS WHERE NAME = ?";
 	
-	private static final String UPDATE_BOOKMAKER_BY_ID = "UPDATE BOOKMAKERS SET COUNTER = ? WHERE ID = ?";
+	private static final String UPDATE_BOOKMAKER_BY_ID = "UPDATE BOOKMAKERS SET COUNTER = COUNTER + 1 WHERE ID = ?";
 	
 	
 	private static final String GET_BY_ID = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
@@ -140,9 +140,9 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 	}
 
 	@Override
-	public void updBookmakerById(long id, BookmakerBean bean) throws DaoException {
+	public void updBookmakerById(long id) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		int count = template.update(UPDATE_BOOKMAKER_BY_ID, bean.getCounter(), id);
+		int count = template.update(UPDATE_BOOKMAKER_BY_ID, id);
 		if (count == 0) {
 			throw new DaoException("Bookmaker ID hasn't founded");
 		}
