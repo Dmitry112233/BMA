@@ -39,7 +39,7 @@
 			<c:set var="randID">${random.nextInt(countBK)}</c:set>
 			<!-- вывод лучшего БК -->
 			<p>Наилучший коэффициент у </p>
-			<a rel="nofollow" href="${BookmakerWeightList.get(randID).link}" target="_blank"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>
+			<a rel="nofollow" href="Counter.spr?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>
 			</div>
 	      </td>
       </tr>
