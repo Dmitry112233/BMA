@@ -31,8 +31,7 @@ public class QuestionController extends BookmakerController {
 			String str = bean.getAnswer();
 			BookmakerBean xBet = getBookmakerList().get("bookmakerList").get("1xBet");
 			if (str.contains("BKLINKBET")){
-			String replaceString = str.replace("BKLINKBET", "Counter.spr?id=${bookmaker.bookMakerId}");
-			System.out.println(replaceString);
+			String replaceString = str.replace("BKLINKBET", "Counter.spr?id=" + xBet.getBookMakerId());
 			bean.setAnswer(replaceString);
 			}else{
 				continue;
