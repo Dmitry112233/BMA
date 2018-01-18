@@ -21,6 +21,9 @@ import com.da.bookmaker.rss.eurosport.Rss;
 
 public class EurosportXmlImpl {
 	
+	public static void main(String[] args) throws Exception {
+		new EurosportXmlImpl().parseRss();
+	}
 
 	public void parseRss() throws UnknownHostException, IOException, InterruptedException {
 		

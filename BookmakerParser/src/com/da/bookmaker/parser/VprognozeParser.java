@@ -16,6 +16,7 @@ import com.da.bookmaker.dao.DaoFactory;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
+import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class VprognozeParser {
@@ -29,17 +30,20 @@ public class VprognozeParser {
 		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
 	}
 	
+	private HtmlPage page;
+	
 	public void parseVprognoze() {
 		logger.info("Vprognoze parser starts...");
 		
-		
+		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
+			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			List<ExpressBean> beans = new ArrayList<>();
 			for (int i = 1; i < 5; i++) {
 				String page = (i == 1?"/express/":"/express/page/" + i + "/");
 				String url = URL + page;
 				// String url = getProxyUrl(URL, i == 1?"/express/":"/express/page/" + i + "/");
-				beans.addAll(parsePage(url));
+				beans.addAll(parsePage(url, webClient));
 			}
 			
 			DaoFactory.getExpressDao().deleteExpressesList(URL);
@@ -47,52 +51,55 @@ public class VprognozeParser {
 			DaoFactory.getExpressDao().addExpressesList(beans);
 		} catch (Exception ex) {
 			logger.warn("Vprognoze failed! ", ex);
+		}finally{
+			webClient.closeAllWindows();
 		}
 		
 		logger.info("Vprognoze parser finished.");
 	}
 	
-	private List<ExpressBean> parsePage( String url) throws Exception{
-		WebClient webClient = new WebClient(BrowserVersion.CHROME);
-		try{
+	private List<ExpressBean> parsePage( String url, WebClient webClient) throws Exception{
+		
 		logger.info("Vprognoze parse : " + url);
 	
-			webClient.getOptions().setThrowExceptionOnScriptError(false);
-			HtmlPage page = webClient.getPage(url);
-			List<ExpressBean> beans = new ArrayList<>();
+		if (url.endsWith("/express/")){
+			page = webClient.getPage(url);
+		} else {
+			HtmlAnchor anchor = page.getAnchorByHref(url);
+			page = anchor.click();
 			
-			for (DomElement newsBox : page.getElementById("dle-content").getChildElements()) {
-				if (!newsBox.getAttribute("class").equals("news_boxing")) {
-					continue;
-				}
-				Iterator<DomElement> newsBoxChildren = newsBox.getChildElements().iterator();
-				newsBoxChildren.next(); // title_news
-				DomElement news = newsBoxChildren.next(); // news
-		
-				Iterator<DomElement> newsChildren = news.getFirstElementChild().getChildElements().iterator();
-				newsChildren.next();
-				newsChildren.next();
-				DomElement expressList = newsChildren.next();
-				newsChildren.next();
-				DomElement blockMatch = newsChildren.next();
-				newsChildren.next();
-				DomElement description = newsChildren.next();
-		
-				ExpressBean bean = new ExpressBean();
-				bean.setDate(getDate(blockMatch));
-				bean.setDescription(description.getTextContent());
-				
-				bean.setSource(URL);
-				
-				bean.setIventList(createEvents(expressList, bean));
-		
-				logger.debug( "bean was created: " + bean);
-				beans.add(bean);
-			}
-			return beans;
-		}finally{
-			webClient.closeAllWindows();
 		}
+		List<ExpressBean> beans = new ArrayList<>();
+		
+		for (DomElement newsBox : page.getElementById("dle-content").getChildElements()) {
+			if (!newsBox.getAttribute("class").equals("news_boxing")) {
+				continue;
+			}
+			Iterator<DomElement> newsBoxChildren = newsBox.getChildElements().iterator();
+			newsBoxChildren.next(); // title_news
+			DomElement news = newsBoxChildren.next(); // news
+	
+			Iterator<DomElement> newsChildren = news.getFirstElementChild().getChildElements().iterator();
+			newsChildren.next();
+			newsChildren.next();
+			DomElement expressList = newsChildren.next();
+			newsChildren.next();
+			DomElement blockMatch = newsChildren.next();
+			newsChildren.next();
+			DomElement description = newsChildren.next();
+	
+			ExpressBean bean = new ExpressBean();
+			bean.setDate(getDate(blockMatch));
+			bean.setDescription(description.getTextContent());
+			
+			bean.setSource(URL);
+			
+			bean.setIventList(createEvents(expressList, bean));
+	
+			logger.debug( "bean was created: " + bean);
+			beans.add(bean);
+		}
+		return beans;
 	}
 
 	private Date getDate(DomElement blockMatch) throws ParseException {
