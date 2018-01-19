@@ -2,6 +2,8 @@ package com.da.bookmaker;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.da.bookmaker.parser.BetFaqParser;
+import com.da.bookmaker.parser.VprognozeParser;
 import com.da.bookmaker.rss.EurosportXmlImpl;
 
 public class Main {
@@ -16,8 +18,9 @@ public class Main {
 		}).start();
 		
 		new EurosportXmlImpl().parseRss();
+		new VprognozeParser().parseVprognoze();
+		new BetFaqParser().parseBetFaq();
 		
-
 	}
 
 }

@@ -1,10 +1,10 @@
 package com.da.bookmaker.rss;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
@@ -20,42 +20,34 @@ import com.da.bookmaker.rss.eurosport.Item;
 import com.da.bookmaker.rss.eurosport.Rss;
 
 public class EurosportXmlImpl {
+
+	public static final String eurosport = "http://www.eurosport.ru/rss.xml";
 	
-	public static void main(String[] args) throws Exception {
-		new EurosportXmlImpl().parseRss();
-	}
+	public static final File file = new File("D://exe/rss.xml");
 
-	public void parseRss() throws UnknownHostException, IOException, InterruptedException {
-		
+	public void parseRss() throws UnknownHostException, IOException, InterruptedException, URISyntaxException {
+
 		System.out.println("START");
-		URL eurosport = new URL("http://www.eurosport.ru/rss.xml");
-		try (InputStream socketInStream = new BufferedInputStream(eurosport.openStream());) {
 
-			byte[] byteMass = new byte[0];
+		try {
 
-			Thread.sleep(500);
-			int count = 0;
-			while ((count = socketInStream.available()) > 0) {
-				byte[] buffer = new byte[count];
-				socketInStream.read(buffer);
-				byte tmp[] = byteMass;
-				byteMass = new byte[byteMass.length + count];
-				System.arraycopy(tmp, 0, byteMass, 0, tmp.length);
-				System.arraycopy(buffer, 0, byteMass, tmp.length, buffer.length);
-			}
+			Desktop d = Desktop.getDesktop();
+			d.browse(new URI(eurosport));
 
 			Unmarshaller m = JAXBContext.newInstance(Rss.class).createUnmarshaller();
-			Rss root = (Rss) m.unmarshal(new ByteArrayInputStream(byteMass));
+
+            Thread.sleep(5000);
+			Rss root = (Rss) m.unmarshal(file);
 
 			ArrayList<NewsBean> buffer = new ArrayList<>();
 			if (root.getChannels() != null) {
 				for (Channel channel : root.getChannels()) {
 					for (Item item : channel.getItems()) {
 						NewsBean bean = new NewsBean();
-						if (item.getCategorys().size() > 0){
+						if (item.getCategorys().size() > 0) {
 							bean.setSport(item.getCategorys().get(0));
 						}
-						if (item.getCategorys().size() > 1){
+						if (item.getCategorys().size() > 1) {
 							bean.setCompetition(item.getCategorys().get(1));
 						}
 						bean.setDescription(item.getDescription());
@@ -68,7 +60,9 @@ public class EurosportXmlImpl {
 			}
 			DaoFactory.getNewsDao().deleteAllNews();
 			DaoFactory.getNewsDao().addNewsList(buffer);
+			file.delete();
 			
+
 		} catch (JAXBException | DaoException e) {
 			e.printStackTrace();
 		}
