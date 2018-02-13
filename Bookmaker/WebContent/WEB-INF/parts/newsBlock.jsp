@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="newsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <h2>Новости</h2>
+   <h1>Новости</h1>
    <br>
    <!-- переменная для вывода полоски над каждой новостью, кроме первой -->
    <c:set var="separatorNews" value="false" />
