@@ -7,6 +7,16 @@ public class QuestionBean {
 	private String question;
 
 	private String answer;
+	
+	private String video;
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
 
 	public Long getQuestionID() {
 		return questionID;

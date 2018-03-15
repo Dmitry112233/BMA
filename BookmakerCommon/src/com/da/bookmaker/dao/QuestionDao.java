@@ -7,4 +7,6 @@ import com.da.bookmaker.bean.QuestionBean;
 public interface QuestionDao {
 
 	List<QuestionBean> getAllQuestions() throws DaoException;
+	
+	List<QuestionBean> getAllVideos() throws DaoException;
 }

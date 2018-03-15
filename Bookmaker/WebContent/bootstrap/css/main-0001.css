@@ -30,7 +30,7 @@ h1 {
 #footer {
 	position: relative;
 	background: #2b2b2b;
-	height: 70px;
+	height: 152px;
 	color: #9d9d9d;
 }
 
@@ -45,7 +45,7 @@ h1 {
 	position: relative;
 }
 
-#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf {
+#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #videoPart {
 	float: right;
 	height: auto;
 	background: #efefef;
@@ -54,7 +54,7 @@ h1 {
 	box-shadow: inset 1px 1px 5px -2px black;
 }
 
-#allExp hr, #allEv hr, #bkReitBlock hr, #newsBlock hr, #allEv hr {
+#allExp hr, #allEv hr, #bkReitBlock hr, #newsBlock hr, #allEv hr, #videoPart hr {
 	border: none;
 	background-color: #5f5f5f;
 	height: 3px;
@@ -76,7 +76,7 @@ h1 {
 	width: 262.5px;
 }
 
-.bkListContent h1, #dayexp h1, #allExp h1, #textLessons h1, #bkReitBlock h1, #newsBlock h1, #allEv h1, #pnf h1 {
+.bkListContent h1, #dayexp h1, #allExp h1, #textLessons h1, #bkReitBlock h1, #newsBlock h1, #allEv h1, #pnf h1, #videoPart h1 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -235,46 +235,38 @@ a {
 }
 
 .footerMenu {
-	list-style-type: none;
-	margin-top: 15px;
-	margin-left: 50px;
-	text-align: center;
+	list-style-type: none;	
+	text-align: center;	
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
-.footerMenu li {
-	display: inline-block;
-	padding-right: 60px;		
+.Alogo {
+	text-align: center;
+	display: block;	
 }
 
 .footerMenu li a {
-	color: #c6c6c6;
-	text-decoration: underline;
+	color: #c6c6c6;	
 }
 
 .footerMenu li a:hover {
 	color: white;
 }
 
-.miniLogo, #footer p {
-	margin-left: 20px;
+#footer p {	
 	color: #c6c6c6;
 }
 
-#dayexp p, #allExp p, #allEv p {
+.menuName {
+	font-size: 16pt;
+}
+
+#dayexp p, #allExp p {
 	margin-left: 10px;	
 }
 
-.miniLogo {
-	color: #c6c6c6;
-	font-size: 18px;
-	line-height: 40px;
-}
-
-.miniLogo:hover {
-	color: white;
-}
-
-#textLessons a {
+#textLessons a, #videoPart a {
 	text-decoration: underline;
 	cursor: pointer;
 }
@@ -400,7 +392,7 @@ a {
 	text-decoration: underline;
 }
 
-#newsBlock h3 {
+#newsBlock h3, #videoPart h3 {
 	font-size: 18px;
 	text-align: center;
 	margin-top: 10px;
@@ -414,12 +406,16 @@ a {
 	font-weight: bold;
 }
 
-.newsPic {
+.newsPic, .video {
 	width: 60%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid #5f5f5f;
+}
+
+.video {
+	height: 300px;
 }
 
 .newsComp {
@@ -472,6 +468,34 @@ a {
 	padding: 6px 15px;
 }
 
+.dropdown-menu {
+	background-color: #333;
+	border-radius: 0; 
+	
+}
+
+.dropdown-menu .active a, .dropdown-menu .active a:hover, .dropdown-menu .active a:focus {
+	background-color: #6f6f6f;			
+}
+
+.dropdown-menu li a {
+	color: #c6c6c6;
+	font-size: 12pt;
+	font-family: Ubuntu;
+	font-weight: bold;
+}
+
+.dropdown-menu li a:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+.BMAminiLogo {
+	height: 20px;
+	margin-top: 55px;
+	margin-bottom: 55px;	
+}
+
 /* адаптивная верстка */
 @media (max-width: 1305px) {
 	.topbutton {
@@ -484,27 +508,18 @@ a {
 		width: 212.5px;
 	}
 	
-	.footerMenu {
-		padding-left: 0px;
-		margin-left: 0px;
-		margin-bottom: 5px;
-		margin-top: 5px;	
-		text-align: center;
-	}	
-	
-	.footerMenu li {		
-		padding-right: 10px;
-		padding-left: 10px;
-		margin-top: 10px; 
-		margin-bottom: 20px;		
-	}
-	
 	.tobkbut {
 		display: none;
 	}
+	
+	.video {
+		height: 200px;
+	}
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
+
+
+@media (min-width: 768px) and (max-width: 991px) {
 	.bkListContent {
 		width: 157.5px;
 	}
@@ -520,18 +535,9 @@ a {
 	}
 	
 	.footerMenu li {		
-		padding-right: 10px;
-		padding-left: 10px;
-		margin-top: 10px; 
-		margin-bottom: 20px;		
 	}
 	
 	.footerMenu {
-		padding-left: 0px;
-		margin-left: 0px;
-		margin-bottom: 5px;
-		margin-top: 5px;	
-		text-align: center;
 	}	
 	
 	.navbar-right {
@@ -542,9 +548,13 @@ a {
 	.navbar-brand {
 		padding-left: 0px;
 	}
+	
+	.video {
+		height: 150px;
+	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.bkListContent {
 		width: 157.5px;
 	}
@@ -562,10 +572,6 @@ a {
 		height: auto;
 	}
 	
-	.footerMenu {
-		margin-top: 0px;
-	}
-	
 	.bkListContent h2 {
 		display: none;
 	}
@@ -575,15 +581,13 @@ a {
 	}
 	
 	.footerMenu {
-		padding-left: 0px;
-		margin-left: 0px;
-		margin-bottom: 5px;
-		text-align: right;
+		margin-top: 0px;
+		margin-bottom: 11px;
 	}
 	
-	.footerMenu li {
-		display: block;
-		padding-right: 5px;
+	.BMAminiLogo {
+		margin-top: 0px;
+		margin-bottom: 11px;
 	}
 	
 	.icons {
@@ -594,5 +598,9 @@ a {
 		font-size: 10pt;
 		padding-left: 2px;
 		padding-right: 2px;		 
-	}		
+	}
+	
+	.video {
+		height: 150px;
+	}
 }

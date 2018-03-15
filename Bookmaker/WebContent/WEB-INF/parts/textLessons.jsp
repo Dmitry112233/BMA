@@ -8,4 +8,5 @@
 	   <div>${question.answer}</div>
 	   <br>
    </c:forEach>
+   <br><p>Так же смотрите <a href="VideoList.spr">видео-уроки</a>.</p>
 </div>

@@ -24,11 +24,25 @@
       </tr>
       <tr class="slaveLine">
          <td colspan="4" class="expDesc">
-            <input type="checkbox" id="ev-${ivent.iventID}" class="hide"/>
+            <input type="checkbox" id="ev-${ivent.iventID}" class="hide"/>            
             <label for="ev-${ivent.iventID}">Описание прогноза</label>
             <div>${ivent.description}</div>
          </td>
-      </tr>         
+      </tr>
+      <tr class="slaveLine">
+	      <td colspan="4" class="expDesc">
+			<div id="randomBK">
+			<!-- количество букмекеров c учетом веса -->
+			<c:set var="countBK" value="${BookmakerWeightList.size()}" />
+			<!-- лучший ID -->
+			<jsp:useBean id="random" class="java.util.Random" scope="application"/>
+			<c:set var="randID">${random.nextInt(countBK)}</c:set>
+			<!-- вывод лучшего БК -->
+			<p>Наилучший коэффициент у </p>
+			<a rel="nofollow" href="Counter.spr?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>
+			</div>
+	      </td>
+      </tr>
       </c:forEach>
       </table>
       <div class="dataSourse">

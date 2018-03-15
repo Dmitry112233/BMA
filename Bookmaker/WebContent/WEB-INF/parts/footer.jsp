@@ -1,20 +1,27 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<div id="footer" class="container">
+<div id="footer" class="container">	
+   <div class="icons">Icons designed by <a rel="nofollow" target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a rel="nofollow" target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
    <div class="row">
-      <div class="col-lg-2 col-md-3 col-sm-3 col-xs-5">
-         <a class="miniLogo" href="Bookmakers.spr"><b>BestBet</b></a>
-         <p>© 2017</p>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+         <a href="Bookmakers.spr" class="Alogo"><img class="BMAminiLogo" src="bootstrap/img/BMAlogo.png" alt="BestBet"></a>
       </div>
-      <div class="col-lg-10 col-md-9 col-sm-9 col-xs-7">
-         <div class="icons">Icons designed by <a rel="nofollow" target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a rel="nofollow" target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+         
          <ul class="footerMenu">
-            <li><a href="Bookmakers.spr">Букмекеры</a></li>
+            <li class="menuName">Ставки</li>
             <li><a href="ExpressesList.spr">Экспрессы</a></li>
-            <li><a href="EventsList.spr">Прогнозы</a></li>            
-            <li><a href="Index.spr">Ставка дня</a></li>
-            <li><a href="News.spr">Новости</a></li>
-            <li><a href="FAQList.spr">Теория</a></li>
-         </ul>         
+            <li><a href="EventsList.spr">Одиночные ставки</a></li>            
+            <li><a href="DayBet.spr">Ставка дня</a></li>
+         </ul>                  
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+      	<ul class="footerMenu">            
+            <li class="menuName">Информация</li>            
+            <li><a href="Bookmakers.spr">Сравнение букмекеров</a></li>
+            <li><a href="News.spr">Новости спорта</a></li>
+            <li><a href="FAQList.spr">Вопросы - ответы</a></li>
+            <li><a href="VedioList.spr">Видеоуроки</a></li>
+         </ul>
       </div>
    </div>      
 </div>

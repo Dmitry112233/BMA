@@ -38,18 +38,14 @@
 			<p>Итоговый коэффициент: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${express.resultCoeff}" /></b></p>
 		</div>
 		<div id="randomBK">			
-		   <!-- количество букмекеров в БД (-1) -->
-		   <c:set var="countBK" value="${bookmakerList.size()}" />
-		   <!-- рендомный ID -->
-		   <jsp:useBean id="random" class="java.util.Random" scope="application"/>
-		   <c:set var="randID">${random.nextInt(countBK)+1}</c:set>
-		   <!-- вывод БК с рендомным ID -->		   
-		   <c:forEach var="randomBookmaker" items="${bookmakerList.values()}">     
-        	<c:if test="${randomBookmaker.bookMakerId==randID}">
-           		<p>Наилучший коэффициент у </p> 
-           		<a rel="nofollow" href="${randomBookmaker.link}" target="_blank"><img src="${randomBookmaker.image}" alt="${randomBookmaker.name} logo"></a>
-        	</c:if>
-     		</c:forEach>		   		   
+		   <!-- количество букмекеров c учетом веса -->
+		   <c:set var="countBK" value="${BookmakerWeightList.size()}" />
+		   <!-- лучший ID -->
+		   <jsp:useBean id="random" class="java.util.Random" scope="application"/>		   
+		   <c:set var="randID">${random.nextInt(countBK)}</c:set>
+		   <!-- вывод лучшего БК -->
+		   <p>Наилучший коэффициент у </p> 
+           <a rel="nofollow" href="Counter.spr?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>           
 		</div>		
 		<div class="expDesc">
 			<input type="checkbox" id="hd-${express.expressID}" class="hide"/>
