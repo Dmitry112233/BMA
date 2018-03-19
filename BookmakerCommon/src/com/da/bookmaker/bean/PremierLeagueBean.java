@@ -6,46 +6,51 @@ import java.util.Date;
 
 public class PremierLeagueBean {
 
-	private long matchID;
+	private long id;
 	
 	private Date date;
 	
 	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 	
+	private String league;
+	
+	// достаем по имени из базы, и берем id
+	private long bookmakerId;
+	
 	private String team1;
 	
 	private String team2;
 	
-	private long win1;
+	private double win1;
 	
-	private long win2;
+	private double win2;
 	
-	private long x;
+	private double x;
 	
-	private long x1;
+	private double x1;
 	
-	private long x2;
+	private double x2;
 	
-	private long x12;
+	private double x12;
 	
-	private long total;
+	private double total;
 	
-	private long lessTotal;
+	private double lessTotal;
 	
-	private long moreTotal;
+	private double moreTotal;
 	
 	private String Hand;
 	
-	private long hand1;
+	private double hand1;
 	
-	private long hand2;
+	private double hand2;
 	
-	public long getMatchID() {
-		return matchID;
+	public long getId() {
+		return id;
 	}
 
-	public void setMatchID(long matchID) {
-		this.matchID = matchID;
+	public void setId(long matchID) {
+		this.id = matchID;
 	}
 
 	public Date getDate() {
@@ -72,75 +77,75 @@ public class PremierLeagueBean {
 		this.team2 = team2;
 	}
 
-	public long getWin1() {
+	public double getWin1() {
 		return win1;
 	}
 
-	public void setWin1(long win1) {
+	public void setWin1(double win1) {
 		this.win1 = win1;
 	}
 
-	public long getWin2() {
+	public double getWin2() {
 		return win2;
 	}
 
-	public void setWin2(long win2) {
+	public void setWin2(double win2) {
 		this.win2 = win2;
 	}
 
-	public long getX() {
+	public double getX() {
 		return x;
 	}
 
-	public void setX(long x) {
+	public void setX(double x) {
 		this.x = x;
 	}
 
-	public long getX1() {
+	public double getX1() {
 		return x1;
 	}
 
-	public void setX1(long x1) {
+	public void setX1(double x1) {
 		this.x1 = x1;
 	}
 
-	public long getX2() {
+	public double getX2() {
 		return x2;
 	}
 
-	public void setX2(long x2) {
+	public void setX2(double x2) {
 		this.x2 = x2;
 	}
 
-	public long getX12() {
+	public double getX12() {
 		return x12;
 	}
 
-	public void setX12(long x12) {
+	public void setX12(double x12) {
 		this.x12 = x12;
 	}
 
-	public long getTotal() {
+	public double getTotal() {
 		return total;
 	}
 
-	public void setTotal(long total) {
+	public void setTotal(double total) {
 		this.total = total;
 	}
 
-	public long getLessTotal() {
+	public double getLessTotal() {
 		return lessTotal;
 	}
 
-	public void setLessTotal(long lessTotal) {
+	public void setLessTotal(double lessTotal) {
 		this.lessTotal = lessTotal;
 	}
 
-	public long getMoreTotal() {
+	public double getMoreTotal() {
 		return moreTotal;
 	}
 
-	public void setMoreTotal(long moreTotal) {
+	public void setMoreTotal(double moreTotal) {
 		this.moreTotal = moreTotal;
 	}
 
@@ -152,22 +157,38 @@ public class PremierLeagueBean {
 		Hand = hand;
 	}
 
-	public long getHand1() {
+	public double getHand1() {
 		return hand1;
 	}
 
-	public void setHand1(long hand1) {
+	public void setHand1(double hand1) {
 		this.hand1 = hand1;
 	}
 
-	public long getHand2() {
+	public double getHand2() {
 		return hand2;
 	}
 
-	public void setHand2(long hand2) {
+	public void setHand2(double hand2) {
 		this.hand2 = hand2;
 	}
 	
+	public String getLeague() {
+		return league;
+	}
+
+	public void setLeague(String league) {
+		this.league = league;
+	}
+
+	public long getBookmakerId() {
+		return bookmakerId;
+	}
+
+	public void setBookmakerId(long bookmakerId) {
+		this.bookmakerId = bookmakerId;
+	}
+
 	public String getDateStr() {
 		if (date == null) {
 			return "";
