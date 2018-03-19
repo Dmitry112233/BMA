@@ -9,6 +9,7 @@
          <div class="icons">Icons designed by <a rel="nofollow" target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a rel="nofollow" target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
          <ul class="footerMenu">
             <li><a href="Bookmakers.spr">Букмекеры</a></li>
+            <li><a href="PremierLeagueList.spr">АПЛ</a></li>
             <li><a href="ExpressesList.spr">Экспрессы</a></li>
             <li><a href="EventsList.spr">Прогнозы</a></li>            
             <li><a href="Index.spr">Ставка дня</a></li>

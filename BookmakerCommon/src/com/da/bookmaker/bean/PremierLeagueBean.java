@@ -10,7 +10,7 @@ public class PremierLeagueBean {
 	
 	private Date date;
 	
-	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy 'в' HH:mm");
+	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 	
 	private String team1;
 	
