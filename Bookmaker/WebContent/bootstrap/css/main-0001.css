@@ -45,7 +45,7 @@ h1 {
 	position: relative;
 }
 
-#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf {
+#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #EPLBlock {
 	float: right;
 	height: auto;
 	background: #efefef;
@@ -76,7 +76,7 @@ h1 {
 	width: 262.5px;
 }
 
-.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2, #newsBlock h2, #allEv h2, #pnf h2 {
+.bkListContent h2, #dayexp h2, #allExp h2, #textLessons h2, #bkReitBlock h2, #newsBlock h2, #allEv h2, #pnf h2, #EPLBlock h1 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -471,6 +471,19 @@ a {
 .navbar-brand {
 	padding: 6px 15px;
 }
+
+
+
+.EPLtable td {
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid black;
+}
+
+.EPLtable a {
+	text-decoration: underline;
+	cursor: pointer;
+}	
 
 /* адаптивная верстка */
 @media (max-width: 1305px) {
