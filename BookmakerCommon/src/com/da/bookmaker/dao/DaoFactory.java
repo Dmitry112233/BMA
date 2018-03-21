@@ -7,6 +7,7 @@ import com.da.bookmaker.dao.template.BookmakerDaoTemplateImpl;
 import com.da.bookmaker.dao.template.ExpressDaoTemplateImpl;
 import com.da.bookmaker.dao.template.IventDaoTemplateImpl;
 import com.da.bookmaker.dao.template.NewsDaoTemplateImpl;
+import com.da.bookmaker.dao.template.PremierLeagueDaoTemplateImpl;
 import com.da.bookmaker.dao.template.QuestionDaoTemplateImpl;
 import com.da.bookmaker.dao.template.UserDaoTemplateImpl;
 
@@ -42,5 +43,10 @@ public class DaoFactory {
 	public static NewsDao getNewsDao() {
 		
 		return context.getBean(NewsDaoTemplateImpl.class);
+	}
+	
+	public static PremierLeagueDao getPremierLeagueDao(){
+		
+		return context.getBean(PremierLeagueDaoTemplateImpl.class);
 	}
 }

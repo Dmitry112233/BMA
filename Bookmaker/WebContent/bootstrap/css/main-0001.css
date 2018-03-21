@@ -45,7 +45,7 @@ h1 {
 	position: relative;
 }
 
-#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #videoPart {
+#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #EPLBlock, #videoPart {
 	float: right;
 	height: auto;
 	background: #efefef;
@@ -76,7 +76,7 @@ h1 {
 	width: 262.5px;
 }
 
-.bkListContent h1, #dayexp h1, #allExp h1, #textLessons h1, #bkReitBlock h1, #newsBlock h1, #allEv h1, #pnf h1, #videoPart h1 {
+.bkListContent h1, #dayexp h1, #allExp h1, #textLessons h1, #bkReitBlock h1, #newsBlock h1, #allEv h1, #pnf h1, #videoPart h1, #EPLBlock h1 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -354,7 +354,7 @@ a {
 	display: inline;
 }
 
-#bkReitBlock р4 {
+#bkReitBlock пїЅ4 {
 	text-align: left;
 }
 
@@ -496,7 +496,18 @@ a {
 	margin-bottom: 55px;	
 }
 
-/* адаптивная верстка */
+.EPLtable td {
+	padding-left: 5px;
+	padding-right: 5px;
+	border: 1px solid black;
+}
+
+.EPLtable a {
+	text-decoration: underline;
+	cursor: pointer;
+}	
+
+/* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
 @media (max-width: 1305px) {
 	.topbutton {
 		display: none;
