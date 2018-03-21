@@ -28,8 +28,12 @@ public class OneXbetParser {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
 		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
 	}
+	
+	public static void main(String[] args) throws Exception{
+		parseOneXBet();
+	}
 
-	public void parseBetFaq() throws Exception {
+	public static void parseOneXBet() throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 
 		logger.info("1xBet parser starts...");
@@ -75,7 +79,7 @@ public class OneXbetParser {
 		}
 	}
 
-	private PremierLeagueBean getCoefficients(DomElement element, PremierLeagueBean bean) {
+	private static PremierLeagueBean getCoefficients(DomElement element, PremierLeagueBean bean) {
 		Iterator<DomElement> c_bet_items = element.getChildElements().iterator();
 		DomElement c_bet_item1 = c_bet_items.next();
 		DomElement c_bet_item2 = c_bet_items.next();
@@ -102,7 +106,7 @@ public class OneXbetParser {
 		return bean;
 	}
 
-	private ArrayList<Object> getCoefficientForHand(DomElement element) {
+	private static ArrayList<Object> getCoefficientForHand(DomElement element) {
 		ArrayList<Object> list = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {
 			list.add((coeff.getTextContent().trim()));
@@ -110,7 +114,7 @@ public class OneXbetParser {
 		return new ArrayList<>();
 	}
 
-	private double[] getCoefficientForItem(DomElement element) {
+	private static double[] getCoefficientForItem(DomElement element) {
 		double[] mass = new double[2];
 		for (DomElement coeff : element.getChildElements()) {
 			int i = 0;
@@ -120,7 +124,7 @@ public class OneXbetParser {
 		return mass;
 	}
 
-	private String getDate(DomElement element) {
+	private static String getDate(DomElement element) {
 		String date = element.getFirstElementChild().getTextContent();
 		String[] subStr;
 		String delimeter = " ";
@@ -135,7 +139,7 @@ public class OneXbetParser {
 		return calendar.get(Calendar.YEAR);
 	}
 
-	private String[] getName(DomElement element) {
+	private static String[] getName(DomElement element) {
 		DomElement events_teams = element.getFirstElementChild();
 		String[] mass = new String[2];
 		for (DomElement team : events_teams.getChildElements()) {
