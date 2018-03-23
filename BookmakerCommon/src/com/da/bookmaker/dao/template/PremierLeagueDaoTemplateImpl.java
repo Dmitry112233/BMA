@@ -20,7 +20,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 
 	private DataSource dataSource;
 	
-	private final static String INSERT_MATCHES_LIST = "INSERT INTO IVENTS (DATE, TEAM1, TEAM2, WIN1, WIN2, X, X1, X2, X12, " +
+	private final static String INSERT_MATCHES_LIST = "INSERT INTO PREMIER_LEAGUE (DATE, TEAM1, TEAM2, WIN1, WIN2, X, X1, X2, X12, " +
 	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	public DataSource getDataSource() {

@@ -18,7 +18,7 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-public class OneXbetParser {
+public class OneXbetParser extends AbstractParser {
 
 	static final private String URL = "https://1xvix.top/line/Football/88637-England-Premier-League/";
 
@@ -28,44 +28,54 @@ public class OneXbetParser {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
 		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
 	}
-	
-	public static void main(String[] args) throws Exception{
-		parseOneXBet();
+
+	public static void main(String[] args) throws Exception {
+		new OneXbetParser().parseOneXBet();
 	}
 
-	public static void parseOneXBet() throws Exception {
+	public void parseOneXBet() throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 
 		logger.info("1xBet parser starts...");
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
+			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
+			webClient.setUseInsecureSSL(true);
 			HtmlPage page = (HtmlPage) webClient.getPage(URL);
 			List<PremierLeagueBean> beans = new ArrayList<>();
-			for (DomElement match : page.getElementById("games_content").getChildElements()) {
+			// DomElement div1 =
+			// page.getElementById("games_content").getFirstElementChild();
+			// Не могу взять итератором нужный элемент, т.к NoSurchElementException
+			List<DomElement> asd = page.getElementsByTagName("div");
+			for (DomElement item : asd) {
 				logger.info("Get next element");
-				if (!match.getAttribute("class").equals("c-events__item")) {
+				if (!item.getAttribute("class").equals("c-events__item c-events__item_col")) {
 					continue;
 				}
+				DomElement match = item.getFirstElementChild();
 				Iterator<DomElement> matchChildren = match.getChildElements().iterator();
 				matchChildren.next();
 				matchChildren.next();
 				DomElement events_time = matchChildren.next();
 				matchChildren.next();
 				DomElement events_name = matchChildren.next();
+				System.out.println(events_name.getAttribute("class"));
 				matchChildren.next();
 				matchChildren.next();
 				DomElement c_bets = matchChildren.next();
+				System.out.println(c_bets.getAttribute("class"));
 				PremierLeagueBean bean = new PremierLeagueBean();
 				logger.info("Try to get date and time");
 				String time = getDate(events_time);
 				logger.info("Try to get names");
-				String[] names = getName(events_name);
+				ArrayList<String> names = getName(events_name);
 				logger.info("Try to get coefficients");
 				bean = getCoefficients(c_bets, bean);
 				logger.info("Try to set date / names / League / bookmakerID ");
+				// Правильно ли сетим дату? 
 				bean.setDateStr(time);
-				bean.setTeam1(names[0]);
-				bean.setTeam2(names[1]);
+				bean.setTeam1(names.get(0));
+				bean.setTeam2(names.get(1));
 				bean.setLeague("Чемпионат Англии");
 				bean.setBookmakerId(DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId());
 				logger.info("Bean has added");
@@ -79,74 +89,74 @@ public class OneXbetParser {
 		}
 	}
 
-	private static PremierLeagueBean getCoefficients(DomElement element, PremierLeagueBean bean) {
+	private PremierLeagueBean getCoefficients(DomElement element, PremierLeagueBean bean) {
 		Iterator<DomElement> c_bet_items = element.getChildElements().iterator();
 		DomElement c_bet_item1 = c_bet_items.next();
 		DomElement c_bet_item2 = c_bet_items.next();
 		DomElement c_bet_item3 = c_bet_items.next();
 		DomElement c_bet_item4 = c_bet_items.next();
-		double[] mass1 = getCoefficientForItem(c_bet_item1);
-		double[] mass2 = getCoefficientForItem(c_bet_item2);
-		double[] mass3 = getCoefficientForItem(c_bet_item3);
-		ArrayList<Object> list = getCoefficientForHand(c_bet_item4);
+		ArrayList<Double> mass1 = getCoefficientForItem(c_bet_item1);
+		ArrayList<Double> mass2 = getCoefficientForItem(c_bet_item2);
+		ArrayList<Double> mass3 = getCoefficientForItem(c_bet_item3);
+		ArrayList<String> list = getCoefficientForHand(c_bet_item4);
 		logger.info("Try to set coefficients to the match");
-		bean.setWin1(mass1[0]);
-		bean.setX(mass1[1]);
-		bean.setWin2(mass1[2]);
-		bean.setX1(mass2[0]);
-		bean.setX12(mass2[1]);
-		bean.setX2(mass2[2]);
-		bean.setLessTotal(mass3[0]);
-		bean.setTotal(mass3[1]);
-		bean.setMoreTotal(mass3[2]);
-		bean.setHand1((double) list.get(0));
+		System.out.println(mass1.size() + " " + mass2.size() + " " + mass3.size() + " " + list.size());
+		bean.setWin1(mass1.get(0));
+		bean.setX(mass1.get(1));
+		bean.setWin2(mass1.get(2));
+		bean.setX1(mass2.get(0));
+		bean.setX12(mass2.get(1));
+		bean.setX2(mass2.get(2));
+		bean.setLessTotal(mass3.get(0));
+		bean.setTotal(mass3.get(1));
+		bean.setMoreTotal(mass3.get(2));
+		bean.setHand1(Double.parseDouble(list.get(0)));
 		bean.setHand((String) list.get(1));
-		bean.setHand2((double) list.get(2));
+		bean.setHand2(Double.parseDouble(list.get(2)));
 
 		return bean;
 	}
 
-	private static ArrayList<Object> getCoefficientForHand(DomElement element) {
-		ArrayList<Object> list = new ArrayList<>();
+	private ArrayList<String> getCoefficientForHand(DomElement element) {
+		ArrayList<String> list = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {
 			list.add((coeff.getTextContent().trim()));
 		}
-		return new ArrayList<>();
+		return list;
 	}
 
-	private static double[] getCoefficientForItem(DomElement element) {
-		double[] mass = new double[2];
+	private ArrayList<Double> getCoefficientForItem(DomElement element) {
+		ArrayList<Double> mass = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {
-			int i = 0;
-			mass[i] = Double.parseDouble(coeff.getTextContent().trim());
-			i++;
+			// Какого запятая вместо точки, а отображается точка?
+			System.out.println(coeff.getTextContent().trim().replace(",","."));
+			mass.add(Double.parseDouble(coeff.getTextContent().trim().replace(",", ".")));
 		}
 		return mass;
 	}
 
-	private static String getDate(DomElement element) {
+	private String getDate(DomElement element) {
 		String date = element.getFirstElementChild().getTextContent();
 		String[] subStr;
 		String delimeter = " ";
 		subStr = date.split(delimeter);
-		date = subStr[0] + getCurrentYear() + " " + subStr[1];
+		date = subStr[0] + "." + getCurrentYear() + " " + subStr[1];
 		return date;
 	}
 
-	private static int getCurrentYear() {
+	private int getCurrentYear() {
 		Calendar calendar = Calendar.getInstance(TimeZone.getDefault(), Locale.getDefault());
 		calendar.setTime(new Date());
 		return calendar.get(Calendar.YEAR);
 	}
 
-	private static String[] getName(DomElement element) {
+	private ArrayList<String> getName(DomElement element) {
 		DomElement events_teams = element.getFirstElementChild();
-		String[] mass = new String[2];
-		for (DomElement team : events_teams.getChildElements()) {
-			mass[0] = team.getTextContent().trim();
-			mass[1] = team.getTextContent().trim();
+		ArrayList<String> names = new ArrayList<>();
+		// Какого блэта невидимый элемент? в цикле берем детей у невидимки!!!
+		for (DomElement el : events_teams.getFirstElementChild().getChildElements()) {
+			names.add(el.getTextContent().trim());
 		}
-
-		return mass;
+		return names;
 	}
 }
