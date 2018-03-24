@@ -43,15 +43,17 @@ public class OneXbetParser extends AbstractParser {
 			webClient.setUseInsecureSSL(true);
 			HtmlPage page = (HtmlPage) webClient.getPage(URL);
 			List<PremierLeagueBean> beans = new ArrayList<>();
+			// Засетить Имя Чемпионат + поле в базе
+			// 
 			// DomElement div1 =
 			// page.getElementById("games_content").getFirstElementChild();
 			// Не могу взять итератором нужный элемент, т.к NoSurchElementException
 			List<DomElement> asd = page.getElementsByTagName("div");
 			for (DomElement item : asd) {
-				logger.info("Get next element");
 				if (!item.getAttribute("class").equals("c-events__item c-events__item_col")) {
 					continue;
 				}
+				logger.info("Get next element");
 				DomElement match = item.getFirstElementChild();
 				Iterator<DomElement> matchChildren = match.getChildElements().iterator();
 				matchChildren.next();
@@ -83,6 +85,7 @@ public class OneXbetParser extends AbstractParser {
 				System.out.println(bean.getDateStr() + " " + bean.getTeam1() + " " + bean.getTeam2() + " " + bean.getX()
 						+ " " + bean.getX12() + " " + bean.getHand() + " " + bean.getTotal());
 			}
+			DaoFactory.getPremierLeagueDao().deleteMatchesList();
 			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 		} finally {
 			webClient.closeAllWindows();
@@ -140,7 +143,7 @@ public class OneXbetParser extends AbstractParser {
 		String[] subStr;
 		String delimeter = " ";
 		subStr = date.split(delimeter);
-		date = subStr[0] + "." + getCurrentYear() + " " + subStr[1];
+		date = subStr[0] + "." + getCurrentYear() + " " + subStr[1] + ":00";
 		return date;
 	}
 
@@ -154,6 +157,7 @@ public class OneXbetParser extends AbstractParser {
 		DomElement events_teams = element.getFirstElementChild();
 		ArrayList<String> names = new ArrayList<>();
 		// Какого блэта невидимый элемент? в цикле берем детей у невидимки!!!
+		// Почему с масивами не работает? 
 		for (DomElement el : events_teams.getFirstElementChild().getChildElements()) {
 			names.add(el.getTextContent().trim());
 		}

@@ -2,7 +2,6 @@ package com.da.bookmaker.sping.mvc;
 
 import java.text.ParseException;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,9 +14,8 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class PremierLeagueController extends BookmakerController{
-	
-	@RequestMapping("/PremierLeagueList.spr")
+public class PremierLeagueDetailsController extends BookmakerController{
+	@RequestMapping("/PremierLeagueDetailsList.spr")
 	public ModelAndView getMainList() throws DaoException, ParseException {
 		Map<String, Object> map = getMatchesList();
 		map.putAll(getBookmakerList());
