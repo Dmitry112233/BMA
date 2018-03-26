@@ -29,7 +29,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	private final static String DELETE_MATCHES_LIST = "DELETE FROM PREMIER_LEAGUE";
 	
 	private final static String GET_APL_MATCHES_LIST = "SELECT ID, DATE, TEAM1, TEAM2, WIN1, WIN2, X, X1, X2, X12, " +
-	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE WHERE LEAGUE = 'Чемпионат Англии'";
+	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE FROM PREMIER_LEAGUE WHERE LEAGUE = 'Чемпионат Англии'";
 	
 	public DataSource getDataSource() {
 		return dataSource;
