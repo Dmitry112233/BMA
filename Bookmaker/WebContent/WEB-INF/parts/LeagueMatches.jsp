@@ -8,8 +8,10 @@
 		<table class="EPLtable">			
 			<c:forEach var="EPLivent" items="${matchesList}">				
 				<tr class="EPLTableLine">
-					<td>${EPLivent.date}</td>
-					<td>${EPLivent.team1} - ${EPLivent.team2}</td>
+					<td>${EPLivent.dateStr}</td>
+					<td>${EPLivent.team1}</td>
+					<td>-</td>
+					<td> ${EPLivent.team2}</td>
 					<td><a href="#">перейти на подробности</a></td>										
 				</tr>
 			</c:forEach>

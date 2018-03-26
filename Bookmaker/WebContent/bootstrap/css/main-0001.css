@@ -354,7 +354,7 @@ a {
 	display: inline;
 }
 
-#bkReitBlock �4 {
+#bkReitBlock h4 {
 	text-align: left;
 }
 
@@ -470,8 +470,7 @@ a {
 
 .dropdown-menu {
 	background-color: #333;
-	border-radius: 0; 
-	
+	border-radius: 0;	
 }
 
 .dropdown-menu .active a, .dropdown-menu .active a:hover, .dropdown-menu .active a:focus {
@@ -490,24 +489,73 @@ a {
 	color: #fff;
 }
 
+.dropdown-submenu>.dropdown-menu2 {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+  margin-left: -1px; 
+  display: none;
+  position: absolute;
+  min-width: 240px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu2 {
+  display: block;
+}
+
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu2 {
+  left: -100%;
+  margin-left: 10px;
+}
+
 .BMAminiLogo {
 	height: 20px;
 	margin-top: 55px;
 	margin-bottom: 55px;	
 }
 
+.EPLtable {
+	width: 100%;
+	box-shadow: 1px 1px 12px 0px #aeaeae;
+}
+
+.EPLtable td:nth-child(2), .EPLtable td:nth-child(5) {
+	text-align: right;
+}
+
 .EPLtable td {
 	padding-left: 5px;
 	padding-right: 5px;
-	border: 1px solid black;
 }
 
 .EPLtable a {
 	text-decoration: underline;
 	cursor: pointer;
-}	
+}
 
-/* ���������� ������� */
+.EPLtable tr:nth-child(odd) {
+	background: #e0e0e0;
+}
+
+.EPLtable tr:nth-child(even) {
+	background: #eaeaea;
+}
+
+/* adaptation */
 @media (max-width: 1305px) {
 	.topbutton {
 		display: none;
