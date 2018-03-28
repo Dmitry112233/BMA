@@ -6,8 +6,9 @@
       <br>
       <!-- вывод туров АПЛ в цикле -->			
 		<table class="CoeffCompareTable">			
-			<c:forEach var="EPLivent" items="${matchesList}">				
+			<c:forEach var="EPLivent" items="${ceffList}">				
 				<tr>
+					<td>${EPLivent.bookmakerBean.name}</td>
 					<td>${EPLivent.win1}</td>
 					<td>${EPLivent.win2}</td>
 					<td>${EPLivent.x}</td>
