@@ -27,11 +27,12 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	private final static String DELETE_MATCHES_LIST = "DELETE FROM PREMIER_LEAGUE";
 	
 	//Расставить алиасы для повторяющихся полей, также алиасы в мапинге и имена таблиц перед поялми. 
-	private final static String GET_APL_MATCHES_LIST = "SELECT PL.ID PL_ID, DATE, TEAM1, TEAM2, WIN1, WIN2, X, X1, X2, X12, " +
-	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE "
+	private final static String GET_APL_MATCHES_LIST = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
+	"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
+	"B.LINK, B.IMAGE"
 	+ " FROM PREMIER_LEAGUE PL "
 	+ " JOIN BOOKMAKERS B "
-	+ " ON B.ID = PL.BOOKMAKER_ID "
+	+ " ON B.ID = PL.BOOKMAKER_ID"
 	+ " WHERE LEAGUE = 'Чемпионат Англии'";
 	
 	public DataSource getDataSource() {
@@ -64,6 +65,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				statement.setDouble(14, bean.getHand1());
 				statement.setDouble(15, bean.getHand2());
 				statement.setString(16, bean.getLeague());
+				statement.setLong(17, bean.getBookmakerId());
 			}
 		});
 	}
@@ -101,9 +103,10 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				
 				// засетить параметры для букмекера
 				BookmakerBean bookmakerBean = new BookmakerBean();
-				bookmakerBean.setBookMakerId(rs.getLong("BOOKMAKER_ID"));
-				
-				
+				bookmakerBean.setBookMakerId(rs.getLong("B_ID"));
+				bookmakerBean.setName(rs.getString("NAME"));
+				bookmakerBean.setLink(rs.getString("LINK"));
+				bookmakerBean.setImage(rs.getString("IMAGE"));
 				bean.setBookmakerBean(bookmakerBean);
 				return bean;
 			}
