@@ -25,6 +25,7 @@
       <div class="bg"></div>
       <c:import url="parts/nav.jsp">
          <c:param name="seventhMenu" value="true"/>
+         <c:param name="theoryMenu" value="true"/>
       </c:import>
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">

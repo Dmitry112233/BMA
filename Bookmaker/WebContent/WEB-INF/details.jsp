@@ -2,7 +2,7 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>АПЛ...</title>
+      <title>details...</title>
       <meta name="Description" content="details..."/>
       <meta name="Keywords" content="details..."/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,9 @@
    </head>
    <body>
       <div class="bg"></div>
-      <c:import url="parts/nav.jsp"></c:import>
+      <c:import url="parts/nav.jsp">
+         <c:param name="eighthMenu" value="true"/>
+      </c:import>
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="row">

@@ -559,6 +559,10 @@ a {
 	background: #eaeaea;
 }
 
+.navbar-inverse .navbar-nav > .active > a {
+	background-color: #6f6f6f !important; 
+}
+
 /* adaptation */
 @media (max-width: 1305px) {
 	.topbutton {

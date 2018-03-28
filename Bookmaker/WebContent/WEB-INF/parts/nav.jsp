@@ -15,13 +15,13 @@
                <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">
                      <li class="${param.fourthMenu == 'true'?'active':''}"><a href="Bookmakers.spr">Букмекеры</a></li>
-                     <li class="dropdown">
+                     <li class="${param.eighthMenu == 'true'?'active':''} dropdown">
                         <a role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#">Спорт <span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu1" role="menu" aria-labelledby="dropdownMenu">
                            <li class="dropdown-submenu">
                               <a role="button" tabindex="-1">Футбол</a>
                               <ul class="dropdown-menu dropdown-menu2">
-                                 <li class="${param.therdMenu == 'true'?'active':''}"><a tabindex="-1" href="PremierLeagueList.spr">Английская Премьер-лига</a></li>
+                                 <li class="${param.eighthMenu == 'true'?'active':''}"><a tabindex="-1" href="PremierLeagueList.spr">Английская Премьер-лига</a></li>
                                  <li><a tabindex="-1" href="#">Чемпионат Испании</a></li>
                                  <li><a tabindex="-1" href="#">Чемпионат Германии</a></li>
                                  <li><a tabindex="-1" href="#">Чемпионат Италии</a></li>
@@ -33,7 +33,7 @@
                      <li class="${param.sixthMenu == 'true'?'active':''}"><a href="EventsList.spr">Прогнозы</a></li>
                      <li class="${param.firstMenu == 'true'?'active':''}"><a href="DayBet.spr">Ставка дня</a></li>
                      <li class="${param.fifthMenu == 'true'?'active':''}"><a href="News.spr">Новости</a></li>
-                     <li class="dropdown">
+                     <li class="${param.theoryMenu == 'true'?'active':''} dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Теория <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                            <li class="${param.therdMenu == 'true'?'active':''}"><a href="FAQList.spr">Текст</a></li>

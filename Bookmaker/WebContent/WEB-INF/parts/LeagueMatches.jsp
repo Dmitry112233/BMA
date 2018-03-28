@@ -12,7 +12,7 @@
 					<td>${EPLivent.team1}</td>
 					<td>-</td>
 					<td> ${EPLivent.team2}</td>
-					<td><a href="PremierLeagueDetailsList.spr">перейти на подробности</a> <a href="PremierLeague/{team1}/{team2}/details.spr">testing</a></td>										
+					<td><a href="PremierLeague/{EPLivent.team1}/{EPLivent.team2}/details.spr">перейти на подробности</a></td>										
 				</tr>
 			</c:forEach>
 		</table>	
