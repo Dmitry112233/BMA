@@ -16,6 +16,7 @@ import com.da.bookmaker.dao.DaoFactory;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
+import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class OneXbetParser extends AbstractParser {
@@ -45,16 +46,13 @@ public class OneXbetParser extends AbstractParser {
 			List<PremierLeagueBean> beans = new ArrayList<>();
 			// Засетить Имя Чемпионат + поле в базе
 			// 
-			// DomElement div1 =
-			// page.getElementById("games_content").getFirstElementChild();
+			List<?> htmlDivisions = page.getByXPath("//*[contains(@class, 'c-events__item c-events__item_col')]");
 			// Не могу взять итератором нужный элемент, т.к NoSurchElementException
-			List<DomElement> asd = page.getElementsByTagName("div");
-			for (DomElement item : asd) {
-				if (!item.getAttribute("class").equals("c-events__item c-events__item_col")) {
-					continue;
-				}
+			long bookmakerId = DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId();
+			for (Object object : htmlDivisions) {
+				HtmlDivision division = (HtmlDivision)object;
 				logger.info("Get next element");
-				DomElement match = item.getFirstElementChild();
+				DomElement match = division.getFirstElementChild();
 				Iterator<DomElement> matchChildren = match.getChildElements().iterator();
 				matchChildren.next();
 				matchChildren.next();
@@ -74,12 +72,11 @@ public class OneXbetParser extends AbstractParser {
 				logger.info("Try to get coefficients");
 				bean = getCoefficients(c_bets, bean);
 				logger.info("Try to set date / names / League / bookmakerID ");
-				// Правильно ли сетим дату? 
 				bean.setDateStr(time);
 				bean.setTeam1(names.get(0));
 				bean.setTeam2(names.get(1));
 				bean.setLeague("Чемпионат Англии");
-				bean.setBookmakerId(DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId());
+				bean.setBookmakerId(bookmakerId);
 				logger.info("Bean has added");
 				beans.add(bean);
 				System.out.println(bean.getDateStr() + " " + bean.getTeam1() + " " + bean.getTeam2() + " " + bean.getX()
@@ -131,7 +128,6 @@ public class OneXbetParser extends AbstractParser {
 	private ArrayList<Double> getCoefficientForItem(DomElement element) {
 		ArrayList<Double> mass = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {
-			// Какого запятая вместо точки, а отображается точка?
 			System.out.println(coeff.getTextContent().trim().replace(",","."));
 			mass.add(Double.parseDouble(coeff.getTextContent().trim().replace(",", ".")));
 		}
@@ -156,8 +152,6 @@ public class OneXbetParser extends AbstractParser {
 	private ArrayList<String> getName(DomElement element) {
 		DomElement events_teams = element.getFirstElementChild();
 		ArrayList<String> names = new ArrayList<>();
-		// Какого блэта невидимый элемент? в цикле берем детей у невидимки!!!
-		// Почему с масивами не работает? 
 		for (DomElement el : events_teams.getFirstElementChild().getChildElements()) {
 			names.add(el.getTextContent().trim());
 		}

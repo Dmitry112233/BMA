@@ -1,20 +1,18 @@
 package com.da.bookmaker.dao.template;
 
-import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.ParameterizedPreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
 
-import com.da.bookmaker.bean.NewsBean;
+import com.da.bookmaker.bean.BookmakerBean;
 import com.da.bookmaker.bean.PremierLeagueBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.PremierLeagueDao;
@@ -24,12 +22,17 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	private DataSource dataSource;
 	
 	private final static String INSERT_MATCHES_LIST = "INSERT INTO PREMIER_LEAGUE (DATE, TEAM1, TEAM2, WIN1, WIN2, X, X1, X2, X12, " +
-	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE, BOOKMAKER_ID) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	private final static String DELETE_MATCHES_LIST = "DELETE FROM PREMIER_LEAGUE";
 	
-	private final static String GET_APL_MATCHES_LIST = "SELECT ID, DATE, TEAM1, TEAM2, WIN1, WIN2, X, X1, X2, X12, " +
-	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE FROM PREMIER_LEAGUE WHERE LEAGUE = 'Чемпионат Англии'";
+	//Расставить алиасы для повторяющихся полей, также алиасы в мапинге и имена таблиц перед поялми. 
+	private final static String GET_APL_MATCHES_LIST = "SELECT PL.ID PL_ID, DATE, TEAM1, TEAM2, WIN1, WIN2, X, X1, X2, X12, " +
+	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE "
+	+ " FROM PREMIER_LEAGUE PL "
+	+ " JOIN BOOKMAKERS B "
+	+ " ON B.ID = PL.BOOKMAKER_ID "
+	+ " WHERE LEAGUE = 'Чемпионат Англии'";
 	
 	public DataSource getDataSource() {
 		return dataSource;
@@ -42,34 +45,27 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	@Override
 	public void addMatchesList(List<PremierLeagueBean> matches) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		GeneratedKeyHolder holder = new GeneratedKeyHolder();
-		for (PremierLeagueBean bean : matches) {
-			template.update(new PreparedStatementCreator() {
-				@Override
-				public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-					PreparedStatement statement = con.prepareStatement(INSERT_MATCHES_LIST,
-							PreparedStatement.RETURN_GENERATED_KEYS);
-					statement.setDate(1, new Date(bean.getDate().getTime()));
-					statement.setString(2, bean.getTeam1());
-					statement.setString(3, bean.getTeam2());
-					statement.setDouble(4, bean.getWin1());
-					statement.setDouble(5, bean.getWin2());
-					statement.setDouble(6, bean.getX());
-					statement.setDouble(7, bean.getX1());
-					statement.setDouble(8, bean.getX2());
-					statement.setDouble(9, bean.getX12());
-					statement.setDouble(10, bean.getTotal());
-					statement.setDouble(11, bean.getLessTotal());
-					statement.setDouble(12, bean.getMoreTotal());
-					statement.setString(13, bean.getHand());
-					statement.setDouble(14, bean.getHand1());
-					statement.setDouble(15, bean.getHand2());
-					statement.setString(16, bean.getLeague());
-					return statement;
-				}
-			}, holder);
-			bean.setId(Long.parseLong(holder.getKeys().get("GENERATED_KEY").toString()));
-		}		
+		template.batchUpdate(INSERT_MATCHES_LIST, matches, matches.size(), new ParameterizedPreparedStatementSetter<PremierLeagueBean>() {
+			@Override
+			public void setValues(PreparedStatement statement, PremierLeagueBean bean) throws SQLException {
+				statement.setTimestamp(1, new Timestamp(bean.getDate().getTime()));
+				statement.setString(2, bean.getTeam1());
+				statement.setString(3, bean.getTeam2());
+				statement.setDouble(4, bean.getWin1());
+				statement.setDouble(5, bean.getWin2());
+				statement.setDouble(6, bean.getX());
+				statement.setDouble(7, bean.getX1());
+				statement.setDouble(8, bean.getX2());
+				statement.setDouble(9, bean.getX12());
+				statement.setDouble(10, bean.getTotal());
+				statement.setDouble(11, bean.getLessTotal());
+				statement.setDouble(12, bean.getMoreTotal());
+				statement.setString(13, bean.getHand());
+				statement.setDouble(14, bean.getHand1());
+				statement.setDouble(15, bean.getHand2());
+				statement.setString(16, bean.getLeague());
+			}
+		});
 	}
 
 	@Override
@@ -85,8 +81,8 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 			@Override
 			public PremierLeagueBean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				PremierLeagueBean bean = new PremierLeagueBean();
-				bean.setId(rs.getLong("ID"));
-				bean.setDate(rs.getDate("DATE"));
+				bean.setId(rs.getLong("PL_ID"));
+				bean.setDate(rs.getTimestamp("DATE"));
 				bean.setTeam1(rs.getString("TEAM1"));
 				bean.setTeam2(rs.getString("TEAM2"));
 				bean.setWin1(rs.getDouble("WIN1"));
@@ -102,12 +98,17 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				bean.setLessTotal(rs.getDouble("HAND1"));
 				bean.setLessTotal(rs.getDouble("HAND2"));
 				bean.setLeague(rs.getString("LEAGUE"));
+				
+				// засетить параметры для букмекера
+				BookmakerBean bookmakerBean = new BookmakerBean();
+				bookmakerBean.setBookMakerId(rs.getLong("BOOKMAKER_ID"));
+				
+				
+				bean.setBookmakerBean(bookmakerBean);
 				return bean;
 			}
 		});
 		return list;
 		
-	}
-	
-	
+	}	
 }

@@ -14,9 +14,6 @@ public class PremierLeagueBean {
 	
 	private String league;
 	
-	// достаем по имени из базы, и берем id
-	private long bookmakerId;
-	
 	private String team1;
 	
 	private String team2;
@@ -44,6 +41,8 @@ public class PremierLeagueBean {
 	private double hand1;
 	
 	private double hand2;
+	
+	private BookmakerBean bookmakerBean = new BookmakerBean();
 	
 	public long getId() {
 		return id;
@@ -182,11 +181,19 @@ public class PremierLeagueBean {
 	}
 
 	public long getBookmakerId() {
-		return bookmakerId;
+		return bookmakerBean.getBookMakerId();
 	}
 
 	public void setBookmakerId(long bookmakerId) {
-		this.bookmakerId = bookmakerId;
+		bookmakerBean.setBookMakerId(bookmakerId);
+	}
+	
+	public BookmakerBean getBookmakerBean() {
+		return bookmakerBean;
+	}
+	
+	public void setBookmakerBean(BookmakerBean bookmakerBean) {
+		this.bookmakerBean = bookmakerBean;
 	}
 
 	public String getDateStr() {
