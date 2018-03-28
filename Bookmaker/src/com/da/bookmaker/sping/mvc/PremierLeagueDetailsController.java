@@ -19,7 +19,7 @@ public class PremierLeagueDetailsController extends BookmakerController{
 	public ModelAndView getMainList() throws DaoException, ParseException {
 		Map<String, Object> map = getMatchesList();
 		map.putAll(getBookmakerList());
-		return new ModelAndView("league", map);
+		return new ModelAndView("details", map);
 	}
 	
 	private Map<String, Object> getMatchesList() throws DaoException, ParseException{
