@@ -16,17 +16,19 @@ import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class PremierLeagueDetailsController extends BookmakerController{
-	  @RequestMapping("PremierLeague/{team1}/{team2}/details.spr")
+	  @RequestMapping("PremierLeague_{team1}_{team2}_details.spr")
 	  public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2) throws DaoException, ParseException {
-	    Map<String, Object> map = getMatchesList();
+		  System.out.println(team1);
+		  System.out.println(team2);
+	    Map<String, Object> map = getMatchesList(team1, team2);
 	    map.putAll(getBookmakerList());
 	    return new ModelAndView("details", map);
 	  }
 	
-	private Map<String, Object> getMatchesList() throws DaoException, ParseException{
-		List<PremierLeagueBean> matchesList = DaoFactory.getPremierLeagueDao().getAllMatchesForAPL();
+	private Map<String, Object> getMatchesList(String team1, String team2) throws DaoException, ParseException{
+		List<PremierLeagueBean> ceffList = DaoFactory.getPremierLeagueDao().getMatchByTeams(team1, team2);
 		Map<String, Object> map = new HashMap<>();
-		map.put("matchesList", matchesList);
+		map.put("ceffList", ceffList);
 		return map;
 	}
 }

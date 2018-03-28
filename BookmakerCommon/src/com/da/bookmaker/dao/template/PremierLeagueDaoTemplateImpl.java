@@ -35,6 +35,14 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	+ " ON B.ID = PL.BOOKMAKER_ID"
 	+ " WHERE LEAGUE = 'Чемпионат Англии'";
 	
+	private final static String GET_MATCH_BY_TEAMS = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
+			"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
+			"B.LINK, B.IMAGE"
+			+ " FROM PREMIER_LEAGUE PL "
+			+ " JOIN BOOKMAKERS B "
+			+ " ON B.ID = PL.BOOKMAKER_ID"
+			+ " WHERE PL.TEAM1 = ? AND PL.TEAM2 = ? ORDER BY B.ID ASC";
+	
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -113,5 +121,46 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 		});
 		return list;
 		
+	}
+
+	@Override
+	public List<PremierLeagueBean> getMatchByTeams(String team1, String team2) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<PremierLeagueBean> list = template.query(GET_MATCH_BY_TEAMS , new Object[]{team1, team2}, new RowMapper<PremierLeagueBean>() {
+			@Override
+			public PremierLeagueBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				PremierLeagueBean bean = new PremierLeagueBean();
+				bean.setId(rs.getLong("PL_ID"));
+				bean.setDate(rs.getTimestamp("DATE"));
+				bean.setTeam1(rs.getString("TEAM1"));
+				bean.setTeam2(rs.getString("TEAM2"));
+				bean.setWin1(rs.getDouble("WIN1"));
+				bean.setX(rs.getShort("X"));
+				bean.setWin1(rs.getDouble("WIN2"));
+				bean.setX1(rs.getDouble("X1"));
+				bean.setX2(rs.getDouble("X2"));
+				bean.setX12(rs.getDouble("X12"));
+				bean.setTotal(rs.getDouble("TOTAL"));
+				bean.setLessTotal(rs.getDouble("LESS_TOTAL"));
+				bean.setMoreTotal(rs.getDouble("MORE_TOTAL"));
+				bean.setHand(rs.getString("HAND"));
+				bean.setLessTotal(rs.getDouble("HAND1"));
+				bean.setLessTotal(rs.getDouble("HAND2"));
+				bean.setLeague(rs.getString("LEAGUE"));
+				
+				BookmakerBean bookmakerBean = new BookmakerBean();
+				bookmakerBean.setBookMakerId(rs.getLong("B_ID"));
+				bookmakerBean.setName(rs.getString("NAME"));
+				bookmakerBean.setLink(rs.getString("LINK"));
+				bookmakerBean.setImage(rs.getString("IMAGE"));
+				bean.setBookmakerBean(bookmakerBean);
+				return bean;
+			}
+		}); 
+		if (list.size() > 0){
+			return list;
+		} else {
+			return null;
+		}
 	}	
 }

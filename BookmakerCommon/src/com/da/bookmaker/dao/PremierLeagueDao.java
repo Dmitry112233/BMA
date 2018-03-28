@@ -11,4 +11,6 @@ public interface PremierLeagueDao {
 	void deleteMatchesList() throws DaoException;
 	
 	List<PremierLeagueBean> getAllMatchesForAPL() throws DaoException;
+	
+	List<PremierLeagueBean> getMatchByTeams(String team1, String team2) throws DaoException;
 }
