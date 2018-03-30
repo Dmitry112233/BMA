@@ -399,7 +399,7 @@ a {
 	font-weight: bold;
 }
 
-#allEv h3 {
+#allEv h3, #DetailsBlock h3 {
 	font-size: 18px;	
 	margin-left: 10px;
 	margin-top: 10px;
@@ -535,6 +535,12 @@ a {
 .EPLtable, .CoeffCompareTable {
 	width: 100%;
 	box-shadow: 1px 1px 12px 0px #aeaeae;
+	text-align: center;
+}
+
+.CoeffCompareTableBM {
+	text-align: left;
+	padding-left: 5px;
 }
 
 .EPLtable td:nth-child(2), .EPLtable td:nth-child(5) {
@@ -549,6 +555,10 @@ a {
 .EPLtable a, .CoeffCompareTable a {
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+.CoeffCompareTableHeader {
+	background: #c7c7c7 !important;
 }
 
 .EPLtable tr:nth-child(odd), .CoeffCompareTable tr:nth-child(odd) {
