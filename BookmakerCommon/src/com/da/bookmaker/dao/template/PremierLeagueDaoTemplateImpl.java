@@ -136,7 +136,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				bean.setTeam2(rs.getString("TEAM2"));
 				bean.setWin1(rs.getDouble("WIN1"));
 				bean.setX(rs.getShort("X"));
-				bean.setWin1(rs.getDouble("WIN2"));
+				bean.setWin2(rs.getDouble("WIN2"));
 				bean.setX1(rs.getDouble("X1"));
 				bean.setX2(rs.getDouble("X2"));
 				bean.setX12(rs.getDouble("X12"));
@@ -144,8 +144,8 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				bean.setLessTotal(rs.getDouble("LESS_TOTAL"));
 				bean.setMoreTotal(rs.getDouble("MORE_TOTAL"));
 				bean.setHand(rs.getString("HAND"));
-				bean.setLessTotal(rs.getDouble("HAND1"));
-				bean.setLessTotal(rs.getDouble("HAND2"));
+				bean.setHand1(rs.getDouble("HAND1"));
+				bean.setHand2(rs.getDouble("HAND2"));
 				bean.setLeague(rs.getString("LEAGUE"));
 				
 				BookmakerBean bookmakerBean = new BookmakerBean();
