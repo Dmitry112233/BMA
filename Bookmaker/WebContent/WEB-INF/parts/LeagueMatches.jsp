@@ -7,12 +7,13 @@
       <!-- вывод туров АПЛ в цикле -->			
 		<table class="EPLtable">			
 			<c:forEach var="EPLivent" items="${matchesList}">				
-				<tr>
+				<tr onclick="window.location.href='PremierLeague_${EPLivent.team1}_${EPLivent.team2}_details.spr'; return false">
 					<td>${EPLivent.dateStr}</td>
 					<td>${EPLivent.team1}</td>
 					<td>-</td>
 					<td> ${EPLivent.team2}</td>
-					<td><a href="PremierLeague_${EPLivent.team1}_${EPLivent.team2}_details.spr">перейти на подробности</a></td>										
+					<td><a href="PremierLeague_${EPLivent.team1}_${EPLivent.team2}_details.spr">перейти на подробности</a></td>					
+					<td>${EPLivent.team1} - ${EPLivent.team2}</td>										
 				</tr>
 			</c:forEach>
 		</table>	

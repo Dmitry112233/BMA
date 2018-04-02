@@ -5,10 +5,9 @@
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
          <a href="Bookmakers.spr" class="Alogo"><img class="BMAminiLogo" src="bootstrap/img/BMAlogo.png" alt="BestBet"></a>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-         
-         <ul class="footerMenu">
-            <li><a href="Bookmakers.spr">Букмекеры</a></li>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">         
+         <ul class="footerMenu">   
+            <li class="menuName">Ставки</li>            
             <li><a href="PremierLeagueList.spr">АПЛ</a></li>
             <li><a href="ExpressesList.spr">Экспрессы</a></li>
             <li><a href="EventsList.spr">Одиночные ставки</a></li>            
