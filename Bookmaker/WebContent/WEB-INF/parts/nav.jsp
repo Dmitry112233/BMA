@@ -28,14 +28,19 @@
                               </ul>
                            </li>
                         </ul>
+                     </li>                     
+                     <li class="${param.betMenu == 'true'?'active':''} dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Ставки <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu3">
+                           <li class="${param.secondMenu == 'true'?'active':''}"><a href="ExpressesList.spr">Экспрессы</a></li>
+                           <li class="${param.sixthMenu == 'true'?'active':''}"><a href="EventsList.spr">Прогнозы</a></li>
+                           <li class="${param.firstMenu == 'true'?'active':''}"><a href="DayBet.spr">Ставка дня</a></li>
+                        </ul>
                      </li>
-                     <li class="${param.secondMenu == 'true'?'active':''}"><a href="ExpressesList.spr">Экспрессы</a></li>
-                     <li class="${param.sixthMenu == 'true'?'active':''}"><a href="EventsList.spr">Прогнозы</a></li>
-                     <li class="${param.firstMenu == 'true'?'active':''}"><a href="DayBet.spr">Ставка дня</a></li>
                      <li class="${param.fifthMenu == 'true'?'active':''}"><a href="News.spr">Новости</a></li>
                      <li class="${param.theoryMenu == 'true'?'active':''} dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Теория <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Теория <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu4">
                            <li class="${param.therdMenu == 'true'?'active':''}"><a href="FAQList.spr">Текст</a></li>
                            <li class="${param.seventhMenu == 'true'?'active':''}"><a href="VideoList.spr">Видео</a></li>
                         </ul>

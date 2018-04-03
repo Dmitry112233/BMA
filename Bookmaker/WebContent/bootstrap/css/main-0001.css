@@ -494,6 +494,16 @@ a {
 	cursor: default;
 }
 
+.dropdown-menu3 {
+	left: 0px !important;
+	min-width: 125px; 
+}
+
+.dropdown-menu4 {
+	left: 0px !important; 
+	min-width: 109px;
+}
+
 .dropdown-submenu>.dropdown-menu2 {
   top: 0;
   left: 100%;
@@ -567,7 +577,11 @@ a {
 
 .EPLtable a, .CoeffCompareTable a {
 	text-decoration: underline;
-	cursor: pointer;
+	cursor: pointer;	 
+}
+
+.EPLtable a:hover {
+	color: black;
 }
 
 .CoeffCompareTableHeader {
@@ -667,6 +681,11 @@ a {
 	.EPLtable td:nth-child(5) {
 		display: none;
 	}
+	
+	.BMALogo {
+		height: 35px;
+		margin-right: 5px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -733,5 +752,13 @@ a {
 	
 	.EPLtable td:nth-child(6) {
 	display: block;
+	}
+	
+	.bmReitLogo {
+		width: 100%; 
+	}
+	
+	.dropdown-menu .active a {
+		background-color: #6f6f6f !important;
 	}
 }
