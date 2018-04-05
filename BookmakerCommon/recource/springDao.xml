@@ -38,6 +38,10 @@
 	<bean id="PremierLeagueDao" class="com.da.bookmaker.dao.template.PremierLeagueDaoTemplateImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<bean id="MatchDetailsDao" class="com.da.bookmaker.dao.template.MatchDetailsDaoTemplateImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
