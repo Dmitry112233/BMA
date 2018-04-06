@@ -14,7 +14,6 @@
       </div>
       <br>
       <h3>Сравнение коэффициентов лучших букмекеров:</h3>
-      <!-- вывод туров АПЛ в цикле -->			
       <table class="CoeffCompareTable">
          <tr class="CoeffCompareTableHeader">
             <td class="CoeffCompareTableBM"><b>Букмекер</b></td>
@@ -32,8 +31,12 @@
             <td class="CoeffCompareTableSecondary"><b>2</b></td>
          </tr>
          <c:forEach var="EPLivent" items="${ceffList}">
-            <tr>
-               <td class="CoeffCompareTableBM">${EPLivent.bookmakerBean.name}</td>
+            <tr onclick="window.location.href='Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}'; return false">
+               <td class="CoeffCompareTableBM">
+                  <a rel="nofollow" href="Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}" target="_blank">
+                  <img src="${EPLivent.bookmakerBean.image}" alt="${EPLivent.bookmakerBean.name} logo">
+                  </a>
+               </td>
                <td>${EPLivent.win1}</td>
                <td>${EPLivent.x}</td>
                <td>${EPLivent.win2}</td>
@@ -57,7 +60,7 @@
                <td>${lastMatchesTeam1.date}</td>
                <td>${lastMatchesTeam1.team1}</td>
                <td>${lastMatchesTeam1.score}</td>
-               <td>${lastMatchesTeam1.team2}</td>               
+               <td>${lastMatchesTeam1.team2}</td>
                <td>${lastMatchesTeam1.championship}</td>
             </tr>
          </c:forEach>
@@ -70,7 +73,7 @@
                <td>${lastMatchesTeam2.date}</td>
                <td>${lastMatchesTeam2.team1}</td>
                <td>${lastMatchesTeam2.score}</td>
-               <td>${lastMatchesTeam2.team2}</td>               
+               <td>${lastMatchesTeam2.team2}</td>
                <td>${lastMatchesTeam2.championship}</td>
             </tr>
          </c:forEach>
@@ -83,7 +86,7 @@
                <td>${lastMatchesTeam1Team2.date}</td>
                <td>${lastMatchesTeam1Team2.team1}</td>
                <td>${lastMatchesTeam1Team2.score}</td>
-               <td>${lastMatchesTeam1Team2.team2}</td>               
+               <td>${lastMatchesTeam1Team2.team2}</td>
                <td>${lastMatchesTeam1Team2.championship}</td>
             </tr>
          </c:forEach>
