@@ -34,12 +34,12 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao{
 			+ "VALUES (?,?,?,?,?)";
 	
 	private static final String GET_DETAILS_BY_TEAMS = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP FROM MATCH_DETAILS "
-			+ "WHERE TEAM1 = ? AND TEAM2 = ? ORDER BY DATE DESC LIMIT 10";
+			+ "WHERE TEAM1 = ? AND TEAM2 = ? OR TEAM1 = ? AND TEAM2 = ? ORDER BY DATE DESC LIMIT 10";
 
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeam(String team) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM, new Object[] {team, team}, // передаю 1 команду, для двух ? в sql
+		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM, new Object[] {team, team},
 				new RowMapper<MatchDetailsBean>() {
 					@Override
 					public MatchDetailsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -74,7 +74,7 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao{
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeams(String team1, String team2) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAMS, new Object[] {team1, team2}, // передаю 1 команду, для двух ? в sql
+		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAMS, new Object[] {team1, team2, team2, team1}, 
 				new RowMapper<MatchDetailsBean>() {
 					@Override
 					public MatchDetailsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
