@@ -551,7 +551,7 @@ a {
 	margin-bottom: 55px;	
 }
 
-.EPLtable, .CoeffCompareTable {
+.EPLtable, .CoeffCompareTable, .HistoryTable {
 	width: 100%;
 	box-shadow: 1px 1px 12px 0px #aeaeae;
 	text-align: center;
@@ -562,15 +562,15 @@ a {
 	padding-left: 5px;
 }
 
-.EPLtable td:nth-child(2), .EPLtable td:nth-child(5) {
+.EPLtable td:nth-child(2), .EPLtable td:nth-child(5), .HistoryTable td:nth-child(2) {
 	text-align: right;
 }
 
-.EPLtable td:nth-child(4) {
+.EPLtable td:nth-child(4), .HistoryTable td:nth-child(4) {
 	text-align: left;
 }
 
-.EPLtable td, .CoeffCompareTable td {
+.EPLtable td, .CoeffCompareTable td, .HistoryTable td {
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -588,11 +588,11 @@ a {
 	background: #c7c7c7 !important;
 }
 
-.EPLtable tr:nth-child(odd), .CoeffCompareTable tr:nth-child(odd) {
+.EPLtable tr:nth-child(odd), .CoeffCompareTable tr:nth-child(odd), .HistoryTable tr:nth-child(odd) {
 	background: #e0e0e0;
 }
 
-.EPLtable tr:nth-child(even), .CoeffCompareTable tr:nth-child(even) {
+.EPLtable tr:nth-child(even), .CoeffCompareTable tr:nth-child(even), .HistoryTable tr:nth-child(even) {
 	background: #eaeaea;
 }
 
