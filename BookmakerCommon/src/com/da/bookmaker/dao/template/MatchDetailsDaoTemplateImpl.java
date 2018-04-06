@@ -39,11 +39,10 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao{
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeam(String team) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM, new Object[] {team}, // передаю 1 команду, для двух ? в sql
+		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM, new Object[] {team, team}, // передаю 1 команду, для двух ? в sql
 				new RowMapper<MatchDetailsBean>() {
 					@Override
 					public MatchDetailsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
-
 						MatchDetailsBean bean = new MatchDetailsBean();
 						bean.setTeam1(rs.getString("TEAM1"));
 						bean.setTeam2(rs.getString("TEAM2"));
