@@ -31,7 +31,9 @@
             <td class="CoeffCompareTableSecondary"><b>2</b></td>
          </tr>
          <c:forEach var="EPLivent" items="${ceffList}">
-            <tr onclick="window.location.href='Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}'; return false">
+            <tr onclick="
+            	window.open('Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}', '_blank'); return false;
+            ">
                <td class="CoeffCompareTableBM">
                   <a rel="nofollow" href="Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}" target="_blank">
                   <img src="${EPLivent.bookmakerBean.image}" alt="${EPLivent.bookmakerBean.name} logo">

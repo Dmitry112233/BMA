@@ -19,7 +19,7 @@
                         <a role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#">Спорт <span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu1" role="menu" aria-labelledby="dropdownMenu">
                            <li class="dropdown-submenu">
-                              <a tabindex="-1">Футбол <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
+                              <a tabindex="-1" id="football">Футбол <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
                               <ul class="dropdown-menu dropdown-menu2">
                                  <li class="${param.eighthMenu == 'true'?'active':''}"><a tabindex="-1" href="PremierLeagueList.spr">Английская Премьер-лига</a></li>
                                  <li><a tabindex="-1" href="#">Чемпионат Испании</a></li>
@@ -53,3 +53,11 @@
       </div>
    </div>
 </div>
+<script >
+  document.getElementById("football")
+   .onclick = function(event) {
+      event.preventDefault();
+       event.stopPropagation();
+       return false;
+     };
+</script>
