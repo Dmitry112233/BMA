@@ -34,7 +34,7 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao{
 			+ "VALUES (?,?,?,?,?)";
 	
 	private static final String GET_DETAILS_BY_TEAMS = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP FROM MATCH_DETAILS "
-			+ "WHERE TEAM1 = ? OR TEAM2 = ? ORDER BY DATE DESC LIMIT 10";
+			+ "WHERE TEAM1 = ? AND TEAM2 = ? ORDER BY DATE DESC LIMIT 10";
 
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeam(String team) throws DaoException {

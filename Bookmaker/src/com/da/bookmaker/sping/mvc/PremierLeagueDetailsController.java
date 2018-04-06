@@ -20,8 +20,8 @@ public class PremierLeagueDetailsController extends BookmakerController{
 	  @RequestMapping("PremierLeague_{team1}_{team2}_details.spr")
 	  public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2) throws DaoException, ParseException {
 	    Map<String, Object> map = getMatchesList(team1, team2);
-	    Map<String, Object> lastMatchesTeam1 = getMatchesDetailsTeam1(team1);
-	    Map<String, Object> lastMatchesTeam2 = getMatchesDetailsTeam1(team2);
+	    Map<String, Object> lastMatchesTeam1 = getMatchesDetailsTeam(team1);
+	    Map<String, Object> lastMatchesTeam2 = getMatchesDetailsTeam(team2);
 	    Map<String, Object> lastMatchesTeam1Team2 = getMatchesDetailsTeam1Team2(team1, team2);
 	    map.putAll(lastMatchesTeam1);
 	    map.putAll(lastMatchesTeam2);
@@ -38,7 +38,7 @@ public class PremierLeagueDetailsController extends BookmakerController{
 		return map;
 	}
 	
-	private Map<String, Object> getMatchesDetailsTeam1(String team1) throws DaoException, ParseException{
+	private Map<String, Object> getMatchesDetailsTeam(String team1) throws DaoException, ParseException{
 		List<MatchDetailsBean> lastMatchesTeam1 = DaoFactory.getMatchDetailsDao().getDetailsByTeam(team1);
 		Map<String, Object> map = new HashMap<>();
 		map.put("lastMatchesTeam1", lastMatchesTeam1);
