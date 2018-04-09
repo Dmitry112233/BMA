@@ -29,11 +29,10 @@
             <td class="CoeffCompareTableSecondary"><b>1</b></td>
             <td class="CoeffCompareTableSecondary"><b>ФОРА</b></td>
             <td class="CoeffCompareTableSecondary"><b>2</b></td>
+            <td class="CoeffCompareTableSecondary2"></td>
          </tr>
          <c:forEach var="EPLivent" items="${ceffList}">
-            <tr onclick="
-            	window.open('Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}', '_blank'); return false;
-            ">
+            <tr onclick="window.open('Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}', '_blank'); return false;">
                <td class="CoeffCompareTableBM">
                   <a rel="nofollow" href="Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}" target="_blank">
                   <img src="${EPLivent.bookmakerBean.image}" alt="${EPLivent.bookmakerBean.name} logo">
@@ -51,48 +50,55 @@
                <td class="CoeffCompareTableSecondary">${EPLivent.hand1}</td>
                <td class="CoeffCompareTableSecondary">${EPLivent.hand}</td>
                <td class="CoeffCompareTableSecondary">${EPLivent.hand2}</td>
+               <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
          </c:forEach>
       </table>
-      <br>		
-      <h3>История последних встреч ${ceffList.get(0).team1}:</h3>
-      <table class="HistoryTable">
-         <c:forEach var="lastMatchesTeam1" items="${lastMatchesTeam1}">
-            <tr>
-               <td>${lastMatchesTeam1.date}</td>
-               <td>${lastMatchesTeam1.team1}</td>
-               <td>${lastMatchesTeam1.score}</td>
-               <td>${lastMatchesTeam1.team2}</td>
-               <td>${lastMatchesTeam1.championship}</td>
-            </tr>
-         </c:forEach>
-      </table>
-      <br>		
-      <h3>История последних встреч ${ceffList.get(0).team2}:</h3>
-      <table class="HistoryTable">
-         <c:forEach var="lastMatchesTeam2" items="${lastMatchesTeam2}">
-            <tr>
-               <td>${lastMatchesTeam2.date}</td>
-               <td>${lastMatchesTeam2.team1}</td>
-               <td>${lastMatchesTeam2.score}</td>
-               <td>${lastMatchesTeam2.team2}</td>
-               <td>${lastMatchesTeam2.championship}</td>
-            </tr>
-         </c:forEach>
-      </table>
-      <br>		
-      <h3>История личных встреч межу ${ceffList.get(0).team1} и ${ceffList.get(0).team2}:</h3>
-      <table class="HistoryTable">
-         <c:forEach var="lastMatchesTeam1Team2" items="${lastMatchesTeam1Team2}">
-            <tr>
-               <td>${lastMatchesTeam1Team2.date}</td>
-               <td>${lastMatchesTeam1Team2.team1}</td>
-               <td>${lastMatchesTeam1Team2.score}</td>
-               <td>${lastMatchesTeam1Team2.team2}</td>
-               <td>${lastMatchesTeam1Team2.championship}</td>
-            </tr>
-         </c:forEach>
-      </table>
+      <c:if test="${lastMatchesTeam1.size() > 0}">
+         <br>	
+         <h3>История последних встреч команды ${ceffList.get(0).team1}:</h3>
+         <table class="HistoryTable">
+            <c:forEach var="lastMatchesTeam1" items="${lastMatchesTeam1}">
+               <tr>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam1.date}</td>
+                  <td>${lastMatchesTeam1.team1}</td>
+                  <td>${lastMatchesTeam1.score}</td>
+                  <td>${lastMatchesTeam1.team2}</td>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam1.championship}</td>
+               </tr>
+            </c:forEach>
+         </table>
+      </c:if>
+      <c:if test="${lastMatchesTeam2.size() > 0}">
+         <br>		
+         <h3>История последних встреч команды ${ceffList.get(0).team2}:</h3>
+         <table class="HistoryTable">
+            <c:forEach var="lastMatchesTeam2" items="${lastMatchesTeam2}">
+               <tr>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam2.date}</td>
+                  <td>${lastMatchesTeam2.team1}</td>
+                  <td>${lastMatchesTeam2.score}</td>
+                  <td>${lastMatchesTeam2.team2}</td>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam2.championship}</td>
+               </tr>
+            </c:forEach>
+         </table>
+      </c:if>
+      <c:if test="${lastMatchesTeam1Team2.size() > 0}">
+         <br>		
+         <h3>История личных встреч между командами ${ceffList.get(0).team1} и ${ceffList.get(0).team2}:</h3>
+         <table class="HistoryTable">
+            <c:forEach var="lastMatchesTeam1Team2" items="${lastMatchesTeam1Team2}">
+               <tr>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam1Team2.date}</td>
+                  <td>${lastMatchesTeam1Team2.team1}</td>
+                  <td>${lastMatchesTeam1Team2.score}</td>
+                  <td>${lastMatchesTeam1Team2.team2}</td>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam1Team2.championship}</td>
+               </tr>
+            </c:forEach>
+         </table>
+      </c:if>
       <br>
    </div>
 </div>

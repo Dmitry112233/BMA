@@ -580,7 +580,7 @@ a {
 	cursor: pointer;	 
 }
 
-.EPLtable a:hover {
+.EPLtable a:hover, .CoeffCompareTable a:hover {
 	color: black;
 }
 
@@ -744,7 +744,7 @@ a {
 		height: 150px;
 	}
 	
-	.CoeffCompareTableSecondary {
+	.CoeffCompareTableSecondary, .CoeffCompareTableSecondary2, .HistoryTableSecondary {
 		display: none;
 	}
 	
