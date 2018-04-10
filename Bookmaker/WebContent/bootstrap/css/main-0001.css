@@ -623,6 +623,10 @@ a {
 	margin-top: 6px;
 }
 
+.DataMissed {
+	text-align: center;
+}
+
 /* adaptation */
 @media (max-width: 1305px) {
 	.topbutton {
