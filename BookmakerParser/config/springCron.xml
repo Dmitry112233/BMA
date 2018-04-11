@@ -11,6 +11,10 @@
 
 <bean id="betFaq" class="com.da.bookmaker.parser.BetFaqParser"></bean>
 
+<bean id="wildstat" class="com.da.bookmaker.parser.WildstatParser"></bean>
+
+<bean id="xBet" class="com.da.bookmaker.parser.OneXbetParser"></bean>
+
  <task:scheduled-tasks>
  	<task:scheduled ref="betFaq" method="parseBetFaq" cron="0 0 */1 * * ?"/>                                            
  </task:scheduled-tasks>
@@ -23,5 +27,12 @@
  	<task:scheduled ref="vprognoze" method="parseVprognoze" cron="0 0 */1 * * ?"/>
 </task:scheduled-tasks>
 
+<task:scheduled-tasks>
+<task:scheduled ref = "wildstat" method="parseLastSeasons" cron="0 0 */1 * * ?"/>
+</task:scheduled-tasks>
+
+<task:scheduled-tasks>
+<task:scheduled ref = "xBet" method="parseLastSeasons" cron="0 0 */1 * * ?"/>
+</task:scheduled-tasks>
 
 </beans>

@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import com.da.bookmaker.bean.LeagueTableBean;
 import com.da.bookmaker.bean.MatchDetailsBean;
 import com.da.bookmaker.dao.DaoFactory;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
@@ -48,11 +49,25 @@ public class WildstatParser {
 	}
 
 	public static void main(String[] args) throws Exception {
-		new WildstatParser().parseWildstatAllChamp();
+		new WildstatParser().parseWildstatLeagueTables();
+	}
+
+	public void parseLastSeasons() throws Exception {
+		List<String> urls = new ArrayList<>();
+		urls.add(URL_APL_16_17);
+		urls.add(URL_APL_17_18);
+		urls.add(URL_CUP_17_18);
+		urls.add(URL_FLC_17_18);
+		urls.add(URL_ESP_17_18);
+		urls.add(URL_EUR_CL_17_18);
+		urls.add(URL_EUR_EL_17_18);
+		for (String url : urls) {
+			WebClient webClient = new WebClient(BrowserVersion.CHROME);
+			parseWildstat(url, webClient);
+		}
 	}
 
 	public void parseWildstatAllChamp() throws Exception {
-
 		List<String> urls = new ArrayList<>();
 		urls.add(URL_APL_16_17);
 		urls.add(URL_APL_17_18);
@@ -72,6 +87,86 @@ public class WildstatParser {
 			WebClient webClient = new WebClient(BrowserVersion.CHROME);
 			parseWildstat(url, webClient);
 		}
+	}
+
+	public void parseWildstatLeagueTables() throws Exception {
+		List<String> urls = new ArrayList<>();
+		urls.add(URL_APL_17_18);
+		urls.add(URL_ESP_17_18);
+		for (String url : urls) {
+			WebClient webClient = new WebClient(BrowserVersion.CHROME);
+			parseWildstatLeagueTable(url, webClient);
+		}
+	}
+
+	public void parseWildstatLeagueTable(String url, WebClient webClient) throws Exception {
+		try {
+			webClient.getOptions().setThrowExceptionOnScriptError(false);
+			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
+			webClient.setUseInsecureSSL(true);
+			HtmlPage page = (HtmlPage) webClient.getPage(url);
+			List<?> tables = page.getByXPath("//table[@class='championship' and @cellpadding='2']");
+			DomElement table = (DomElement) tables.get(0);
+			List<LeagueTableBean> beans = new ArrayList<>();
+			int i = 0;
+			for (DomElement element : table.getFirstElementChild().getChildElements()) {
+				LeagueTableBean bean = new LeagueTableBean();
+				switch (url) {
+				case URL_APL_17_18:
+					bean.setLeague("Английская Примьер Лига");
+					break;
+				case URL_ESP_17_18:
+					bean.setLeague("Испанская Ла Лига");
+					break;
+				}
+				if (element.getFirstElementChild().getAttribute("align").equals("right")
+						&& element.getChildElementCount() > 5) {
+					if (i < 3) {
+						bean = getStatForFirstTeams(element, bean);
+						i++;
+					} else {
+						bean = getStatForOthereTeams(element, bean);
+						i++;
+					}
+					beans.add(bean);
+				}
+			}
+			DaoFactory.getLeaguTableDao().addMatchesDetails(beans);
+		} finally {
+			webClient.closeAllWindows();
+		}
+	}
+
+	public LeagueTableBean getStatForFirstTeams(DomElement element, LeagueTableBean bean) throws Exception {
+		Iterator<DomElement> iterator = element.getChildElements().iterator();
+		String place = iterator.next().getTextContent();
+		place = place.substring(0, place.length()-1);
+		bean.setPlace(Integer.parseInt(place));
+		bean.setTeam(iterator.next().getFirstElementChild().getFirstElementChild().getFirstElementChild().getTextContent());
+		bean.setGames(iterator.next().getFirstElementChild().getTextContent());
+		bean.setWin(iterator.next().getFirstElementChild().getTextContent());
+		bean.setDraw(iterator.next().getFirstElementChild().getTextContent());
+		bean.setLose(iterator.next().getFirstElementChild().getTextContent());
+		bean.setGoals(iterator.next().getTextContent());
+		bean.setPoints(iterator.next().getFirstElementChild().getTextContent());
+		System.out.println(bean.getPlace());
+		return bean;
+	}
+
+	public LeagueTableBean getStatForOthereTeams(DomElement element, LeagueTableBean bean) throws Exception {
+		Iterator<DomElement> iterator = element.getChildElements().iterator();
+		String place = iterator.next().getTextContent();
+		place = place.substring(0, place.length()-1);
+		bean.setPlace(Integer.parseInt(place));
+		bean.setTeam(iterator.next().getFirstElementChild().getTextContent());
+		bean.setGames(iterator.next().getFirstElementChild().getTextContent());
+		bean.setWin(iterator.next().getFirstElementChild().getTextContent());
+		bean.setDraw(iterator.next().getFirstElementChild().getTextContent());
+		bean.setLose(iterator.next().getFirstElementChild().getTextContent());
+		bean.setGoals(iterator.next().getTextContent());
+		bean.setPoints(iterator.next().getFirstElementChild().getTextContent());
+		System.out.println(bean.getPlace());
+		return bean;
 	}
 
 	public void parseWildstat(String url, WebClient webClient) throws Exception {
@@ -98,33 +193,33 @@ public class WildstatParser {
 							bean.setScore(getScore(tr));
 							beans.add(bean);
 							if (url.equals(URL_APL_16_17) || url.equals(URL_APL_17_18)) {
-								bean.setChampionship("Английская Примьер Лига ");
+								bean.setChampionship("Английская Примьер Лига");
 							}
 							if (url.equals(URL_FLC_16_17) || url.equals(URL_FLC_17_18)) {
 								bean.setChampionship("Кубок Английской Лиги");
 							}
 							if (url.equals(URL_CUP_16_17) || url.equals(URL_CUP_17_18)) {
-							
+
 								bean.setChampionship("Кубок Англии");
 							}
 							if (url.equals(URL_CS_16) || url.equals(URL_CS_17)) {
-								
+
 								bean.setChampionship("Супер Кубок Англии");
 							}
 							if (url.equals(URL_ESP_16_17) || url.equals(URL_ESP_17_18)) {
-								
-								bean.setChampionship(" Испанская Ла Лига");
+
+								bean.setChampionship("Испанская Ла Лига");
 							}
 							if (url.equals(URL_ESP_SC_16) || url.equals(URL_ESP_SC_17)) {
-								
+
 								bean.setChampionship("Супер Кубок Испании");
 							}
 							if (url.equals(URL_EUR_CL_17_18)) {
-								
+
 								bean.setChampionship("Лига Чемпионов");
 							}
 							if (url.equals(URL_EUR_EL_17_18)) {
-								
+
 								bean.setChampionship("Лига Европы");
 							}
 						}

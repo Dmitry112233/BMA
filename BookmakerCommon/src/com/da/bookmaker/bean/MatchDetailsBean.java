@@ -11,13 +11,31 @@ public class MatchDetailsBean {
 	private String team1;
 
 	private String team2;
-	
+
 	private String score;
-	
+
 	private Date date;
-	
+
 	private String championship;
-	
+
+/*	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		if (obj == null || obj.getClass() != this.getClass()) {
+			return false;
+		}
+		MatchDetailsBean objToCompare = (MatchDetailsBean) obj;
+		if (this.team1.equals(objToCompare.getTeam1()) && this.team2.equals(objToCompare.getTeam2())
+				&& this.score.equals(objToCompare.getScore()) && this.date.equals(objToCompare.getDate())
+				&& this.championship.equals(objToCompare.getChampionship())) {
+			return true;
+		} else {
+			return false;
+		}
+	}*/
+
 	public String getChampionship() {
 		return championship;
 	}
@@ -27,7 +45,7 @@ public class MatchDetailsBean {
 	}
 
 	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy");
-	
+
 	public String getDateStr() {
 		if (date == null) {
 			return "";

@@ -12,4 +12,7 @@ public interface MatchDetailsDao {
 	
 	List<MatchDetailsBean> getDetailsByTeams(String team1, String team2) throws DaoException; 
 	 
+	List<MatchDetailsBean> getAllMAtchDetails() throws DaoException;
+	
+	String getTeamNameFromDictionary(String name) throws DaoException;
 }

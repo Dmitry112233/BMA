@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.da.bookmaker.dao.template.BookmakerDaoTemplateImpl;
 import com.da.bookmaker.dao.template.ExpressDaoTemplateImpl;
 import com.da.bookmaker.dao.template.IventDaoTemplateImpl;
+import com.da.bookmaker.dao.template.LeagueTableDaoTemplateImpl;
 import com.da.bookmaker.dao.template.MatchDetailsDaoTemplateImpl;
 import com.da.bookmaker.dao.template.NewsDaoTemplateImpl;
 import com.da.bookmaker.dao.template.PremierLeagueDaoTemplateImpl;
@@ -54,5 +55,10 @@ public class DaoFactory {
 	public static MatchDetailsDao getMatchDetailsDao(){
 		
 		return context.getBean(MatchDetailsDaoTemplateImpl.class);
+	}
+	
+	public static LeagueTableDao getLeaguTableDao(){
+		
+		return context.getBean(LeagueTableDaoTemplateImpl.class);
 	}
 }

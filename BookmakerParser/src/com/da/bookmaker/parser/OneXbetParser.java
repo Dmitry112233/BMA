@@ -45,7 +45,6 @@ public class OneXbetParser extends AbstractParser {
 			HtmlPage page = (HtmlPage) webClient.getPage(URL);
 			List<PremierLeagueBean> beans = new ArrayList<>();
 			// Засетить Имя Чемпионат + поле в базе
-			// 
 			List<?> htmlDivisions = page.getByXPath("//*[contains(@class, 'c-events__item c-events__item_col')]");
 			// Не могу взять итератором нужный элемент, т.к NoSurchElementException
 			long bookmakerId = DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId();
@@ -75,7 +74,7 @@ public class OneXbetParser extends AbstractParser {
 				bean.setDateStr(time);
 				bean.setTeam1(names.get(0));
 				bean.setTeam2(names.get(1));
-				bean.setLeague("Чемпионат Англии");
+				bean.setLeague("Английская Примьер Лига");
 				bean.setBookmakerId(bookmakerId);
 				logger.info("Bean has added");
 				beans.add(bean);
