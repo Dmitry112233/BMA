@@ -8,7 +8,7 @@
          <!-- вывод туров АПЛ в цикле -->			
          <table class="EPLtable">
             <c:forEach var="EPLivent" items="${matchesList}">
-               <tr onclick="window.location.href='PremierLeague_${EPLivent.team1}_${EPLivent.team2}_details.spr'; return false">
+               <tr onclick="window.location.href='PremierLeague_${EPLivent.team1}_${EPLivent.team2}_${EPLivent.league}_details.spr'; return false">
                   <td>${EPLivent.dateStr}</td>
                   <td>${EPLivent.team1}</td>
                   <td>-</td>

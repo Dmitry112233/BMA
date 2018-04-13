@@ -99,6 +99,36 @@
             </c:forEach>
          </table>
       </c:if>
+      <c:if test="${leagueTable.size() > 0}">
+         <br>		
+         <div class="LeagueTableBlock">
+         <h3>Таблица чемпионата:</h3>
+         <table class="LeagueTable">         
+            <tr class="LeagueTableHeader">
+            	<td></td>
+            	<td>Команда</td>
+            	<td>И</td>
+            	<td class="LeagueTableSecondary">В</td>
+            	<td class="LeagueTableSecondary">Н</td>
+            	<td class="LeagueTableSecondary">П</td>
+            	<td class="LeagueTableSecondary">М</td>
+            	<td>О</td>
+            </tr>
+            <c:forEach var="leagueTable" items="${leagueTable}">
+               <tr>           
+                  <td>${leagueTable.place}</td>
+                  <td>${leagueTable.team}</td>
+                  <td>${leagueTable.games}</td>
+                  <td class="LeagueTableSecondary">${leagueTable.win}</td>
+                  <td class="LeagueTableSecondary">${leagueTable.draw}</td>
+                  <td class="LeagueTableSecondary">${leagueTable.lose}</td>
+                  <td class="LeagueTableSecondary">${leagueTable.goals}</td>
+                  <td>${leagueTable.points}</td>                  
+               </tr>
+            </c:forEach>
+         </table>
+         </div>
+      </c:if>
       <br>
    </div>
 </div>
