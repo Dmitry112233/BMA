@@ -33,7 +33,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	+ " FROM PREMIER_LEAGUE PL "
 	+ " JOIN BOOKMAKERS B "
 	+ " ON B.ID = PL.BOOKMAKER_ID"
-	+ " WHERE LEAGUE = 'Английская Примьер Лига'";
+	+ " WHERE LEAGUE = ?";
 	
 	private final static String GET_MATCH_BY_TEAMS = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
 			"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
@@ -85,9 +85,9 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	}
 
 	@Override
-	public List<PremierLeagueBean> getAllMatchesForAPL() throws DaoException {
+	public List<PremierLeagueBean> getAllMatchesForAPL(String leagueName) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<PremierLeagueBean> list = template.query(GET_APL_MATCHES_LIST, new RowMapper<PremierLeagueBean>() {
+		List<PremierLeagueBean> list = template.query(GET_APL_MATCHES_LIST, new Object[]{leagueName}, new RowMapper<PremierLeagueBean>() {
 			@Override
 			public PremierLeagueBean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				PremierLeagueBean bean = new PremierLeagueBean();
@@ -120,7 +120,6 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 			}
 		});
 		return list;
-		
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,15 +17,16 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class PremierLeagueController extends BookmakerController{
 	
-	@RequestMapping("/PremierLeagueList.spr")
-	public ModelAndView getMainList() throws DaoException, ParseException {
-		Map<String, Object> map = getMatchesList();
+	
+	@RequestMapping("/PremierLeague_{leagueName}_List.spr")
+	public ModelAndView getMainList(@PathVariable("leagueName") String leagueName) throws DaoException, ParseException {
+		Map<String, Object> map = getMatchesList(leagueName);
 		map.putAll(getBookmakerList());
 		return new ModelAndView("league", map);
 	}
 	
-	private Map<String, Object> getMatchesList() throws DaoException, ParseException{
-		List<PremierLeagueBean> matchesList = DaoFactory.getPremierLeagueDao().getAllMatchesForAPL();
+	private Map<String, Object> getMatchesList(String leagueName) throws DaoException, ParseException{
+		List<PremierLeagueBean> matchesList = DaoFactory.getPremierLeagueDao().getAllMatchesForAPL(leagueName);
 		Map<String, Object> map = new HashMap<>();
 		map.put("matchesList", matchesList);
 		return map;
