@@ -60,7 +60,7 @@
          <table class="HistoryTable">
             <c:forEach var="lastMatchesTeam1" items="${lastMatchesTeam1}">
                <tr>
-                  <td class="HistoryTableSecondary">${lastMatchesTeam1.date}</td>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam1.dateStr}</td>
                   <td>${lastMatchesTeam1.team1}</td>
                   <td>${lastMatchesTeam1.score}</td>
                   <td>${lastMatchesTeam1.team2}</td>
@@ -75,7 +75,7 @@
          <table class="HistoryTable">
             <c:forEach var="lastMatchesTeam2" items="${lastMatchesTeam2}">
                <tr>
-                  <td class="HistoryTableSecondary">${lastMatchesTeam2.date}</td>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam2.dateStr}</td>
                   <td>${lastMatchesTeam2.team1}</td>
                   <td>${lastMatchesTeam2.score}</td>
                   <td>${lastMatchesTeam2.team2}</td>
@@ -90,7 +90,7 @@
          <table class="HistoryTable">
             <c:forEach var="lastMatchesTeam1Team2" items="${lastMatchesTeam1Team2}">
                <tr>
-                  <td class="HistoryTableSecondary">${lastMatchesTeam1Team2.date}</td>
+                  <td class="HistoryTableSecondary">${lastMatchesTeam1Team2.dateStr}</td>
                   <td>${lastMatchesTeam1Team2.team1}</td>
                   <td>${lastMatchesTeam1Team2.score}</td>
                   <td>${lastMatchesTeam1Team2.team2}</td>

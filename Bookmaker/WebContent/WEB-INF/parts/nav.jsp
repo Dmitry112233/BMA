@@ -21,7 +21,7 @@
                            <li class="dropdown-submenu">
                               <a tabindex="-1" id="football">Футбол <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></a>
                               <ul class="dropdown-menu dropdown-menu2">
-                                 <li class="${param.eighthMenu == 'true'?'active':''}"><a tabindex="-1" href="PremierLeagueList.spr">Английская Премьер-лига</a></li>
+                                 <li class="${param.eighthMenu == 'true'?'active':''}"><a tabindex="-1" href="PremierLeague_${'Английская Примьер Лига'}_List.spr">Английская Премьер-лига</a></li>
                                  <li><a tabindex="-1" href="#">Чемпионат Испании</a></li>
                                  <li><a tabindex="-1" href="#">Чемпионат Германии</a></li>
                                  <li><a tabindex="-1" href="#">Чемпионат Италии</a></li>
