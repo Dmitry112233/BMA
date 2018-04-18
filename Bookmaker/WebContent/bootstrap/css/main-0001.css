@@ -641,6 +641,19 @@ a {
 	text-align: center;
 }
 
+.selected_row {
+	background: #52c153 !important;	
+}
+
+.selected_cell {
+	font-weight: bold;
+}
+
+.HistoryTableDisclosure {
+	text-align: left;
+	display: none !important;
+}
+
 /* adaptation */
 @media (max-width: 1305px) {
 	.topbutton {
@@ -784,5 +797,9 @@ a {
 	
 	.dropdown-menu .active a {
 		background-color: #6f6f6f !important;
+	}
+	
+	.HistoryTableDisclosure {		
+		display: none;
 	}
 }

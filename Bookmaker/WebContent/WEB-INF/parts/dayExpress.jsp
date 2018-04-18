@@ -4,9 +4,7 @@
 <div id="dayexp" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <h1>Ставка дня</h1>
    <br>
-   <!--
-   <c:if test="${myExpress.iventList.size() > 0}">
-   -->
+   <c:if test="${myExpress != NULL}">   
    <!-- вывод одного экспресса дня -->   
    <table class="dayexptable">
       <!-- переменная для увеличивающегося номера строки в таблице с эвентами -->
@@ -26,11 +24,9 @@
    <br>
    <p>Итоговый коэф: <b><fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${myExpress.resultCoeff}" /></b></p>
    <p>Дата начала: <b>${myExpress.dateStr}</b></p>
-   <p>Описание события:<br>${myExpress.description}</p>
-   <!--
+   <p>Описание события:<br>${myExpress.description}</p>   
    </c:if>   
-   <c:if test="${myExpress.iventList.size() == 0}">
+   <c:if test="${myExpress == NULL}">
       <p class="DataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</p>
-   </c:if>
-   -->
+   </c:if>   
 </div>
