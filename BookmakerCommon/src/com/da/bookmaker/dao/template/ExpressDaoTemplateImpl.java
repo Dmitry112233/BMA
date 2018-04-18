@@ -66,7 +66,11 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	public ExpressBean getMyExpress() {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_MY_EXPRESS, new ExpressSetExecuter());
-		return list.get(0);
+		if (list.size() > 0){
+			return list.get(0);
+		}else{
+			return null;
+		}
 	}
 
 	private class ExpressSetExecuter implements RowMapper<ExpressBean> {
