@@ -53,8 +53,8 @@ public class AdminController {
 		myNewExpress.setDateStr(date);
 		myNewExpress.setName(StringEscapeUtils.unescapeHtml4(name));
 		myNewExpress.setDescription(StringEscapeUtils.unescapeHtml4(description));
-		ExpressBean myCurrentExpress = DaoFactory.getExpressDao().getMyExpress();
-		if (myCurrentExpress.getDate().equals(myNewExpress.getDate())) {
+		ExpressBean myCurrentExpress = DaoFactory.getExpressDao().getMyExpress();	
+		if (myCurrentExpress != null && myCurrentExpress.getDate().equals(myNewExpress.getDate())) {
 			throw new DaoException("Express with this date has already existed");
 		} else {
 			DaoFactory.getExpressDao().addMyExpress(myNewExpress);

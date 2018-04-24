@@ -15,4 +15,6 @@ public interface MatchDetailsDao {
 	List<MatchDetailsBean> getAllMAtchDetails() throws DaoException;
 	
 	String getTeamNameFromDictionary(String name) throws DaoException;
+	
+	void deleteAllMatchesForLastSeason(String leagueName) throws DaoException;
 }

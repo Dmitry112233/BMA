@@ -46,17 +46,17 @@ public class PremierLeagueDetailsController extends BookmakerController {
 	}
 
 	private List<?> getMatchesDetailsTeam(String team) throws DaoException, ParseException {
-		String teamByWildstat = DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(team);
-		return DaoFactory.getMatchDetailsDao().getDetailsByTeam(teamByWildstat);
+		//String teamByWildstat = DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(team);
+		return DaoFactory.getMatchDetailsDao().getDetailsByTeam(team);
 	}
 
 	private Map<String, Object> getMatchesDetailsTeam1Team2(String team1, String team2)
 			throws DaoException, ParseException {
-		String team1ByWildstat = DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(team1);
-		String team2ByWildstat = DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(team2);
+		//String team1ByWildstat = DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(team1);
+		//String team2ByWildstat = DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(team2);
 
 		List<MatchDetailsBean> lastMatchesTeam1Team2 = DaoFactory.getMatchDetailsDao()
-				.getDetailsByTeams(team1ByWildstat, team2ByWildstat);
+				.getDetailsByTeams(team1, team2);
 		Map<String, Object> map = new HashMap<>();
 		map.put("lastMatchesTeam1Team2", lastMatchesTeam1Team2);
 		return map;

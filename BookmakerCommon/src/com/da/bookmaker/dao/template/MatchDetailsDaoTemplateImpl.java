@@ -29,6 +29,13 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 
 	private static final String GET_DETAILS_BY_TEAM = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP FROM MATCH_DETAILS "
 			+ "WHERE TEAM1 = ? OR TEAM2 = ? ORDER BY DATE DESC LIMIT 10";
+	
+	private static final String GET_DETAILS_BY_TEAM_SQL = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP FROM MATCH_DETAILS md "
+			+ "JOIN TEAM_DICTIONARY td1 "
+			+ "ON td1.WILDSTAT_NAME = md.TEAM1 "
+			+ "JOIN TEAM_DICTIONARY td2 "
+			+ "ON td2.WILDSTAT_NAME = md.TEAM2 "
+			+ "WHERE td1.XBET_NAME = ? OR td2.XBET_NAME = ? ORDER BY DATE DESC LIMIT 10";
 
 	private static final String INSERT_MATCHES_DETAILS = "INSERT INTO MATCH_DETAILS (TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP) "
 			+ "VALUES (?,?,?,?,?)";
@@ -36,15 +43,28 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 	private static final String GET_DETAILS_BY_TEAMS = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP "
 			+ "FROM MATCH_DETAILS "
 			+ "WHERE TEAM1 = ? AND TEAM2 = ? OR TEAM1 = ? AND TEAM2 = ? ORDER BY DATE DESC LIMIT 10";
+	
+	private static final String GET_DETAILS_BY_TEAMS_SQL = "Select md.TEAM1, md.TEAM2, md.DATE, md.SCORE, md.CHAMPIONSHIP "
+	+ "FROM MATCH_DETAILS md "
+	+ "JOIN TEAM_DICTIONARY td1 "
+    + "ON td1.WILDSTAT_NAME = md.TEAM1 "
+    + "JOIN TEAM_DICTIONARY td2 " 
+    + "ON td2.WILDSTAT_NAME = md.TEAM2 "
+    + "WHERE (td1.XBET_NAME = ? AND td2.XBET_NAME = ?) "
+    + "OR (td1.XBET_NAME = ? AND td2.XBET_NAME = ?)";
 
 	private static final String GET_ALL_MATCHES = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP FROM MATCH_DETAILS";
 
 	private static final String GET_DICTIONARY_NAME = "SELECT WILDSTAT_NAME FROM TEAM_DICTIONARY WHERE XBET_NAME = ?";
+	
+	private static final String DELETE_MATCHES_FOR_LAST_SEASON = "DELETE FROM MATCH_DETAILS WHERE CHAMPIONSHIP = ? "
+			+ "AND DATE >= '01.08.2017'";
 
+	
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeam(String team) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM, new Object[] { team, team },
+		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM_SQL, new Object[] { team, team },
 				new RowMapper<MatchDetailsBean>() {
 					@Override
 					public MatchDetailsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -75,15 +95,14 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 					}
 				});
 	}
-
+	
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeams(String team1, String team2) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAMS, new Object[] { team1, team2, team2, team1 },
+		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAMS_SQL, new Object[] { team1, team2, team2, team1 },
 				new RowMapper<MatchDetailsBean>() {
 					@Override
 					public MatchDetailsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
-
 						MatchDetailsBean bean = new MatchDetailsBean();
 						bean.setTeam1(rs.getString("TEAM1"));
 						bean.setTeam2(rs.getString("TEAM2"));
@@ -126,5 +145,11 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 			}
 		});
 		return nameList.get(0);
+	}
+
+	@Override
+	public void deleteAllMatchesForLastSeason(String leagueName) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(DELETE_MATCHES_FOR_LAST_SEASON, new Object[] {leagueName});
 	}
 }
