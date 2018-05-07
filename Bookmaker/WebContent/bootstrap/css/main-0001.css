@@ -308,6 +308,14 @@ a {
 	margin-right: 5px;	
 }
 
+.teamIcon {
+	height: 16px;
+}
+
+.leagueIcon {
+	height: 100px;
+}
+
 #topAdBanner img {
 	position: relative;
 	width: 100%;	
@@ -563,7 +571,7 @@ a {
 	margin: auto;	
 }
 
-.LeagueTable td:nth-child(2) {	
+.LeagueTable td:nth-child(3) {	
 	text-align: left;
 }
 
@@ -576,11 +584,11 @@ a {
 	padding-left: 5px;
 }
 
-.EPLtable td:nth-child(2), .EPLtable td:nth-child(5), .HistoryTable td:nth-child(2) {
+.EPLtable td:nth-child(2), .EPLtable td:nth-child(7), .HistoryTable td:nth-child(2) {
 	text-align: right;
 }
 
-.EPLtable td:nth-child(4), .HistoryTable td:nth-child(4) {
+.EPLtable td:nth-child(6), .HistoryTable td:nth-child(6) {
 	text-align: left;
 }
 
@@ -627,7 +635,7 @@ a {
 	padding: 4px; 
 }
 
-.EPLtable td:nth-child(6) {
+.EPLtable td:nth-child(8) {
 	display: none;
 }
 
@@ -715,7 +723,7 @@ a {
 		display: none;
 	}
 	
-	.EPLtable td:nth-child(5) {
+	.EPLtable td:nth-child(7) {
 		display: none;
 	}
 	
@@ -779,15 +787,15 @@ a {
 		display: none;
 	}
 	
-	.EPLtable td:nth-child(5) {
+	.EPLtable td:nth-child(7) {
 		display: none;
 	}
 	
-	.EPLtable td:nth-child(2), .EPLtable td:nth-child(3), .EPLtable td:nth-child(4) {
+	.EPLtable td:nth-child(2), .EPLtable td:nth-child(3), .EPLtable td:nth-child(4), .EPLtable td:nth-child(5), .EPLtable td:nth-child(6) {
 	display: none;
 	}
 	
-	.EPLtable td:nth-child(6) {
+	.EPLtable td:nth-child(8) {
 	display: block;
 	}
 	
@@ -800,6 +808,10 @@ a {
 	}
 	
 	.HistoryTableDisclosure {		
+		display: none;
+	}
+	
+	.leagueIcon {
 		display: none;
 	}
 }

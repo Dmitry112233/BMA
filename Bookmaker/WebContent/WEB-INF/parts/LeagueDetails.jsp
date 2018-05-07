@@ -4,7 +4,7 @@
    <div class="details">
       <h1>Детали по матчу ${ceffList.get(0).team1} - ${ceffList.get(0).team2}</h1>
       <br>
-      <a class="BackButton" href="PremierLeagueList.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> вернуться</a>
+      <a class="BackButton" href="PremierLeague_${'Английская Примьер Лига'}_List.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> вернуться</a>
       <br>
       <br>
       <div>
@@ -62,7 +62,9 @@
                <tr>
                   <td class="HistoryTableSecondary">${Team1Matches.dateStr}</td>
                   <td <c:if test="${ceffList.get(0).team1 eq Team1Matches.team1}">class="selected_cell"</c:if>>${Team1Matches.team1}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team1}.png"></td>
                   <td>${Team1Matches.score}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team2}.png"></td>
                   <td <c:if test="${ceffList.get(0).team1 eq Team1Matches.team2}">class="selected_cell"</c:if>>${Team1Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Matches.championship}</td>
                </tr>
@@ -83,7 +85,9 @@
                <tr>
                   <td class="HistoryTableSecondary">${Team2Matches.dateStr}</td>
                   <td <c:if test="${ceffList.get(0).team2 eq Team2Matches.team1}">class="selected_cell"</c:if>>${Team2Matches.team1}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team1}.png"></td>
                   <td>${Team2Matches.score}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team2}.png"></td>
                   <td <c:if test="${ceffList.get(0).team2 eq Team2Matches.team2}">class="selected_cell"</c:if>>${Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team2Matches.championship}</td>
                </tr>
@@ -104,7 +108,9 @@
                <tr>
                   <td class="HistoryTableSecondary">${Team1Team2Matches.dateStr}</td>
                   <td>${Team1Team2Matches.team1}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Team2Matches.team1}.png"></td>
                   <td>${Team1Team2Matches.score}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Team2Matches.team2}.png"></td>
                   <td>${Team1Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Team2Matches.championship}</td>
                </tr>
@@ -124,7 +130,7 @@
             <table class="LeagueTable">
                <tr class="LeagueTableHeader">
                   <td></td>
-                  <td>Команда</td>
+                  <td colspan="2">Команда</td>
                   <td>И</td>
                   <td class="LeagueTableSecondary">В</td>
                   <td class="LeagueTableSecondary">Н</td>
@@ -135,6 +141,7 @@
                <c:forEach var="LeagueTableRow" items="${leagueTable}">
                   <tr <c:if test="${LeagueTableRow.team eq ceffList.get(0).team1 or LeagueTableRow.team eq ceffList.get(0).team2}">class="selected_row"</c:if>>
                   <td>${LeagueTableRow.place}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${LeagueTableRow.team}.png"></td>
                   <td>${LeagueTableRow.team}</td>
                   <td>${LeagueTableRow.games}</td>
                   <td class="LeagueTableSecondary">${LeagueTableRow.win}</td>
