@@ -8,9 +8,13 @@ public interface PremierLeagueDao {
 
 	void addMatchesList(List<PremierLeagueBean> ivents) throws DaoException;
 	
-	void deleteMatchesList() throws DaoException;
+	void deleteMatchesList(String leagueName, long bookmakerId) throws DaoException;
 	
-	List<PremierLeagueBean> getAllMatchesForAPL(String leagueName) throws DaoException;
+	List<PremierLeagueBean> getAllMatchesForLeague(String leagueName) throws DaoException;
 	
-	List<PremierLeagueBean> getMatchByTeams(String team1, String team2) throws DaoException;
+	List<PremierLeagueBean> get1xBetCeffByTeams(String team1, String team2) throws DaoException;
+	
+	List<PremierLeagueBean> getLeonCeffByTeams(String team1, String team2) throws DaoException;
+	
+	List<PremierLeagueBean> getLigaCeffByTeams(String team1, String team2) throws DaoException;
 }

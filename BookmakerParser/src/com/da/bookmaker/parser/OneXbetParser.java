@@ -21,7 +21,13 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class OneXbetParser extends AbstractParser {
 
-	static final private String URL = "https://1xvix.top/line/Football/88637-England-Premier-League/";
+	static final private String ENG = "https://1xvix.top/line/Football/88637-England-Premier-League/";
+	static final private String RUS = "https://1xvix.top/line/Football/225733-Russia-Premier-League/";
+	static final private String ESP = "https://1xvix.top/line/Football/127733-Spain-Primera-Division/";
+	static final private String ITA = "https://1xvix.top/line/Football/110163-Italy-Serie-A/";
+	static final private String GER = "https://1xvix.top/line/Football/96463-Germany-Bundesliga/";
+	static final private String CL = "https://1xvix.top/line/Football/118587-UEFA-Champions-League/";
+	static final private String LE = "https://1xvix.top/line/Football/118593-UEFA-Europa-League/";
 
 	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
 
@@ -31,26 +37,39 @@ public class OneXbetParser extends AbstractParser {
 	}
 
 	public static void main(String[] args) throws Exception {
-		new OneXbetParser().parseOneXBet();
+		new OneXbetParser().paresAllChamp();
 	}
 
-	public void parseOneXBet() throws Exception {
-		WebClient webClient = new WebClient(BrowserVersion.CHROME);
+	public void paresAllChamp() throws Exception {
+		List<String> urls = new ArrayList<>();
+		urls.add(ENG);
+		urls.add(RUS);
+		urls.add(ESP);
+		urls.add(ITA);
+		urls.add(GER);
+		urls.add(CL);
+		urls.add(LE);
+		for (String url : urls) {
+			parseOneXBet(url);
+		}
+	}
 
-		logger.info("1xBet parser starts...");
+	private void parseOneXBet(String url) throws Exception {
+		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
+			System.out.println("Pars: " + url);
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
 			webClient.setUseInsecureSSL(true);
-			HtmlPage page = (HtmlPage) webClient.getPage(URL);
+			HtmlPage page = (HtmlPage) webClient.getPage(url);
 			List<PremierLeagueBean> beans = new ArrayList<>();
 			// Засетить Имя Чемпионат + поле в базе
 			List<?> htmlDivisions = page.getByXPath("//*[contains(@class, 'c-events__item c-events__item_col')]");
-			// Не могу взять итератором нужный элемент, т.к NoSurchElementException
+			// Не могу взять итератором нужный элемент, т.к
+			// NoSurchElementException
 			long bookmakerId = DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId();
 			for (Object object : htmlDivisions) {
-				HtmlDivision division = (HtmlDivision)object;
-				logger.info("Get next element");
+				HtmlDivision division = (HtmlDivision) object;
 				DomElement match = division.getFirstElementChild();
 				Iterator<DomElement> matchChildren = match.getChildElements().iterator();
 				matchChildren.next();
@@ -58,31 +77,77 @@ public class OneXbetParser extends AbstractParser {
 				DomElement events_time = matchChildren.next();
 				matchChildren.next();
 				DomElement events_name = matchChildren.next();
-				System.out.println(events_name.getAttribute("class"));
 				matchChildren.next();
 				matchChildren.next();
 				DomElement c_bets = matchChildren.next();
-				System.out.println(c_bets.getAttribute("class"));
 				PremierLeagueBean bean = new PremierLeagueBean();
-				logger.info("Try to get date and time");
+
 				String time = getDate(events_time);
-				logger.info("Try to get names");
+
 				ArrayList<String> names = getName(events_name);
-				logger.info("Try to get coefficients");
+
 				bean = getCoefficients(c_bets, bean);
-				logger.info("Try to set date / names / League / bookmakerID ");
+
 				bean.setDateStr(time);
 				bean.setTeam1(names.get(0));
 				bean.setTeam2(names.get(1));
-				bean.setLeague("Английская Примьер Лига");
+				switch (url) {
+				case ENG:
+					bean.setLeague("Английская Примьер Лига");
+					break;
+				case RUS:
+					bean.setLeague("Российская Примьер Лига");
+					break;
+				case GER:
+					bean.setLeague("Немецкая Бундеслига");
+					break;
+				case ITA:
+					bean.setLeague("Итальянская серия А");
+					break;
+				case ESP:
+					bean.setLeague("Испанская Ла Лига");
+					break;
+				case CL:
+					bean.setLeague("Лига Чемпионов");
+					break;
+				case LE:
+					bean.setLeague("Лига Европы");
+					break;
+				}
 				bean.setBookmakerId(bookmakerId);
-				logger.info("Bean has added");
+
 				beans.add(bean);
-				System.out.println(bean.getDateStr() + " " + bean.getTeam1() + " " + bean.getTeam2() + " " + bean.getX()
-						+ " " + bean.getX12() + " " + bean.getHand() + " " + bean.getTotal());
 			}
-			DaoFactory.getPremierLeagueDao().deleteMatchesList();
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+			switch (url) {
+			case ENG:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 1);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
+			case RUS:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 1);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
+			case GER:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Немецкая Бундеслига", 1);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
+			case ITA:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Итальянская серия А", 1);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
+			case ESP:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Испанская Ла Лига", 1);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
+			case CL:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Чемпионов", 1);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
+			case LE:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 1);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
+			}
 		} finally {
 			webClient.closeAllWindows();
 		}
@@ -98,8 +163,6 @@ public class OneXbetParser extends AbstractParser {
 		ArrayList<Double> mass2 = getCoefficientForItem(c_bet_item2);
 		ArrayList<Double> mass3 = getCoefficientForItem(c_bet_item3);
 		ArrayList<String> list = getCoefficientForHand(c_bet_item4);
-		logger.info("Try to set coefficients to the match");
-		System.out.println(mass1.size() + " " + mass2.size() + " " + mass3.size() + " " + list.size());
 		bean.setWin1(mass1.get(0));
 		bean.setX(mass1.get(1));
 		bean.setWin2(mass1.get(2));
@@ -119,7 +182,12 @@ public class OneXbetParser extends AbstractParser {
 	private ArrayList<String> getCoefficientForHand(DomElement element) {
 		ArrayList<String> list = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {
-			list.add((coeff.getTextContent().trim()));
+			if (!coeff.getTextContent().trim().equals("-")) {
+				list.add((coeff.getTextContent().trim()));
+			}else{
+				list.add("0.0");
+			}
+
 		}
 		return list;
 	}
@@ -127,8 +195,12 @@ public class OneXbetParser extends AbstractParser {
 	private ArrayList<Double> getCoefficientForItem(DomElement element) {
 		ArrayList<Double> mass = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {
-			System.out.println(coeff.getTextContent().trim().replace(",","."));
-			mass.add(Double.parseDouble(coeff.getTextContent().trim().replace(",", ".")));
+			System.out.println(coeff.getTextContent().trim().replace(",", "."));
+			if (!coeff.getTextContent().trim().equals("-")) {
+				mass.add(Double.parseDouble(coeff.getTextContent().trim().replace(",", ".")));
+			} else {
+				mass.add(0.0);
+			}
 		}
 		return mass;
 	}

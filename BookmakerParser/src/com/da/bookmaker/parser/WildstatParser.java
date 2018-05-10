@@ -1,8 +1,12 @@
 package com.da.bookmaker.parser;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -19,29 +23,9 @@ public class WildstatParser {
 
 	private static final Logger logger = Logger.getLogger(WildstatParser.class);
 
-	// Английская Примьер Лига
-	private static final String URL_APL_16_17 = "http://wildstat.ru/p/2301/ch/ENG_1_2016_2017/stg/all/tour/all";
-	private static final String URL_APL_17_18 = "http://wildstat.ru/p/2301/ch/ENG_1_2017_2018/stg/all/tour/all";
-	// Кубок Английской Лиги:
-	private static final String URL_FLC_16_17 = "http://wildstat.ru/p/2305/ch/ENG_FLC_2016_2017/stg/all/tour/all";
-	private static final String URL_FLC_17_18 = "http://wildstat.ru/p/2305/ch/ENG_FLC_2017_2018/stg/all/tour/all";
-	// Кубок Англии
-	private static final String URL_CUP_16_17 = "http://wildstat.ru/p/2302/ch/ENG_CUP_2016_2017/stg/all/tour/all";
-	private static final String URL_CUP_17_18 = "http://wildstat.ru/p/2302/ch/ENG_CUP_2017_2018/stg/all/tour/all";
-	// Супер Кубок Англии
-	private static final String URL_CS_16 = "http://wildstat.ru/p/2303/ch/ENG_CS_2016/stg/all/tour/all";
-	private static final String URL_CS_17 = "http://wildstat.ru/p/2303/ch/ENG_CS_2017/stg/all/tour/all";
-	// Испанская Ла Лига
-	private static final String URL_ESP_16_17 = "http://wildstat.ru/p/2401/ch/ESP_1_2016_2017/stg/all/tour/all";
-	private static final String URL_ESP_17_18 = "http://wildstat.ru/p/2401/ch/ESP_1_2017_2018/stg/all/tour/all";
-	// Супер Кубок Испании
-	private static final String URL_ESP_SC_16 = "http://wildstat.ru/p/2402/ch/ESP_SC_2016/stg/all/tour/all";
-	private static final String URL_ESP_SC_17 = "http://wildstat.ru/p/2402/ch/ESP_SC_2017/stg/all/tour/all";
-
-	// Лига Чемпионов:
-	private static final String URL_EUR_CL_17_18 = "http://wildstat.ru/p/50/ch/EUR_CL_2017_2018/stg/all/tour/all";
-	// Лига Европы
-	private static final String URL_EUR_EL_17_18 = "http://wildstat.ru/p/51/ch/EUR_EL_2017_2018/stg/all/tour/all";
+	private File file = new File("config/url.properties");
+	private FileInputStream fis;
+	static private Properties property;
 
 	static {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
@@ -49,57 +33,110 @@ public class WildstatParser {
 	}
 
 	public static void main(String[] args) throws Exception {
+
+		new WildstatParser().parseWildstatAllChamp();
 		new WildstatParser().parseWildstatLeagueTables();
 	}
 
-	public void parseLastSeasons() throws Exception {
-		List<String> urls = new ArrayList<>();
-		urls.add(URL_APL_16_17);
-		urls.add(URL_APL_17_18);
-		urls.add(URL_CUP_17_18);
-		urls.add(URL_FLC_17_18);
-		urls.add(URL_ESP_17_18);
-		urls.add(URL_EUR_CL_17_18);
-		urls.add(URL_EUR_EL_17_18);
-		for (String url : urls) {
-			WebClient webClient = new WebClient(BrowserVersion.CHROME);
-			parseWildstat(url, webClient);
+	public void parseWildstatAllChamp() throws Exception {	
+		try {
+			if (property == null) {
+				property = new Properties();
+				fis = new FileInputStream(file);
+				property.load(fis);
+			}
+			List<String> urls = new ArrayList<>();
+			urls.add(property.getProperty("APL_CURRENT"));
+			urls.add(property.getProperty("CUP_16_17"));
+			urls.add(property.getProperty("CUP_CURRENT"));
+			urls.add(property.getProperty("FLC_16_17"));
+			urls.add(property.getProperty("FLC_CURRENT"));
+			urls.add(property.getProperty("CS_16"));
+			urls.add(property.getProperty("CS_17"));
+			urls.add(property.getProperty("ESP_16_17"));
+			urls.add(property.getProperty("ESP_CURRENT"));
+			urls.add(property.getProperty("ESP_SC_16"));
+			urls.add(property.getProperty("ESP_SC_17"));
+			urls.add(property.getProperty("EUR_CL_CURRENT"));
+			urls.add(property.getProperty("EUR_EL_CURRENT"));
+			urls.add(property.getProperty("EUR_CL_15_16"));
+			urls.add(property.getProperty("RUS_CURRENT"));
+			urls.add(property.getProperty("RUS_16_17"));
+			urls.add(property.getProperty("RUS_CUP_CURRENT"));
+			urls.add(property.getProperty("RUS_CUP_16_17"));
+			urls.add(property.getProperty("RUS_SC_16"));
+			urls.add(property.getProperty("RUS_SC_17"));
+			urls.add(property.getProperty("GER_CURRENT"));
+			urls.add(property.getProperty("GER_16_17"));
+			urls.add(property.getProperty("GER_SC_16"));
+			urls.add(property.getProperty("GER_SC_17"));
+			urls.add(property.getProperty("ITA_CURRENT"));
+			urls.add(property.getProperty("ITA_16_17"));
+			urls.add(property.getProperty("ITA_SC_17"));
+			urls.add(property.getProperty("ITA_SC_16"));
+			for (String url : urls) {
+				WebClient webClient = new WebClient(BrowserVersion.CHROME);
+				parseWildstat(url, webClient, property);
+			}
+		} catch (IOException e) {
+			System.err.println("Файл свойств отсутствует!");
 		}
 	}
 
-	public void parseWildstatAllChamp() throws Exception {
-		List<String> urls = new ArrayList<>();
-		urls.add(URL_APL_16_17);
-		urls.add(URL_APL_17_18);
-		urls.add(URL_CUP_16_17);
-		urls.add(URL_CUP_17_18);
-		urls.add(URL_FLC_16_17);
-		urls.add(URL_FLC_17_18);
-		urls.add(URL_CS_16);
-		urls.add(URL_CS_17);
-		urls.add(URL_ESP_16_17);
-		urls.add(URL_ESP_17_18);
-		urls.add(URL_ESP_SC_16);
-		urls.add(URL_ESP_SC_17);
-		urls.add(URL_EUR_CL_17_18);
-		urls.add(URL_EUR_EL_17_18);
-		for (String url : urls) {
-			WebClient webClient = new WebClient(BrowserVersion.CHROME);
-			parseWildstat(url, webClient);
+	public void parseLastSeasons() throws Exception {
+		if (property == null) {
+			property = new Properties();
+			fis = new FileInputStream(file);
+			property.load(fis);
+		}
+		try {
+			List<String> urls = new ArrayList<>();
+			urls.add(property.getProperty("APL_CURRENT"));
+			urls.add(property.getProperty("FLC_CURRENT"));
+			urls.add(property.getProperty("CUP_CURRENT"));
+			urls.add(property.getProperty("ESP_CURRENT"));
+			urls.add(property.getProperty("EUR_CL_CURRENT"));
+			urls.add(property.getProperty("EUR_EL_CURRENT"));
+			urls.add(property.getProperty("RUS_CURRENT"));
+			urls.add(property.getProperty("RUS_CUP_CURRENT"));
+			urls.add(property.getProperty("GER_CURRENT"));
+			urls.add(property.getProperty("ITA_CURRENT"));
+			for (String url : urls) {
+				WebClient webClient = new WebClient(BrowserVersion.CHROME);
+				parseWildstat(url, webClient, property);
+			}
+		} catch (IOException e) {
+			System.err.println("Файл свойств отсуствует!");
+		} finally {
+			fis.close();
 		}
 	}
 
 	public void parseWildstatLeagueTables() throws Exception {
-		List<String> urls = new ArrayList<>();
-		urls.add(URL_APL_17_18);
-		urls.add(URL_ESP_17_18);
-		for (String url : urls) {
-			WebClient webClient = new WebClient(BrowserVersion.CHROME);
-			parseWildstatLeagueTable(url, webClient);
+		if (property == null) {
+			property = new Properties();
+			fis = new FileInputStream(file);
+			property.load(fis);
+		}
+		try {
+			List<String> urls = new ArrayList<>();
+			urls.add(property.getProperty("APL_CURRENT"));
+			urls.add(property.getProperty("ESP_CURRENT"));
+			urls.add(property.getProperty("RUS_CURRENT"));
+			urls.add(property.getProperty("GER_CURRENT"));
+			urls.add(property.getProperty("ITA_CURRENT"));
+			for (String url : urls) {
+				WebClient webClient = new WebClient(BrowserVersion.CHROME);
+				parseWildstatLeagueTable(url, webClient, property);
+			}
+		} catch (IOException e) {
+			System.err.println("Файл свойств отсутствует!");
+		} finally {
+			fis.close();
 		}
 	}
 
-	public void parseWildstatLeagueTable(String url, WebClient webClient) throws Exception {
+	public void parseWildstatLeagueTable(String url, WebClient webClient, Properties property) throws Exception {
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
@@ -111,13 +148,25 @@ public class WildstatParser {
 			int i = 0;
 			for (DomElement element : table.getFirstElementChild().getChildElements()) {
 				LeagueTableBean bean = new LeagueTableBean();
-				switch (url) {
-				case URL_APL_17_18:
+				if (url.equals(property.getProperty("APL_CURRENT"))) {
 					bean.setLeague("Английская Примьер Лига");
-					break;
-				case URL_ESP_17_18:
+					DaoFactory.getLeaguTableDao().deleteLeagueTables("Английская Примьер Лига");
+				}
+				if (url.equals(property.getProperty("ESP_CURRENT"))) {
 					bean.setLeague("Испанская Ла Лига");
-					break;
+					DaoFactory.getLeaguTableDao().deleteLeagueTables("Испанская Ла Лига");
+				}
+				if (url.equals(property.getProperty("RUS_CURRENT"))){
+					bean.setLeague("Российская Примьер Лига");
+					DaoFactory.getLeaguTableDao().deleteLeagueTables("Российская Примьер Лига");
+				}
+				if (url.equals(property.getProperty("GER_CURRENT"))){
+					bean.setLeague("Немецкая Бундеслига");
+					DaoFactory.getLeaguTableDao().deleteLeagueTables("Немецкая Бундеслига");
+				}
+				if (url.equals(property.getProperty("ITA_CURRENT"))){
+					bean.setLeague("Итальянская серия А");
+					DaoFactory.getLeaguTableDao().deleteLeagueTables("Итальянская серия А");
 				}
 				if (element.getFirstElementChild().getAttribute("align").equals("right")
 						&& element.getChildElementCount() > 5) {
@@ -140,23 +189,23 @@ public class WildstatParser {
 	public LeagueTableBean getStatForFirstTeams(DomElement element, LeagueTableBean bean) throws Exception {
 		Iterator<DomElement> iterator = element.getChildElements().iterator();
 		String place = iterator.next().getTextContent();
-		place = place.substring(0, place.length()-1);
+		place = place.substring(0, place.length() - 1);
 		bean.setPlace(Integer.parseInt(place));
-		bean.setTeam(iterator.next().getFirstElementChild().getFirstElementChild().getFirstElementChild().getTextContent());
+		bean.setTeam(
+				iterator.next().getFirstElementChild().getFirstElementChild().getFirstElementChild().getTextContent());
 		bean.setGames(iterator.next().getFirstElementChild().getTextContent());
 		bean.setWin(iterator.next().getFirstElementChild().getTextContent());
 		bean.setDraw(iterator.next().getFirstElementChild().getTextContent());
 		bean.setLose(iterator.next().getFirstElementChild().getTextContent());
 		bean.setGoals(iterator.next().getTextContent());
 		bean.setPoints(iterator.next().getFirstElementChild().getTextContent());
-		System.out.println(bean.getPlace());
 		return bean;
 	}
 
 	public LeagueTableBean getStatForOthereTeams(DomElement element, LeagueTableBean bean) throws Exception {
 		Iterator<DomElement> iterator = element.getChildElements().iterator();
 		String place = iterator.next().getTextContent();
-		place = place.substring(0, place.length()-1);
+		place = place.substring(0, place.length() - 1);
 		bean.setPlace(Integer.parseInt(place));
 		bean.setTeam(iterator.next().getFirstElementChild().getTextContent());
 		bean.setGames(iterator.next().getFirstElementChild().getTextContent());
@@ -165,11 +214,12 @@ public class WildstatParser {
 		bean.setLose(iterator.next().getFirstElementChild().getTextContent());
 		bean.setGoals(iterator.next().getTextContent());
 		bean.setPoints(iterator.next().getFirstElementChild().getTextContent());
-		System.out.println(bean.getPlace());
 		return bean;
 	}
 
-	public void parseWildstat(String url, WebClient webClient) throws Exception {
+	public void parseWildstat(String url, WebClient webClient, Properties property) throws Exception {
+		
+		
 		logger.info("parseWildstat starts by url:" + url);
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
@@ -192,41 +242,116 @@ public class WildstatParser {
 							bean.setTeam2(getTeam2(tr));
 							bean.setScore(getScore(tr));
 							beans.add(bean);
-							if (url.equals(URL_APL_16_17) || url.equals(URL_APL_17_18)) {
+							if (url.equals(property.getProperty("APL_16_17"))
+									|| url.equals(property.getProperty("APL_CURRENT"))) {
 								bean.setChampionship("Английская Примьер Лига");
 							}
-							if (url.equals(URL_FLC_16_17) || url.equals(URL_FLC_17_18)) {
+							if (url.equals(property.getProperty("FLC_16_17"))
+									|| url.equals(property.getProperty("FLC_CURRENT"))) {
 								bean.setChampionship("Кубок Английской Лиги");
 							}
-							if (url.equals(URL_CUP_16_17) || url.equals(URL_CUP_17_18)) {
+							if (url.equals(property.getProperty("CUP_16_17"))
+									|| url.equals(property.getProperty("CUP_CURRENT"))) {
 
 								bean.setChampionship("Кубок Англии");
 							}
-							if (url.equals(URL_CS_16) || url.equals(URL_CS_17)) {
+							if (url.equals(property.getProperty("CS_16"))
+									|| url.equals(property.getProperty("CS_17"))) {
 
 								bean.setChampionship("Супер Кубок Англии");
 							}
-							if (url.equals(URL_ESP_16_17) || url.equals(URL_ESP_17_18)) {
+							if (url.equals(property.getProperty("ESP_16_17"))
+									|| url.equals(property.getProperty("ESP_CURRENT"))) {
 
 								bean.setChampionship("Испанская Ла Лига");
 							}
-							if (url.equals(URL_ESP_SC_16) || url.equals(URL_ESP_SC_17)) {
+							if (url.equals(property.getProperty("ESP_SC_16"))
+									|| url.equals(property.getProperty("ESP_SC_17"))) {
 
 								bean.setChampionship("Супер Кубок Испании");
 							}
-							if (url.equals(URL_EUR_CL_17_18)) {
+							if (url.equals(property.getProperty("EUR_CL_CURRENT"))
+									|| url.equals(property.getProperty("EUR_CL_15_16"))) {
 
 								bean.setChampionship("Лига Чемпионов");
 							}
-							if (url.equals(URL_EUR_EL_17_18)) {
+							if (url.equals(property.getProperty("EUR_EL_CURRENT"))) {
 
 								bean.setChampionship("Лига Европы");
+							}
+							if (url.equals(property.getProperty("RUS_CURRENT")) 
+									|| url.equals(property.getProperty("RUS_16_17"))){
+								bean.setChampionship("Российская Примьер Лига");
+							}
+							if (url.equals(property.getProperty("GER_CURRENT")) 
+									|| url.equals(property.getProperty("GER_16_17"))){
+								bean.setChampionship("Немецкая Бундеслига");
+							}
+							if (url.equals(property.getProperty("ITA_CURRENT")) 
+									|| url.equals(property.getProperty("ITA_16_17"))){
+								bean.setChampionship("Итальянская серия А");
+							}
+							if (url.equals(property.getProperty("RUS_CUP_16_17")) 
+									|| url.equals(property.getProperty("RUS_CUP_CURRENT"))){
+								bean.setChampionship("Кубок России");
+							}
+							if (url.equals(property.getProperty("RUS_SC_16")) 
+									|| url.equals(property.getProperty("RUS_SC_17"))){
+								bean.setChampionship("Супер Кубок России");
+							}
+							if (url.equals(property.getProperty("GER_SC_16")) 
+									|| url.equals(property.getProperty("GER_SC_17"))){
+								bean.setChampionship("Супер Кубок Германии");
+							}
+							if (url.equals(property.getProperty("ITA_SC_17")) 
+									|| url.equals(property.getProperty("ITA_SC_16"))){
+								bean.setChampionship("Супер Кубок Италии");
 							}
 						}
 					}
 				}
 			}
 			logger.info("save to Data Base championship: " + url);
+			if (url.equals(property.getProperty("APL_CURRENT"))) {
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Английская Примьер Лига",
+						property.getProperty("DATE"));
+			}
+			if (url.equals(property.getProperty("ESP_CURRENT"))) {
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Испанская Ла Лига",
+						property.getProperty("DATE"));
+			}
+			if (url.equals(property.getProperty("GER_CURRENT"))){
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Немецкая Бундеслига",
+						property.getProperty("DATE"));
+			}
+			if (url.equals(property.getProperty("ITA_CURRENT"))){
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Итальянская серия А",
+						property.getProperty("DATE"));
+			}
+			if (url.equals(property.getProperty("RUS_CUP_CURRENT"))){
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Кубок России",
+						property.getProperty("RUS_DATE"));
+			}
+			if (url.equals(property.getProperty("RUS_CURRENT"))){
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Российская Примьер Лига",
+						property.getProperty("RUS_DATE"));
+			}
+			if (url.equals(property.getProperty("CUP_CURRENT"))) {
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Кубок Англии",
+						property.getProperty("DATE"));
+			}
+			if (url.equals(property.getProperty("FLC_CURRENT"))) {
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Кубок Английской Лиги",
+						property.getProperty("DATE"));
+			}
+			if (url.equals(property.getProperty("EUR_CL_CURRENT"))) {
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Лига Чемпионов",
+						property.getProperty("DATE"));
+			}
+			if (url.equals(property.getProperty("EUR_EL_CURRENT"))) {
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Лига Европы",
+						property.getProperty("DATE"));
+			}
 			DaoFactory.getMatchDetailsDao().addMatchesDetails(beans);
 		} finally {
 			webClient.closeAllWindows();
@@ -274,7 +399,15 @@ public class WildstatParser {
 		if (td.getFirstElementChild().getChildElementCount() < 1) {
 			return "";
 		} else {
-			return td.getFirstElementChild().getFirstElementChild().getFirstElementChild().getTextContent().trim();
+			String result = td.getFirstElementChild().getFirstElementChild().getFirstElementChild().getTextContent()
+					.trim();
+			String penal = td.getFirstElementChild().getTextContent();
+			int a = penal.lastIndexOf("пен.");
+			if (a != -1) {
+				penal = penal.substring(a);
+				result = result + " " + penal;
+			}
+			return result;
 		}
 	}
 }

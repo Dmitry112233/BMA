@@ -26,7 +26,7 @@ public class PremierLeagueController extends BookmakerController{
 	}
 	
 	private Map<String, Object> getMatchesList(String leagueName) throws DaoException, ParseException{
-		List<PremierLeagueBean> matchesList = DaoFactory.getPremierLeagueDao().getAllMatchesForAPL(leagueName);
+		List<PremierLeagueBean> matchesList = DaoFactory.getPremierLeagueDao().getAllMatchesForLeague(leagueName);
 		Map<String, Object> map = new HashMap<>();
 		map.put("matchesList", matchesList);
 		return map;

@@ -33,6 +33,8 @@ public class LeagueTableDaoTemplateImpl implements LeagueTableDao {
 	private static final String GET_TABLE_BY_LEAGUE = "SELECT PLACE, GAMES, WIN, DRAW, LOSE, GOALS, TEAM, POINTS"
 			+ " FROM LEAGUES_TABLES WHERE LEAGUE = ? ORDER BY PLACE";
 	
+	private static final String DELETE_MATCH_DETAILS = "DELETE FROM LEAGUES_TABLES WHERE LEAGUE = ?";
+	
 	@Override
 	public void addMatchesDetails(List<LeagueTableBean> beans) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
@@ -73,5 +75,11 @@ public class LeagueTableDaoTemplateImpl implements LeagueTableDao {
 					}
 				});
 		return beans;
+	}
+
+	@Override
+	public void deleteLeagueTables(String leagueName) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(DELETE_MATCH_DETAILS, new Object[] {leagueName});	
 	}
 }

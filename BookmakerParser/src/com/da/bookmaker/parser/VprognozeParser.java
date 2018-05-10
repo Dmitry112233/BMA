@@ -32,6 +32,10 @@ public class VprognozeParser {
 	
 	private HtmlPage page;
 	
+	public static void main(String[] args) {
+		new VprognozeParser().parseVprognoze();
+	}
+	
 	public void parseVprognoze() {
 		logger.info("Vprognoze parser starts...");
 		

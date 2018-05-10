@@ -20,27 +20,41 @@ public class PremierLeagueDetailsController extends BookmakerController {
 	@RequestMapping("PremierLeague_{team1}_{team2}_{league}_details.spr")
 	public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2,
 			@PathVariable("league") String league) throws DaoException, ParseException {
-		Map<String, Object> map = getMatchesList(team1, team2);
+		Map<String, Object> map = get1xBetCeffByTeams(team1, team2);
 		List<?> lastMatchesTeam1 = getMatchesDetailsTeam(team1);
 		List<?> lastMatchesTeam2 = getMatchesDetailsTeam(team2);
 		List<?> leagueTable = getLeagueTable(league);
+		List<?> leonList = getLeonCeffByTeams(team1, team2);
+		List<?> ligaList = getLigaCeffByTeams(team1, team2);
 		Map<String, Object> lastMatchesTeam1Team2 = getMatchesDetailsTeam1Team2(team1, team2);
 		map.put("lastMatchesTeam1", lastMatchesTeam1);
 		map.put("lastMatchesTeam2", lastMatchesTeam2);
 		map.put("leagueTable", leagueTable);
+		map.put("leonList", leonList);
+		map.put("ligaList", ligaList);
 		map.putAll(lastMatchesTeam1Team2);
 		map.putAll(getBookmakerList());
 
 		return new ModelAndView("details", map);
 	}
 
-	private Map<String, Object> getMatchesList(String team1, String team2) throws DaoException, ParseException {
-		List<PremierLeagueBean> ceffList = DaoFactory.getPremierLeagueDao().getMatchByTeams(team1, team2);
+	private Map<String, Object> get1xBetCeffByTeams(String team1, String team2) throws DaoException, ParseException {
+		List<PremierLeagueBean> xBetList = DaoFactory.getPremierLeagueDao().get1xBetCeffByTeams(team1, team2);
 		Map<String, Object> map = new HashMap<>();
-		map.put("ceffList", ceffList);
+		map.put("xBetList", xBetList);
 		return map;
 	}
-
+	
+	private List<PremierLeagueBean> getLeonCeffByTeams(String team1, String team2) throws DaoException, ParseException{
+		List<PremierLeagueBean> leonList = DaoFactory.getPremierLeagueDao().getLeonCeffByTeams(team1, team2);
+		return leonList;
+	}
+	
+	private List<PremierLeagueBean> getLigaCeffByTeams(String team1, String team2) throws DaoException, ParseException{
+		List<PremierLeagueBean> ligaList = DaoFactory.getPremierLeagueDao().getLigaCeffByTeams(team1, team2);
+		return ligaList;
+	}
+	
 	private List<?> getLeagueTable(String league) throws DaoException, ParseException {
 		return DaoFactory.getLeaguTableDao().getTableForLeague(league);
 	}

@@ -24,7 +24,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	private final static String INSERT_MATCHES_LIST = "INSERT INTO PREMIER_LEAGUE (DATE, TEAM1, TEAM2, WIN1, WIN2, X, X1, X2, X12, " +
 	"TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE, BOOKMAKER_ID) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
-	private final static String DELETE_MATCHES_LIST = "DELETE FROM PREMIER_LEAGUE";
+	private final static String DELETE_MATCHES_LIST = "DELETE FROM PREMIER_LEAGUE WHERE LEAGUE = ? AND BOOKMAKER_ID = ?";
 	
 	//Расставить алиасы для повторяющихся полей, также алиасы в мапинге и имена таблиц перед поялми. 
 	private final static String GET_APL_MATCHES_LIST = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
@@ -35,13 +35,40 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	+ " ON B.ID = PL.BOOKMAKER_ID"
 	+ " WHERE LEAGUE = ?";
 	
-	private final static String GET_MATCH_BY_TEAMS = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
+	private final static String GET_1XBET_CEFF_BY_TEAMS = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
 			"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
 			"B.LINK, B.IMAGE"
 			+ " FROM PREMIER_LEAGUE PL "
 			+ " JOIN BOOKMAKERS B "
 			+ " ON B.ID = PL.BOOKMAKER_ID"
-			+ " WHERE PL.TEAM1 = ? AND PL.TEAM2 = ? ORDER BY B.ID ASC";
+			+ " WHERE PL.TEAM1 = ? AND PL.TEAM2 = ? AND B.ID = 1";
+
+	// Как сделать вывод кефов для дргих букмекеров, в метод передается имя 1xBet? 
+	
+	private final static String GET_LEON_CEFF_BY_TEAMS = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
+			"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
+			"B.LINK, B.IMAGE"
+			+ " FROM PREMIER_LEAGUE PL "
+			+ " JOIN BOOKMAKERS B "
+			+ " ON B.ID = PL.BOOKMAKER_ID "
+			+ " JOIN TEAM_DICTIONARY td1 "
+			+ " ON td1.LEON_NAME = PL.TEAM1 "
+			+ " JOIN TEAM_DICTIONARY td2 "
+			+ " ON td2.LEON_NAME = PL.TEAM2"
+			+ " WHERE td1.XBET_NAME = ? AND td2.XBET_NAME = ? AND B.ID = 2";
+	
+	private final static String GET_LIGA_CEFF_BY_TEAMS = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
+			"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
+			"B.LINK, B.IMAGE"
+			+ " FROM PREMIER_LEAGUE PL "
+			+ " JOIN BOOKMAKERS B "
+			+ " ON B.ID = PL.BOOKMAKER_ID "
+			+ " JOIN TEAM_DICTIONARY td1 "
+			+ " ON td1.LIGA_NAME = PL.TEAM1 "
+			+ " JOIN TEAM_DICTIONARY td2 "
+			+ " ON td2.LIGA_NAME = PL.TEAM2"
+			+ " WHERE td1.XBET_NAME = ? AND td2.XBET_NAME = ? AND B.ID = 3";
+	
 	
 	public DataSource getDataSource() {
 		return dataSource;
@@ -79,13 +106,13 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	}
 
 	@Override
-	public void deleteMatchesList() throws DaoException {
+	public void deleteMatchesList(String leagueName, long bookmakerId) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		template.update(DELETE_MATCHES_LIST);
+		template.update(DELETE_MATCHES_LIST, new Object[]{leagueName, bookmakerId});
 	}
 
 	@Override
-	public List<PremierLeagueBean> getAllMatchesForAPL(String leagueName) throws DaoException {
+	public List<PremierLeagueBean> getAllMatchesForLeague(String leagueName) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<PremierLeagueBean> list = template.query(GET_APL_MATCHES_LIST, new Object[]{leagueName}, new RowMapper<PremierLeagueBean>() {
 			@Override
@@ -123,9 +150,9 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	}
 
 	@Override
-	public List<PremierLeagueBean> getMatchByTeams(String team1, String team2) throws DaoException {
+	public List<PremierLeagueBean> get1xBetCeffByTeams(String team1, String team2) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<PremierLeagueBean> list = template.query(GET_MATCH_BY_TEAMS , new Object[]{team1, team2}, new RowMapper<PremierLeagueBean>() {
+		List<PremierLeagueBean> list = template.query(GET_1XBET_CEFF_BY_TEAMS , new Object[]{team1, team2}, new RowMapper<PremierLeagueBean>() {
 			@Override
 			public PremierLeagueBean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				PremierLeagueBean bean = new PremierLeagueBean();
@@ -161,5 +188,87 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 		} else {
 			return null;
 		}
-	}	
+	}
+
+	@Override
+	public List<PremierLeagueBean> getLeonCeffByTeams(String team1, String team2) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<PremierLeagueBean> list = template.query(GET_LEON_CEFF_BY_TEAMS , new Object[]{team1, team2}, new RowMapper<PremierLeagueBean>() {
+			@Override
+			public PremierLeagueBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				PremierLeagueBean bean = new PremierLeagueBean();
+				bean.setId(rs.getLong("PL_ID"));
+				bean.setDate(rs.getTimestamp("DATE"));
+				bean.setTeam1(rs.getString("TEAM1"));
+				bean.setTeam2(rs.getString("TEAM2"));
+				bean.setWin1(rs.getDouble("WIN1"));
+				bean.setX(rs.getShort("X"));
+				bean.setWin2(rs.getDouble("WIN2"));
+				bean.setX1(rs.getDouble("X1"));
+				bean.setX2(rs.getDouble("X2"));
+				bean.setX12(rs.getDouble("X12"));
+				bean.setTotal(rs.getDouble("TOTAL"));
+				bean.setLessTotal(rs.getDouble("LESS_TOTAL"));
+				bean.setMoreTotal(rs.getDouble("MORE_TOTAL"));
+				bean.setHand(rs.getString("HAND"));
+				bean.setHand1(rs.getDouble("HAND1"));
+				bean.setHand2(rs.getDouble("HAND2"));
+				bean.setLeague(rs.getString("LEAGUE"));
+				
+				BookmakerBean bookmakerBean = new BookmakerBean();
+				bookmakerBean.setBookMakerId(rs.getLong("B_ID"));
+				bookmakerBean.setName(rs.getString("NAME"));
+				bookmakerBean.setLink(rs.getString("LINK"));
+				bookmakerBean.setImage(rs.getString("IMAGE"));
+				bean.setBookmakerBean(bookmakerBean);
+				return bean;
+			}
+		}); 
+		if (list.size() > 0){
+			return list;
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public List<PremierLeagueBean> getLigaCeffByTeams(String team1, String team2) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<PremierLeagueBean> list = template.query(GET_LIGA_CEFF_BY_TEAMS , new Object[]{team1, team2}, new RowMapper<PremierLeagueBean>() {
+			@Override
+			public PremierLeagueBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				PremierLeagueBean bean = new PremierLeagueBean();
+				bean.setId(rs.getLong("PL_ID"));
+				bean.setDate(rs.getTimestamp("DATE"));
+				bean.setTeam1(rs.getString("TEAM1"));
+				bean.setTeam2(rs.getString("TEAM2"));
+				bean.setWin1(rs.getDouble("WIN1"));
+				bean.setX(rs.getShort("X"));
+				bean.setWin2(rs.getDouble("WIN2"));
+				bean.setX1(rs.getDouble("X1"));
+				bean.setX2(rs.getDouble("X2"));
+				bean.setX12(rs.getDouble("X12"));
+				bean.setTotal(rs.getDouble("TOTAL"));
+				bean.setLessTotal(rs.getDouble("LESS_TOTAL"));
+				bean.setMoreTotal(rs.getDouble("MORE_TOTAL"));
+				bean.setHand(rs.getString("HAND"));
+				bean.setHand1(rs.getDouble("HAND1"));
+				bean.setHand2(rs.getDouble("HAND2"));
+				bean.setLeague(rs.getString("LEAGUE"));
+				
+				BookmakerBean bookmakerBean = new BookmakerBean();
+				bookmakerBean.setBookMakerId(rs.getLong("B_ID"));
+				bookmakerBean.setName(rs.getString("NAME"));
+				bookmakerBean.setLink(rs.getString("LINK"));
+				bookmakerBean.setImage(rs.getString("IMAGE"));
+				bean.setBookmakerBean(bookmakerBean);
+				return bean;
+			}
+		}); 
+		if (list.size() > 0){
+			return list;
+		} else {
+			return null;
+		}
+	}	 
 }

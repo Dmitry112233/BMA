@@ -58,13 +58,13 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 	private static final String GET_DICTIONARY_NAME = "SELECT WILDSTAT_NAME FROM TEAM_DICTIONARY WHERE XBET_NAME = ?";
 	
 	private static final String DELETE_MATCHES_FOR_LAST_SEASON = "DELETE FROM MATCH_DETAILS WHERE CHAMPIONSHIP = ? "
-			+ "AND DATE >= '01.08.2017'";
+			+ "AND DATE >= ?";
 
 	
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeam(String team) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM_SQL, new Object[] { team, team },
+		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM_SQL, new Object[] {team, team},
 				new RowMapper<MatchDetailsBean>() {
 					@Override
 					public MatchDetailsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -148,8 +148,8 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 	}
 
 	@Override
-	public void deleteAllMatchesForLastSeason(String leagueName) throws DaoException {
+	public void deleteAllMatchesForLastSeason(String leagueName, String date) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		template.update(DELETE_MATCHES_FOR_LAST_SEASON, new Object[] {leagueName});
+		template.update(DELETE_MATCHES_FOR_LAST_SEASON, new Object[] {leagueName, date});
 	}
 }

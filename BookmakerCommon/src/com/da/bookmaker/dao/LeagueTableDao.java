@@ -10,4 +10,6 @@ public interface LeagueTableDao {
 	
 	List<LeagueTableBean> getTableForLeague(String leagueName) throws DaoException;
 	
+	void deleteLeagueTables(String leagueName) throws DaoException;
+	
 }
