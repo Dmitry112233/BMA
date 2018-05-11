@@ -1,22 +1,22 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div id="EPLBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <div class="EPL">
-      <h1><img class="leagueIcon" src="bootstrap/img/leagueIcon/English Premier League.png">Английская Премьер-лига</h1>      
+<div id="LeagueMatchesBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+   <div class="LeagueMatches">
+      <h1><img class="leagueIcon" src="bootstrap/img/leagueIcon/${matchesList.get(0).league}.png">${matchesList.get(0).league}</h1>      
       <br>
       <c:if test="${matchesList.size() > 0}">
          <!-- вывод туров АПЛ в цикле -->			
-         <table class="EPLtable">
-            <c:forEach var="EPLivent" items="${matchesList}">
-               <tr onclick="window.location.href='PremierLeague_${EPLivent.team1}_${EPLivent.team2}_${EPLivent.league}_details.spr'; return false">
-                  <td>${EPLivent.dateStr}</td>
-                  <td>${EPLivent.team1}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${EPLivent.team1}.png"></td>
+         <table class="LeagueMatchesTable">
+            <c:forEach var="leagueEvent" items="${matchesList}">
+               <tr onclick="window.location.href='PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details.spr'; return false">
+                  <td>${leagueEvent.dateStr}</td>
+                  <td>${leagueEvent.team1}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team1}.png"></td>
                   <td>-</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${EPLivent.team2}.png"></td>
-                  <td>${EPLivent.team2}</td>
-                  <td><a href="PremierLeague_${EPLivent.team1}_${EPLivent.team2}_${EPLivent.league}_details.spr">перейти на подробности</a></td>
-                  <td>${EPLivent.team1} - ${EPLivent.team2}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png"></td>
+                  <td>${leagueEvent.team2}</td>
+                  <td><a href="PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details.spr">перейти на подробности</a></td>
+                  <td>${leagueEvent.team1} - ${leagueEvent.team2}</td>
                </tr>
             </c:forEach>
          </table>

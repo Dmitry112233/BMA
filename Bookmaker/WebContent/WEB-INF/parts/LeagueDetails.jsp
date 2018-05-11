@@ -2,15 +2,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="DetailsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="details">
-      <h1>Детали по матчу ${ceffList.get(0).team1} - ${ceffList.get(0).team2}</h1>
+      <h1>Детали по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2}</h1>
       <br>
-      <a class="BackButton" href="PremierLeague_${'Английская Примьер Лига'}_List.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> вернуться</a>
+      <a class="BackButton" href="PremierLeague_${xBetList.get(0).league}_List.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> вернуться</a>
       <br>
       <br>
       <div>
-         <p>Начало события: <b>${ceffList.get(0).dateStr}</b></p>
-         <p>Стадион:</p>
-         <p>Судья:</p>
+         <p>Начало события: <b>${xBetList.get(0).dateStr}</b></p>
       </div>
       <br>
       <h3>Сравнение коэффициентов лучших букмекеров:</h3>
@@ -31,41 +29,85 @@
             <td class="CoeffCompareTableSecondary"><b>2</b></td>
             <td class="CoeffCompareTableSecondary2"></td>
          </tr>
-         <c:forEach var="EPLivent" items="${ceffList}">
-            <tr onclick="window.open('Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}', '_blank'); return false;">
+         <c:forEach var="xBetCeff" items="${xBetList}">
+            <tr onclick="window.open('Counter.spr?id=${xBetCeff.bookmakerBean.bookMakerId}', '_blank'); return false;">
                <td class="CoeffCompareTableBM">
-                  <a rel="nofollow" href="Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}" target="_blank">
-                  <img src="${EPLivent.bookmakerBean.image}" alt="${EPLivent.bookmakerBean.name} logo">
+                  <a rel="nofollow" href="Counter.spr?id=${xBetCeff.bookmakerBean.bookMakerId}" target="_blank">
+                  <img src="${xBetCeff.bookmakerBean.image}" alt="${xBetCeff.bookmakerBean.name} logo">
                   </a>
                </td>
-               <td>${EPLivent.win1}</td>
-               <td>${EPLivent.x}</td>
-               <td>${EPLivent.win2}</td>
-               <td>${EPLivent.x1}</td>
-               <td>${EPLivent.x12}</td>
-               <td>${EPLivent.x2}</td>
-               <td class="CoeffCompareTableSecondary">${EPLivent.moreTotal}</td>
-               <td class="CoeffCompareTableSecondary">${EPLivent.total}</td>
-               <td class="CoeffCompareTableSecondary">${EPLivent.lessTotal}</td>
-               <td class="CoeffCompareTableSecondary">${EPLivent.hand1}</td>
-               <td class="CoeffCompareTableSecondary">${EPLivent.hand}</td>
-               <td class="CoeffCompareTableSecondary">${EPLivent.hand2}</td>
-               <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${EPLivent.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
+               <td>${xBetCeff.win1}</td>
+               <td>${xBetCeff.x}</td>
+               <td>${xBetCeff.win2}</td>
+               <td>${xBetCeff.x1}</td>
+               <td>${xBetCeff.x12}</td>
+               <td>${xBetCeff.x2}</td>
+               <td class="CoeffCompareTableSecondary">${xBetCeff.moreTotal}</td>
+               <td class="CoeffCompareTableSecondary">${xBetCeff.total}</td>
+               <td class="CoeffCompareTableSecondary">${xBetCeff.lessTotal}</td>
+               <td class="CoeffCompareTableSecondary">${xBetCeff.hand1}</td>
+               <td class="CoeffCompareTableSecondary">${xBetCeff.hand}</td>
+               <td class="CoeffCompareTableSecondary">${xBetCeff.hand2}</td>
+               <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${xBetCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
+            </tr>
+         </c:forEach>
+         <c:forEach var="leonCeff" items="${leonList}">
+            <tr onclick="window.open('Counter.spr?id=${leonCeff.bookmakerBean.bookMakerId}', '_blank'); return false;">
+               <td class="CoeffCompareTableBM">
+                  <a rel="nofollow" href="Counter.spr?id=${leonCeff.bookmakerBean.bookMakerId}" target="_blank">
+                  <img src="${leonCeff.bookmakerBean.image}" alt="${leonCeff.bookmakerBean.name} logo">
+                  </a>
+               </td>
+               <td>${leonCeff.win1}</td>
+               <td>${leonCeff.x}</td>
+               <td>${leonCeff.win2}</td>
+               <td>${leonCeff.x1}</td>
+               <td>${leonCeff.x12}</td>
+               <td>${leonCeff.x2}</td>
+               <td class="CoeffCompareTableSecondary">${leonCeff.moreTotal}</td>
+               <td class="CoeffCompareTableSecondary">${leonCeff.total}</td>
+               <td class="CoeffCompareTableSecondary">${leonCeff.lessTotal}</td>
+               <td class="CoeffCompareTableSecondary">${leonCeff.hand1}</td>
+               <td class="CoeffCompareTableSecondary">${leonCeff.hand}</td>
+               <td class="CoeffCompareTableSecondary">${leonCeff.hand2}</td>
+               <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${leonCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
+            </tr>
+         </c:forEach>
+         <c:forEach var="ligaCeff" items="${ligaList}">
+            <tr onclick="window.open('Counter.spr?id=${ligaCeff.bookmakerBean.bookMakerId}', '_blank'); return false;">
+               <td class="CoeffCompareTableBM">
+                  <a rel="nofollow" href="Counter.spr?id=${ligaCeff.bookmakerBean.bookMakerId}" target="_blank">
+                  <img src="${ligaCeff.bookmakerBean.image}" alt="${ligaCeff.bookmakerBean.name} logo">
+                  </a>
+               </td>
+               <td>${ligaCeff.win1}</td>
+               <td>${ligaCeff.x}</td>
+               <td>${ligaCeff.win2}</td>
+               <td>${ligaCeff.x1}</td>
+               <td>${ligaCeff.x12}</td>
+               <td>${ligaCeff.x2}</td>
+               <td class="CoeffCompareTableSecondary">${ligaCeff.moreTotal}</td>
+               <td class="CoeffCompareTableSecondary">${ligaCeff.total}</td>
+               <td class="CoeffCompareTableSecondary">${ligaCeff.lessTotal}</td>
+               <td class="CoeffCompareTableSecondary">${ligaCeff.hand1}</td>
+               <td class="CoeffCompareTableSecondary">${ligaCeff.hand}</td>
+               <td class="CoeffCompareTableSecondary">${ligaCeff.hand2}</td>
+               <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${ligaCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
          </c:forEach>
       </table>
       <c:if test="${lastMatchesTeam1.size() > 0}">
          <br>	
-         <h3>История последних встреч команды ${ceffList.get(0).team1}:</h3>
+         <h3>История последних встреч команды ${xBetList.get(0).team1}:</h3>
          <table class="HistoryTable">
             <c:forEach var="Team1Matches" items="${lastMatchesTeam1}">
                <tr>
                   <td class="HistoryTableSecondary">${Team1Matches.dateStr}</td>
-                  <td <c:if test="${ceffList.get(0).team1 eq Team1Matches.team1}">class="selected_cell"</c:if>>${Team1Matches.team1}</td>
+                  <td <c:if test="${xBetList.get(0).team1 eq Team1Matches.team1}">class="selected_cell"</c:if>>${Team1Matches.team1}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team1}.png"></td>
                   <td>${Team1Matches.score}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team2}.png"></td>
-                  <td <c:if test="${ceffList.get(0).team1 eq Team1Matches.team2}">class="selected_cell"</c:if>>${Team1Matches.team2}</td>
+                  <td <c:if test="${xBetList.get(0).team1 eq Team1Matches.team2}">class="selected_cell"</c:if>>${Team1Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Matches.championship}</td>
                </tr>
                <tr>
@@ -79,16 +121,16 @@
       </c:if>
       <c:if test="${lastMatchesTeam2.size() > 0}">
          <br>		
-         <h3>История последних встреч команды ${ceffList.get(0).team2}:</h3>
+         <h3>История последних встреч команды ${xBetList.get(0).team2}:</h3>
          <table class="HistoryTable">
             <c:forEach var="Team2Matches" items="${lastMatchesTeam2}">
                <tr>
                   <td class="HistoryTableSecondary">${Team2Matches.dateStr}</td>
-                  <td <c:if test="${ceffList.get(0).team2 eq Team2Matches.team1}">class="selected_cell"</c:if>>${Team2Matches.team1}</td>
+                  <td <c:if test="${xBetList.get(0).team2 eq Team2Matches.team1}">class="selected_cell"</c:if>>${Team2Matches.team1}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team1}.png"></td>
                   <td>${Team2Matches.score}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team2}.png"></td>
-                  <td <c:if test="${ceffList.get(0).team2 eq Team2Matches.team2}">class="selected_cell"</c:if>>${Team2Matches.team2}</td>
+                  <td <c:if test="${xBetList.get(0).team2 eq Team2Matches.team2}">class="selected_cell"</c:if>>${Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team2Matches.championship}</td>
                </tr>
                <tr>
@@ -102,7 +144,7 @@
       </c:if>
       <c:if test="${lastMatchesTeam1Team2.size() > 0}">
          <br>		
-         <h3>История личных встреч между командами ${ceffList.get(0).team1} и ${ceffList.get(0).team2}:</h3>
+         <h3>История личных встреч между командами ${xBetList.get(0).team1} и ${xBetList.get(0).team2}:</h3>
          <table class="HistoryTable">
             <c:forEach var="Team1Team2Matches" items="${lastMatchesTeam1Team2}">
                <tr>
@@ -139,7 +181,7 @@
                   <td>О</td>
                </tr>
                <c:forEach var="LeagueTableRow" items="${leagueTable}">
-                  <tr <c:if test="${LeagueTableRow.team eq ceffList.get(0).team1 or LeagueTableRow.team eq ceffList.get(0).team2}">class="selected_row"</c:if>>
+                  <tr <c:if test="${LeagueTableRow.team eq xBetList.get(0).team1 or LeagueTableRow.team eq xBetList.get(0).team2}">class="selected_row"</c:if>>
                   <td>${LeagueTableRow.place}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${LeagueTableRow.team}.png"></td>
                   <td>${LeagueTableRow.team}</td>

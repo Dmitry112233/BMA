@@ -45,7 +45,7 @@ h1 {
 	position: relative;
 }
 
-#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #EPLBlock, #videoPart, #DetailsBlock {
+#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #LeagueMatchesBlock, #videoPart, #DetailsBlock {
 	float: right;
 	height: auto;
 	background: #efefef;
@@ -76,7 +76,7 @@ h1 {
 	width: 262.5px;
 }
 
-.bkListContent h1, #dayexp h1, #allExp h1, #textLessons h1, #bkReitBlock h1, #newsBlock h1, #allEv h1, #pnf h1, #videoPart h1, #EPLBlock h1, #DetailsBlock h1 {
+.bkListContent h1, #dayexp h1, #allExp h1, #textLessons h1, #bkReitBlock h1, #newsBlock h1, #allEv h1, #pnf h1, #videoPart h1, #LeagueMatchesBlock h1, #DetailsBlock h1 {
 	margin-top: 20px;
 	text-align: center;	
 	font-size: 20pt;
@@ -559,7 +559,7 @@ a {
 	margin-bottom: 55px;	
 }
 
-.EPLtable, .CoeffCompareTable, .HistoryTable {
+.LeagueMatchesTable, .CoeffCompareTable, .HistoryTable {
 	width: 100%;
 	box-shadow: 1px 1px 12px 0px #aeaeae;
 	text-align: center;
@@ -584,25 +584,25 @@ a {
 	padding-left: 5px;
 }
 
-.EPLtable td:nth-child(2), .EPLtable td:nth-child(7), .HistoryTable td:nth-child(2) {
+.LeagueMatchesTable td:nth-child(2), .LeagueMatchesTable td:nth-child(7), .HistoryTable td:nth-child(2) {
 	text-align: right;
 }
 
-.EPLtable td:nth-child(6), .HistoryTable td:nth-child(6) {
+.LeagueMatchesTable td:nth-child(6), .HistoryTable td:nth-child(6) {
 	text-align: left;
 }
 
-.EPLtable td, .CoeffCompareTable td, .HistoryTable td, .LeagueTable td {
+.LeagueMatchesTable td, .CoeffCompareTable td, .HistoryTable td, .LeagueTable td {
 	padding-left: 5px;
 	padding-right: 5px;
 }
 
-.EPLtable a, .CoeffCompareTable a {
+.LeagueMatchesTable a, .CoeffCompareTable a {
 	text-decoration: underline;
 	cursor: pointer;	 
 }
 
-.EPLtable a:hover, .CoeffCompareTable a:hover {
+.LeagueMatchesTable a:hover, .CoeffCompareTable a:hover {
 	color: black;
 }
 
@@ -610,19 +610,19 @@ a {
 	background: #c7c7c7 !important;
 }
 
-.EPLtable tr:nth-child(odd), .CoeffCompareTable tr:nth-child(odd), .HistoryTable tr:nth-child(odd), .LeagueTable tr:nth-child(odd) {
+.LeagueMatchesTable tr:nth-child(odd), .CoeffCompareTable tr:nth-child(odd), .HistoryTable tr:nth-child(odd), .LeagueTable tr:nth-child(odd) {
 	background: #e0e0e0;
 }
 
-.EPLtable tr:nth-child(even), .CoeffCompareTable tr:nth-child(even), .HistoryTable tr:nth-child(even), .LeagueTable tr:nth-child(even) {
+.LeagueMatchesTable tr:nth-child(even), .CoeffCompareTable tr:nth-child(even), .HistoryTable tr:nth-child(even), .LeagueTable tr:nth-child(even) {
 	background: #eaeaea;
 }
 
-.EPLtable tr, .CoeffCompareTable tr {
+.LeagueMatchesTable tr, .CoeffCompareTable tr {
 	cursor: pointer; 
 }
 
-.EPLtable tr:hover, .CoeffCompareTable tr:hover {
+.LeagueMatchesTable tr:hover, .CoeffCompareTable tr:hover {
 	background: #d2d2d2;
 }
 
@@ -635,7 +635,7 @@ a {
 	padding: 4px; 
 }
 
-.EPLtable td:nth-child(8) {
+.LeagueMatchesTable td:nth-child(8) {
 	display: none;
 }
 
@@ -723,7 +723,7 @@ a {
 		display: none;
 	}
 	
-	.EPLtable td:nth-child(7) {
+	.LeagueMatchesTable td:nth-child(7) {
 		display: none;
 	}
 	
@@ -773,7 +773,7 @@ a {
 		padding-right: 5px;
 	}
 	
-	.dayexptable tr td, .evtable tr td, .CoeffCompareTable tr td, EPLtable tr td {
+	.dayexptable tr td, .evtable tr td, .CoeffCompareTable tr td, LeagueMatchesTable tr td {
 		font-size: 10pt;
 		padding-left: 2px;
 		padding-right: 2px;		 
@@ -787,15 +787,15 @@ a {
 		display: none;
 	}
 	
-	.EPLtable td:nth-child(7) {
+	.LeagueMatchesTable td:nth-child(7) {
 		display: none;
 	}
 	
-	.EPLtable td:nth-child(2), .EPLtable td:nth-child(3), .EPLtable td:nth-child(4), .EPLtable td:nth-child(5), .EPLtable td:nth-child(6) {
+	.LeagueMatchesTable td:nth-child(2), .LeagueMatchesTable td:nth-child(3), .LeagueMatchesTable td:nth-child(4), .LeagueMatchesTable td:nth-child(5), .LeagueMatchesTable td:nth-child(6) {
 	display: none;
 	}
 	
-	.EPLtable td:nth-child(8) {
+	.LeagueMatchesTable td:nth-child(8) {
 	display: block;
 	}
 	
