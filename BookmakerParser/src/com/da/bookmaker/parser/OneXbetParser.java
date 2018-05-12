@@ -47,8 +47,8 @@ public class OneXbetParser extends AbstractParser {
 		urls.add(ESP);
 		urls.add(ITA);
 		urls.add(GER);
-		urls.add(CL);
-		urls.add(LE);
+		//urls.add(CL);
+		//urls.add(LE);
 		for (String url : urls) {
 			parseOneXBet(url);
 		}
@@ -65,6 +65,9 @@ public class OneXbetParser extends AbstractParser {
 			List<PremierLeagueBean> beans = new ArrayList<>();
 			// Засетить Имя Чемпионат + поле в базе
 			List<?> htmlDivisions = page.getByXPath("//*[contains(@class, 'c-events__item c-events__item_col')]");
+			if (htmlDivisions.size() > 22){
+				return;
+			}
 			// Не могу взять итератором нужный элемент, т.к
 			// NoSurchElementException
 			long bookmakerId = DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId();
@@ -89,8 +92,12 @@ public class OneXbetParser extends AbstractParser {
 				bean = getCoefficients(c_bets, bean);
 
 				bean.setDateStr(time);
-				bean.setTeam1(names.get(0));
-				bean.setTeam2(names.get(1));
+				if (names.get(0).contains("Хозяева") || names.get(1).contains("Гости")) {
+					continue;
+				} else {
+					bean.setTeam1(names.get(0));
+					bean.setTeam2(names.get(1));
+				}
 				switch (url) {
 				case ENG:
 					bean.setLeague("Английская Примьер Лига");
@@ -184,7 +191,7 @@ public class OneXbetParser extends AbstractParser {
 		for (DomElement coeff : element.getChildElements()) {
 			if (!coeff.getTextContent().trim().equals("-")) {
 				list.add((coeff.getTextContent().trim()));
-			}else{
+			} else {
 				list.add("0.0");
 			}
 

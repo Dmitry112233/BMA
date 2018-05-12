@@ -142,7 +142,7 @@ public class LeonParser {
 		Iterator<DomElement> iterator = element.getChildElements().iterator();
 		iterator.next();
 		DomElement tdNames = iterator.next();
-		String[] names = tdNames.getFirstElementChild().getFirstElementChild().getTextContent().split("-");
+		String[] names = tdNames.getFirstElementChild().getFirstElementChild().getTextContent().split(" - ");
 		String team1 = names[0].trim();
 		String team2 = names[1].trim();
 		double win1 = Double
