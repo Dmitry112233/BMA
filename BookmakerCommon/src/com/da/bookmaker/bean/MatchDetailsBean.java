@@ -12,29 +12,50 @@ public class MatchDetailsBean {
 
 	private String team2;
 
-	private String score;
-
 	private Date date;
+	
+	private int goalsTeam1;
+	
+	private int goalsTeam2;
+	
+	private int penaltyTeam1;
+	
+	private int penaltyTeam2;
+
+
+	public int getGoalsTeam1() {
+		return goalsTeam1;
+	}
+
+	public void setGoalsTeam1(int goalsTeam1) {
+		this.goalsTeam1 = goalsTeam1;
+	}
+
+	public int getGoalsTeam2() {
+		return goalsTeam2;
+	}
+
+	public void setGoalsTeam2(int goalsTeam2) {
+		this.goalsTeam2 = goalsTeam2;
+	}
+
+	public int getPenaltyTeam1() {
+		return penaltyTeam1;
+	}
+
+	public void setPenaltyTeam1(int penaltyTeam1) {
+		this.penaltyTeam1 = penaltyTeam1;
+	}
+
+	public int getPenaltyTeam2() {
+		return penaltyTeam2;
+	}
+
+	public void setPenaltyTeam2(int penaltyTeam2) {
+		this.penaltyTeam2 = penaltyTeam2;
+	}
 
 	private String championship;
-
-/*	@Override
-	public boolean equals(Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (obj == null || obj.getClass() != this.getClass()) {
-			return false;
-		}
-		MatchDetailsBean objToCompare = (MatchDetailsBean) obj;
-		if (this.team1.equals(objToCompare.getTeam1()) && this.team2.equals(objToCompare.getTeam2())
-				&& this.score.equals(objToCompare.getScore()) && this.date.equals(objToCompare.getDate())
-				&& this.championship.equals(objToCompare.getChampionship())) {
-			return true;
-		} else {
-			return false;
-		}
-	}*/
 
 	public String getChampionship() {
 		return championship;
@@ -79,14 +100,6 @@ public class MatchDetailsBean {
 
 	public void setTeam2(String team2) {
 		this.team2 = team2;
-	}
-
-	public String getScore() {
-		return score;
-	}
-
-	public void setScore(String score) {
-		this.score = score;
 	}
 
 	public Date getDate() {

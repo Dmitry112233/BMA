@@ -26,25 +26,18 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-
-	private static final String GET_DETAILS_BY_TEAM = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP FROM MATCH_DETAILS "
-			+ "WHERE TEAM1 = ? OR TEAM2 = ? ORDER BY DATE DESC LIMIT 10";
 	
-	private static final String GET_DETAILS_BY_TEAM_SQL = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP FROM MATCH_DETAILS md "
+	private static final String GET_DETAILS_BY_TEAM_SQL = "SELECT TEAM1, TEAM2, DATE, GOALS_TEAM1, GOALS_TEAM2, PENALTY_TEAM1, PENALTY_TEAM2, CHAMPIONSHIP FROM MATCH_DETAILS md "
 			+ "JOIN TEAM_DICTIONARY td1 "
 			+ "ON td1.WILDSTAT_NAME = md.TEAM1 "
 			+ "JOIN TEAM_DICTIONARY td2 "
 			+ "ON td2.WILDSTAT_NAME = md.TEAM2 "
 			+ "WHERE td1.XBET_NAME = ? OR td2.XBET_NAME = ? ORDER BY DATE DESC LIMIT 10";
 
-	private static final String INSERT_MATCHES_DETAILS = "INSERT INTO MATCH_DETAILS (TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP) "
-			+ "VALUES (?,?,?,?,?)";
-
-	private static final String GET_DETAILS_BY_TEAMS = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP "
-			+ "FROM MATCH_DETAILS "
-			+ "WHERE TEAM1 = ? AND TEAM2 = ? OR TEAM1 = ? AND TEAM2 = ? ORDER BY DATE DESC LIMIT 10";
+	private static final String INSERT_MATCHES_DETAILS = "INSERT INTO MATCH_DETAILS (TEAM1, TEAM2, DATE, GOALS_TEAM1, GOALS_TEAM2, PENALTY_TEAM1, PENALTY_TEAM2, CHAMPIONSHIP) "
+			+ "VALUES (?,?,?,?,?,?,?,?)";
 	
-	private static final String GET_DETAILS_BY_TEAMS_SQL = "Select md.TEAM1, md.TEAM2, md.DATE, md.SCORE, md.CHAMPIONSHIP "
+	private static final String GET_DETAILS_BY_TEAMS_SQL = "Select md.TEAM1, md.TEAM2, md.DATE, md.GOALS_TEAM1, md.GOALS_TEAM2, md.PENALTY_TEAM1, md.PENALTY_TEAM2, md.CHAMPIONSHIP "
 	+ "FROM MATCH_DETAILS md "
 	+ "JOIN TEAM_DICTIONARY td1 "
     + "ON td1.WILDSTAT_NAME = md.TEAM1 "
@@ -53,7 +46,7 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
     + "WHERE (td1.XBET_NAME = ? AND td2.XBET_NAME = ?) "
     + "OR (td1.XBET_NAME = ? AND td2.XBET_NAME = ?)";
 
-	private static final String GET_ALL_MATCHES = "SELECT TEAM1, TEAM2, DATE, SCORE, CHAMPIONSHIP FROM MATCH_DETAILS";
+	private static final String GET_ALL_MATCHES = "SELECT TEAM1, TEAM2, DATE, GOALS_TEAM1, GOALS_TEAM2, PENALTY_TEAM1, PENALTY_TEAM2, CHAMPIONSHIP FROM MATCH_DETAILS";
 
 	private static final String GET_DICTIONARY_NAME = "SELECT WILDSTAT_NAME FROM TEAM_DICTIONARY WHERE XBET_NAME = ?";
 	
@@ -71,7 +64,10 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 						MatchDetailsBean bean = new MatchDetailsBean();
 						bean.setTeam1(rs.getString("TEAM1"));
 						bean.setTeam2(rs.getString("TEAM2"));
-						bean.setScore(rs.getString("SCORE"));
+						bean.setPenaltyTeam1(rs.getInt("PENALTY_TEAM1"));
+						bean.setPenaltyTeam2(rs.getInt("PENALTY_TEAM2"));
+						bean.setGoalsTeam1(rs.getInt("GOALS_TEAM1"));
+						bean.setGoalsTeam2(rs.getInt("GOALS_TEAM1"));
 						bean.setDate(rs.getDate("DATE"));
 						bean.setChampionship(rs.getString("CHAMPIONSHIP"));
 						return bean;
@@ -90,8 +86,11 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 						statement.setString(1, bean.getTeam1());
 						statement.setString(2, bean.getTeam2());
 						statement.setDate(3, new java.sql.Date(bean.getDate().getTime()));
-						statement.setString(4, bean.getScore());
-						statement.setString(5, bean.getChampionship());
+						statement.setInt(4, bean.getGoalsTeam1());
+						statement.setInt(5, bean.getGoalsTeam2());
+						statement.setInt(6, bean.getPenaltyTeam1());
+						statement.setInt(7, bean.getPenaltyTeam2());
+						statement.setString(8, bean.getChampionship());
 					}
 				});
 	}
@@ -106,7 +105,10 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 						MatchDetailsBean bean = new MatchDetailsBean();
 						bean.setTeam1(rs.getString("TEAM1"));
 						bean.setTeam2(rs.getString("TEAM2"));
-						bean.setScore(rs.getString("SCORE"));
+						bean.setPenaltyTeam1(rs.getInt("PENALTY_TEAM1"));
+						bean.setPenaltyTeam2(rs.getInt("PENALTY_TEAM2"));
+						bean.setGoalsTeam1(rs.getInt("GOALS_TEAM1"));
+						bean.setGoalsTeam2(rs.getInt("GOALS_TEAM1"));
 						bean.setDate(rs.getDate("DATE"));
 						bean.setChampionship(rs.getString("CHAMPIONSHIP"));
 						return bean;
@@ -125,7 +127,10 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 				MatchDetailsBean bean = new MatchDetailsBean();
 				bean.setTeam1(rs.getString("TEAM1"));
 				bean.setTeam2(rs.getString("TEAM2"));
-				bean.setScore(rs.getString("SCORE"));
+				bean.setPenaltyTeam1(rs.getInt("PENALTY_TEAM1"));
+				bean.setPenaltyTeam2(rs.getInt("PENALTY_TEAM2"));
+				bean.setGoalsTeam1(rs.getInt("GOALS_TEAM1"));
+				bean.setGoalsTeam2(rs.getInt("GOALS_TEAM1"));
 				bean.setDate(rs.getDate("DATE"));
 				bean.setChampionship(rs.getString("CHAMPIONSHIP"));
 				return bean;
