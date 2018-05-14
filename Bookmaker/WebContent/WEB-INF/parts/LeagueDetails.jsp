@@ -48,6 +48,7 @@
                <td class="CoeffCompareTableSecondary">${xBetCeff.hand1}</td>
                <td class="CoeffCompareTableSecondary">${xBetCeff.hand}</td>
                <td class="CoeffCompareTableSecondary">${xBetCeff.hand2}</td>
+               <!-- <td class="CoeffCompareTableSecondary"><c:choose><c:when test="${xBetCeff.hand2} > 0">${xBetCeff.hand2}</c:when><c:otherwise>-</c:otherwise></c:choose></td> -->
                <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${xBetCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
          </c:forEach>
@@ -70,6 +71,7 @@
                <td class="CoeffCompareTableSecondary">${leonCeff.hand1}</td>
                <td class="CoeffCompareTableSecondary">${leonCeff.hand}</td>
                <td class="CoeffCompareTableSecondary">${leonCeff.hand2}</td>
+               <!--<td class="CoeffCompareTableSecondary"><c:choose><c:when test="${leonCeff.hand2} > 0">${leonCeff.hand2}</c:when><c:otherwise>-</c:otherwise></c:choose></td> -->
                <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${leonCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
          </c:forEach>
@@ -92,6 +94,7 @@
                <td class="CoeffCompareTableSecondary">${ligaCeff.hand1}</td>
                <td class="CoeffCompareTableSecondary">${ligaCeff.hand}</td>
                <td class="CoeffCompareTableSecondary">${ligaCeff.hand2}</td>
+               <!--<td class="CoeffCompareTableSecondary"><c:choose><c:when test="${ligaCeff.hand2} > 0">${ligaCeff.hand2}</c:when><c:otherwise>-</c:otherwise></c:choose></td> -->
                <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${ligaCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
          </c:forEach>
@@ -105,7 +108,9 @@
                   <td class="HistoryTableSecondary">${Team1Matches.dateStr}</td>
                   <td <c:if test="${xBetList.get(0).team1 eq Team1Matches.team1}">class="selected_cell"</c:if>>${Team1Matches.team1}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team1}.png"></td>
-                  <td>${Team1Matches.score}</td>
+                  <td>${Team1Matches.goalsTeam1}:${Team1Matches.goalsTeam2}
+                  	<c:if test="${(Team1Matches.penaltyTeam1 > 0) || (Team1Matches.penaltyTeam2 > 0)}"> (${Team1Matches.penaltyTeam1}:${Team1Matches.penaltyTeam2})</c:if>
+                  </td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team2}.png"></td>
                   <td <c:if test="${xBetList.get(0).team1 eq Team1Matches.team2}">class="selected_cell"</c:if>>${Team1Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Matches.championship}</td>
@@ -128,7 +133,9 @@
                   <td class="HistoryTableSecondary">${Team2Matches.dateStr}</td>
                   <td <c:if test="${xBetList.get(0).team2 eq Team2Matches.team1}">class="selected_cell"</c:if>>${Team2Matches.team1}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team1}.png"></td>
-                  <td>${Team2Matches.score}</td>
+                  <td>${Team2Matches.goalsTeam1}:${Team2Matches.goalsTeam2}
+                  	<c:if test="${(Team2Matches.penaltyTeam1 > 0) || (Team2Matches.penaltyTeam2 > 0)}"> (${Team2Matches.penaltyTeam1}:${Team2Matches.penaltyTeam2})</c:if>
+                  </td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team2}.png"></td>
                   <td <c:if test="${xBetList.get(0).team2 eq Team2Matches.team2}">class="selected_cell"</c:if>>${Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team2Matches.championship}</td>
@@ -151,7 +158,9 @@
                   <td class="HistoryTableSecondary">${Team1Team2Matches.dateStr}</td>
                   <td>${Team1Team2Matches.team1}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Team2Matches.team1}.png"></td>
-                  <td>${Team1Team2Matches.score}</td>
+                  <td>${Team1Team2Matches.goalsTeam1}:${Team1Team2Matches.goalsTeam2}
+                  	<c:if test="${(Team1Team2Matches.penaltyTeam1 > 0) || (Team1Team2Matches.penaltyTeam2 > 0)}"> (${Team1Team2Matches.penaltyTeam1}:${Team1Team2Matches.penaltyTeam2})</c:if>
+                  </td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Team2Matches.team2}.png"></td>
                   <td>${Team1Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Team2Matches.championship}</td>
