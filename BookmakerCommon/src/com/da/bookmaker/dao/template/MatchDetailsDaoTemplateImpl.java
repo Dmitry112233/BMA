@@ -67,7 +67,7 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 						bean.setPenaltyTeam1(rs.getInt("PENALTY_TEAM1"));
 						bean.setPenaltyTeam2(rs.getInt("PENALTY_TEAM2"));
 						bean.setGoalsTeam1(rs.getInt("GOALS_TEAM1"));
-						bean.setGoalsTeam2(rs.getInt("GOALS_TEAM1"));
+						bean.setGoalsTeam2(rs.getInt("GOALS_TEAM2"));
 						bean.setDate(rs.getDate("DATE"));
 						bean.setChampionship(rs.getString("CHAMPIONSHIP"));
 						return bean;
@@ -108,7 +108,7 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 						bean.setPenaltyTeam1(rs.getInt("PENALTY_TEAM1"));
 						bean.setPenaltyTeam2(rs.getInt("PENALTY_TEAM2"));
 						bean.setGoalsTeam1(rs.getInt("GOALS_TEAM1"));
-						bean.setGoalsTeam2(rs.getInt("GOALS_TEAM1"));
+						bean.setGoalsTeam2(rs.getInt("GOALS_TEAM2"));
 						bean.setDate(rs.getDate("DATE"));
 						bean.setChampionship(rs.getString("CHAMPIONSHIP"));
 						return bean;
@@ -130,7 +130,7 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 				bean.setPenaltyTeam1(rs.getInt("PENALTY_TEAM1"));
 				bean.setPenaltyTeam2(rs.getInt("PENALTY_TEAM2"));
 				bean.setGoalsTeam1(rs.getInt("GOALS_TEAM1"));
-				bean.setGoalsTeam2(rs.getInt("GOALS_TEAM1"));
+				bean.setGoalsTeam2(rs.getInt("GOALS_TEAM2"));
 				bean.setDate(rs.getDate("DATE"));
 				bean.setChampionship(rs.getString("CHAMPIONSHIP"));
 				return bean;
