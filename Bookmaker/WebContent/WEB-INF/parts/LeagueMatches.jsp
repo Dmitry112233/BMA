@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="LeagueMatchesBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <div class="LeagueMatches">
-      <h1><img class="leagueIcon" src="bootstrap/img/leagueIcon/${matchesList.get(0).league}.png">${matchesList.get(0).league}</h1>      
-      <br>
+   <div class="LeagueMatches">      
       <c:if test="${matchesList.size() > 0}">
+         <h1><img class="leagueIcon" src="bootstrap/img/leagueIcon/${matchesList.get(0).league}.png">${matchesList.get(0).league}</h1>
+         <br>
          <!-- вывод туров АПЛ в цикле -->			
          <table class="LeagueMatchesTable">
             <c:forEach var="leagueEvent" items="${matchesList}">
@@ -22,7 +22,9 @@
          </table>
          <br>
       </c:if>
-      <c:if test="${matchesList.size() == 0}">
+      <c:if test="${matchesList.size() == NULL}">      
+         <h1>Футбол</h1>
+         <br>
          <p class="DataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</p>
       </c:if>
    </div>

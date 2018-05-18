@@ -36,19 +36,78 @@
                   <img src="${xBetCeff.bookmakerBean.image}" alt="${xBetCeff.bookmakerBean.name} logo">
                   </a>
                </td>
-               <td>${xBetCeff.win1}</td>
-               <td>${xBetCeff.x}</td>
-               <td>${xBetCeff.win2}</td>
-               <td>${xBetCeff.x1}</td>
-               <td>${xBetCeff.x12}</td>
-               <td>${xBetCeff.x2}</td>
-               <td class="CoeffCompareTableSecondary">${xBetCeff.moreTotal}</td>
-               <td class="CoeffCompareTableSecondary">${xBetCeff.total}</td>
-               <td class="CoeffCompareTableSecondary">${xBetCeff.lessTotal}</td>
-               <td class="CoeffCompareTableSecondary">${xBetCeff.hand1}</td>
-               <td class="CoeffCompareTableSecondary">${xBetCeff.hand}</td>
-               <td class="CoeffCompareTableSecondary">${xBetCeff.hand2}</td>
-               <!-- <td class="CoeffCompareTableSecondary"><c:choose><c:when test="${xBetCeff.hand2} > 0">${xBetCeff.hand2}</c:when><c:otherwise>-</c:otherwise></c:choose></td> -->
+               <td>
+                  <c:choose>
+                     <c:when test="${xBetCeff.win1 > 0}">${xBetCeff.win1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${xBetCeff.x > 0}">${xBetCeff.x}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${xBetCeff.win2 > 0}">${xBetCeff.win2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${xBetCeff.x1 > 0}">${xBetCeff.x1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${xBetCeff.x12 > 0}">${xBetCeff.x12}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${xBetCeff.x2 > 0}">${xBetCeff.x2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${xBetCeff.moreTotal > 0}">${xBetCeff.moreTotal}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${xBetCeff.total > 0}">${xBetCeff.total}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${xBetCeff.lessTotal > 0}">${xBetCeff.lessTotal}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${xBetCeff.hand1 > 0}">${xBetCeff.hand1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${xBetCeff.hand != ''}">${xBetCeff.hand}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${xBetCeff.hand2 > 0}">${xBetCeff.hand2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
                <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${xBetCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
          </c:forEach>
@@ -59,19 +118,78 @@
                   <img src="${leonCeff.bookmakerBean.image}" alt="${leonCeff.bookmakerBean.name} logo">
                   </a>
                </td>
-               <td>${leonCeff.win1}</td>
-               <td>${leonCeff.x}</td>
-               <td>${leonCeff.win2}</td>
-               <td>${leonCeff.x1}</td>
-               <td>${leonCeff.x12}</td>
-               <td>${leonCeff.x2}</td>
-               <td class="CoeffCompareTableSecondary">${leonCeff.moreTotal}</td>
-               <td class="CoeffCompareTableSecondary">${leonCeff.total}</td>
-               <td class="CoeffCompareTableSecondary">${leonCeff.lessTotal}</td>
-               <td class="CoeffCompareTableSecondary">${leonCeff.hand1}</td>
-               <td class="CoeffCompareTableSecondary">${leonCeff.hand}</td>
-               <td class="CoeffCompareTableSecondary">${leonCeff.hand2}</td>
-               <!--<td class="CoeffCompareTableSecondary"><c:choose><c:when test="${leonCeff.hand2} > 0">${leonCeff.hand2}</c:when><c:otherwise>-</c:otherwise></c:choose></td> -->
+               <td>
+                  <c:choose>
+                     <c:when test="${leonCeff.win1 > 0}">${leonCeff.win1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${leonCeff.x > 0}">${leonCeff.x}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${leonCeff.win2 > 0}">${leonCeff.win2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${leonCeff.x1 > 0}">${leonCeff.x1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${leonCeff.x12 > 0}">${leonCeff.x12}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${leonCeff.x2 > 0}">${leonCeff.x2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${leonCeff.moreTotal > 0}">${leonCeff.moreTotal}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${leonCeff.total > 0}">${leonCeff.total}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${leonCeff.lessTotal > 0}">${leonCeff.lessTotal}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${leonCeff.hand1 > 0}">${leonCeff.hand1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${leonCeff.hand != ''}">${leonCeff.hand}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${leonCeff.hand2 > 0}">${leonCeff.hand2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
                <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${leonCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
          </c:forEach>
@@ -82,19 +200,78 @@
                   <img src="${ligaCeff.bookmakerBean.image}" alt="${ligaCeff.bookmakerBean.name} logo">
                   </a>
                </td>
-               <td>${ligaCeff.win1}</td>
-               <td>${ligaCeff.x}</td>
-               <td>${ligaCeff.win2}</td>
-               <td>${ligaCeff.x1}</td>
-               <td>${ligaCeff.x12}</td>
-               <td>${ligaCeff.x2}</td>
-               <td class="CoeffCompareTableSecondary">${ligaCeff.moreTotal}</td>
-               <td class="CoeffCompareTableSecondary">${ligaCeff.total}</td>
-               <td class="CoeffCompareTableSecondary">${ligaCeff.lessTotal}</td>
-               <td class="CoeffCompareTableSecondary">${ligaCeff.hand1}</td>
-               <td class="CoeffCompareTableSecondary">${ligaCeff.hand}</td>
-               <td class="CoeffCompareTableSecondary">${ligaCeff.hand2}</td>
-               <!--<td class="CoeffCompareTableSecondary"><c:choose><c:when test="${ligaCeff.hand2} > 0">${ligaCeff.hand2}</c:when><c:otherwise>-</c:otherwise></c:choose></td> -->
+               <td>
+                  <c:choose>
+                     <c:when test="${ligaCeff.win1 > 0}">${ligaCeff.win1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${ligaCeff.x > 0}">${ligaCeff.x}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${ligaCeff.win2 > 0}">${ligaCeff.win2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${ligaCeff.x1 > 0}">${ligaCeff.x1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${ligaCeff.x12 > 0}">${ligaCeff.x12}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td>
+                  <c:choose>
+                     <c:when test="${ligaCeff.x2 > 0}">${ligaCeff.x2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${ligaCeff.moreTotal > 0}">${ligaCeff.moreTotal}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${ligaCeff.total > 0}">${ligaCeff.total}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${ligaCeff.lessTotal > 0}">${ligaCeff.lessTotal}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${ligaCeff.hand1 > 0}">${ligaCeff.hand1}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${ligaCeff.hand != ''}">${ligaCeff.hand}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
+               <td class="CoeffCompareTableSecondary">
+                  <c:choose>
+                     <c:when test="${ligaCeff.hand2 > 0}">${ligaCeff.hand2}</c:when>
+                     <c:otherwise>-</c:otherwise>
+                  </c:choose>
+               </td>
                <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${ligaCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
          </c:forEach>
@@ -106,13 +283,18 @@
             <c:forEach var="Team1Matches" items="${lastMatchesTeam1}">
                <tr>
                   <td class="HistoryTableSecondary">${Team1Matches.dateStr}</td>
-                  <td <c:if test="${xBetList.get(0).team1 eq Team1Matches.team1}">class="selected_cell"</c:if>>${Team1Matches.team1}</td>
+                  <td 
+                  <c:if test="${xBetList.get(0).team1 eq Team1Matches.team1}">class="selected_cell"</c:if>
+                  >${Team1Matches.team1}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team1}.png"></td>
-                  <td>${Team1Matches.goalsTeam1}:${Team1Matches.goalsTeam2}
-                  	<c:if test="${(Team1Matches.penaltyTeam1 > 0) || (Team1Matches.penaltyTeam2 > 0)}"> (${Team1Matches.penaltyTeam1}:${Team1Matches.penaltyTeam2})</c:if>
+                  <td>
+                     ${Team1Matches.goalsTeam1}:${Team1Matches.goalsTeam2}
+                     <c:if test="${(Team1Matches.penaltyTeam1 > 0) || (Team1Matches.penaltyTeam2 > 0)}"> (${Team1Matches.penaltyTeam1}:${Team1Matches.penaltyTeam2})</c:if>
                   </td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team2}.png"></td>
-                  <td <c:if test="${xBetList.get(0).team1 eq Team1Matches.team2}">class="selected_cell"</c:if>>${Team1Matches.team2}</td>
+                  <td 
+                  <c:if test="${xBetList.get(0).team1 eq Team1Matches.team2}">class="selected_cell"</c:if>
+                  >${Team1Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Matches.championship}</td>
                </tr>
                <tr>
@@ -131,13 +313,18 @@
             <c:forEach var="Team2Matches" items="${lastMatchesTeam2}">
                <tr>
                   <td class="HistoryTableSecondary">${Team2Matches.dateStr}</td>
-                  <td <c:if test="${xBetList.get(0).team2 eq Team2Matches.team1}">class="selected_cell"</c:if>>${Team2Matches.team1}</td>
+                  <td 
+                  <c:if test="${xBetList.get(0).team2 eq Team2Matches.team1}">class="selected_cell"</c:if>
+                  >${Team2Matches.team1}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team1}.png"></td>
-                  <td>${Team2Matches.goalsTeam1}:${Team2Matches.goalsTeam2}
-                  	<c:if test="${(Team2Matches.penaltyTeam1 > 0) || (Team2Matches.penaltyTeam2 > 0)}"> (${Team2Matches.penaltyTeam1}:${Team2Matches.penaltyTeam2})</c:if>
+                  <td>
+                     ${Team2Matches.goalsTeam1}:${Team2Matches.goalsTeam2}
+                     <c:if test="${(Team2Matches.penaltyTeam1 > 0) || (Team2Matches.penaltyTeam2 > 0)}"> (${Team2Matches.penaltyTeam1}:${Team2Matches.penaltyTeam2})</c:if>
                   </td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team2}.png"></td>
-                  <td <c:if test="${xBetList.get(0).team2 eq Team2Matches.team2}">class="selected_cell"</c:if>>${Team2Matches.team2}</td>
+                  <td 
+                  <c:if test="${xBetList.get(0).team2 eq Team2Matches.team2}">class="selected_cell"</c:if>
+                  >${Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team2Matches.championship}</td>
                </tr>
                <tr>
@@ -158,8 +345,9 @@
                   <td class="HistoryTableSecondary">${Team1Team2Matches.dateStr}</td>
                   <td>${Team1Team2Matches.team1}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Team2Matches.team1}.png"></td>
-                  <td>${Team1Team2Matches.goalsTeam1}:${Team1Team2Matches.goalsTeam2}
-                  	<c:if test="${(Team1Team2Matches.penaltyTeam1 > 0) || (Team1Team2Matches.penaltyTeam2 > 0)}"> (${Team1Team2Matches.penaltyTeam1}:${Team1Team2Matches.penaltyTeam2})</c:if>
+                  <td>
+                     ${Team1Team2Matches.goalsTeam1}:${Team1Team2Matches.goalsTeam2}
+                     <c:if test="${(Team1Team2Matches.penaltyTeam1 > 0) || (Team1Team2Matches.penaltyTeam2 > 0)}"> (${Team1Team2Matches.penaltyTeam1}:${Team1Team2Matches.penaltyTeam2})</c:if>
                   </td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Team2Matches.team2}.png"></td>
                   <td>${Team1Team2Matches.team2}</td>
@@ -190,7 +378,9 @@
                   <td>О</td>
                </tr>
                <c:forEach var="LeagueTableRow" items="${leagueTable}">
-                  <tr <c:if test="${LeagueTableRow.team eq xBetList.get(0).team1 or LeagueTableRow.team eq xBetList.get(0).team2}">class="selected_row"</c:if>>
+                  <tr 
+                  <c:if test="${LeagueTableRow.team eq xBetList.get(0).team1 or LeagueTableRow.team eq xBetList.get(0).team2}">class="selected_row"</c:if>
+                  >
                   <td>${LeagueTableRow.place}</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${LeagueTableRow.team}.png"></td>
                   <td>${LeagueTableRow.team}</td>
