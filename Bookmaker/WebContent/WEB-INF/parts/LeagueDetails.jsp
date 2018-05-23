@@ -29,6 +29,18 @@
             <td class="CoeffCompareTableSecondary"><b>2</b></td>
             <td class="CoeffCompareTableSecondary2"></td>
          </tr>
+         
+         <!--
+         <c:import url="parts/ceffCompareRow.jsp">
+         	<c:param name="RowListName" value="xBetList"/>
+         </c:import>
+         <c:import url="parts/ceffCompareRow.jsp">
+         	<c:param name="RowListName" value="leonCeff"/>
+         </c:import>
+         <c:import url="parts/ceffCompareRow.jsp">
+         	<c:param name="RowListName" value="ligaCeff"/>
+         </c:import>-->
+         
          <c:forEach var="xBetCeff" items="${xBetList}">
             <tr onclick="window.open('Counter.spr?id=${xBetCeff.bookmakerBean.bookMakerId}', '_blank'); return false;">
                <td class="CoeffCompareTableBM">
