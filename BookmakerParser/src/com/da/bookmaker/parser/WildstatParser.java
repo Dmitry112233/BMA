@@ -11,6 +11,7 @@ import java.util.Properties;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import com.da.bookmaker.bean.GroupBean;
 import com.da.bookmaker.bean.LeagueTableBean;
 import com.da.bookmaker.bean.MatchDetailsBean;
 import com.da.bookmaker.dao.DaoFactory;
@@ -45,7 +46,7 @@ public class WildstatParser {
 				property.load(fis);
 			}
 			List<String> urls = new ArrayList<>();
-			urls.add(property.getProperty("APL_CURRENT"));
+		/*	urls.add(property.getProperty("APL_CURRENT"));
 			urls.add(property.getProperty("CUP_16_17"));
 			urls.add(property.getProperty("CUP_CURRENT"));
 			urls.add(property.getProperty("FLC_16_17"));
@@ -72,7 +73,21 @@ public class WildstatParser {
 			urls.add(property.getProperty("ITA_CURRENT"));
 			urls.add(property.getProperty("ITA_16_17"));
 			urls.add(property.getProperty("ITA_SC_17"));
-			urls.add(property.getProperty("ITA_SC_16"));
+			urls.add(property.getProperty("ITA_SC_16"));*/
+			
+			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
+			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_2014"));
+			urls.add(property.getProperty("AFRIC_CHAMOIONSHIP"));
+			urls.add(property.getProperty("AMERICAN_CHAMPIONSHIP"));
+			urls.add(property.getProperty("EUROPE_CHAMPIONSHIP"));
+			urls.add(property.getProperty("WORLD_CC"));
+			urls.add(property.getProperty("WORLD_PO_QULIFY"));
+			urls.add(property.getProperty("WORLD_OCE_QULIFY"));
+			urls.add(property.getProperty("WORLD_ASI_QULIFY"));
+			urls.add(property.getProperty("WORLD_AMC_QULIFY"));
+			urls.add(property.getProperty("WORLD_AFR_QULIFY"));
+			urls.add(property.getProperty("WORLD_AMS_QULIFY"));
+			urls.add(property.getProperty("WORLD_EUR_QULIFY"));
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
@@ -90,16 +105,17 @@ public class WildstatParser {
 		}
 		try {
 			List<String> urls = new ArrayList<>();
-			urls.add(property.getProperty("APL_CURRENT"));
-			urls.add(property.getProperty("FLC_CURRENT"));
-			urls.add(property.getProperty("CUP_CURRENT"));
-			urls.add(property.getProperty("ESP_CURRENT"));
-			urls.add(property.getProperty("EUR_CL_CURRENT"));
-			urls.add(property.getProperty("EUR_EL_CURRENT"));
-			urls.add(property.getProperty("RUS_CURRENT"));
-			urls.add(property.getProperty("RUS_CUP_CURRENT"));
-			urls.add(property.getProperty("GER_CURRENT"));
-			urls.add(property.getProperty("ITA_CURRENT"));
+			// urls.add(property.getProperty("APL_CURRENT"));
+			// urls.add(property.getProperty("FLC_CURRENT"));
+			// urls.add(property.getProperty("CUP_CURRENT"));
+			// urls.add(property.getProperty("ESP_CURRENT"));
+			//urls.add(property.getProperty("EUR_CL_CURRENT"));
+			//urls.add(property.getProperty("EUR_EL_CURRENT"));
+			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
+			// urls.add(property.getProperty("RUS_CURRENT"));
+			// urls.add(property.getProperty("RUS_CUP_CURRENT"));
+			// urls.add(property.getProperty("GER_CURRENT"));
+			// urls.add(property.getProperty("ITA_CURRENT"));
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
@@ -216,6 +232,68 @@ public class WildstatParser {
 		return bean;
 	}
 
+	public void parseGroups(String url, Properties property, HtmlPage page) throws Exception {
+		List<?> tables = page.getByXPath("//table[@class='championship' and @cellpadding='3']");
+		List<GroupBean> beans = new ArrayList<>();
+		for (int i = 0; i < tables.size(); i++) {
+			DomElement table = (DomElement) tables.get(i);
+			for (DomElement tr : table.getFirstElementChild().getChildElements()) {
+				if (tr.getFirstElementChild().getAttribute("align").equals("right")) {
+					Iterator<DomElement> iterator = tr.getChildElements().iterator();
+					DomElement tdPlace = iterator.next();
+					iterator.next();
+					DomElement tdTeam = iterator.next();
+					DomElement tdGames = iterator.next();
+					DomElement tdWin = iterator.next();
+					DomElement tdDraw = iterator.next();
+					DomElement tdLose = iterator.next();
+					DomElement tdGoals = iterator.next();
+					DomElement tdPoints = iterator.next();
+					String alphabet = "ABCDEFGHIJKLMNOP";
+					String groupName = Character.toString(alphabet.charAt(i));
+					int place = Integer.parseInt(tdPlace.getTextContent().substring(0, 1));
+					String team;
+					if (place < 2) {
+						team = tdTeam.getFirstElementChild().getFirstElementChild().getFirstElementChild()
+								.getTextContent();
+					} else {
+						team = tdTeam.getFirstElementChild().getTextContent();
+					}
+					String games = tdGames.getFirstElementChild().getTextContent().trim();
+					String wins = tdWin.getFirstElementChild().getTextContent().trim();
+					String draw = tdDraw.getFirstElementChild().getTextContent().trim();
+					String lose = tdLose.getFirstElementChild().getTextContent().trim();
+					String goals = tdGoals.getTextContent().trim();
+					String points = tdPoints.getFirstElementChild().getTextContent().trim();
+					GroupBean bean = new GroupBean();
+					bean.setDraw(draw);
+					bean.setGames(games);
+					bean.setGoal(goals);
+					bean.setTeam(team);
+					bean.setGroup(groupName);
+					bean.setPlace(place);
+					bean.setWins(wins);
+					bean.setLose(lose);
+					bean.setPoints(points);
+					if (url.equals(property.getProperty("EUR_CL_CURRENT"))) {
+						bean.setLeague("Лига Чемпионов");
+					}
+					if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))){
+						bean.setLeague("Чемпионат мира");
+					} 
+					beans.add(bean);
+				}
+			}
+		}
+		if (url.equals(property.getProperty("EUR_CL_CURRENT"))) {
+			DaoFactory.getGroupDao().deleteGroups("Лига Чемпионов");
+		}
+		if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))){
+			DaoFactory.getGroupDao().deleteGroups("Чемпионат мира");
+		} 
+		DaoFactory.getGroupDao().addGroups(beans);
+	}
+
 	public void parseWildstat(String url, WebClient webClient, Properties property) throws Exception {
 
 		logger.info("parseWildstat starts by url:" + url);
@@ -224,6 +302,12 @@ public class WildstatParser {
 			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
 			webClient.setUseInsecureSSL(true);
 			HtmlPage page = (HtmlPage) webClient.getPage(url);
+			if (url.equals(property.getProperty("EUR_CL_CURRENT"))) {
+				parseGroups(url, property, page);
+			}
+			if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))) {
+				parseGroups(url, property, page);
+			}
 			List<?> tables = page.getByXPath("//table[@class='championship' and @cellpadding='0']");
 			List<MatchDetailsBean> beans = new ArrayList<>();
 			for (Object table : tables) {
@@ -239,7 +323,6 @@ public class WildstatParser {
 							bean.setDateStr(getDate(tr));
 							bean.setTeam1(getTeam1(tr));
 							bean.setTeam2(getTeam2(tr));
-							System.out.println(bean.getTeam1() + " - " + bean.getTeam2());
 							if (resultList.size() > 0) {
 								bean.setGoalsTeam1(resultList.get(0));
 								bean.setGoalsTeam2(resultList.get(1));
@@ -314,6 +397,29 @@ public class WildstatParser {
 									|| url.equals(property.getProperty("ITA_SC_16"))) {
 								bean.setChampionship("Супер Кубок Италии");
 							}
+							if (url.equals(property.getProperty("WORLD_EUR_QULIFY")) || url.equals(property.getProperty("WORLD_AMS_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_AFR_QULIFY")) || url.equals(property.getProperty("WORLD_AMC_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_ASI_QULIFY")) || url.equals(property.getProperty("WORLD_OCE_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_PO_QULIFY"))){
+								bean.setChampionship("Чемпионат Мира (Отборочный тур)");
+							}
+							if (url.equals(property.getProperty("WORLD_CC"))
+									|| url.equals(property.getProperty(""))) {
+								bean.setChampionship("Кубок Конфедераций");
+							}
+							if (url.equals(property.getProperty("EUROPE_CHAMPIONSHIP"))) {
+								bean.setChampionship("Чемпионат Европы");
+							}
+							if (url.equals(property.getProperty("AMERICAN_CHAMPIONSHIP"))) {
+								bean.setChampionship("Кубок Америки");
+							}
+							if (url.equals(property.getProperty("AFRIC_CHAMOIONSHIP"))) {
+								bean.setChampionship("Кубок Африки");
+							}
+							if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_2014"))
+									|| url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))) {
+								bean.setChampionship("Чемпионат мира");
+							}
 						}
 					}
 				}
@@ -358,6 +464,10 @@ public class WildstatParser {
 			if (url.equals(property.getProperty("EUR_EL_CURRENT"))) {
 				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Лига Европы",
 						property.getProperty("DATE"));
+			}
+			if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))) {
+				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Чемпионат мира",
+						property.getProperty("CM_DATE"));
 			}
 			DaoFactory.getMatchDetailsDao().addMatchesDetails(beans);
 		} finally {
@@ -408,11 +518,9 @@ public class WildstatParser {
 		} else {
 			String result = td.getFirstElementChild().getFirstElementChild().getFirstElementChild().getTextContent()
 					.trim();
-			System.out.println(result);
 			int goalsTeam1;
 			int goalsTeam2;
 			result = result.replaceAll("-", "+");
-			System.out.println(result);
 			if (!result.contains("+")) {
 				goalsTeam1 = Integer.parseInt(result.split(":")[0].trim());
 				goalsTeam2 = Integer.parseInt(result.split(":")[1].trim());

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.da.bookmaker.bean.GroupBean;
 import com.da.bookmaker.bean.MatchDetailsBean;
 import com.da.bookmaker.bean.PremierLeagueBean;
 import com.da.bookmaker.dao.DaoException;
@@ -26,7 +27,16 @@ public class PremierLeagueDetailsController extends BookmakerController {
 		List<?> leagueTable = getLeagueTable(league);
 		List<?> leonList = getLeonCeffByTeams(team1, team2);
 		List<?> ligaList = getLigaCeffByTeams(team1, team2);
-		Map<String, Object> lastMatchesTeam1Team2 = getMatchesDetailsTeam1Team2(team1, team2);
+		Map<String, Object> lastMatchesTeam1Team2 = getMatchesDetailsTeam1Team2(team1, team2);		
+		List<MatchDetailsBean> matchList = (List<MatchDetailsBean>) lastMatchesTeam1Team2.get(lastMatchesTeam1Team2);
+	//	List<GroupBean> groupListTeam1 = getGroupForTeam(matchList.get(0).getTeam1(), league);
+	//	List<GroupBean> groupListTeam2 = getGroupForTeam(matchList.get(0).getTeam2(), league);
+	/*	if(groupListTeam1.get(0).getGroup().equals(groupListTeam2.get(0).getGroup())){
+			groupListTeam2 = null;
+		}
+	*/	
+		//map.put("groupTeam1", groupListTeam1);
+		//map.put("groupTeam2", groupListTeam2);
 		map.put("lastMatchesTeam1", lastMatchesTeam1);
 		map.put("lastMatchesTeam2", lastMatchesTeam2);
 		map.put("leagueTable", leagueTable);
@@ -36,6 +46,11 @@ public class PremierLeagueDetailsController extends BookmakerController {
 		map.putAll(getBookmakerList());
 
 		return new ModelAndView("details", map);
+	}
+	
+	private List<GroupBean> getGroupForTeam(String team, String leagueName) throws DaoException, ParseException {
+		List<GroupBean> groupList = DaoFactory.getGroupDao().getGroupsForLeague(leagueName, team);
+		return groupList;
 	}
 
 	private Map<String, Object> get1xBetCeffByTeams(String team1, String team2) throws DaoException, ParseException {

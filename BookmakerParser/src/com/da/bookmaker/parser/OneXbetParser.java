@@ -28,6 +28,7 @@ public class OneXbetParser extends AbstractParser {
 	static final private String GER = "https://1xvix.top/line/Football/96463-Germany-Bundesliga/";
 	static final private String CL = "https://1xvix.top/line/Football/118587-UEFA-Champions-League/";
 	static final private String LE = "https://1xvix.top/line/Football/118593-UEFA-Europa-League/";
+	static final private String WC = "https://1xvix.top/line/Football/1536237-FIFA-World-Cup-2018/";
 
 	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
 
@@ -42,13 +43,7 @@ public class OneXbetParser extends AbstractParser {
 
 	public void paresAllChamp() throws Exception {
 		List<String> urls = new ArrayList<>();
-		urls.add(ENG);
-		urls.add(RUS);
-		urls.add(ESP);
-		urls.add(ITA);
-		urls.add(GER);
-		//urls.add(CL);
-		//urls.add(LE);
+		urls.add(WC);
 		for (String url : urls) {
 			parseOneXBet(url);
 		}
@@ -65,9 +60,6 @@ public class OneXbetParser extends AbstractParser {
 			List<PremierLeagueBean> beans = new ArrayList<>();
 			// Засетить Имя Чемпионат + поле в базе
 			List<?> htmlDivisions = page.getByXPath("//*[contains(@class, 'c-events__item c-events__item_col')]");
-			if (htmlDivisions.size() > 22){
-				return;
-			}
 			// Не могу взять итератором нужный элемент, т.к
 			// NoSurchElementException
 			long bookmakerId = DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId();
@@ -120,9 +112,11 @@ public class OneXbetParser extends AbstractParser {
 				case LE:
 					bean.setLeague("Лига Европы");
 					break;
+				case WC:
+					bean.setLeague("Чемпионат Мира");
+					break;
 				}
 				bean.setBookmakerId(bookmakerId);
-
 				beans.add(bean);
 			}
 			switch (url) {
@@ -154,6 +148,11 @@ public class OneXbetParser extends AbstractParser {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				break;
+			case WC:
+				System.out.println("ебашит");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 1);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
 			}
 		} finally {
 			webClient.closeAllWindows();
@@ -161,31 +160,83 @@ public class OneXbetParser extends AbstractParser {
 	}
 
 	private PremierLeagueBean getCoefficients(DomElement element, PremierLeagueBean bean) {
-		Iterator<DomElement> c_bet_items = element.getChildElements().iterator();
-		DomElement c_bet_item1 = c_bet_items.next();
-		DomElement c_bet_item2 = c_bet_items.next();
-		DomElement c_bet_item3 = c_bet_items.next();
-		DomElement c_bet_item4 = c_bet_items.next();
-		ArrayList<Double> mass1 = getCoefficientForItem(c_bet_item1);
-		ArrayList<Double> mass2 = getCoefficientForItem(c_bet_item2);
-		ArrayList<Double> mass3 = getCoefficientForItem(c_bet_item3);
-		ArrayList<String> list = getCoefficientForHand(c_bet_item4);
-		bean.setWin1(mass1.get(0));
-		bean.setX(mass1.get(1));
-		bean.setWin2(mass1.get(2));
-		bean.setX1(mass2.get(0));
-		bean.setX12(mass2.get(1));
-		bean.setX2(mass2.get(2));
-		bean.setLessTotal(mass3.get(0));
-		bean.setTotal(mass3.get(1));
-		bean.setMoreTotal(mass3.get(2));
-		bean.setHand1(Double.parseDouble(list.get(0)));
-		bean.setHand((String) list.get(1));
-		bean.setHand2(Double.parseDouble(list.get(2)));
-
+		Iterator<DomElement> iterator = element.getChildElements().iterator();
+		String win1 = iterator.next().getTextContent().trim().replace(",", ".");
+		String x = iterator.next().getTextContent().trim().replace(",", ".");
+		String win2 = iterator.next().getTextContent().trim().replace(",", ".");
+		String x1 = iterator.next().getTextContent().trim().replace(",", ".");
+		String x12 = iterator.next().getTextContent().trim().replace(",", ".");
+		String x2 = iterator.next().getTextContent().trim().replace(",", ".");
+		String lessTotal = iterator.next().getTextContent().trim().replace(",", ".");
+		String total = iterator.next().getTextContent().trim().replace(",", ".");
+		String moreTotal = iterator.next().getTextContent().trim().replace(",", ".");
+		String hand1 = iterator.next().getTextContent().trim().replace(",", ".");
+		String hand = iterator.next().getTextContent().trim().replace(",", ".");
+		String hand2 = iterator.next().getTextContent().trim().replace(",", ".");
+		if (!win1.equals("-")) {
+			bean.setWin1(Double.parseDouble(win1));
+		} else {
+			bean.setWin1(0.0);
+		}
+		if (!x.equals("-")) {
+			bean.setX(Double.parseDouble(x));
+		} else {
+			bean.setX(0.0);
+		}
+		if (!win2.equals("-")) {
+			bean.setWin2(Double.parseDouble(win2));
+		} else {
+			bean.setWin2(0.0);
+		}
+		if (!x1.equals("-")) {
+			bean.setX1(Double.parseDouble(x1));
+		} else {
+			bean.setX1(0.0);
+		}
+		if (!x12.equals("-")) {
+			bean.setX12(Double.parseDouble(x12));
+		} else {
+			bean.setX12(0.0);
+		}
+		if (!x2.equals("-")) {
+			bean.setX2(Double.parseDouble(x2));
+		} else {
+			bean.setX2(0.0);
+		}
+		if (!lessTotal.equals("-")) {
+			bean.setLessTotal(Double.parseDouble(lessTotal));
+		} else {
+			bean.setLessTotal(0.0);
+		}
+		if (!total.equals("-")) {
+			bean.setTotal(Double.parseDouble(total));
+		} else {
+			bean.setTotal(0.0);
+		}
+		if (!moreTotal.equals("-")) {
+			bean.setMoreTotal(Double.parseDouble(moreTotal));
+		} else {
+			bean.setMoreTotal(0.0);
+		}
+		if (!hand1.equals("-")) {
+			bean.setHand1(Double.parseDouble(hand1));
+		} else {
+			bean.setHand1(0.0);
+		}
+		if (!hand.equals("-")) {
+			bean.setHand(hand);
+		} else {
+			bean.setHand("0.0");
+		}
+		if (!hand2.equals("-")) {
+			bean.setHand2(Double.parseDouble(hand2));
+		} else {
+			bean.setHand2(0.0);
+		}
 		return bean;
 	}
 
+	// неактуальный метод
 	private ArrayList<String> getCoefficientForHand(DomElement element) {
 		ArrayList<String> list = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {
@@ -199,6 +250,7 @@ public class OneXbetParser extends AbstractParser {
 		return list;
 	}
 
+	// неактуальный метод
 	private ArrayList<Double> getCoefficientForItem(DomElement element) {
 		ArrayList<Double> mass = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {

@@ -27,7 +27,8 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 		this.dataSource = dataSource;
 	}
 	
-	private static final String GET_DETAILS_BY_TEAM_SQL = "SELECT TEAM1, TEAM2, DATE, GOALS_TEAM1, GOALS_TEAM2, PENALTY_TEAM1, PENALTY_TEAM2, CHAMPIONSHIP FROM MATCH_DETAILS md "
+	private static final String GET_DETAILS_BY_TEAM_SQL = "SELECT md.TEAM1, md.TEAM2, md.DATE, md.GOALS_TEAM1, md.GOALS_TEAM2, md.PENALTY_TEAM1, md.PENALTY_TEAM2, md.CHAMPIONSHIP "
+			+ "FROM MATCH_DETAILS md "
 			+ "JOIN TEAM_DICTIONARY td1 "
 			+ "ON td1.WILDSTAT_NAME = md.TEAM1 "
 			+ "JOIN TEAM_DICTIONARY td2 "
