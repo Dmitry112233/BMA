@@ -4,7 +4,7 @@
    <div class="details">
       <h1>Детали по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2}</h1>
       <br>
-      <a class="BackButton" href="PremierLeague_${xBetList.get(0).league}_List.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> вернуться</a>
+      <a class="BackButton" href="PremierLeague_${xBetList.get(0).league}_List.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> к списку игр</a>
       <br>
       <br>
       <div>

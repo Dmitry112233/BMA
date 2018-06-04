@@ -21,10 +21,10 @@
    </head>
    <body>
       <div class="bg"></div>      
-      <c:import url="WEB-INF/parts/nav.jsp">
+      <c:import url="parts/nav.jsp">
          <c:param name="noneMenu" value="true"/>
       </c:import>      
-      <c:import url="WEB-INF/parts/topAdBanner.jsp"></c:import>
+      <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="row">
             <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Делайте ваши ставки</div>
@@ -32,11 +32,11 @@
       </div>
       <div class="container">
          <div class="row mainHeight">
-            <c:import url="WEB-INF/parts/bmList.jsp"></c:import>
-            <c:import url="WEB-INF/parts/sportsPart.jsp"></c:import>
+            <c:import url="parts/bmList.jsp"></c:import>
+            <c:import url="parts/sportsPart.jsp"></c:import>
          </div>
       </div>
-      <c:import url="WEB-INF/parts/footer.jsp"></c:import>
+      <c:import url="parts/footer.jsp"></c:import>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->

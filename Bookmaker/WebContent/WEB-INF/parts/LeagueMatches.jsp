@@ -5,7 +5,7 @@
       <c:if test="${matchesList.size() > 0}">
          <h1><img class="leagueIcon" src="bootstrap/img/leagueIcon/${matchesList.get(0).league}.png">${matchesList.get(0).league}</h1>
          <br>
-         <!-- вывод туров АПЛ в цикле -->			
+         <!-- вывод актуальных событий соревнования в цикле -->			
          <table class="LeagueMatchesTable">
             <c:forEach var="leagueEvent" items="${matchesList}">
                <tr onclick="window.location.href='PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details.spr'; return false">
@@ -19,13 +19,14 @@
                   <td>${leagueEvent.team1} - ${leagueEvent.team2}</td>
                </tr>
             </c:forEach>
-         </table>
-         <br>
+         </table>         
       </c:if>
       <c:if test="${matchesList.size() == NULL}">      
          <h1>Футбол</h1>
          <br>
-         <p class="DataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</p>
+         <p class="DataMissed">Соревнование не проходит в данный момент либо данные отсутствуют из-за технических проблем.</p>
       </c:if>
+      <br>
+      <a class="BackButton" href="Competishions.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> выбрать другой чемпионат</a>      
    </div>
 </div>

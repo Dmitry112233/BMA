@@ -8,7 +8,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">         
          <ul class="footerMenu">   
             <li class="menuName">Ставки</li>            
-            <li><a href="sports.jsp">Футбол</a></li>
+            <li><a href="Competishions.spr">Чемпионаты</a></li>
             <li><a href="ExpressesList.spr">Экспрессы</a></li>
             <li><a href="EventsList.spr">Одиночные ставки</a></li>            
             <li><a href="DayBet.spr">Ставка дня</a></li>
