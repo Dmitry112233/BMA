@@ -65,16 +65,15 @@ public class OneXbetParser extends AbstractParser {
 			long bookmakerId = DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId();
 			for (Object object : htmlDivisions) {
 				HtmlDivision division = (HtmlDivision) object;
-				DomElement match = division.getFirstElementChild();
-				Iterator<DomElement> matchChildren = match.getChildElements().iterator();
+				DomElement c_events__item = division.getFirstElementChild();
+				DomElement c_events__subitem = c_events__item.getFirstElementChild();
+				Iterator<DomElement> matchChildren = c_events__subitem.getChildElements().iterator();
 				matchChildren.next();
 				matchChildren.next();
 				DomElement events_time = matchChildren.next();
 				matchChildren.next();
 				DomElement events_name = matchChildren.next();
-				matchChildren.next();
-				matchChildren.next();
-				DomElement c_bets = matchChildren.next();
+				DomElement c_bets = c_events__item.getLastElementChild();
 				PremierLeagueBean bean = new PremierLeagueBean();
 
 				String time = getDate(events_time);
