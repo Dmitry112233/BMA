@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-${param.RowListName}
-<c:forEach var="CeffSource" items="">
+<c:forEach var="CeffSource" items="${RowListName}">
    <tr onclick="window.open('Counter.spr?id=${CeffSource.bookmakerBean.bookMakerId}', '_blank'); return false;">
       <td class="CoeffCompareTableBM">
          <a rel="nofollow" href="Counter.spr?id=${CeffSource.bookmakerBean.bookMakerId}" target="_blank">

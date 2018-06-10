@@ -30,17 +30,16 @@
             <td class="CoeffCompareTableSecondary2"></td>
          </tr>
          
-         <!--
-         <c:import url="parts/ceffCompareRow.jsp">
-         	<c:param name="RowListName" value="xBetList"/>
-         </c:import>
-         <c:import url="parts/ceffCompareRow.jsp">
-         	<c:param name="RowListName" value="leonCeff"/>
-         </c:import>
-         <c:import url="parts/ceffCompareRow.jsp">
-         	<c:param name="RowListName" value="ligaCeff"/>
-         </c:import>-->
+         <c:set var="RowListName" value="${xBetList}" scope="request"/>
+         <c:import url="parts/ceffCompareRow.jsp"/>
          
+         <c:set var="RowListName" value="${leonCeff}" scope="request"/>
+         <c:import url="parts/ceffCompareRow.jsp"/>
+         
+         <c:set var="RowListName" value="${ligaCeff}" scope="request"/>
+         <c:import url="parts/ceffCompareRow.jsp"/>
+         
+         <!--
          <c:forEach var="xBetCeff" items="${xBetList}">
             <tr onclick="window.open('Counter.spr?id=${xBetCeff.bookmakerBean.bookMakerId}', '_blank'); return false;">
                <td class="CoeffCompareTableBM">
@@ -286,7 +285,7 @@
                </td>
                <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${ligaCeff.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
             </tr>
-         </c:forEach>
+         </c:forEach>-->
       </table>
       <c:if test="${lastMatchesTeam1.size() > 0}">
          <br>	
@@ -298,7 +297,7 @@
                   <td 
                   <c:if test="${xBetList.get(0).team1 eq Team1Matches.team1}">class="selected_cell"</c:if>
                   >${Team1Matches.team1}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team1}.png"></td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team1}.png" onerror="this.style.display='none'"></td>
                   <td>
                      ${Team1Matches.goalsTeam1}:${Team1Matches.goalsTeam2}
                      <c:if test="${(Team1Matches.penaltyTeam1 > 0) || (Team1Matches.penaltyTeam2 > 0)}"> (${Team1Matches.penaltyTeam1}:${Team1Matches.penaltyTeam2})</c:if>
