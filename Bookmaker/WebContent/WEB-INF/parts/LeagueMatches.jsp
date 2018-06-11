@@ -11,9 +11,9 @@
                <tr onclick="window.location.href='PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details.spr'; return false">
                   <td>${leagueEvent.dateStr}</td>
                   <td>${leagueEvent.team1}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team1}.png"></td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"></td>
                   <td>-</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png"></td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"></td>
                   <td>${leagueEvent.team2}</td>
                   <td><a href="PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details.spr">перейти на подробности</a></td>
                   <td>${leagueEvent.team1} - ${leagueEvent.team2}</td>
@@ -27,6 +27,7 @@
          <p class="DataMissed">Соревнование не проходит в данный момент либо данные отсутствуют из-за технических проблем.</p>
       </c:if>
       <br>
-      <a class="BackButton" href="Competishions.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> выбрать другой чемпионат</a>      
+      <a class="BackButton" href="Competishions.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> выбрать другой чемпионат</a>
+      <br><br>      
    </div>
 </div>

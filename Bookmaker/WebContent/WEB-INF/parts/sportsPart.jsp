@@ -5,7 +5,7 @@
    <h1>Чемпионаты</h1>   
    <br><br>
    <ul class="sportsList">
-	   <li><a href="PremierLeague_${'Чемпионат мира'}_List.spr">Чемпионат мира 2018 <img class="leagueIconSmall" src="bootstrap/img/leagueIcon/Чемпионат мира.png"></a></li>
+	   <li><a href="PremierLeague_${'Чемпионат Мира'}_List.spr">Чемпионат Мира 2018 <img class="leagueIconSmall" src="bootstrap/img/leagueIcon/Чемпионат Мира.png"></a></li>
 	   <li><a href="PremierLeague_${'Российская Примьер Лига'}_List.spr">Премьер-Лига (Россия) <img class="leagueIconSmall" src="bootstrap/img/leagueIcon/Российская Примьер Лига.png"></a></li>
        <li><a href="PremierLeague_${'Английская Примьер Лига'}_List.spr">Премьер-Лига (Англия) <img class="leagueIconSmall" src="bootstrap/img/leagueIcon/Английская Примьер Лига.png"></a></li>
        <li><a href="PremierLeague_${'Испанская Ла Лига'}_List.spr">Ла Лига (Испания) <img class="leagueIconSmall" src="bootstrap/img/leagueIcon/Испанская Ла Лига.png"></a></li>
