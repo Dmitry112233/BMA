@@ -35,7 +35,7 @@ public class WildstatParser {
 
 	public static void main(String[] args) throws Exception {
 
-		new WildstatParser().parseWildstatAllChamp();
+		new WildstatParser().parseLastSeasons();
 	}
 
 	public void parseWildstatAllChamp() throws Exception {

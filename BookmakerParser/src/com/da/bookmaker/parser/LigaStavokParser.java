@@ -23,6 +23,7 @@ public class LigaStavokParser {
 	static final private String GER = "https://www.ligastavok.ru/bets/soccer/germaniia-bundesliga-id-7383";
 	static final private String CL = "https://www.ligastavok.ru/bets/soccer/liga-chempionov-uefa-final-kiev-id-7211";
 	static final private String LE = "https://www.ligastavok.ru/bets/soccer/liga-evropy-uefa-final-lion-id-7212";
+	static final private String WC = "https://www.ligastavok.ru/bets/my-line/soccer/mezhdunarodnye-sbornye-id-327/chm-2018-id-10887";
 
 	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
 
@@ -37,20 +38,21 @@ public class LigaStavokParser {
 
 	public void parseAllChamp() throws Exception {
 		List<String> urls = new ArrayList<>();
-		urls.add(ENG);
+		/*urls.add(ENG);
 		urls.add(RUS);
 		urls.add(ESP);
 		urls.add(ITA);
 		urls.add(GER);
 		urls.add(CL);
-		urls.add(LE);
+		urls.add(LE);*/
+		urls.add(WC);
 		for (String url : urls) {
 			parseLigaStavok(url);
 		}
 	}
 
 	private void parseLigaStavok(String url) throws Exception {
-		System.err.println(url);
+		System.out.println(url);
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
@@ -93,6 +95,10 @@ public class LigaStavokParser {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(allBeans);
 				break;
+			case WC:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 3);
+				DaoFactory.getPremierLeagueDao().addMatchesList(allBeans);
+				break;
 			}
 		} finally {
 			webClient.closeAllWindows();
@@ -128,6 +134,9 @@ public class LigaStavokParser {
 				case LE:
 					bean.setLeague("Лига Европы");
 					break;
+				case WC:
+					bean.setLeague("Чемпионат Мира");
+					 break;
 				}
 				beans.add(bean);
 			}

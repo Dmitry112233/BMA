@@ -23,6 +23,7 @@ public class LeonParser {
 	static final private String GER = "https://www.leon.ru/betoffer/1/59";
 	static final private String CL = "https://www.ligastavok.ru/bets/soccer/liga-chempionov-uefa-final-kiev-id-7211";
 	static final private String LE = "https://www.leon.ru/events/prematch/1424967069597697/1424967069599701";
+	static final private String WC = "https://www.leon.ru/events/prematch/1424967069597697/1424967075212442";
 
 	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
 
@@ -36,14 +37,15 @@ public class LeonParser {
 	}
 
 	public void parseAllChamp() throws Exception {
-		List<String> urls = new ArrayList<>();
-		urls.add(ENG);
+	List<String> urls = new ArrayList<>();
+	/*		urls.add(ENG);
 		urls.add(RUS);
 		urls.add(ESP);
 		urls.add(ITA);
 		urls.add(GER);
 		// urls.add(CL);
-		urls.add(LE);
+		urls.add(LE);*/
+		urls.add(WC);
 		for (String url : urls) {
 			parseLeon(url);
 		}
@@ -93,6 +95,9 @@ public class LeonParser {
 						case LE:
 							bean.setLeague("Лига Европы");
 							break;
+						case WC:
+							bean.setLeague("Чемпионат Мира0");
+							break;
 						}
 						bean = getMainStat(bean, element);
 						beans.add(bean);
@@ -130,6 +135,10 @@ public class LeonParser {
 				break;
 			case LE:
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				break;
+			case WC:
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 2);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				break;
 			}

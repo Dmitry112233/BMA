@@ -30,10 +30,14 @@ public class GroupDaoTemplateImpl implements GroupDao{
 	private static final String INSERT_GROUPS = "INSERT INTO GROUPS (PLACE, TEAM, GAMES, WINS, DRAW, LOSE, GOALS, POINTS, GROUP_NAME, LEAGUE) "
 			+ " VALUES (?,?,?,?,?,?,?,?,?,?)";
 	
-	// лига европы не парсится т.к из лч может выти тима с 3 места, и неврно будет браться группа
-	
-	private static final String GET_GROUPS_BY_LEAGUE = "SELECT PLACE, TEAM, GAMES, WINS, DRAW, LOSE, GOALS, POINTS, GROUP_NAME, LEAGUE"
-			+ " FROM GROUPS WHERE LEAGUE = ? AND GROUP = (SELECT GROUP_NAME FROM GROUPS WHERE TEAM = ?) ORDER BY PLACE";
+	private static final String GET_GROUPS = 
+			"SELECT G1.PLACE, G1.TEAM, G1.GAMES, G1.WINS, G1.DRAW, G1.LOSE, G1.GOALS, G1.POINTS, G1.GROUP_NAME, G1.LEAGUE"
+			+ " FROM GROUPS G1 "
+			+ " JOIN GROUPS G2"
+			+ " ON G1.GROUP_NAME = G2.GROUP_NAME"
+			+ " WHERE G1.LEAGUE = ? "
+			+ " AND G2.TEAM = ? "
+			+ " ORDER BY G1.PLACE";
 	
 	private static final String DELETE_GROUPS = "DELETE FROM GROUPS WHERE LEAGUE = ?";
 	
@@ -61,7 +65,7 @@ public class GroupDaoTemplateImpl implements GroupDao{
 	@Override
 	public List<GroupBean> getGroupsForLeague(String leagueName, String teamName) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<GroupBean> beans = template.query(GET_GROUPS_BY_LEAGUE, new Object[] {leagueName, teamName},
+		List<GroupBean> beans = template.query(GET_GROUPS, new Object[] {leagueName, teamName},
 				new RowMapper<GroupBean>() {
 					@Override
 					public GroupBean mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -69,12 +73,12 @@ public class GroupDaoTemplateImpl implements GroupDao{
 						bean.setPlace(rs.getInt("PLACE"));
 						bean.setTeam(rs.getString("TEAM"));
 						bean.setGames(rs.getString("GAMES"));
-						bean.setWins(rs.getString("WIN"));
+						bean.setWins(rs.getString("WINS"));
 						bean.setDraw(rs.getString("DRAW"));
 						bean.setLose(rs.getString("LOSE"));
 						bean.setGoal(rs.getString("GOALS"));
 						bean.setPoints(rs.getString("POINTS"));
-						bean.setGroup(rs.getString("GROUP_NAME "));
+						bean.setGroup(rs.getString("GROUP_NAME"));
 						bean.setLeague(rs.getString("LEAGUE"));
 						return bean;
 					}
