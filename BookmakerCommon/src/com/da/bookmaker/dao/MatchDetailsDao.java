@@ -16,5 +16,7 @@ public interface MatchDetailsDao {
 	
 	String getTeamNameFromDictionary(String name) throws DaoException;
 	
+	String getWildstatNameFromDictionary(String name) throws DaoException;
+	
 	void deleteAllMatchesForLastSeason(String leagueName, String date) throws DaoException;
 }

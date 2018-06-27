@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.GroupBean;
+import com.da.bookmaker.bean.LeagueTableBean;
 import com.da.bookmaker.bean.MatchDetailsBean;
 import com.da.bookmaker.bean.PremierLeagueBean;
 import com.da.bookmaker.dao.DaoException;
@@ -29,19 +30,28 @@ public class PremierLeagueDetailsController extends BookmakerController {
 		List<?> ligaList = getLigaCeffByTeams(team1, team2);
 
 		Map<String, Object> lastMatchesTeam1Team2 = getMatchesDetailsTeam1Team2(team1, team2);
-		List<MatchDetailsBean> matchList = (List<MatchDetailsBean>) lastMatchesTeam1Team2.get("lastMatchesTeam1Team2");
-
-		// поправить sql
-		if (matchList.size() > 0) {
-			List<GroupBean> groupListTeam1 = getGroupForTeam(matchList.get(0).getTeam1(), league);
-			List<GroupBean> groupListTeam2 = getGroupForTeam(matchList.get(0).getTeam2(), league);
-
+		
+		String wildstatTeam1 = null;
+		String wildstatTeam2 = null;
+		List<GroupBean> groupListTeam1 = null;
+		List<GroupBean> groupListTeam2 = null;
+		if (DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(team1) != null){
+			wildstatTeam1 = DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(team1);
+		}
+		
+		if (DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(team1) != null){
+			wildstatTeam2 = DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(team2);
+		}
+		
+		if (league.equals("Лига Чемпионов") || league.equals("Чемпионат Мира")) {
+			groupListTeam1 = getGroupForTeam(wildstatTeam1, league);
+			groupListTeam2 = getGroupForTeam(wildstatTeam2, league);
 			if (groupListTeam1.get(0).getGroup().equals(groupListTeam2.get(0).getGroup())) {
 				groupListTeam2 = null;
 			}
-			map.put("groupTeam1", groupListTeam1);
-			map.put("groupTeam2", groupListTeam2);
 		}
+		map.put("groupTeam1", groupListTeam1);
+		map.put("groupTeam2", groupListTeam2);
 		map.put("lastMatchesTeam1", lastMatchesTeam1);
 		map.put("lastMatchesTeam2", lastMatchesTeam2);
 		map.put("leagueTable", leagueTable);
@@ -55,6 +65,11 @@ public class PremierLeagueDetailsController extends BookmakerController {
 
 	private List<GroupBean> getGroupForTeam(String team, String leagueName) throws DaoException, ParseException {
 		List<GroupBean> groupList = DaoFactory.getGroupDao().getGroupsForLeague(leagueName, team);
+		for (GroupBean group : groupList) {
+			if (DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(group.getTeam()) != null) {
+				group.setTeam(DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(group.getTeam()));
+			}
+		}
 		return groupList;
 	}
 
@@ -75,8 +90,14 @@ public class PremierLeagueDetailsController extends BookmakerController {
 		return ligaList;
 	}
 
-	private List<?> getLeagueTable(String league) throws DaoException, ParseException {
-		return DaoFactory.getLeaguTableDao().getTableForLeague(league);
+	private List<LeagueTableBean> getLeagueTable(String league) throws DaoException, ParseException {
+		List<LeagueTableBean> list = DaoFactory.getLeaguTableDao().getTableForLeague(league);
+		for (LeagueTableBean table : list) {
+			if (DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(table.getTeam()) != null) {
+				table.setTeam(DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(table.getTeam()));
+			}
+		}
+		return list;
 	}
 
 	private List<MatchDetailsBean> getMatchesDetailsTeam(String team) throws DaoException, ParseException {

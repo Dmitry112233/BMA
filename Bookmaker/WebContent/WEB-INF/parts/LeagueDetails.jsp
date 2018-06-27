@@ -156,5 +156,6 @@
          </div>
       </c:if>
       <br>
+      <p>size = ${groupTeam1.size()}</p>
    </div>
 </div>

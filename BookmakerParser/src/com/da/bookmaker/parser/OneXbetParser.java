@@ -83,7 +83,7 @@ public class OneXbetParser extends AbstractParser {
 				bean = getCoefficients(c_bets, bean);
 
 				bean.setDateStr(time);
-				if (names.get(0).contains("Хозяева") || names.get(1).contains("Гости")) {
+				if (names.get(0).contains("голы") || names.get(1).contains("голы")) {
 					continue;
 				} else {
 					bean.setTeam1(names.get(0));
