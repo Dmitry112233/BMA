@@ -569,17 +569,17 @@ a {
 	text-align: center;
 }
 
-.LeagueTable {	
+.LeagueTable, .GroupTable {	
 	box-shadow: 1px 1px 12px 0px #aeaeae;
 	text-align: center;
 	margin: auto;	
 }
 
-.LeagueTable td:nth-child(3) {	
+.LeagueTable td:nth-child(3), .GroupTable td:nth-child(3) {	
 	text-align: left;
 }
 
-.LeagueTableBlock {	
+.LeagueTableBlock, .GroupTableBlock {	
 	text-align: center;
 }
 
@@ -596,7 +596,7 @@ a {
 	text-align: left;
 }
 
-.LeagueMatchesTable td, .CoeffCompareTable td, .HistoryTable td, .LeagueTable td {
+.LeagueMatchesTable td, .CoeffCompareTable td, .HistoryTable td, .LeagueTable td, .GroupTable td {
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -610,15 +610,15 @@ a {
 	color: black;
 }
 
-.CoeffCompareTableHeader, .LeagueTableHeader {
+.CoeffCompareTableHeader, .LeagueTableHeader, .GroupTableHeader {
 	background: #c7c7c7 !important;
 }
 
-.LeagueMatchesTable tr:nth-child(odd), .CoeffCompareTable tr:nth-child(odd), .HistoryTable tr:nth-child(odd), .LeagueTable tr:nth-child(odd) {
+.LeagueMatchesTable tr:nth-child(odd), .CoeffCompareTable tr:nth-child(odd), .HistoryTable tr:nth-child(odd), .LeagueTable tr:nth-child(odd), .GroupTable tr:nth-child(odd) {
 	background: #e0e0e0;
 }
 
-.LeagueMatchesTable tr:nth-child(even), .CoeffCompareTable tr:nth-child(even), .HistoryTable tr:nth-child(even), .LeagueTable tr:nth-child(even) {
+.LeagueMatchesTable tr:nth-child(even), .CoeffCompareTable tr:nth-child(even), .HistoryTable tr:nth-child(even), .LeagueTable tr:nth-child(even), .GroupTable tr:nth-child(even) {
 	background: #eaeaea;
 }
 
@@ -796,7 +796,7 @@ a {
 		height: 150px;
 	}
 	
-	.CoeffCompareTableSecondary, .CoeffCompareTableSecondary2, .HistoryTableSecondary, .LeagueTableSecondary {
+	.CoeffCompareTableSecondary, .CoeffCompareTableSecondary2, .HistoryTableSecondary, .LeagueTableSecondary, .GroupTableSecondary {
 		display: none;
 	}
 	

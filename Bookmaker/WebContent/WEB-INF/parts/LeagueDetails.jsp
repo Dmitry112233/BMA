@@ -155,7 +155,73 @@
             </table>
          </div>
       </c:if>
+      <c:if test="${groupTeam1.size() > 0}">      
+         <br>		
+         <div class="GroupTableBlock">
+            <h3>Группа ${groupTeam1.get(0).group}:</h3>
+            <table class="GroupTable">
+               <tr class="GroupTableHeader">
+                  <td></td>
+                  <td colspan="2">Команда</td>
+                  <td>И</td>
+                  <td class="GroupTableSecondary">В</td>
+                  <td class="GroupTableSecondary">Н</td>
+                  <td class="GroupTableSecondary">П</td>
+                  <td class="GroupTableSecondary">М</td>
+                  <td>О</td>
+               </tr>
+               <c:forEach var="GroupTableRow" items="${groupTeam1}">
+                  <tr 
+                  <c:if test="${GroupTableRow.team eq xBetList.get(0).team1 or GroupTableRow.team eq xBetList.get(0).team2}">class="selected_row"</c:if>
+                  >
+                  <td>${GroupTableRow.place}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${GroupTableRow.team}.png" onerror="this.style.display='none'"></td>
+                  <td>${GroupTableRow.team}</td>
+                  <td>${GroupTableRow.games}</td>
+                  <td class="GroupTableSecondary">${GroupTableRow.wins}</td>
+                  <td class="GroupTableSecondary">${GroupTableRow.draw}</td>
+                  <td class="GroupTableSecondary">${GroupTableRow.lose}</td>
+                  <td class="GroupTableSecondary">${GroupTableRow.goal}</td>
+                  <td>${GroupTableRow.points}</td>
+                  </tr>
+               </c:forEach>
+            </table>
+         </div>
+      </c:if>
       <br>
-      <p>size = ${groupTeam1.size()}</p>
+      <c:if test="${groupTeam2.size() > 0}">      
+         <br>		
+         <div class="GroupTableBlock">
+            <h3>Группа ${groupTeam2.get(0).group}:</h3>
+            <table class="GroupTable">
+               <tr class="GroupTableHeader">
+                  <td></td>
+                  <td colspan="2">Команда</td>
+                  <td>И</td>
+                  <td class="GroupTableSecondary">В</td>
+                  <td class="GroupTableSecondary">Н</td>
+                  <td class="GroupTableSecondary">П</td>
+                  <td class="GroupTableSecondary">М</td>
+                  <td>О</td>
+               </tr>
+               <c:forEach var="GroupTableRow" items="${groupTeam2}">
+                  <tr 
+                  <c:if test="${GroupTableRow.team eq xBetList.get(0).team1 or GroupTableRow.team eq xBetList.get(0).team2}">class="selected_row"</c:if>
+                  >
+                  <td>${GroupTableRow.place}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${GroupTableRow.team}.png" onerror="this.style.display='none'"></td>
+                  <td>${GroupTableRow.team}</td>
+                  <td>${GroupTableRow.games}</td>
+                  <td class="GroupTableSecondary">${GroupTableRow.wins}</td>
+                  <td class="GroupTableSecondary">${GroupTableRow.draw}</td>
+                  <td class="GroupTableSecondary">${GroupTableRow.lose}</td>
+                  <td class="GroupTableSecondary">${GroupTableRow.goal}</td>
+                  <td>${GroupTableRow.points}</td>
+                  </tr>
+               </c:forEach>
+            </table>
+         </div>
+      </c:if>
+      <br>      
    </div>
 </div>
