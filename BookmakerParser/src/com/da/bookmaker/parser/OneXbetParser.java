@@ -21,8 +21,9 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class OneXbetParser extends AbstractParser {
 
-	static final private String ENG = "https://1xvix.top/line/Football/88637-England-Premier-League/";
-	static final private String RUS = "https://1xvix.top/line/Football/225733-Russia-Premier-League/";
+	static final private String ENG = "https://1xbet.com/by/line/Football/88637-England-Premier-League/";
+	static final private String RUS = "https://1xbet.com/by/line/Football/225733-Russia-Premier-League/";
+	
 	static final private String ESP = "https://1xvix.top/line/Football/127733-Spain-Primera-Division/";
 	static final private String ITA = "https://1xvix.top/line/Football/110163-Italy-Serie-A/";
 	static final private String GER = "https://1xvix.top/line/Football/96463-Germany-Bundesliga/";
@@ -43,7 +44,8 @@ public class OneXbetParser extends AbstractParser {
 
 	public void paresAllChamp() throws Exception {
 		List<String> urls = new ArrayList<>();
-		urls.add(WC);
+		urls.add(ENG);
+		urls.add(RUS);
 		for (String url : urls) {
 			parseOneXBet(url);
 		}
@@ -68,20 +70,14 @@ public class OneXbetParser extends AbstractParser {
 				DomElement c_events__item = division.getFirstElementChild();
 				DomElement c_events__subitem = c_events__item.getFirstElementChild();
 				Iterator<DomElement> matchChildren = c_events__subitem.getChildElements().iterator();
-				matchChildren.next();
-				matchChildren.next();
 				DomElement events_time = matchChildren.next();
 				matchChildren.next();
 				DomElement events_name = matchChildren.next();
 				DomElement c_bets = c_events__item.getLastElementChild();
 				PremierLeagueBean bean = new PremierLeagueBean();
-
 				String time = getDate(events_time);
-
 				ArrayList<String> names = getName(events_name);
-
 				bean = getCoefficients(c_bets, bean);
-
 				bean.setDateStr(time);
 				if (names.get(0).contains("голы") || names.get(1).contains("голы")) {
 					continue;
@@ -279,11 +275,12 @@ public class OneXbetParser extends AbstractParser {
 	}
 
 	private ArrayList<String> getName(DomElement element) {
-		DomElement events_teams = element.getFirstElementChild();
+		System.out.println(element.getAttribute("class"));
 		ArrayList<String> names = new ArrayList<>();
-		for (DomElement el : events_teams.getFirstElementChild().getChildElements()) {
-			names.add(el.getTextContent().trim());
-		}
+		Iterator<DomElement> iterator = element.getFirstElementChild().getChildElements().iterator();
+		String[] teamNames = iterator.next().getTextContent().trim().split(" ");
+		names.add(teamNames[0]);
+		names.add(teamNames[1]);
 		return names;
 	}
 }
