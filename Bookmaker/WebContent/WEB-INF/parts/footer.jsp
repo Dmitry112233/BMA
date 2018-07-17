@@ -10,8 +10,7 @@
             <li class="menuName">Ставки</li>            
             <li><a href="Competishions.spr">Чемпионаты</a></li>
             <li><a href="ExpressesList.spr">Экспрессы</a></li>
-            <li><a href="EventsList.spr">Одиночные ставки</a></li>            
-            <li><a href="DayBet.spr">Ставка дня</a></li>
+            <li><a href="EventsList.spr">Одиночные ставки</a></li>
          </ul>                  
       </div>
       <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
@@ -20,7 +19,6 @@
             <li><a href="Bookmakers.spr">Сравнение букмекеров</a></li>
             <li><a href="News.spr">Новости спорта</a></li>
             <li><a href="FAQList.spr">Вопросы - ответы</a></li>
-            <li><a href="VedioList.spr">Видеоуроки</a></li>
          </ul>
       </div>
    </div>      
