@@ -16,12 +16,12 @@
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"></td>
                   <td>${leagueEvent.team2}</td>
                   <td><a href="PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details.spr">перейти на подробности</a></td>
-                  <td>${leagueEvent.team1} - ${leagueEvent.team2}</td>
+                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"> ${leagueEvent.team1} - <img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"> ${leagueEvent.team2}</td>
                </tr>
             </c:forEach>
          </table>         
       </c:if>
-      <c:if test="${matchesList.size() == NULL}">      
+      <c:if test="${matchesList.size() == NULL}"> 
          <h1>Футбол</h1>
          <br>
          <p class="DataMissed">Соревнование не проходит в данный момент либо данные отсутствуют из-за технических проблем.</p>
