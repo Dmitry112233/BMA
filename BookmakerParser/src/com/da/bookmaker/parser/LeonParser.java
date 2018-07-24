@@ -16,7 +16,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class LeonParser {
 
-	static final private String ENG = "https://www.leon.ru/betoffer/1/10932509";
+	static final private String ENG = "https://www.leon.ru/events/prematch/1424967069597697/1424967080530205";
 	static final private String RUS = "https://www.leon.ru/betoffer/1/101";
 	static final private String ESP = "https://www.leon.ru/betoffer/1/117";
 	static final private String ITA = "https://www.leon.ru/betoffer/1/81";
@@ -45,7 +45,7 @@ public class LeonParser {
 		urls.add(GER);
 		// urls.add(CL);
 		urls.add(LE);*/
-		urls.add(WC);
+		urls.add(ENG);
 		for (String url : urls) {
 			parseLeon(url);
 		}
@@ -59,19 +59,16 @@ public class LeonParser {
 			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
 			webClient.setUseInsecureSSL(true);
 			HtmlPage page = (HtmlPage) webClient.getPage(url);
-			List<?> tables = page.getByXPath("//*[contains(@class, 'betoffer')]");
+			List<?> tables = page.getByXPath("//*[contains(@betline, 'prematch')]");
 			List<PremierLeagueBean> beans = new ArrayList<>();
+			System.out.println(tables.size());
 			if (tables.size() > 0) {
 				DomElement table = (DomElement) tables.get(0);
-				DomElement tbody = table.getFirstElementChild();
-				System.out.println(tbody.getChildElementCount());
-				/*
-				 * Iterator<DomElement> iterator =
-				 * tbody.getChildElements().iterator();
-				 */
+				System.out.println(table.getFirstElementChild().getAttribute("class"));
+				DomElement elem = table.getLastElementChild();
 				PremierLeagueBean bean = null;
-				for (DomElement element : tbody.getChildElements()) {
-					if (element.hasAttribute("class")) {
+				for (DomElement element : elem.getChildElements()) {
+					if (element.getAttribute("class").equals("st-event-container odd") || element.getAttribute("class").equals("st-event-container even")) {
 						bean = new PremierLeagueBean();
 						switch (url) {
 						case ENG:
@@ -104,7 +101,6 @@ public class LeonParser {
 					}
 					if (element.hasAttribute("id")) {
 						bean = getSecondCahnseStat(bean, element);
-
 					}
 				}
 			}
@@ -154,6 +150,9 @@ public class LeonParser {
 		String[] names = tdNames.getFirstElementChild().getFirstElementChild().getTextContent().split(" - ");
 		String team1 = names[0].trim();
 		String team2 = names[1].trim();
+		System.out.println(team1);
+		System.out.println(team2);
+		
 		double win1 = Double
 				.parseDouble(iterator.next().getFirstElementChild().getFirstElementChild().getTextContent());
 		double x = Double.parseDouble(iterator.next().getFirstElementChild().getFirstElementChild().getTextContent());

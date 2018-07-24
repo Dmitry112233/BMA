@@ -24,7 +24,7 @@ public class WildstatParser {
 
 	private static final Logger logger = Logger.getLogger(WildstatParser.class);
 
-	private File file = new File("config/url.properties");
+	private File file = new File("D://url.properties");
 	private FileInputStream fis;
 	static private Properties property;
 
@@ -105,13 +105,13 @@ public class WildstatParser {
 		}
 		try {
 			List<String> urls = new ArrayList<>();
-			// urls.add(property.getProperty("APL_CURRENT"));
+			urls.add(property.getProperty("APL_CURRENT"));
 			// urls.add(property.getProperty("FLC_CURRENT"));
 			// urls.add(property.getProperty("CUP_CURRENT"));
 			// urls.add(property.getProperty("ESP_CURRENT"));
 			//urls.add(property.getProperty("EUR_CL_CURRENT"));
 			//urls.add(property.getProperty("EUR_EL_CURRENT"));
-			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
+			//urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
 			// urls.add(property.getProperty("RUS_CURRENT"));
 			// urls.add(property.getProperty("RUS_CUP_CURRENT"));
 			// urls.add(property.getProperty("GER_CURRENT"));
@@ -470,6 +470,7 @@ public class WildstatParser {
 						property.getProperty("CM_DATE"));
 			}
 			DaoFactory.getMatchDetailsDao().addMatchesDetails(beans);
+			System.out.println("ЕБАШИТ");
 		} finally {
 			webClient.closeAllWindows();
 		}
@@ -535,7 +536,6 @@ public class WildstatParser {
 				int penaltyTeam2 = Integer.parseInt(penal.split(":")[1].trim());
 				resultList.add(penaltyTeam1);
 				resultList.add(penaltyTeam2);
-
 			}
 			return resultList;
 		}

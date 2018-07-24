@@ -33,6 +33,7 @@ public class LigaStavokParser {
 		List<String> urls = new ArrayList<>();
 		urls.add(ENG);
 		urls.add(RUS);
+		
 		for (String url : urls) {
 			parseLigaStavok(url);
 		}
