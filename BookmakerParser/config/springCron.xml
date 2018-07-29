@@ -35,6 +35,10 @@
 	<task:scheduled-tasks>
 		<task:scheduled ref="wildstat" method="parseLastSeasons" cron="0 0 */1 * * ?" />
 	</task:scheduled-tasks>
+	
+	<task:scheduled-tasks>
+		<task:scheduled ref="wildstat" method="parseWildstatLeagueTables" cron="0 0 */1 * * ?" />
+	</task:scheduled-tasks>
 
 	<task:scheduled-tasks>
 		<task:scheduled ref="xBet" method="paresAllChamp" cron="0 0 */1 * * ?" />

@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import com.da.bookmaker.bean.PremierLeagueBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
@@ -28,6 +31,13 @@ public class LigaStavokParser {
 	public static void main(String[] args) throws Exception {
 		new LigaStavokParser().parseAllChamp();
 	}
+	
+	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
+
+	static {
+		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
+		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
+	}
 
 	public void parseAllChamp() throws Exception {
 		List<String> urls = new ArrayList<>();
@@ -43,6 +53,7 @@ public class LigaStavokParser {
 		System.out.println(url);
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
+			logger.info("LigaStavok start for url: " + url);
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
 			webClient.setUseInsecureSSL(true);
@@ -85,6 +96,8 @@ public class LigaStavokParser {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(allBeans);
 				break;
+			default :
+				logger.info("LigaStavok saved for url: " + url);
 			}
 		} finally {
 			webClient.closeAllWindows();

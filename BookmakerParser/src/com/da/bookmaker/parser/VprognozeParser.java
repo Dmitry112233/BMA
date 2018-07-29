@@ -99,8 +99,6 @@ public class VprognozeParser {
 			bean.setSource(URL);
 			
 			bean.setIventList(createEvents(expressList, bean));
-	
-			logger.debug( "bean was created: " + bean);
 			beans.add(bean);
 		}
 		return beans;
@@ -135,10 +133,7 @@ public class VprognozeParser {
 				bean.setCoefficient(Double.parseDouble(datas[6].trim()));
 				bean.setCompetition(competition);
 				bean.setDate(express.getDate());
-				bean.setSource(URL);
-
-				logger.debug("Event was created : " + bean);
-				
+				bean.setSource(URL);			
 				list.add(bean);
 			}
 		}

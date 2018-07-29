@@ -67,19 +67,18 @@ public class BetFaqParser {
 							&& !tr.getAttribute("class").trim().equals("premium")
 							&& !tr.getAttribute("class").trim().equals("locked-vip")
 							&& !tr.getAttribute("class").trim().equals("foot")) {
-						logger.info("Bean has created.");
 						IventBean bean = new IventBean();
 						Iterator<DomElement> tdChild = tr.getChildElements().iterator();
 						tdChild.next(); // flag
 						DomElement title = tdChild.next(); // title
-						logger.info("Try to get Competision.");
+						
 						String competition = getCompetision(title);
-						logger.info("Try to get Name.");
+						
 						String name = getName(title);
-						logger.info("Try to get Coefficient.");
+						
 						double coefficient = getCoefficient(tdChild.next());
 						String matchUrl = getMatchUrl(title);
-						logger.info("Try parse match bet and description:" + matchUrl);
+						
 						if (!parseMatch(matchUrl, bean)){
 							continue;
 						}
@@ -90,8 +89,6 @@ public class BetFaqParser {
 						bean.setSource(URL);
 						bean.setDate(new Date());
 						beans.add(bean);
-						System.out.println(bean.getSport() + " " + bean.getName() + " " + bean.getCompetition() + " "
-								+ bean.getCoefficient() + " " + bean.getDescription() + " " + bean.getBet() + " " + bean.getDateStr());
 					}
 				}
 			}

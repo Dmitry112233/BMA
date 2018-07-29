@@ -163,6 +163,7 @@ public class WildstatParser {
 
 	public void parseWildstatLeagueTable(String url, WebClient webClient, Properties property) throws Exception {
 		try {
+			logger.info("Parse wildstat table by url: " + url);
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
 			webClient.setUseInsecureSSL(true);
@@ -206,6 +207,7 @@ public class WildstatParser {
 				}
 			}
 			DaoFactory.getLeaguTableDao().addMatchesDetails(beans);
+			logger.info("Save wildstat table by url: " + url);
 		} finally {
 			webClient.closeAllWindows();
 		}
@@ -243,6 +245,7 @@ public class WildstatParser {
 	}
 
 	public void parseGroups(String url, Properties property, HtmlPage page) throws Exception {
+		logger.info("Parse wildstat group by url: " + url);
 		List<?> tables = page.getByXPath("//table[@class='championship' and @cellpadding='3']");
 		List<GroupBean> beans = new ArrayList<>();
 		for (int i = 0; i < tables.size(); i++) {
@@ -302,11 +305,11 @@ public class WildstatParser {
 			DaoFactory.getGroupDao().deleteGroups("Чемпионат мира");
 		}
 		DaoFactory.getGroupDao().addGroups(beans);
+		logger.info("Save wildstat group by url: " + url);
 	}
 
 	public void parseWildstat(String url, WebClient webClient, Properties property) throws Exception {
-
-		logger.info("parseWildstat starts by url:" + url);
+		logger.info("parseWildstat match results be url:" + url);
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
@@ -436,7 +439,6 @@ public class WildstatParser {
 					}
 				}
 			}
-			logger.info("save to Data Base championship: " + url);
 			if (url.equals(property.getProperty("APL_CURRENT"))) {
 				DaoFactory.getMatchDetailsDao().deleteAllMatchesForLastSeason("Английская Примьер Лига",
 						property.getProperty("DATE"));
@@ -482,7 +484,7 @@ public class WildstatParser {
 						property.getProperty("CM_DATE"));
 			}
 			DaoFactory.getMatchDetailsDao().addMatchesDetails(beans);
-			System.out.println("ЕБАШИТ");
+			logger.info("Save wildstat match results by url: " + url);
 		} finally {
 			webClient.closeAllWindows();
 		}

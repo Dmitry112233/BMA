@@ -54,7 +54,7 @@ public class OneXbetParser extends AbstractParser {
 	private void parseOneXBet(String url) throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
-			System.out.println("Pars: " + url);
+			logger.info("1xBet start for url: " + url);
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
 			webClient.setUseInsecureSSL(true);
@@ -144,10 +144,11 @@ public class OneXbetParser extends AbstractParser {
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				break;
 			case WC:
-				System.out.println("ебашит");
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				break;
+			default:
+				logger.info("1xBet saved for url: " + url);
 			}
 		} finally {
 			webClient.closeAllWindows();
@@ -249,7 +250,6 @@ public class OneXbetParser extends AbstractParser {
 	private ArrayList<Double> getCoefficientForItem(DomElement element) {
 		ArrayList<Double> mass = new ArrayList<>();
 		for (DomElement coeff : element.getChildElements()) {
-			System.out.println(coeff.getTextContent().trim().replace(",", "."));
 			if (!coeff.getTextContent().trim().equals("-")) {
 				mass.add(Double.parseDouble(coeff.getTextContent().trim().replace(",", ".")));
 			} else {
@@ -275,7 +275,6 @@ public class OneXbetParser extends AbstractParser {
 	}
 
 	private ArrayList<String> getName(DomElement element) {
-		System.out.println(element.getAttribute("class"));
 		ArrayList<String> names = new ArrayList<>();
 		Iterator<DomElement> iterator = element.getFirstElementChild().getChildElements().iterator();
 		String[] teamNames = iterator.next().getAttribute("title").split("—");
