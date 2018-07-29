@@ -46,35 +46,37 @@ public class WildstatParser {
 				property.load(fis);
 			}
 			List<String> urls = new ArrayList<>();
-		/*	urls.add(property.getProperty("APL_CURRENT"));
-			urls.add(property.getProperty("CUP_16_17"));
-			urls.add(property.getProperty("CUP_CURRENT"));
-			urls.add(property.getProperty("FLC_16_17"));
-			urls.add(property.getProperty("FLC_CURRENT"));
-			urls.add(property.getProperty("CS_16"));
-			urls.add(property.getProperty("CS_17"));
-			urls.add(property.getProperty("ESP_16_17"));
-			urls.add(property.getProperty("ESP_CURRENT"));
-			urls.add(property.getProperty("ESP_SC_16"));
-			urls.add(property.getProperty("ESP_SC_17"));
-			urls.add(property.getProperty("EUR_CL_CURRENT"));
-			urls.add(property.getProperty("EUR_EL_CURRENT"));
-			urls.add(property.getProperty("EUR_CL_15_16"));
-			urls.add(property.getProperty("RUS_CURRENT"));
-			urls.add(property.getProperty("RUS_16_17"));
-			urls.add(property.getProperty("RUS_CUP_CURRENT"));
-			urls.add(property.getProperty("RUS_CUP_16_17"));
-			urls.add(property.getProperty("RUS_SC_16"));
-			urls.add(property.getProperty("RUS_SC_17"));
-			urls.add(property.getProperty("GER_CURRENT"));
-			urls.add(property.getProperty("GER_16_17"));
-			urls.add(property.getProperty("GER_SC_16"));
-			urls.add(property.getProperty("GER_SC_17"));
-			urls.add(property.getProperty("ITA_CURRENT"));
-			urls.add(property.getProperty("ITA_16_17"));
-			urls.add(property.getProperty("ITA_SC_17"));
-			urls.add(property.getProperty("ITA_SC_16"));*/
-			
+			/*
+			 * urls.add(property.getProperty("APL_CURRENT"));
+			 * urls.add(property.getProperty("CUP_16_17"));
+			 * urls.add(property.getProperty("CUP_CURRENT"));
+			 * urls.add(property.getProperty("FLC_16_17"));
+			 * urls.add(property.getProperty("FLC_CURRENT"));
+			 * urls.add(property.getProperty("CS_16"));
+			 * urls.add(property.getProperty("CS_17"));
+			 * urls.add(property.getProperty("ESP_16_17"));
+			 * urls.add(property.getProperty("ESP_CURRENT"));
+			 * urls.add(property.getProperty("ESP_SC_16"));
+			 * urls.add(property.getProperty("ESP_SC_17"));
+			 * urls.add(property.getProperty("EUR_CL_CURRENT"));
+			 * urls.add(property.getProperty("EUR_EL_CURRENT"));
+			 * urls.add(property.getProperty("EUR_CL_15_16"));
+			 * urls.add(property.getProperty("RUS_CURRENT"));
+			 * urls.add(property.getProperty("RUS_16_17"));
+			 * urls.add(property.getProperty("RUS_CUP_CURRENT"));
+			 * urls.add(property.getProperty("RUS_CUP_16_17"));
+			 * urls.add(property.getProperty("RUS_SC_16"));
+			 * urls.add(property.getProperty("RUS_SC_17"));
+			 * urls.add(property.getProperty("GER_CURRENT"));
+			 * urls.add(property.getProperty("GER_16_17"));
+			 * urls.add(property.getProperty("GER_SC_16"));
+			 * urls.add(property.getProperty("GER_SC_17"));
+			 * urls.add(property.getProperty("ITA_CURRENT"));
+			 * urls.add(property.getProperty("ITA_16_17"));
+			 * urls.add(property.getProperty("ITA_SC_17"));
+			 * urls.add(property.getProperty("ITA_SC_16"));
+			 */
+
 			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
 			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_2014"));
 			urls.add(property.getProperty("AFRIC_CHAMOIONSHIP"));
@@ -94,6 +96,10 @@ public class WildstatParser {
 			}
 		} catch (IOException e) {
 			System.err.println("Файл свойств отсутствует!");
+		} finally {
+			if (fis != null) {
+				fis.close();
+			}
 		}
 	}
 
@@ -109,9 +115,9 @@ public class WildstatParser {
 			// urls.add(property.getProperty("FLC_CURRENT"));
 			// urls.add(property.getProperty("CUP_CURRENT"));
 			// urls.add(property.getProperty("ESP_CURRENT"));
-			//urls.add(property.getProperty("EUR_CL_CURRENT"));
-			//urls.add(property.getProperty("EUR_EL_CURRENT"));
-			//urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
+			// urls.add(property.getProperty("EUR_CL_CURRENT"));
+			// urls.add(property.getProperty("EUR_EL_CURRENT"));
+			// urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
 			// urls.add(property.getProperty("RUS_CURRENT"));
 			// urls.add(property.getProperty("RUS_CUP_CURRENT"));
 			// urls.add(property.getProperty("GER_CURRENT"));
@@ -123,7 +129,9 @@ public class WildstatParser {
 		} catch (IOException e) {
 			System.err.println("Файл свойств отсуствует!");
 		} finally {
-			fis.close();
+			if (fis != null) {
+				fis.close();
+			}
 		}
 	}
 
@@ -147,7 +155,9 @@ public class WildstatParser {
 		} catch (IOException e) {
 			System.err.println("Файл свойств отсутствует!");
 		} finally {
-			fis.close();
+			if (fis != null) {
+				fis.close();
+			}
 		}
 	}
 
@@ -278,9 +288,9 @@ public class WildstatParser {
 					if (url.equals(property.getProperty("EUR_CL_CURRENT"))) {
 						bean.setLeague("Лига Чемпионов");
 					}
-					if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))){
+					if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))) {
 						bean.setLeague("Чемпионат мира");
-					} 
+					}
 					beans.add(bean);
 				}
 			}
@@ -288,9 +298,9 @@ public class WildstatParser {
 		if (url.equals(property.getProperty("EUR_CL_CURRENT"))) {
 			DaoFactory.getGroupDao().deleteGroups("Лига Чемпионов");
 		}
-		if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))){
+		if (url.equals(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"))) {
 			DaoFactory.getGroupDao().deleteGroups("Чемпионат мира");
-		} 
+		}
 		DaoFactory.getGroupDao().addGroups(beans);
 	}
 
@@ -397,14 +407,16 @@ public class WildstatParser {
 									|| url.equals(property.getProperty("ITA_SC_16"))) {
 								bean.setChampionship("Супер Кубок Италии");
 							}
-							if (url.equals(property.getProperty("WORLD_EUR_QULIFY")) || url.equals(property.getProperty("WORLD_AMS_QULIFY"))
-									|| url.equals(property.getProperty("WORLD_AFR_QULIFY")) || url.equals(property.getProperty("WORLD_AMC_QULIFY"))
-									|| url.equals(property.getProperty("WORLD_ASI_QULIFY")) || url.equals(property.getProperty("WORLD_OCE_QULIFY"))
-									|| url.equals(property.getProperty("WORLD_PO_QULIFY"))){
+							if (url.equals(property.getProperty("WORLD_EUR_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_AMS_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_AFR_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_AMC_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_ASI_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_OCE_QULIFY"))
+									|| url.equals(property.getProperty("WORLD_PO_QULIFY"))) {
 								bean.setChampionship("Чемпионат Мира (Отборочный тур)");
 							}
-							if (url.equals(property.getProperty("WORLD_CC"))
-									|| url.equals(property.getProperty(""))) {
+							if (url.equals(property.getProperty("WORLD_CC")) || url.equals(property.getProperty(""))) {
 								bean.setChampionship("Кубок Конфедераций");
 							}
 							if (url.equals(property.getProperty("EUROPE_CHAMPIONSHIP"))) {
