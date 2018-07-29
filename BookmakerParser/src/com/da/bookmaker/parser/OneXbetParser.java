@@ -278,9 +278,9 @@ public class OneXbetParser extends AbstractParser {
 		System.out.println(element.getAttribute("class"));
 		ArrayList<String> names = new ArrayList<>();
 		Iterator<DomElement> iterator = element.getFirstElementChild().getChildElements().iterator();
-		String[] teamNames = iterator.next().getTextContent().trim().split(" ");
-		names.add(teamNames[0]);
-		names.add(teamNames[1]);
+		String[] teamNames = iterator.next().getAttribute("title").split("—");
+		names.add(teamNames[0].trim());
+		names.add(teamNames[1].trim());
 		return names;
 	}
 }
