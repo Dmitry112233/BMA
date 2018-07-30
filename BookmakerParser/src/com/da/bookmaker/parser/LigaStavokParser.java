@@ -19,11 +19,11 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 public class LigaStavokParser {
 
 	static final private String ENG = "https://www.ligastavok.ru/bets/my-line/soccer/angliia-id-239/apl-id-9758";
-	static final private String RUS = "https://www.ligastavok.ru/bets/my-line/soccer/rossiia-id-350/rfpl-id-5271";
-	
+	static final private String RUS = "https://www.ligastavok.ru/bets/my-line/soccer/rossiia-id-350/rfpl-id-5271";	
 	static final private String ESP = "https://www.ligastavok.ru/bets/my-line/soccer/ispaniia-id-287/primera-id-11403";
 	static final private String ITA = "https://www.ligastavok.ru/bets/my-line/soccer/italiia-id-288/seriiaa-id-11405";
 	static final private String GER = "https://www.ligastavok.ru/bets/my-line/soccer/germaniia-id-268/bundesliga-id-8166";
+	
 	static final private String CL = "https://www.ligastavok.ru/bets/soccer/liga-chempionov-uefa-final-kiev-id-7211";
 	static final private String LE = "https://www.ligastavok.ru/bets/soccer/liga-evropy-uefa-final-lion-id-7212";
 	static final private String WC = "https://www.ligastavok.ru/bets/my-line/soccer/mezhdunarodnye-sbornye-id-327/chm-2018-id-10887";
@@ -43,7 +43,9 @@ public class LigaStavokParser {
 		List<String> urls = new ArrayList<>();
 		urls.add(ENG);
 		urls.add(RUS);
-		
+		urls.add(ESP);
+		urls.add(ITA);
+		urls.add(GER);		
 		for (String url : urls) {
 			parseLigaStavok(url);
 		}

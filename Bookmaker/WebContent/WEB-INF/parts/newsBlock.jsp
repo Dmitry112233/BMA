@@ -20,6 +20,7 @@
          <img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img>
       </c:forEach>
    </c:if>
+   <br>
    <c:if test="${newsList.size() == 0}">
       <p class="DataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</p>
    </c:if>

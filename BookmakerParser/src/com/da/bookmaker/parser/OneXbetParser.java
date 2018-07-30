@@ -22,11 +22,11 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 public class OneXbetParser extends AbstractParser {
 
 	static final private String ENG = "https://1xbet.com/by/line/Football/88637-England-Premier-League/";
-	static final private String RUS = "https://1xbet.com/by/line/Football/225733-Russia-Premier-League/";
-	
-	static final private String ESP = "https://1xvix.top/line/Football/127733-Spain-Primera-Division/";
-	static final private String ITA = "https://1xvix.top/line/Football/110163-Italy-Serie-A/";
+	static final private String RUS = "https://1xbet.com/by/line/Football/225733-Russia-Premier-League/";	
+	static final private String ESP = "https://1xvix.top/line/Football/127733-Spain-Primera-Division/";	
 	static final private String GER = "https://1xvix.top/line/Football/96463-Germany-Bundesliga/";
+	static final private String ITA = "https://1xvix.top/line/Football/110163-Italy-Serie-A/";
+	
 	static final private String CL = "https://1xvix.top/line/Football/118587-UEFA-Champions-League/";
 	static final private String LE = "https://1xvix.top/line/Football/118593-UEFA-Europa-League/";
 	static final private String WC = "https://1xvix.top/line/Football/1536237-FIFA-World-Cup-2018/";
@@ -45,7 +45,10 @@ public class OneXbetParser extends AbstractParser {
 	public void paresAllChamp() throws Exception {
 		List<String> urls = new ArrayList<>();
 		urls.add(ENG);
-		urls.add(RUS);
+		urls.add(RUS);		
+		urls.add(ESP);		
+		urls.add(GER);
+		urls.add(ITA);
 		for (String url : urls) {
 			parseOneXBet(url);
 		}

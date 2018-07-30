@@ -57,12 +57,14 @@
                   >${Team1Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Matches.championship}</td>
                </tr>
+               <!-- 
                <tr>
                   <td class="HistoryTableDisclosure" colspan="5">
                      Дата: ${Team1Matches.dateStr}<br>
                      Чемпионат: ${Team1Matches.championship}
                   </td>
                </tr>
+                -->
             </c:forEach>
          </table>
       </c:if>
@@ -87,12 +89,14 @@
                   >${Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team2Matches.championship}</td>
                </tr>
+               <!--
                <tr>
                   <td class="HistoryTableDisclosure" colspan="5">
                      Дата: ${Team2Matches.dateStr}<br>
                      Чемпионат: ${Team2Matches.championship}
                   </td>
                </tr>
+                -->
             </c:forEach>
          </table>
       </c:if>
@@ -113,12 +117,14 @@
                   <td>${Team1Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Team2Matches.championship}</td>
                </tr>
+               <!--
                <tr>
                   <td class="HistoryTableDisclosure" colspan="5">
                      Дата: ${Team1Team2Matches.dateStr}<br>
                      Чемпионат: ${Team1Team2Matches.championship}
                   </td>
                </tr>
+                -->
             </c:forEach>
          </table>
       </c:if>
