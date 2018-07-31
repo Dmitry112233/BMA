@@ -75,7 +75,7 @@ public class WildstatParser {
 			 * urls.add(property.getProperty("ITA_16_17"));
 			 * urls.add(property.getProperty("ITA_SC_17"));
 			 * urls.add(property.getProperty("ITA_SC_16"));
-			 */
+			 
 
 			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
 			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_2014"));
@@ -90,6 +90,7 @@ public class WildstatParser {
 			urls.add(property.getProperty("WORLD_AFR_QULIFY"));
 			urls.add(property.getProperty("WORLD_AMS_QULIFY"));
 			urls.add(property.getProperty("WORLD_EUR_QULIFY"));
+			*/
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
@@ -112,16 +113,16 @@ public class WildstatParser {
 		try {
 			List<String> urls = new ArrayList<>();
 			urls.add(property.getProperty("APL_CURRENT"));
+			urls.add(property.getProperty("ESP_CURRENT"));
+			urls.add(property.getProperty("RUS_CURRENT"));
+			urls.add(property.getProperty("GER_CURRENT"));
+			urls.add(property.getProperty("ITA_CURRENT"));
 			// urls.add(property.getProperty("FLC_CURRENT"));
 			// urls.add(property.getProperty("CUP_CURRENT"));
-			// urls.add(property.getProperty("ESP_CURRENT"));
 			// urls.add(property.getProperty("EUR_CL_CURRENT"));
 			// urls.add(property.getProperty("EUR_EL_CURRENT"));
 			// urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
-			// urls.add(property.getProperty("RUS_CURRENT"));
 			// urls.add(property.getProperty("RUS_CUP_CURRENT"));
-			// urls.add(property.getProperty("GER_CURRENT"));
-			// urls.add(property.getProperty("ITA_CURRENT"));
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
