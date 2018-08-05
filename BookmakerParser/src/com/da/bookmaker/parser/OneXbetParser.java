@@ -65,10 +65,7 @@ public class OneXbetParser extends AbstractParser {
 			List<PremierLeagueBean> beans = new ArrayList<>();
 			List<?> htmlDivisions = page.getByXPath("//*[contains(@class, 'c-events__item c-events__item_col')]");
 			long bookmakerId = DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId();
-			int i = 0;
 			for (Object object : htmlDivisions) {
-				i++;
-				System.out.println(i);
 				HtmlDivision division = (HtmlDivision) object;
 				DomElement c_events__item = division.getFirstElementChild();
 				DomElement c_events__subitem = c_events__item.getFirstElementChild();
