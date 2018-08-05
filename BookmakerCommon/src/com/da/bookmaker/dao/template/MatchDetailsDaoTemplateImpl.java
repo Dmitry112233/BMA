@@ -47,7 +47,7 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 	private static final String GET_WILDSTAT_NAME = "SELECT WILDSTAT_NAME FROM TEAM_DICTIONARY WHERE XBET_NAME = ?";
 
 	private static final String DELETE_MATCHES_FOR_LAST_SEASON = "DELETE FROM MATCH_DETAILS WHERE CHAMPIONSHIP = ? "
-			+ "AND DATE >= ?";
+			+ "AND DATE > ?";
 
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeam(String team) throws DaoException {
