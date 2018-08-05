@@ -26,5 +26,6 @@ public class Main {
 		new OneXbetParser().paresAllChamp();
 		new LigaStavokParser().parseAllChamp();
 		new WildstatParser().parseLastSeasons();
+		new WildstatParser().parseWildstatLeagueTables();
 	}
 }
