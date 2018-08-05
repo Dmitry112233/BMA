@@ -75,22 +75,22 @@ public class WildstatParser {
 			 * urls.add(property.getProperty("ITA_16_17"));
 			 * urls.add(property.getProperty("ITA_SC_17"));
 			 * urls.add(property.getProperty("ITA_SC_16"));
-			 
-
-			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
-			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_2014"));
-			urls.add(property.getProperty("AFRIC_CHAMOIONSHIP"));
-			urls.add(property.getProperty("AMERICAN_CHAMPIONSHIP"));
-			urls.add(property.getProperty("EUROPE_CHAMPIONSHIP"));
-			urls.add(property.getProperty("WORLD_CC"));
-			urls.add(property.getProperty("WORLD_PO_QULIFY"));
-			urls.add(property.getProperty("WORLD_OCE_QULIFY"));
-			urls.add(property.getProperty("WORLD_ASI_QULIFY"));
-			urls.add(property.getProperty("WORLD_AMC_QULIFY"));
-			urls.add(property.getProperty("WORLD_AFR_QULIFY"));
-			urls.add(property.getProperty("WORLD_AMS_QULIFY"));
-			urls.add(property.getProperty("WORLD_EUR_QULIFY"));
-			*/
+			 * 
+			 * 
+			 * urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
+			 * urls.add(property.getProperty("WORLD_CHAMPIONSHIP_2014"));
+			 * urls.add(property.getProperty("AFRIC_CHAMOIONSHIP"));
+			 * urls.add(property.getProperty("AMERICAN_CHAMPIONSHIP"));
+			 * urls.add(property.getProperty("EUROPE_CHAMPIONSHIP"));
+			 * urls.add(property.getProperty("WORLD_CC"));
+			 * urls.add(property.getProperty("WORLD_PO_QULIFY"));
+			 * urls.add(property.getProperty("WORLD_OCE_QULIFY"));
+			 * urls.add(property.getProperty("WORLD_ASI_QULIFY"));
+			 * urls.add(property.getProperty("WORLD_AMC_QULIFY"));
+			 * urls.add(property.getProperty("WORLD_AFR_QULIFY"));
+			 * urls.add(property.getProperty("WORLD_AMS_QULIFY"));
+			 * urls.add(property.getProperty("WORLD_EUR_QULIFY"));
+			 */
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
@@ -198,10 +198,10 @@ public class WildstatParser {
 				if (element.getFirstElementChild().getAttribute("align").equals("right")
 						&& element.getChildElementCount() > 5) {
 					if (i < 3) {
-						bean = getStatForFirstTeams(element, bean);
+						bean = getStatForFirstTeams(element, bean, url);
 						i++;
 					} else {
-						bean = getStatForOthereTeams(element, bean);
+						bean = getStatForOthereTeams(element, bean, url);
 						i++;
 					}
 					beans.add(bean);
@@ -214,13 +214,16 @@ public class WildstatParser {
 		}
 	}
 
-	public LeagueTableBean getStatForFirstTeams(DomElement element, LeagueTableBean bean) throws Exception {
+	public LeagueTableBean getStatForFirstTeams(DomElement element, LeagueTableBean bean, String url) throws Exception {
 		Iterator<DomElement> iterator = element.getChildElements().iterator();
 		String place = iterator.next().getTextContent();
 		place = place.substring(0, place.length() - 1);
 		bean.setPlace(Integer.parseInt(place));
-		bean.setTeam(
-				iterator.next().getFirstElementChild().getFirstElementChild().getFirstElementChild().getTextContent());
+		String team = iterator.next().getFirstElementChild().getTextContent();
+		if (team.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))) {
+			team = "Арсенал Тула";
+		}
+		bean.setTeam(team);
 		bean.setGames(iterator.next().getFirstElementChild().getTextContent());
 		bean.setWin(iterator.next().getFirstElementChild().getTextContent());
 		bean.setDraw(iterator.next().getFirstElementChild().getTextContent());
@@ -230,12 +233,17 @@ public class WildstatParser {
 		return bean;
 	}
 
-	public LeagueTableBean getStatForOthereTeams(DomElement element, LeagueTableBean bean) throws Exception {
+	public LeagueTableBean getStatForOthereTeams(DomElement element, LeagueTableBean bean, String url)
+			throws Exception {
 		Iterator<DomElement> iterator = element.getChildElements().iterator();
 		String place = iterator.next().getTextContent();
 		place = place.substring(0, place.length() - 1);
 		bean.setPlace(Integer.parseInt(place));
-		bean.setTeam(iterator.next().getFirstElementChild().getTextContent());
+		String team = iterator.next().getFirstElementChild().getTextContent();
+		if (team.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))) {
+			team = "Арсенал Тула";
+		}
+		bean.setTeam(team);
 		bean.setGames(iterator.next().getFirstElementChild().getTextContent());
 		bean.setWin(iterator.next().getFirstElementChild().getTextContent());
 		bean.setDraw(iterator.next().getFirstElementChild().getTextContent());
@@ -498,20 +506,21 @@ public class WildstatParser {
 		return td.getFirstElementChild().getTextContent();
 	}
 
-	public String getTeam1(DomElement tr, String url) throws Exception{
+	public String getTeam1(DomElement tr, String url) throws Exception {
 		Iterator<DomElement> iterator = tr.getChildElements().iterator();
 		iterator.next();
 		iterator.next();
 		iterator.next();
 		DomElement td = iterator.next();
 		String team1 = td.getFirstElementChild().getTextContent().trim();
-		if (team1.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT")) || url.equals(property.getProperty("RUS_CUP_CURRENT"))){
+		if (team1.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))
+				|| url.equals(property.getProperty("RUS_CUP_CURRENT"))) {
 			team1 = "Арсенал Тула";
 		}
 		return team1;
 	}
 
-	public String getTeam2(DomElement tr, String url) throws Exception{
+	public String getTeam2(DomElement tr, String url) throws Exception {
 		Iterator<DomElement> iterator = tr.getChildElements().iterator();
 		iterator.next();
 		iterator.next();
@@ -520,7 +529,8 @@ public class WildstatParser {
 		iterator.next();
 		DomElement td = iterator.next();
 		String team2 = td.getFirstElementChild().getTextContent().trim();
-		if (team2.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT")) || url.equals(property.getProperty("RUS_CUP_CURRENT"))){
+		if (team2.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))
+				|| url.equals(property.getProperty("RUS_CUP_CURRENT"))) {
 			team2 = "Арсенал Тула";
 		}
 		return team2;
