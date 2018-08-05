@@ -35,7 +35,7 @@ public class WildstatParser {
 
 	public static void main(String[] args) throws Exception {
 
-		new WildstatParser().parseWildstatAllChamp();
+		new WildstatParser().parseLastSeasons();
 	}
 
 	public void parseWildstatAllChamp() throws Exception {
@@ -47,11 +47,11 @@ public class WildstatParser {
 			}
 			List<String> urls = new ArrayList<>();
 			
-			 //urls.add(property.getProperty("APL_CURRENT"));
-			 //urls.add(property.getProperty("APL_16_17"));
+			 urls.add(property.getProperty("APL_16_17"));
+			 urls.add(property.getProperty("APL_CURRENT"));
 			 urls.add(property.getProperty("CUP_16_17"));
-			 //urls.add(property.getProperty("CUP_CURRENT"));
-			 /*urls.add(property.getProperty("FLC_16_17"));
+			 urls.add(property.getProperty("CUP_CURRENT"));
+			 urls.add(property.getProperty("FLC_16_17"));
 			 urls.add(property.getProperty("FLC_CURRENT"));
 			 urls.add(property.getProperty("CS_16"));
 			 urls.add(property.getProperty("CS_17"));
@@ -75,8 +75,23 @@ public class WildstatParser {
 			 urls.add(property.getProperty("ITA_CURRENT"));
 			 urls.add(property.getProperty("ITA_16_17"));
 			 urls.add(property.getProperty("ITA_SC_17"));
-			 urls.add(property.getProperty("ITA_SC_16"));*/
-			
+			 urls.add(property.getProperty("ITA_SC_16"));
+			  
+			  
+			 /*urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
+			 urls.add(property.getProperty("WORLD_CHAMPIONSHIP_2014"));
+			 urls.add(property.getProperty("AFRIC_CHAMOIONSHIP"));
+			 urls.add(property.getProperty("AMERICAN_CHAMPIONSHIP"));
+			 urls.add(property.getProperty("EUROPE_CHAMPIONSHIP"));
+			 urls.add(property.getProperty("WORLD_CC"));
+			 urls.add(property.getProperty("WORLD_PO_QULIFY"));
+			 urls.add(property.getProperty("WORLD_OCE_QULIFY"));
+			 urls.add(property.getProperty("WORLD_ASI_QULIFY"));
+			 urls.add(property.getProperty("WORLD_AMC_QULIFY"));
+			 urls.add(property.getProperty("WORLD_AFR_QULIFY"));
+			 urls.add(property.getProperty("WORLD_AMS_QULIFY"));
+			 urls.add(property.getProperty("WORLD_EUR_QULIFY"));*/
+			 
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
