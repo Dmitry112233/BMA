@@ -170,44 +170,46 @@ public class WildstatParser {
 			webClient.setUseInsecureSSL(true);
 			HtmlPage page = (HtmlPage) webClient.getPage(url);
 			List<?> tables = page.getByXPath("//table[@class='championship' and @cellpadding='2']");
-			DomElement table = (DomElement) tables.get(0);
-			List<LeagueTableBean> beans = new ArrayList<>();
-			int i = 0;
-			for (DomElement element : table.getFirstElementChild().getChildElements()) {
-				LeagueTableBean bean = new LeagueTableBean();
-				if (url.equals(property.getProperty("APL_CURRENT"))) {
-					bean.setLeague("Английская Примьер Лига");
-					DaoFactory.getLeaguTableDao().deleteLeagueTables("Английская Примьер Лига");
-				}
-				if (url.equals(property.getProperty("ESP_CURRENT"))) {
-					bean.setLeague("Испанская Ла Лига");
-					DaoFactory.getLeaguTableDao().deleteLeagueTables("Испанская Ла Лига");
-				}
-				if (url.equals(property.getProperty("RUS_CURRENT"))) {
-					bean.setLeague("Российская Примьер Лига");
-					DaoFactory.getLeaguTableDao().deleteLeagueTables("Российская Примьер Лига");
-				}
-				if (url.equals(property.getProperty("GER_CURRENT"))) {
-					bean.setLeague("Немецкая Бундеслига");
-					DaoFactory.getLeaguTableDao().deleteLeagueTables("Немецкая Бундеслига");
-				}
-				if (url.equals(property.getProperty("ITA_CURRENT"))) {
-					bean.setLeague("Итальянская серия А");
-					DaoFactory.getLeaguTableDao().deleteLeagueTables("Итальянская серия А");
-				}
-				if (element.getFirstElementChild().getAttribute("align").equals("right")
-						&& element.getChildElementCount() > 5) {
-					if (i < 3) {
-						bean = getStatForFirstTeams(element, bean, url);
-						i++;
-					} else {
-						bean = getStatForOthereTeams(element, bean, url);
-						i++;
+			if (tables.size() > 0) {
+				DomElement table = (DomElement) tables.get(0);
+				List<LeagueTableBean> beans = new ArrayList<>();
+				int i = 0;
+				for (DomElement element : table.getFirstElementChild().getChildElements()) {
+					LeagueTableBean bean = new LeagueTableBean();
+					if (url.equals(property.getProperty("APL_CURRENT"))) {
+						bean.setLeague("Английская Примьер Лига");
+						DaoFactory.getLeaguTableDao().deleteLeagueTables("Английская Примьер Лига");
 					}
-					beans.add(bean);
+					if (url.equals(property.getProperty("ESP_CURRENT"))) {
+						bean.setLeague("Испанская Ла Лига");
+						DaoFactory.getLeaguTableDao().deleteLeagueTables("Испанская Ла Лига");
+					}
+					if (url.equals(property.getProperty("RUS_CURRENT"))) {
+						bean.setLeague("Российская Примьер Лига");
+						DaoFactory.getLeaguTableDao().deleteLeagueTables("Российская Примьер Лига");
+					}
+					if (url.equals(property.getProperty("GER_CURRENT"))) {
+						bean.setLeague("Немецкая Бундеслига");
+						DaoFactory.getLeaguTableDao().deleteLeagueTables("Немецкая Бундеслига");
+					}
+					if (url.equals(property.getProperty("ITA_CURRENT"))) {
+						bean.setLeague("Итальянская серия А");
+						DaoFactory.getLeaguTableDao().deleteLeagueTables("Итальянская серия А");
+					}
+					if (element.getFirstElementChild().getAttribute("align").equals("right")
+							&& element.getChildElementCount() > 5) {
+						if (i < 3) {
+							bean = getStatForFirstTeams(element, bean, url);
+							i++;
+						} else {
+							bean = getStatForOthereTeams(element, bean, url);
+							i++;
+						}
+						beans.add(bean);
+					}
 				}
+				DaoFactory.getLeaguTableDao().addMatchesDetails(beans);
 			}
-			DaoFactory.getLeaguTableDao().addMatchesDetails(beans);
 			logger.info("Save wildstat table by url: " + url);
 		} finally {
 			webClient.closeAllWindows();
