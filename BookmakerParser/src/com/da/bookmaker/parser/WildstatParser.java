@@ -35,7 +35,7 @@ public class WildstatParser {
 
 	public static void main(String[] args) throws Exception {
 
-		new WildstatParser().parseLastSeasons();
+		new WildstatParser().parseWildstatAllChamp();
 	}
 
 	public void parseWildstatAllChamp() throws Exception {
@@ -46,51 +46,37 @@ public class WildstatParser {
 				property.load(fis);
 			}
 			List<String> urls = new ArrayList<>();
-			/*
-			 * urls.add(property.getProperty("APL_CURRENT"));
-			 * urls.add(property.getProperty("CUP_16_17"));
-			 * urls.add(property.getProperty("CUP_CURRENT"));
-			 * urls.add(property.getProperty("FLC_16_17"));
-			 * urls.add(property.getProperty("FLC_CURRENT"));
-			 * urls.add(property.getProperty("CS_16"));
-			 * urls.add(property.getProperty("CS_17"));
-			 * urls.add(property.getProperty("ESP_16_17"));
-			 * urls.add(property.getProperty("ESP_CURRENT"));
-			 * urls.add(property.getProperty("ESP_SC_16"));
-			 * urls.add(property.getProperty("ESP_SC_17"));
-			 * urls.add(property.getProperty("EUR_CL_CURRENT"));
-			 * urls.add(property.getProperty("EUR_EL_CURRENT"));
-			 * urls.add(property.getProperty("EUR_CL_15_16"));
-			 * urls.add(property.getProperty("RUS_CURRENT"));
-			 * urls.add(property.getProperty("RUS_16_17"));
-			 * urls.add(property.getProperty("RUS_CUP_CURRENT"));
-			 * urls.add(property.getProperty("RUS_CUP_16_17"));
-			 * urls.add(property.getProperty("RUS_SC_16"));
-			 * urls.add(property.getProperty("RUS_SC_17"));
-			 * urls.add(property.getProperty("GER_CURRENT"));
-			 * urls.add(property.getProperty("GER_16_17"));
-			 * urls.add(property.getProperty("GER_SC_16"));
-			 * urls.add(property.getProperty("GER_SC_17"));
-			 * urls.add(property.getProperty("ITA_CURRENT"));
-			 * urls.add(property.getProperty("ITA_16_17"));
-			 * urls.add(property.getProperty("ITA_SC_17"));
-			 * urls.add(property.getProperty("ITA_SC_16"));
-			 * 
-			 * 
-			 * urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
-			 * urls.add(property.getProperty("WORLD_CHAMPIONSHIP_2014"));
-			 * urls.add(property.getProperty("AFRIC_CHAMOIONSHIP"));
-			 * urls.add(property.getProperty("AMERICAN_CHAMPIONSHIP"));
-			 * urls.add(property.getProperty("EUROPE_CHAMPIONSHIP"));
-			 * urls.add(property.getProperty("WORLD_CC"));
-			 * urls.add(property.getProperty("WORLD_PO_QULIFY"));
-			 * urls.add(property.getProperty("WORLD_OCE_QULIFY"));
-			 * urls.add(property.getProperty("WORLD_ASI_QULIFY"));
-			 * urls.add(property.getProperty("WORLD_AMC_QULIFY"));
-			 * urls.add(property.getProperty("WORLD_AFR_QULIFY"));
-			 * urls.add(property.getProperty("WORLD_AMS_QULIFY"));
-			 * urls.add(property.getProperty("WORLD_EUR_QULIFY"));
-			 */
+			
+			 urls.add(property.getProperty("APL_CURRENT"));
+			 urls.add(property.getProperty("APL_16_17"));
+			 urls.add(property.getProperty("CUP_16_17"));
+			 urls.add(property.getProperty("CUP_CURRENT"));
+			 /*urls.add(property.getProperty("FLC_16_17"));
+			 urls.add(property.getProperty("FLC_CURRENT"));
+			 urls.add(property.getProperty("CS_16"));
+			 urls.add(property.getProperty("CS_17"));
+			 urls.add(property.getProperty("ESP_16_17"));
+			 urls.add(property.getProperty("ESP_CURRENT"));
+			 urls.add(property.getProperty("ESP_SC_16"));
+			 urls.add(property.getProperty("ESP_SC_17"));
+			 urls.add(property.getProperty("EUR_CL_CURRENT"));
+			 urls.add(property.getProperty("EUR_EL_CURRENT"));
+			 urls.add(property.getProperty("EUR_CL_15_16"));
+			 urls.add(property.getProperty("RUS_CURRENT"));
+			 urls.add(property.getProperty("RUS_16_17"));
+			 urls.add(property.getProperty("RUS_CUP_CURRENT"));
+			 urls.add(property.getProperty("RUS_CUP_16_17"));
+			 urls.add(property.getProperty("RUS_SC_16"));
+			 urls.add(property.getProperty("RUS_SC_17"));
+			 urls.add(property.getProperty("GER_CURRENT"));
+			 urls.add(property.getProperty("GER_16_17"));
+			 urls.add(property.getProperty("GER_SC_16"));
+			 urls.add(property.getProperty("GER_SC_17"));
+			 urls.add(property.getProperty("ITA_CURRENT"));
+			 urls.add(property.getProperty("ITA_16_17"));
+			 urls.add(property.getProperty("ITA_SC_17"));
+			 urls.add(property.getProperty("ITA_SC_16"));*/
+			
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
@@ -516,7 +502,8 @@ public class WildstatParser {
 		DomElement td = iterator.next();
 		String team1 = td.getFirstElementChild().getTextContent().trim();
 		if (team1.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))
-				|| url.equals(property.getProperty("RUS_CUP_CURRENT"))) {
+				|| url.equals(property.getProperty("RUS_CUP_CURRENT")) || url.equals(property.getProperty("RUS_16_17"))
+				|| url.equals(property.getProperty("RUS_CUP_16_17"))) {
 			team1 = "Арсенал Тула";
 		}
 		return team1;
@@ -532,7 +519,8 @@ public class WildstatParser {
 		DomElement td = iterator.next();
 		String team2 = td.getFirstElementChild().getTextContent().trim();
 		if (team2.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))
-				|| url.equals(property.getProperty("RUS_CUP_CURRENT"))) {
+				|| url.equals(property.getProperty("RUS_CUP_CURRENT")) || url.equals(property.getProperty("RUS_16_17"))
+				|| url.equals(property.getProperty("RUS_CUP_16_17"))) {
 			team2 = "Арсенал Тула";
 		}
 		return team2;
