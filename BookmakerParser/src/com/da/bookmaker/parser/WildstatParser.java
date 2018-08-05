@@ -501,7 +501,7 @@ public class WildstatParser {
 		iterator.next();
 		DomElement td = iterator.next();
 		String team1 = td.getFirstElementChild().getTextContent().trim();
-		if (team1.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))
+		if (team1.contains("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))
 				|| url.equals(property.getProperty("RUS_CUP_CURRENT")) || url.equals(property.getProperty("RUS_16_17"))
 				|| url.equals(property.getProperty("RUS_CUP_16_17"))) {
 			team1 = "Арсенал Тула";
@@ -518,7 +518,7 @@ public class WildstatParser {
 		iterator.next();
 		DomElement td = iterator.next();
 		String team2 = td.getFirstElementChild().getTextContent().trim();
-		if (team2.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))
+		if (team2.contains("Арсенал") && url.equals(property.getProperty("RUS_CURRENT"))
 				|| url.equals(property.getProperty("RUS_CUP_CURRENT")) || url.equals(property.getProperty("RUS_16_17"))
 				|| url.equals(property.getProperty("RUS_CUP_16_17"))) {
 			team2 = "Арсенал Тула";
