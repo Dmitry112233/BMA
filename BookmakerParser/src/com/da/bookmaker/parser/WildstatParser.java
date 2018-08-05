@@ -335,8 +335,8 @@ public class WildstatParser {
 							continue;
 						} else {
 							bean.setDateStr(getDate(tr));
-							bean.setTeam1(getTeam1(tr));
-							bean.setTeam2(getTeam2(tr));
+							bean.setTeam1(getTeam1(tr, url));
+							bean.setTeam2(getTeam2(tr, url));
 							if (resultList.size() > 0) {
 								bean.setGoalsTeam1(resultList.get(0));
 								bean.setGoalsTeam2(resultList.get(1));
@@ -498,16 +498,20 @@ public class WildstatParser {
 		return td.getFirstElementChild().getTextContent();
 	}
 
-	public String getTeam1(DomElement tr) {
+	public String getTeam1(DomElement tr, String url) throws Exception{
 		Iterator<DomElement> iterator = tr.getChildElements().iterator();
 		iterator.next();
 		iterator.next();
 		iterator.next();
 		DomElement td = iterator.next();
-		return td.getFirstElementChild().getTextContent().trim();
+		String team1 = td.getFirstElementChild().getTextContent().trim();
+		if (team1.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT")) || url.equals(property.getProperty("RUS_CUP_CURRENT"))){
+			team1 = "Арсенал Тула";
+		}
+		return team1;
 	}
 
-	public String getTeam2(DomElement tr) {
+	public String getTeam2(DomElement tr, String url) throws Exception{
 		Iterator<DomElement> iterator = tr.getChildElements().iterator();
 		iterator.next();
 		iterator.next();
@@ -515,7 +519,11 @@ public class WildstatParser {
 		iterator.next();
 		iterator.next();
 		DomElement td = iterator.next();
-		return td.getFirstElementChild().getTextContent().trim();
+		String team2 = td.getFirstElementChild().getTextContent().trim();
+		if (team2.equals("Арсенал") && url.equals(property.getProperty("RUS_CURRENT")) || url.equals(property.getProperty("RUS_CUP_CURRENT"))){
+			team2 = "Арсенал Тула";
+		}
+		return team2;
 	}
 
 	public List<Integer> getScore(DomElement tr) {
