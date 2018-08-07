@@ -34,9 +34,8 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	private final static String GET_MY_EXPRESS = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
 			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
-			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + 
-			"WHERE SOURCE IS NULL AND E.DATE <= CURRENT_DATE()"
-			+ "ORDER BY EXPRESS_DATE DESC LIMIT 1";
+			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID "
+			+ "WHERE SOURCE IS NULL AND E.DATE <= CURRENT_DATE()" + "ORDER BY EXPRESS_DATE DESC LIMIT 1";
 
 	private final static String INSERT_MY_EXPRESS = "INSERT INTO EXPRESSES (NAME, DATE, DESCRIPTION) VALUES (?,?,?)";
 
@@ -45,6 +44,11 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	private final static String LINKED_IVENT_LIST = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) VALUES (?,?)";
 
 	private final static String DELETE_EXPRESSES_LIST = "DELETE FROM EXPRESSES WHERE SOURCE = ? ";
+
+	private final static String GET_EXPRESSES_BY_ID = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
+			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
+			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
+			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE ID = ?";
 
 	private DataSource dataSource;
 
@@ -66,9 +70,9 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	public ExpressBean getMyExpress() {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_MY_EXPRESS, new ExpressSetExecuter());
-		if (list.size() > 0){
+		if (list.size() > 0) {
 			return list.get(0);
-		}else{
+		} else {
 			return null;
 		}
 	}
@@ -179,5 +183,16 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			}, holder);
 		}
 
+	}
+
+	@Override
+	public ExpressBean getExpressById(int id) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<ExpressBean> list = template.query(GET_EXPRESSES_BY_ID, new Object[] { id }, new ExpressSetExecuter());
+		if (list.size() > 0) {
+			return list.get(0);
+		} else {
+			return null;
+		}
 	}
 }
