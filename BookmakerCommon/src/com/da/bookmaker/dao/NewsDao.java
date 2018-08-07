@@ -12,4 +12,6 @@ public interface NewsDao {
 	
 	void deleteAllNews() throws DaoException;
 	
+	NewsBean getNewsById(int id) throws DaoException;
+	
 }

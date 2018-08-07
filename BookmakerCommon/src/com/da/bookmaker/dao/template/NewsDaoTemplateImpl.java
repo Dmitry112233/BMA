@@ -22,10 +22,12 @@ public class NewsDaoTemplateImpl implements NewsDao {
 	private DataSource dataSource;
 
 	private final static String GET_ALL_NEWS = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS";
-	
+
 	private final static String INSERT_NEWS_LIST = "INSERT INTO SPORT_NEWS (SPORT, COMPETITION, TITLE, DESCRIPTION, IMAGE) VALUES (?,?,?,?,?)";
-	
+
 	private final static String DELETE_ALL_NEWS = "DELETE FROM SPORT_NEWS";
+
+	private final static String GET_NEWS_BY_ID = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS WHERE ID = ?";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -78,10 +80,32 @@ public class NewsDaoTemplateImpl implements NewsDao {
 		}
 
 	}
-	
+
 	public void deleteAllNews() throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		template.update(DELETE_ALL_NEWS);
 	}
 
+	@Override
+	public NewsBean getNewsById(int id) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<NewsBean> list = template.query(GET_NEWS_BY_ID, new Object[] { id }, new RowMapper<NewsBean>() {
+			@Override
+			public NewsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				NewsBean bean = new NewsBean();
+				bean.setId(rs.getLong("ID"));
+				bean.setSport(rs.getString("SPORT"));
+				bean.setCompetition(rs.getString("COMPETITION"));
+				bean.setDescription(rs.getString("DESCRIPTION"));
+				bean.setImage(rs.getString("IMAGE"));
+				bean.setTitle(rs.getString("TITLE"));
+				return bean;
+			}
+		});
+		if (list.size() > 0) {
+			return list.get(0);
+		} else {
+			return null;
+		}
+	}
 }
