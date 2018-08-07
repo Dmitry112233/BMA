@@ -18,4 +18,6 @@ public interface IventDao {
 	void deleteIventsList(String url) throws DaoException;
 	
 	void deletBetFaqList() throws DaoException;
+	
+	IventBean getEventById(int id) throws DaoException;
 }

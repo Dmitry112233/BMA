@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 
+import com.da.bookmaker.bean.ExpressBean;
 import com.da.bookmaker.bean.IventBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.IventDao;
@@ -37,6 +38,9 @@ public class IventDaoTemplateImpl implements IventDao {
 	private final static String GET_EVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru'";
 
 	private final static String DELETE_BETFAQ_IVENTS = "DELETE FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru'";
+	
+	private final static String GET_EVENT_BY_ID = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, "
+			+ "DATE FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru' AND ID = ?";
 	
 	public DataSource getDataSource() {
 		return dataSource;
@@ -153,5 +157,33 @@ public class IventDaoTemplateImpl implements IventDao {
 	public void deletBetFaqList() throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		template.update(DELETE_BETFAQ_IVENTS);
+	}
+
+	@Override
+	public IventBean getEventById(int id) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		
+		List<IventBean> list = template.query(GET_EVENT_BY_ID, new Object[] { id }, new RowMapper<IventBean>() {
+			@SuppressWarnings("unchecked")
+			@Override
+			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				IventBean bean = new IventBean();
+				bean.setIventID(rs.getLong("ID"));
+				bean.setCompetition(rs.getString("COMPETITION"));
+				bean.setBet(rs.getString("BET"));
+				bean.setName(rs.getString("NAME"));
+				bean.setCoefficient(rs.getDouble("COEFFICIENT"));
+				bean.setSource(rs.getString("SOURCE_IVENT"));
+				bean.setSport(rs.getString("SPORT"));
+				bean.setDescription(rs.getString("DESCRIPTION"));
+				bean.setDate(rs.getDate("DATE"));
+				return bean;
+			}
+		});
+		if (list.size()> 0){
+			return list.get(0);
+		}else{
+			return null;	
+		}
 	}
 }
