@@ -28,8 +28,14 @@
       </c:import>
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
-         <div class="row">
-            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Футбол...</div>
+         <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         	<c:if test="${matchesList.size() > 0}">
+         		<h1>${matchesList.get(0).league} <img class="leagueIcon" src="bootstrap/img/leagueIcon/${matchesList.get(0).league}.png"></h1>
+         	</c:if>
+         	<c:if test="${matchesList.size() == NULL}">
+         		<h1>Футбол</h1>
+         	</c:if>
+         	
          </div>
       </div>
       <div class="container">

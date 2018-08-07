@@ -28,8 +28,8 @@
       </c:import>
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
-         <div class="row">
-            <div class="loz" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Самые свежие новости мирового спорта.</div>
+         <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         	<h1>Новости</h1>
          </div>
       </div>
       <div class="container">

@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="bklist" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
    <div class="bkListContent">
-      <h1>Букмекеры</h1>
+      <h2>Букмекеры</h2>
       <ol>
          <c:forEach var="bookmaker" items="${bookmakerList.values()}">
             <li>

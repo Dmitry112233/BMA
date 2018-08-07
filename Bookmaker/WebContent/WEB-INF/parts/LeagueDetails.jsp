@@ -1,8 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="DetailsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <div class="details">
-      <h1>Детали по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2}</h1>
+   <div class="details">      
       <br>
       <a class="BackButton" href="PremierLeague_${xBetList.get(0).league}_List.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> к списку игр</a>
       <br>

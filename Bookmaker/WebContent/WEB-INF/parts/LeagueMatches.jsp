@@ -2,8 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="LeagueMatchesBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="LeagueMatches">      
-      <c:if test="${matchesList.size() > 0}">
-         <h1><img class="leagueIcon" src="bootstrap/img/leagueIcon/${matchesList.get(0).league}.png">${matchesList.get(0).league}</h1>
+      <c:if test="${matchesList.size() > 0}">         
          <br>
          <!-- вывод актуальных событий соревнования в цикле -->			
          <table class="LeagueMatchesTable">
@@ -21,8 +20,7 @@
             </c:forEach>
          </table>         
       </c:if>
-      <c:if test="${matchesList.size() == NULL}"> 
-         <h1>Футбол</h1>
+      <c:if test="${matchesList.size() == NULL}">         
          <br>
          <p class="DataMissed">Соревнование не проходит в данный момент либо данные отсутствуют из-за технических проблем.</p>
       </c:if>
