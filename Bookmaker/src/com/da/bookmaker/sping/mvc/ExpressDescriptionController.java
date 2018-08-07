@@ -23,7 +23,7 @@ public class ExpressDescriptionController extends BookmakerController{
 		Map<String, Object> map = getExpressById(id);
 		map.putAll(getBookmakerList());
 		map.putAll(getBookmakerWeight());
-		return new ModelAndView("allExpresses", map);
+		return new ModelAndView("expressDescriptionPage", map);
 	}
 	
 	private Map<String, Object> getExpressById(int id) throws DaoException {
