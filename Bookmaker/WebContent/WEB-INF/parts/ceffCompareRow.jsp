@@ -79,6 +79,6 @@
             <c:otherwise>-</c:otherwise>
          </c:choose>
       </td>
-      <td class="CoeffCompareTableSecondary2"><a rel="nofollow" href="Counter.spr?id=${CeffSource.bookmakerBean.bookMakerId}" target="_blank">на сайт</a></td>
+      <td class="CoeffCompareTableSecondary2"><a class="detailToBKButton" rel="nofollow" href="Counter.spr?id=${CeffSource.bookmakerBean.bookMakerId}" target="_blank">На сайт</a></td>
    </tr>
 </c:forEach>

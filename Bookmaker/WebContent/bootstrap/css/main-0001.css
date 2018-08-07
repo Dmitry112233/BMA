@@ -108,9 +108,19 @@ h1 {
 	width: 300px;
 }
 
+.tobkbut {
+	line-height: 16px;
+	background-color: #ff0101;
+	padding: 8px;
+	float: right;
+	clear: none;
+	margin-top: 7px;
+	color: #ffffff;	
+}
+
 .toBkDescr {
 	line-height: 16px;
-	background-color: #52c153;
+	background-color: #007acc;
 	padding: 8px;
 	float: right;
 	clear: none;
@@ -119,12 +129,57 @@ h1 {
 	color: #ffffff;	
 }
 
-.toBkDescr:visited, .toBkDescr:focus {
+.toDetailsButton {
+	line-height: 16px;
+	background-color: #007acc;
+	padding: 8px;
+	float: right;	
+	margin-top: 7px;
+	margin-right: 2px;
+	margin-bottom: 7px;
+	color: #ffffff;	
+}
+
+.detailToBKButton {
+	line-height: 16px;
+	background-color: #ff0101;
+	padding: 8px;
+	float: right;	
+	margin-top: 7px;
+	margin-right: 2px;
+	margin-bottom: 7px;
+	color: #ffffff;	
+}
+
+.BackButton {
+	padding: 4px; 
+	background-color: #52c153;
+	padding: 8px;
 	color: #ffffff;
 }
 
-.toBkDescr:hover {
+.bkReitLink {
+	line-height: 16px;
+	background-color: #ff0101;
+	padding: 8px;
+	color: #ffffff;		
+}
+
+.bkReitLinkBlock {
+	text-align: center;	
+}
+
+.tobkbut:visited, .tobkbut:focus, .toBkDescr:visited, .toBkDescr:focus, .toDetailsButton:visited, .toDetailsButton:focus, .detailToBKButton:visited, .detailToBKButton:focus, .bkReitLink:visited, .bkReitLink:focus, .sportsListTable tr:visited, .sportsListTable tr:focus, .BackButton:visited, .BackButton:focus {
+	color: #ffffff;
+}
+
+.tobkbut:hover, .toBkDescr:hover, .toDetailsButton:hover, .detailToBKButton:hover, .bkReitLink:hover, .BackButton:hover {
 	box-shadow: inset 1px 1px 5px -2px black;
+	color: #dadada;
+	cursor: pointer;
+}
+
+.sportsListTable tr a:hover {
 	color: #dadada;
 }
 
@@ -339,25 +394,6 @@ a {
 	box-shadow: inset 1px 1px 5px -2px black;
 }
 
-.tobkbut {
-	line-height: 16px;
-	background-color: #52c153;
-	padding: 8px;
-	float: right;
-	clear: none;
-	margin-top: 7px;
-	color: #ffffff;	
-}
-
-.tobkbut:visited, .tobkbut:focus {
-	color: #ffffff;
-}
-
-.tobkbut:hover {
-	box-shadow: inset 1px 1px 5px -2px black;
-	color: #dadada;
-}
-
 .bkName {
 	text-align: center;		
 }
@@ -392,16 +428,6 @@ a {
 .topbutton:hover {
 	background: rgba(199, 199, 199, 0.3);
 	color: rgba(255, 255, 255, 0.85);
-}
-
-.bkReitLink {
-	text-decoration: underline;
-	margin-left: 15px;
-}
-
-.bkReitLink:hover {
-	color: #8a8a8a;
-	text-decoration: underline;
 }
 
 #newsBlock h3, #videoPart h3 {
@@ -601,13 +627,8 @@ a {
 	padding-right: 5px;
 }
 
-.LeagueMatchesTable a, .CoeffCompareTable a {
-	text-decoration: underline;
+.LeagueMatchesTable a, .CoeffCompareTable a {	
 	cursor: pointer;	 
-}
-
-.LeagueMatchesTable a:hover, .CoeffCompareTable a:hover {
-	color: black;
 }
 
 .CoeffCompareTableHeader, .LeagueTableHeader, .GroupTableHeader {
@@ -632,11 +653,6 @@ a {
 
 .navbar-inverse .navbar-nav > .active > a {
 	background-color: #6f6f6f !important; 
-}
-
-.BackButton {
-	border: solid 1px black;
-	padding: 4px; 
 }
 
 .LeagueMatchesTable td:nth-child(8) {
@@ -666,13 +682,20 @@ a {
 	display: none !important;
 }
 
-.sportsList {
-	list-style-type: none;
-	text-align: center;
+.sportsListTable {
+	width: 230px;
+	margin: auto;
+	border-collapse: separate;
+	border-spacing: 0 10px;
 }
 
-.sportsList li a {
-	text-decoration: underline;
+.sportsListTable a {	
+	color: #ffffff;
+}
+
+.sportsListTable td {
+	background-color: #52c153;
+	padding: 5px;
 }
 
 #header li {

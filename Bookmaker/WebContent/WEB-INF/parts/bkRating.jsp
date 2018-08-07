@@ -78,7 +78,7 @@
             </div>
          </div>
          <br>
-         <div><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter.spr?id=${bookmaker.bookMakerId}">Перейти на сайт ${bookmaker.name}</a></div>
+         <div class="bkReitLinkBlock"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter.spr?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></div>
       </c:forEach>
       <br>      
    </div>

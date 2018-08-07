@@ -15,7 +15,7 @@
                   <td>-</td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"></td>
                   <td>${leagueEvent.team2}</td>
-                  <td><a href="PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details.spr">перейти на подробности</a></td>
+                  <td><a class="toDetailsButton" href="PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details.spr">Подробности</a></td>
                   <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"> ${leagueEvent.team1} - <img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"> ${leagueEvent.team2}</td>
                </tr>
             </c:forEach>
