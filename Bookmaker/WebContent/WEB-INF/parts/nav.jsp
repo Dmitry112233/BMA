@@ -33,7 +33,7 @@
                            <li class="${param.sixthMenu == 'true'?'active':''}"><a href="EventsList.spr">Одиночные прогнозы</a></li>                           
                         </ul>
                      </li>
-                     <li class="${param.fifthMenu == 'true'?'active':''}"><a href="News.spr">Новости</a></li>
+                     <li class="${param.fifthMenu == 'true'?'active':''}"><a href="News_0.spr">Новости</a></li>
                      
                      <li class="${param.therdMenu == 'true'?'active':''}"><a href="FAQList.spr">Теория</a></li>
                      <li class="${param.noneMenu == 'true'?'fakeMenu':''}"></li>

@@ -24,6 +24,11 @@
    <c:if test="${newsList.size() == 0}">
       <p class="DataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</p>
    </c:if>
+   
+   <c:forEach var="button" items="${pageMass}">
+   <a class="BackButton" href="News_${button * 10}.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>${button + 1}</a>
+   </c:forEach>
+     
 </div>
 
 

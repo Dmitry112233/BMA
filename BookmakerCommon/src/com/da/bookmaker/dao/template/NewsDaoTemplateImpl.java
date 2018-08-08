@@ -28,6 +28,9 @@ public class NewsDaoTemplateImpl implements NewsDao {
 	private final static String DELETE_ALL_NEWS = "DELETE FROM SPORT_NEWS";
 
 	private final static String GET_NEWS_BY_ID = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS WHERE ID = ?";
+	
+	private final static String GET_NEWS_FOR_PAGE = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS " +
+	"ORDER BY id LIMIT ? OFFSET ?";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -107,5 +110,25 @@ public class NewsDaoTemplateImpl implements NewsDao {
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public List<NewsBean> getNewsForPage(int limit, int offset) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<NewsBean> list = template.query(GET_NEWS_FOR_PAGE, new Object[] { limit, offset}, new RowMapper<NewsBean>() {
+
+			@Override
+			public NewsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				NewsBean bean = new NewsBean();
+				bean.setId(rs.getLong("ID"));
+				bean.setSport(rs.getString("SPORT"));
+				bean.setCompetition(rs.getString("COMPETITION"));
+				bean.setDescription(rs.getString("DESCRIPTION"));
+				bean.setImage(rs.getString("IMAGE"));
+				bean.setTitle(rs.getString("TITLE"));
+				return bean;
+			}
+		});
+		return list;
 	}
 }
