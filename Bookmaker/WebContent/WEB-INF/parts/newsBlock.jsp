@@ -14,9 +14,10 @@
          <div class="newsComp">
             <p>${newsItem.sport}<br>${newsItem.competition}</p>
          </div>
-         <h3>${newsItem.title}</h3>
-         <p>${newsItem.description}</p>
-         <img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img>
+         <div class="newsTitle">
+         	<a href="NewsDescription_${newsItem.id}_details.spr">${newsItem.title}</a>
+         </div>
+         <a href="NewsDescription_${newsItem.id}_details.spr"><img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img></a>
       </c:forEach>
    </c:if>
    <br>
@@ -24,3 +25,5 @@
       <p class="DataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</p>
    </c:if>
 </div>
+
+

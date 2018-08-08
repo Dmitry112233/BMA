@@ -114,7 +114,7 @@ h1 {
 
 .tobkbut {
 	line-height: 16px;
-	background-color: #ff0101;
+	background-color: #e84242;
 	padding: 8px;
 	float: right;
 	clear: none;
@@ -146,7 +146,7 @@ h1 {
 
 .detailToBKButton {
 	line-height: 16px;
-	background-color: #ff0101;
+	background-color: #e84242;
 	padding: 8px;
 	float: right;	
 	margin-top: 7px;
@@ -156,15 +156,28 @@ h1 {
 }
 
 .BackButton {
-	padding: 4px; 
+	background-color: #52c153;
+	padding: 8px;
+	color: #ffffff;
+	margin-left: 10px;
+}
+
+.toEventDescription {
 	background-color: #52c153;
 	padding: 8px;
 	color: #ffffff;
 }
 
+.toBestBK {
+	background-color: #e84242;
+	padding: 8px;
+	color: #ffffff;	
+	margin-left: 10px;
+}
+
 .bkReitLink {
 	line-height: 16px;
-	background-color: #ff0101;
+	background-color: #e84242;
 	padding: 8px;
 	color: #ffffff;		
 }
@@ -173,11 +186,11 @@ h1 {
 	text-align: center;	
 }
 
-.tobkbut:visited, .tobkbut:focus, .toBkDescr:visited, .toBkDescr:focus, .toDetailsButton:visited, .toDetailsButton:focus, .detailToBKButton:visited, .detailToBKButton:focus, .bkReitLink:visited, .bkReitLink:focus, .sportsListTable tr:visited, .sportsListTable tr:focus, .BackButton:visited, .BackButton:focus {
+.tobkbut:visited, .tobkbut:focus, .toBkDescr:visited, .toBkDescr:focus, .toDetailsButton:visited, .toDetailsButton:focus, .detailToBKButton:visited, .detailToBKButton:focus, .bkReitLink:visited, .bkReitLink:focus, .sportsListTable tr:visited, .sportsListTable tr:focus, .BackButton:visited, .BackButton:focus, .toEventDescription:visited, .toEventDescription:focus, .toBestBK:visited, .toBestBK:focus {
 	color: #ffffff;
 }
 
-.tobkbut:hover, .toBkDescr:hover, .toDetailsButton:hover, .detailToBKButton:hover, .bkReitLink:hover, .BackButton:hover {
+.tobkbut:hover, .toBkDescr:hover, .toDetailsButton:hover, .detailToBKButton:hover, .bkReitLink:hover, .BackButton:hover, .toEventDescription:hover, .toBestBK:hover {
 	box-shadow: inset 1px 1px 5px -2px black;
 	color: #dadada;
 	cursor: pointer;
@@ -204,6 +217,12 @@ h1 {
 
 .slaveLine {
 	background: #eaeaea;
+}
+
+.slaveLineEvents {
+	border-bottom: 4px solid #d7d7d7;
+	height: 46px;
+	cursor: pointer;
 }
 
 a:hover, a:focus {
@@ -283,10 +302,6 @@ a {
 
 #allExp .hide:checked + label + div {
 	margin-left: 0px;
-}
-
-.expDesc {
-	margin-left: 10px;
 }
 
 .hide + label:hover {
@@ -460,6 +475,14 @@ a {
 
 .newsComp {
 	text-align: center;	
+}
+
+.newsTitle {
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 5px;
 }
 
 .newsComp p {

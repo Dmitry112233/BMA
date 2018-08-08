@@ -3,13 +3,12 @@
 <div id="DetailsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="details">      
       <br>
-      <a class="BackButton" href="PremierLeague_${xBetList.get(0).league}_List.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> к списку игр</a>
+      <a class="BackButton" href="PremierLeague_${xBetList.get(0).league}_List.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
       <br>
       <br>
       <div>
          <p>Начало события: <b>${xBetList.get(0).dateStr}</b></p>
       </div>
-      <br>
       <h3>Сравнение коэффициентов лучших букмекеров:</h3>
       <table class="CoeffCompareTable">
          <tr class="CoeffCompareTableHeader">

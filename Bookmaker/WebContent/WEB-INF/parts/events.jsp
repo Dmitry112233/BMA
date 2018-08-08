@@ -10,40 +10,20 @@
             <c:set var="tableRow" value="0" />
             <c:forEach var="ivent" items="${allEvents.get(sport)}">
                <tr class="mainLine">
-                  <td colspan="3">
+                  <td colspan="4">
                      <c:out value="${tableRow=tableRow+1}." />
                      &nbsp;${ivent.competition}
                   </td>
                </tr>
-               <tr class="slaveLine">
+               <tr class="slaveLine slaveLineEvents" onclick="window.location.href='EventDescription_${ivent.iventID}_details.spr'; return false">
                   <td width="50%"><img class="sportIcon" src="${ivent.icon}"><b>&nbsp;${ivent.name}</b></td>
-                  <td width="25%" align="center"><b>${ivent.bet}</b></td>
-                  <td width="25%" align="center">
+                  <td width="20%" align="center"><b>${ivent.bet}</b></td>
+                  <td width="20%" align="center">
                      <b>
                         <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${ivent.coefficient}" />
                      </b>
                   </td>
-               </tr>
-               <tr class="slaveLine">
-                  <td colspan="4" class="expDesc">
-                     <input type="checkbox" id="ev-${ivent.iventID}" class="hide"/>
-                     <label for="ev-${ivent.iventID}">Описание прогноза</label>
-                     <div>${ivent.description}</div>
-                  </td>
-               </tr>
-               <tr class="slaveLine">
-                  <td colspan="4" class="expDesc">
-                     <div id="randomBK">
-                        <!-- количество букмекеров c учетом веса -->
-                        <c:set var="countBK" value="${BookmakerWeightList.size()}" />
-                        <!-- лучший ID -->
-                        <jsp:useBean id="random" class="java.util.Random" scope="application"/>
-                        <c:set var="randID">${random.nextInt(countBK)}</c:set>
-                        <!-- вывод лучшего БК -->
-                        <p>Наилучший коэффициент у </p>
-                        <a rel="nofollow" href="Counter.spr?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>
-                     </div>
-                  </td>
+                  <td width="10%" align="right"><a class="toEventDescription" href="EventDescription_${ivent.iventID}_details.spr">Описание</a></td>
                </tr>
             </c:forEach>
          </table>

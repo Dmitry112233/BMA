@@ -47,21 +47,8 @@
                </b>
             </p>
          </div>
-         <div id="randomBK">
-            <!-- количество букмекеров c учетом веса -->
-            <c:set var="countBK" value="${BookmakerWeightList.size()}" />
-            <!-- лучший ID -->
-            <jsp:useBean id="random" class="java.util.Random" scope="application"/>
-            <c:set var="randID">${random.nextInt(countBK)}</c:set>
-            <!-- вывод лучшего БК -->
-            <p>Наилучший коэффициент у </p>
-            <a rel="nofollow" href="Counter.spr?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>           
-         </div>
-         <div class="expDesc">
-            <input type="checkbox" id="hd-${express.expressID}" class="hide"/>
-            <label for="hd-${express.expressID}" >Описание события</label>
-            <div>${express.description}</div>
-         </div>
+         <a class="toEventDescription" href="ExpressDescription_${express.expressID}_details.spr">Описание события</a>
+         <br>                
       </c:forEach>
       <br>
    </c:if>

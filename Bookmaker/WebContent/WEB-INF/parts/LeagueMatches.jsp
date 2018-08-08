@@ -2,6 +2,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="LeagueMatchesBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="LeagueMatches">      
+      <br>
+      <a class="BackButton" href="Competishions.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие чемпионаты</a>
+      <br>
       <c:if test="${matchesList.size() > 0}">         
          <br>
          <!-- вывод актуальных событий соревнования в цикле -->			
@@ -25,7 +28,5 @@
          <p class="DataMissed">Соревнование не проходит в данный момент либо данные отсутствуют из-за технических проблем.</p>
       </c:if>
       <br>
-      <a class="BackButton" href="Competishions.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> выбрать другой чемпионат</a>
-      <br><br>      
    </div>
 </div>
