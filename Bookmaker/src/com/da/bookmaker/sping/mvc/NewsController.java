@@ -17,7 +17,7 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class NewsController extends BookmakerController {
 
-	@RequestMapping("/News_{offset}.spr")
+	@RequestMapping("/News_{offset}")
 	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException {
 		ArrayList<Integer> pageMass = getPageMass(offset);
 		int currentPage = getCurrentPage(offset);

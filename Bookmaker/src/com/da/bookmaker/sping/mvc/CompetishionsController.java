@@ -12,7 +12,7 @@ import com.da.bookmaker.dao.DaoException;
 @Controller
 public class CompetishionsController extends BookmakerController {
 
-	@RequestMapping("/Competishions.spr")
+	@RequestMapping("/Competishions")
 	public ModelAndView getMainList() throws DaoException {
 		Map<String, Object> map = new HashMap<>();
 		map.putAll(getBookmakerList());

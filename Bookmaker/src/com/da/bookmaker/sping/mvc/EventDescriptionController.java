@@ -20,7 +20,7 @@ import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class EventDescriptionController extends BookmakerController{
-	@RequestMapping("/EventDescription_{id}_details.spr")
+	@RequestMapping("/EventDescription_{id}_details")
 	public ModelAndView getMainList(@PathVariable("id") int id) throws DaoException {
 		IventBean ivent = getIventById(id);
 		ModelAndView modelAndView = new ModelAndView("eventDescriptionPage");

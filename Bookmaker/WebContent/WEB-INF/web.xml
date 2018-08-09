@@ -15,7 +15,7 @@
 
 	<servlet-mapping>
 		<servlet-name>bookmaker</servlet-name>
-		<url-pattern>*.spr</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	

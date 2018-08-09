@@ -17,7 +17,7 @@ import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class ExpressDescriptionController extends BookmakerController{
-	@RequestMapping("ExpressDescription_{id}_details.spr")
+	@RequestMapping("/ExpressDescription_{id}_details")
 	public ModelAndView getMainList(@PathVariable("id") int id) throws DaoException {
 		
 		Map<String, Object> map = getExpressById(id);

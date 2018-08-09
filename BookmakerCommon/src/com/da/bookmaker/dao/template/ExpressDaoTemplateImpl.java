@@ -188,7 +188,6 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 				}
 			}, holder);
 		}
-
 	}
 
 	@Override

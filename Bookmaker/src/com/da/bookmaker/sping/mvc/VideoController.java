@@ -15,7 +15,7 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class VideoController extends BookmakerController {
 	
-//	@RequestMapping("/VideoList.spr")
+//	@RequestMapping("/VideoList")
 	public ModelAndView getMainList() throws DaoException {
 		Map<String, Object> map = getVideoList();
 

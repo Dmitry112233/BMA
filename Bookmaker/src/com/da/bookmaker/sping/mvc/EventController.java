@@ -21,7 +21,7 @@ public class EventController extends BookmakerController{
 
 	private static final String sortedSports[] = {"футбол", "хоккей", "теннис", "баскетбол", ""};
 	 
-	@RequestMapping("/EventsList.spr")
+	@RequestMapping("/EventsList")
 	public ModelAndView getMainList() throws DaoException {
 		Map<String, Object> map = getIventList();
 		List<String> sports = getSortedSports(map.keySet());

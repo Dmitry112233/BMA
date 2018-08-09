@@ -16,7 +16,7 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class QuestionController extends BookmakerController {
 
-	@RequestMapping("/FAQList.spr")
+	@RequestMapping("/FAQList")
 	public ModelAndView getMainList() throws DaoException {
 		Map<String, Object> map = getFAQList();
 

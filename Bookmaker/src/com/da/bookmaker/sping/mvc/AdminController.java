@@ -22,12 +22,12 @@ import com.da.bookmaker.dao.DaoFactory;
 @RequestMapping("/admin")
 public class AdminController {
 
-	@RequestMapping("/login.spr")
+	@RequestMapping("/login")
 	public ModelAndView login() {
 		return new ModelAndView("admin/login");
 	}
 
-	@RequestMapping("/Authenticate.spr")
+	@RequestMapping("/Authenticate")
 	public ModelAndView authenticatete(HttpServletRequest request, @RequestParam("login") String login,
 			@RequestParam("password") String password) throws DaoException {
 
@@ -41,12 +41,12 @@ public class AdminController {
 		}
 	}
 
-	@RequestMapping("/MyExpressForm.spr")
+	@RequestMapping("/MyExpressForm")
 	public ModelAndView myExpressForm() {
 		return new ModelAndView("admin/expressAddPage");
 	}
 
-	@RequestMapping("/AddMyExpress.spr")
+	@RequestMapping("/AddMyExpress")
 	public ModelAndView addMyExpress(@RequestParam("name") String name, @RequestParam("date") String date,
 			@RequestParam("description") String description) throws DaoException, ParseException, UnsupportedEncodingException {
 		ExpressBean myNewExpress = new ExpressBean();
@@ -62,12 +62,12 @@ public class AdminController {
 		return new ModelAndView("admin/adminMain", "myExpress", myNewExpress);
 	}
 
-	@RequestMapping("/MyIventForm.spr")
+	@RequestMapping("/MyIventForm")
 	public ModelAndView myIventForm() {
 		return new ModelAndView("admin/eventAddPage");
 	}
 
-	@RequestMapping("/AddMyIvent.spr")
+	@RequestMapping("/AddMyIvent")
 	public ModelAndView addMyIvent(@RequestParam("name") String name, @RequestParam("date") String date,
 			@RequestParam("bet") String bet, @RequestParam("competition") String competition,
 			@RequestParam("coefficient") Double coefficient) throws DaoException, ParseException {

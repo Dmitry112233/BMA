@@ -19,7 +19,7 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class ExpressController extends BookmakerController{
 	
-	@RequestMapping("/ExpressesList_{offset}.spr")
+	@RequestMapping("/ExpressesList_{offset}")
 	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException {		
 		ArrayList<Integer> pageMass = getPageMass(offset);
 		int currentPage = getCurrentPage(offset);

@@ -19,7 +19,7 @@ import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class PremierLeagueDetailsController extends BookmakerController {
-	@RequestMapping("PremierLeague_{team1}_{team2}_{league}_details.spr")
+	@RequestMapping("/PremierLeague_{team1}_{team2}_{league}_details")
 	public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2,
 			@PathVariable("league") String league) throws DaoException, ParseException {
 		Map<String, Object> map = get1xBetCeffByTeams(team1, team2);
