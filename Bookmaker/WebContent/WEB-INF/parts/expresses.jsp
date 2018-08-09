@@ -55,4 +55,18 @@
    <c:if test="${expressList.size() == 0}">
       <p class="DataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</p>
    </c:if>
+   
+   <nav class="paginationBlock">
+      <ul class="pagination">
+         <c:forEach var="button" items="${pageMass}">
+         <c:if test = "${button + 1 == currentPage}">
+            <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}.spr"><strong>${button + 1}</strong></a></li>
+         </c:if>
+         <c:if test = "${button + 1 != currentPage}">
+         <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}.spr">${button + 1}</a></li>
+         </c:if>
+         </c:forEach>
+      </ul>
+   </nav>
+   
 </div>

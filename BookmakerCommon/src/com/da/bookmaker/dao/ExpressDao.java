@@ -17,4 +17,6 @@ public interface ExpressDao {
 	void deleteExpressesList(String url) throws DaoException;
 	
 	ExpressBean getExpressById(int id) throws DaoException;
+	
+	List<ExpressBean> getExpressesForPage(int limit, int offset) throws DaoException;
 }

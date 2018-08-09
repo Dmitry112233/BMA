@@ -50,6 +50,12 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE E.ID = ?";
 
+	private final static String GET_EXPRESSES_FOR_PAGE = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
+			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
+			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
+			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE SOURCE IS NOT NULL ORDER BY E.ID LIMIT ? OFFSET ?";
+	
+	
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -63,7 +69,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	public List<ExpressBean> getAllExpresses() {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_ALL_EXPRESSES, new ExpressSetExecuter());
-		list.removeAll(Collections.singleton(null));
+		//list.removeAll(Collections.singleton(null));
 		return list;
 	}
 
@@ -98,7 +104,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 				return bean;
 			} else {
 				bean.getIventList().add(createIvent(rs));
-				return null;
+				return null; 
 			}
 		}
 
@@ -194,5 +200,13 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		} else {
 			return null;
 		}
+	}
+
+	@Override
+	public List<ExpressBean> getExpressesForPage(int limit, int offset) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<ExpressBean> list = template.query(GET_EXPRESSES_FOR_PAGE, new Object[] {limit, offset}, new ExpressSetExecuter());
+		list.removeAll(Collections.singleton(null));
+		return list;
 	}
 }

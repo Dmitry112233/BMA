@@ -19,11 +19,12 @@ public class NewsController extends BookmakerController {
 
 	@RequestMapping("/News_{offset}.spr")
 	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException {
-
 		ArrayList<Integer> pageMass = getPageMass(offset);
 		int currentPage = getCurrentPage(offset);
 		int limit = 10;
+		
 		Map<String, Object> map = getNewsListForPage(limit, offset);
+		
 		map.putAll(getBookmakerList());
 		map.put("pageMass", pageMass);
 		map.put("currentPage", currentPage);
