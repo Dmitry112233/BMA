@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div id="newsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">   
+<div id="newsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <br>
    <c:if test="${newsList.size() > 0}">
       <!-- переменная для вывода полоски над каждой новостью, кроме первой -->
@@ -15,7 +15,7 @@
             <p>${newsItem.sport}<br>${newsItem.competition}</p>
          </div>
          <div class="newsTitle">
-         	<a href="NewsDescription_${newsItem.id}_details.spr">${newsItem.title}</a>
+            <a href="NewsDescription_${newsItem.id}_details.spr">${newsItem.title}</a>
          </div>
          <a href="NewsDescription_${newsItem.id}_details.spr"><img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img></a>
       </c:forEach>
@@ -24,11 +24,11 @@
    <c:if test="${newsList.size() == 0}">
       <p class="DataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</p>
    </c:if>
-   
-   <c:forEach var="button" items="${pageMass}">
-   <a class="BackButton" href="News_${button * 10}.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>${button + 1}</a>
-   </c:forEach>
-     
+   <nav class="paginationBlock">
+      <ul class="pagination">
+         <c:forEach var="button" items="${pageMass}">
+            <li class="page-item active"><a class="page-link" href="News_${button * 10}.spr">${button + 1}</a></li>
+         </c:forEach>
+      </ul>
+   </nav>
 </div>
-
-

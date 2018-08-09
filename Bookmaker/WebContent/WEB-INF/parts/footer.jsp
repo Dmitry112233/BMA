@@ -17,7 +17,7 @@
       	<ul class="footerMenu">            
             <li class="menuName">Информация</li>            
             <li><a href="Bookmakers.spr">Сравнение букмекеров</a></li>
-            <li><a href="News.spr">Новости спорта</a></li>
+            <li><a href="News_0.spr">Новости спорта</a></li>
             <li><a href="FAQList.spr">Вопросы - ответы</a></li>
          </ul>
       </div>

@@ -736,6 +736,18 @@ a {
 	cursor: pointer;
 }
 
+.paginationBlock {
+	text-align: center;
+}
+
+.pagination > li > a {
+	color: black !important;
+}
+
+.pagination > .active > a {
+	background-color: #2b2b2b;
+}
+
 /* adaptation */
 @media (max-width: 1305px) {
 	.topbutton {
