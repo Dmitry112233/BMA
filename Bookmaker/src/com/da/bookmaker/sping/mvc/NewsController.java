@@ -19,23 +19,40 @@ public class NewsController extends BookmakerController {
 
 	@RequestMapping("/News_{offset}.spr")
 	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException {
-		
-		Map<String, Object> mapSize = getNewsListAll();
-		ArrayList<NewsBean> list = (ArrayList<NewsBean>) mapSize.get("newsListSize");
-		int quantity = list.size();
+
+		ArrayList<Integer> pageMass = getPageMass(offset);
+		int currentPage = getCurrentPage(offset);
 		int limit = 10;
-		int pageCount = quantity / 10;
-		if (pageCount % 10 != 0){
-			pageCount += 1;
-		}
-		ArrayList<Integer> pageMass = new ArrayList<>();
-		for (int i = 0; i < pageCount; i++){
-			pageMass.add(i);
-		}
 		Map<String, Object> map = getNewsListForPage(limit, offset);
 		map.putAll(getBookmakerList());
 		map.put("pageMass", pageMass);
+		map.put("currentPage", currentPage);
 		return new ModelAndView("news", map);
+	}
+
+	private int getCurrentPage(int offset) {
+		int currentPage;
+		if (offset == 0) {
+			currentPage = 1;
+		} else {
+			currentPage = offset / 10 + 1;
+		}
+		return currentPage;
+	}
+
+	private ArrayList<Integer> getPageMass(int offset) throws DaoException {
+		Map<String, Object> mapSize = getNewsListAll();
+		ArrayList<NewsBean> list = (ArrayList<NewsBean>) mapSize.get("newsListSize");
+		ArrayList<Integer> pageMass = new ArrayList<>();
+		int quantity = list.size();
+		int pageCount = quantity / 10;
+		if (pageCount % 10 != 0) {
+			pageCount += 1;
+		}
+		for (int i = 0; i < pageCount; i++) {
+			pageMass.add(i);
+		}
+		return pageMass;
 	}
 
 	private Map<String, Object> getNewsListAll() throws DaoException {
@@ -44,7 +61,7 @@ public class NewsController extends BookmakerController {
 		map.put("newsListSize", newsListSize);
 		return map;
 	}
-	
+
 	private Map<String, Object> getNewsListForPage(int limit, int offset) throws DaoException {
 		List<NewsBean> newsList = DaoFactory.getNewsDao().getNewsForPage(limit, offset);
 		Map<String, Object> map = new HashMap<>();

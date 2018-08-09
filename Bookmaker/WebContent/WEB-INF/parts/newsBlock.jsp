@@ -27,7 +27,12 @@
    <nav class="paginationBlock">
       <ul class="pagination">
          <c:forEach var="button" items="${pageMass}">
-            <li class="page-item active"><a class="page-link" href="News_${button * 10}.spr">${button + 1}</a></li>
+         <c:if test = "${button + 1 == currentPage}">
+            <li class="page-item active"><a class="page-link" href="News_${button * 10}.spr"><strong>${button + 1}</strong></a></li>
+         </c:if>
+         <c:if test = "${button + 1 != currentPage}">
+         <li class="page-item active"><a class="page-link" href="News_${button * 10}.spr">${button + 1}</a></li>
+         </c:if>
          </c:forEach>
       </ul>
    </nav>
