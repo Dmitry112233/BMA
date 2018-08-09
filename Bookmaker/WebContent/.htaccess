@@ -1,1 +1,3 @@
-ErrorDocument 404 404.html
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.findbestbet.ru$ [NC]
+RewriteRule ^(.*)$ http://findbestbet.ru/$1 [R=301,L]

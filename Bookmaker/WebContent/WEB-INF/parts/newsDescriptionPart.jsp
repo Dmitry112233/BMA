@@ -10,4 +10,5 @@
    <h3>${news.title}</h3>
    <p>${news.description}</p>
    <img class="newsPic" src="${news.image}" alt="${news.sport} ${news.competition} новости"></img>
+   <br>
 </div>

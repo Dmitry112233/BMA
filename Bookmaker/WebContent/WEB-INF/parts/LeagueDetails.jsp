@@ -133,7 +133,8 @@
             <table class="LeagueTable">
                <tr class="LeagueTableHeader">
                   <td></td>
-                  <td colspan="2">Команда</td>
+                  <td></td>
+                  <td align="left">Команда</td>
                   <td>И</td>
                   <td class="LeagueTableSecondary">В</td>
                   <td class="LeagueTableSecondary">Н</td>

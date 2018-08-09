@@ -166,6 +166,7 @@ h1 {
 	background-color: #52c153;
 	padding: 8px;
 	color: #ffffff;
+	margin-left: 10px;
 }
 
 .toBestBK {
@@ -617,13 +618,17 @@ a {
 .LeagueMatchesTable, .CoeffCompareTable, .HistoryTable {
 	width: 100%;
 	box-shadow: 1px 1px 12px 0px #aeaeae;
-	text-align: center;
+	text-align: center;	
 }
 
 .LeagueTable, .GroupTable {	
 	box-shadow: 1px 1px 12px 0px #aeaeae;
 	text-align: center;
-	margin: auto;	
+	margin: auto;		
+}
+
+.HistoryTable tr {
+	height: 46px;
 }
 
 .LeagueTable td:nth-child(3), .GroupTable td:nth-child(3) {	
@@ -670,6 +675,10 @@ a {
 
 .LeagueMatchesTable tr, .CoeffCompareTable tr {
 	cursor: pointer; 
+}
+
+.CoeffCompareTableHeader {
+	cursor: default !important;
 }
 
 .LeagueMatchesTable tr:hover, .CoeffCompareTable tr:hover {

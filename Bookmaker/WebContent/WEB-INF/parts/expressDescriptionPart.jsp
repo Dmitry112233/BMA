@@ -49,4 +49,5 @@
       <!-- вывод лучшего БК -->      
       <a class="toBestBK" rel="nofollow" href="Counter.spr?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank">Лучший коэффициент у <img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>           
    </div>
+   <br>
 </div>
