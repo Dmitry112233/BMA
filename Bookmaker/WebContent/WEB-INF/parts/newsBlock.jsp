@@ -31,7 +31,7 @@
                <li class="page-item active"><a class="page-link" href="News_${button * 10}"><strong>${button + 1}</strong></a></li>
             </c:if>
             <c:if test = "${button + 1 != currentPage}">
-               <li class="page-item active"><a class="page-link" href="News_${button * 10}">${button + 1}</a></li>
+               <li class="page-item"><a class="page-link" href="News_${button * 10}">${button + 1}</a></li>
             </c:if>
          </c:forEach>
       </ul>

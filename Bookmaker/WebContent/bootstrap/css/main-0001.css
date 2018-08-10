@@ -741,11 +741,23 @@ a {
 }
 
 .pagination > li > a {
-	color: black !important;
+	color: black;
+}
+
+.pagination > li > a:hover {
+	color: black;
 }
 
 .pagination > .active > a {
+	background-color: #dddddd;
+	border-color: #dddddd;
+	color: black;
+}
+
+.pagination > .active > a:hover {
 	background-color: #2b2b2b;
+	border-color: #dddddd;
+	cursor: pointer;
 }
 
 /* adaptation */
