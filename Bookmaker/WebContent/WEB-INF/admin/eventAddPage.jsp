@@ -15,7 +15,7 @@
    </head>
    <body>
       <h1>ADD EVENT FORM</h1>
-      <form action="AddMyIvent.spr" method="post">
+      <form action="AddMyIvent" method="post">
          <label for="evname">Name: </label><input id="evname" type="text" name="name" placeholder="Team A - Team B"> 
          <br><br> 
          <label for="evbet">Bet: </label><input id="evbet" type="text" name="bet" placeholder="P1">

@@ -12,7 +12,7 @@
       <h1>Administrator authorization</h1>
       ${message}
       <br>
-      <form action = "Authenticate.spr" method = "post">
+      <form action = "Authenticate" method = "post">
          <label for="login">Login: </label><input id="login" type = "text" name = "login"> 
          <br><br>
          <label for="pass">Password: </label><input id="pass" type = "password" name = "password">

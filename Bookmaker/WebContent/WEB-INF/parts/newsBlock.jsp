@@ -15,9 +15,9 @@
             <p>${newsItem.sport}<br>${newsItem.competition}</p>
          </div>
          <div class="newsTitle">
-            <a href="NewsDescription_${newsItem.id}_details.spr">${newsItem.title}</a>
+            <a href="NewsDescription_${newsItem.id}_details">${newsItem.title}</a>
          </div>
-         <a href="NewsDescription_${newsItem.id}_details.spr"><img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img></a>
+         <a href="NewsDescription_${newsItem.id}_details"><img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img></a>
       </c:forEach>
    </c:if>
    <br>
@@ -27,12 +27,12 @@
    <nav class="paginationBlock">
       <ul class="pagination">
          <c:forEach var="button" items="${pageMass}">
-         <c:if test = "${button + 1 == currentPage}">
-            <li class="page-item active"><a class="page-link" href="News_${button * 10}.spr"><strong>${button + 1}</strong></a></li>
-         </c:if>
-         <c:if test = "${button + 1 != currentPage}">
-         <li class="page-item active"><a class="page-link" href="News_${button * 10}.spr">${button + 1}</a></li>
-         </c:if>
+            <c:if test = "${button + 1 == currentPage}">
+               <li class="page-item active"><a class="page-link" href="News_${button * 10}"><strong>${button + 1}</strong></a></li>
+            </c:if>
+            <c:if test = "${button + 1 != currentPage}">
+               <li class="page-item active"><a class="page-link" href="News_${button * 10}">${button + 1}</a></li>
+            </c:if>
          </c:forEach>
       </ul>
    </nav>

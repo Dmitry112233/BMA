@@ -39,11 +39,11 @@
          </c:forEach>
       </table>
       <p>${myExpress.description}</p>
-      <form action=MyExpressForm.spr method = "post">
+      <form action=MyExpressForm method = "post">
          <input type="submit" value="Add Express">
       </form>
       <br>
-      <form action=MyIventForm.spr method = "post">
+      <form action=MyIventForm method = "post">
          <input type="submit" value="Add Events">
       </form>
    </body>

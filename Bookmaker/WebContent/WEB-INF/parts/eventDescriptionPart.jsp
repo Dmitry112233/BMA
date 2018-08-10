@@ -3,7 +3,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div id="allEv" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <br>
-   <a class="BackButton" href="EventsList.spr"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список прогнозов</a>
+   <a class="BackButton" href="EventsList"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список прогнозов</a>
    <br><br>
    <p>Дата события: ${ivent.dateStr}</p>
    <table class="evtable">
@@ -35,7 +35,7 @@
       <jsp:useBean id="random" class="java.util.Random" scope="application"/>
       <c:set var="randID">${random.nextInt(countBK)}</c:set>
       <!-- вывод лучшего БК -->
-      <a class="toBestBK" rel="nofollow" href="Counter.spr?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank">Лучший коэффициент у <img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>                        
+      <a class="toBestBK" rel="nofollow" href="Counter?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank">Лучший коэффициент у <img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></a>                        
    </div>
    <br>
 </div>

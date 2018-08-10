@@ -3,22 +3,22 @@
    <div class="icons">Icons designed by <a rel="nofollow" target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a rel="nofollow" target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
    <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-         <a href="Bookmakers.spr" class="Alogo"><img class="BMAminiLogo" src="bootstrap/img/BMAlogo.png" alt="BestBet"></a>
+         <a href="Bookmakers" class="Alogo"><img class="BMAminiLogo" src="bootstrap/img/BMAlogo.png" alt="BestBet"></a>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">         
          <ul class="footerMenu">   
             <li class="menuName">Ставки</li>            
-            <li><a href="Competishions.spr">Чемпионаты</a></li>
-            <li><a href="ExpressesList.spr">Экспрессы</a></li>
-            <li><a href="EventsList.spr">Одиночные ставки</a></li>
+            <li><a href="Competishions">Чемпионаты</a></li>
+            <li><a href="ExpressesList_0">Экспрессы</a></li>
+            <li><a href="EventsList">Одиночные ставки</a></li>
          </ul>                  
       </div>
       <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
       	<ul class="footerMenu">            
             <li class="menuName">Информация</li>            
-            <li><a href="Bookmakers.spr">Сравнение букмекеров</a></li>
-            <li><a href="News_0.spr">Новости спорта</a></li>
-            <li><a href="FAQList.spr">Вопросы - ответы</a></li>
+            <li><a href="Bookmakers">Сравнение букмекеров</a></li>
+            <li><a href="News_0">Новости спорта</a></li>
+            <li><a href="FAQList">Вопросы - ответы</a></li>
          </ul>
       </div>
    </div>      

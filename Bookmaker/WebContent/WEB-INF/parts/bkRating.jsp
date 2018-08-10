@@ -16,7 +16,7 @@
                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <span id="bk_id_${bookmaker.bookMakerId}"></span><br><!-- якорь -->
                   <div class="bkName">
-                     <a rel="nofollow" href="Counter.spr?id=${bookmaker.bookMakerId}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>	      		     		
+                     <a rel="nofollow" href="Counter?id=${bookmaker.bookMakerId}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>	      		     		
                   </div>
                </div>
             </div>
@@ -77,7 +77,7 @@
             </div>
          </div>
          <br>
-         <div class="bkReitLinkBlock"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter.spr?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></div>
+         <div class="bkReitLinkBlock"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></div>
       </c:forEach>
       <br>      
    </div>

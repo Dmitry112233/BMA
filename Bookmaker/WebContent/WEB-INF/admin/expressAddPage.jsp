@@ -10,7 +10,7 @@
    </head>
    <body>
       <h1>ADD EXPRESS FORM</h1>
-      <form action="AddMyExpress.spr" method="post">
+      <form action="AddMyExpress" method="post">
          <label for="exname">Name: </label><input id="exname" type="text" name="name" placeholder="Invisible to the user"> 
          <br><br>
          <label for="exdata">Data: </label><input id="exdata" type="text" name="date" placeholder="01.01.2017">

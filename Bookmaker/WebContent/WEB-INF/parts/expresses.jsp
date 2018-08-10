@@ -47,7 +47,7 @@
                </b>
             </p>
          </div>
-         <a class="toEventDescription" href="ExpressDescription_${express.expressID}_details.spr">Описание события</a>
+         <a class="toEventDescription" href="ExpressDescription_${express.expressID}_details">Описание события</a>
          <br>                
       </c:forEach>
       <br>
@@ -60,10 +60,10 @@
       <ul class="pagination">
          <c:forEach var="button" items="${pageMass}">
          <c:if test = "${button + 1 == currentPage}">
-            <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}.spr"><strong>${button + 1}</strong></a></li>
+            <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}"><strong>${button + 1}</strong></a></li>
          </c:if>
          <c:if test = "${button + 1 != currentPage}">
-         <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}.spr">${button + 1}</a></li>
+         <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}">${button + 1}</a></li>
          </c:if>
          </c:forEach>
       </ul>

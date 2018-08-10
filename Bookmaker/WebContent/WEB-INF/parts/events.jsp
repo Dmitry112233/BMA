@@ -15,7 +15,7 @@
                      &nbsp;${ivent.competition}
                   </td>
                </tr>
-               <tr class="slaveLine slaveLineEvents" onclick="window.location.href='EventDescription_${ivent.iventID}_details.spr'; return false">
+               <tr class="slaveLine slaveLineEvents" onclick="window.location.href='EventDescription_${ivent.iventID}_details'; return false">
                   <td width="50%"><img class="sportIcon" src="${ivent.icon}"><b>&nbsp;${ivent.name}</b></td>
                   <td width="20%" align="center"><b>${ivent.bet}</b></td>
                   <td width="20%" align="center">
@@ -23,7 +23,7 @@
                         <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${ivent.coefficient}" />
                      </b>
                   </td>
-                  <td width="10%" align="right"><a class="toEventDescription" href="EventDescription_${ivent.iventID}_details.spr">Описание</a></td>
+                  <td width="10%" align="right"><a class="toEventDescription" href="EventDescription_${ivent.iventID}_details">Описание</a></td>
                </tr>
             </c:forEach>
          </table>
