@@ -12,8 +12,8 @@
       <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
-      <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-      <link href="bootstrap/css/main-${cssVersion}.css" rel="stylesheet">
+      <link href="/Static/bootstrap/css/bootstrap.css" rel="stylesheet">
+      <link href="/Static/bootstrap/css/main-${cssVersion}.css" rel="stylesheet">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
@@ -38,11 +38,11 @@
             <c:import url="parts/newsBlock.jsp"></c:import>
          </div>
       </div>
-      <c:import url="parts/footer.jsp"></c:import>
-      <c:import url="parts/topButton.jsp"></c:import>
+      <c:import url="/Static/parts/footer.jsp"></c:import>
+      <c:import url="/Static/parts/topButton.jsp"></c:import>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="bootstrap/js/bootstrap.js"></script>
+      <script src="/Static/bootstrap/js/bootstrap.js"></script>
    </body>
 </html>
