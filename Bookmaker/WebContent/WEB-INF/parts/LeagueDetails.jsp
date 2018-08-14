@@ -44,12 +44,12 @@
                   <td 
                   <c:if test="${xBetList.get(0).team1 eq Team1Matches.team1}">class="selected_cell"</c:if>
                   >${Team1Matches.team1}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team1}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${Team1Matches.team1}.png" onerror="this.style.display='none'"></td>
                   <td>
                      ${Team1Matches.goalsTeam1}:${Team1Matches.goalsTeam2}
                      <c:if test="${(Team1Matches.penaltyTeam1 > 0) || (Team1Matches.penaltyTeam2 > 0)}"> (${Team1Matches.penaltyTeam1}:${Team1Matches.penaltyTeam2})</c:if>
                   </td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Matches.team2}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${Team1Matches.team2}.png" onerror="this.style.display='none'"></td>
                   <td 
                   <c:if test="${xBetList.get(0).team1 eq Team1Matches.team2}">class="selected_cell"</c:if>
                   >${Team1Matches.team2}</td>
@@ -76,12 +76,12 @@
                   <td 
                   <c:if test="${xBetList.get(0).team2 eq Team2Matches.team1}">class="selected_cell"</c:if>
                   >${Team2Matches.team1}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team1}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${Team2Matches.team1}.png" onerror="this.style.display='none'"></td>
                   <td>
                      ${Team2Matches.goalsTeam1}:${Team2Matches.goalsTeam2}
                      <c:if test="${(Team2Matches.penaltyTeam1 > 0) || (Team2Matches.penaltyTeam2 > 0)}"> (${Team2Matches.penaltyTeam1}:${Team2Matches.penaltyTeam2})</c:if>
                   </td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team2Matches.team2}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${Team2Matches.team2}.png" onerror="this.style.display='none'"></td>
                   <td 
                   <c:if test="${xBetList.get(0).team2 eq Team2Matches.team2}">class="selected_cell"</c:if>
                   >${Team2Matches.team2}</td>
@@ -106,12 +106,12 @@
                <tr>
                   <td class="HistoryTableSecondary">${Team1Team2Matches.dateStr}</td>
                   <td>${Team1Team2Matches.team1}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Team2Matches.team1}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${Team1Team2Matches.team1}.png" onerror="this.style.display='none'"></td>
                   <td>
                      ${Team1Team2Matches.goalsTeam1}:${Team1Team2Matches.goalsTeam2}
                      <c:if test="${(Team1Team2Matches.penaltyTeam1 > 0) || (Team1Team2Matches.penaltyTeam2 > 0)}"> (${Team1Team2Matches.penaltyTeam1}:${Team1Team2Matches.penaltyTeam2})</c:if>
                   </td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${Team1Team2Matches.team2}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${Team1Team2Matches.team2}.png" onerror="this.style.display='none'"></td>
                   <td>${Team1Team2Matches.team2}</td>
                   <td class="HistoryTableSecondary">${Team1Team2Matches.championship}</td>
                </tr>
@@ -147,7 +147,7 @@
                   <c:if test="${LeagueTableRow.team eq xBetList.get(0).team1 or LeagueTableRow.team eq xBetList.get(0).team2}">class="selected_row"</c:if>
                   >
                   <td>${LeagueTableRow.place}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${LeagueTableRow.team}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${LeagueTableRow.team}.png" onerror="this.style.display='none'"></td>
                   <td>${LeagueTableRow.team}</td>
                   <td>${LeagueTableRow.games}</td>
                   <td class="LeagueTableSecondary">${LeagueTableRow.win}</td>
@@ -180,7 +180,7 @@
                   <c:if test="${GroupTableRow.team eq xBetList.get(0).team1 or GroupTableRow.team eq xBetList.get(0).team2}">class="selected_row"</c:if>
                   >
                   <td>${GroupTableRow.place}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${GroupTableRow.team}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${GroupTableRow.team}.png" onerror="this.style.display='none'"></td>
                   <td>${GroupTableRow.team}</td>
                   <td>${GroupTableRow.games}</td>
                   <td class="GroupTableSecondary">${GroupTableRow.wins}</td>
@@ -214,7 +214,7 @@
                   <c:if test="${GroupTableRow.team eq xBetList.get(0).team1 or GroupTableRow.team eq xBetList.get(0).team2}">class="selected_row"</c:if>
                   >
                   <td>${GroupTableRow.place}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${GroupTableRow.team}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${GroupTableRow.team}.png" onerror="this.style.display='none'"></td>
                   <td>${GroupTableRow.team}</td>
                   <td>${GroupTableRow.games}</td>
                   <td class="GroupTableSecondary">${GroupTableRow.wins}</td>

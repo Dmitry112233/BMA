@@ -112,52 +112,52 @@ public class IventBean {
 	public String getSportIcon() {
 
 		if (this.competition.contains("Футбол")) {
-			return "bootstrap/img/sportsIcons/football.png";
+			return "/Static/bootstrap/img/sportsIcons/football.png";
 		}
 		if (this.competition.contains("Теннис")) {
-			return "bootstrap/img/sportsIcons/tennis.png";
+			return "/Static/bootstrap/img/sportsIcons/tennis.png";
 		}
 		if (this.competition.contains("Хоккей")) {
-			return "bootstrap/img/sportsIcons/icehockey.png";
+			return "/Static/bootstrap/img/sportsIcons/icehockey.png";
 		}
 		if (this.competition.contains("Баскетбол")) {
-			return "bootstrap/img/sportsIcons/bascketball.png";
+			return "/Static/bootstrap/img/sportsIcons/bascketball.png";
 		}
 		if (this.competition.contains("Волейбол")) {
-			return "bootstrap/img/sportsIcons/voleyball.png";
+			return "/Static/bootstrap/img/sportsIcons/voleyball.png";
 		}
 		if (this.competition.contains("Бейсбол")) {
-			return "bootstrap/img/sportsIcons/baseball.png";
+			return "/Static/bootstrap/img/sportsIcons/baseball.png";
 		}
 		if (this.competition.contains("Настольный теннис")) {
-			return "bootstrap/img/sportsIcons/pinpong.png";
+			return "/Static/bootstrap/img/sportsIcons/pinpong.png";
 		}
 		if (this.competition.contains("Киберспорт")) {
-			return "bootstrap/img/sportsIcons/cybersport.png";
+			return "/Static/bootstrap/img/sportsIcons/cybersport.png";
 		}
 		if (this.competition.contains("Бильярд")) {
-			return "bootstrap/img/sportsIcons/pool.png";
+			return "/Static/bootstrap/img/sportsIcons/pool.png";
 		}
 		if (this.competition.contains("Бадминтон")) {
-			return "bootstrap/img/sportsIcons/racket.png";
+			return "/Static/bootstrap/img/sportsIcons/racket.png";
 		} else {
-			return "bootstrap/img/sportsIcons/podium.png";
+			return "/Static/bootstrap/img/sportsIcons/podium.png";
 		}
 	}
 
 	public String getIcon() {
 
 		if (this.sport.contains("футбол")) {
-			return "bootstrap/img/sportsIcons/football.png";
+			return "/Static/bootstrap/img/sportsIcons/football.png";
 		}
 		if (this.sport.contains("теннис")) {
-			return "bootstrap/img/sportsIcons/tennis.png";
+			return "/Static/bootstrap/img/sportsIcons/tennis.png";
 		}
 		if (this.sport.contains("хоккей")) {
-			return "bootstrap/img/sportsIcons/icehockey.png";
+			return "/Static/bootstrap/img/sportsIcons/icehockey.png";
 		}
 		if (this.sport.contains("баскетбол")) {
-			return "bootstrap/img/sportsIcons/bascketball.png";
+			return "/Static/bootstrap/img/sportsIcons/bascketball.png";
 		} else {
 			return null;
 		}

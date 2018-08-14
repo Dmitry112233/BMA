@@ -13,12 +13,12 @@
                <tr onclick="window.location.href='PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details'; return false">
                   <td>${leagueEvent.dateStr}</td>
                   <td>${leagueEvent.team1}</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"></td>
                   <td>-</td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"></td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"></td>
                   <td>${leagueEvent.team2}</td>
                   <td><a class="toDetailsButton" href="PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details">Подробности</a></td>
-                  <td><img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"> ${leagueEvent.team1} - <img class="teamIcon" src="bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"> ${leagueEvent.team2}</td>
+                  <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"> ${leagueEvent.team1} - <img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"> ${leagueEvent.team2}</td>
                </tr>
             </c:forEach>
          </table>         

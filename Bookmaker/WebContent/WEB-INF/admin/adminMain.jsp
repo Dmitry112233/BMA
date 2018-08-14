@@ -3,7 +3,7 @@
    <head>
       <title>Admin - Actual express</title>
       <meta name="robots" content="none"/>
-      <link rel="shortcut icon" href="../bootstrap/img/favicon_a.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="/Static/bootstrap/img/favicon_a.ico" type="image/x-icon">
       <meta charset="utf-8">
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

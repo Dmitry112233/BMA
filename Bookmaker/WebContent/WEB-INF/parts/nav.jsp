@@ -10,7 +10,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   </button>
-                  <a href="Bookmakers" class="navbar-brand"><img class="BMALogo" src="bootstrap/img/BMAlogo.png" alt="BestBet"></a>
+                  <a href="Bookmakers" class="navbar-brand"><img class="BMALogo" src="/Static/bootstrap/img/BMAlogo.png" alt="BestBet"></a>
                </div>
                <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">

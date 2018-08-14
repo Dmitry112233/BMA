@@ -3,7 +3,7 @@
    <head>
       <title>Admin - Add express page</title>
       <meta name="robots" content="none"/>
-      <link rel="shortcut icon" href="../bootstrap/img/favicon_a.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="/Static/bootstrap/img/favicon_a.ico" type="image/x-icon">
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
       <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>

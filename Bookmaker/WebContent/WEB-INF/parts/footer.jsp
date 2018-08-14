@@ -3,7 +3,7 @@
    <div class="icons">Icons designed by <a rel="nofollow" target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a rel="nofollow" target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
    <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-         <a href="Bookmakers" class="Alogo"><img class="BMAminiLogo" src="bootstrap/img/BMAlogo.png" alt="BestBet"></a>
+         <a href="Bookmakers" class="Alogo"><img class="BMAminiLogo" src="/Static/bootstrap/img/BMAlogo.png" alt="BestBet"></a>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">         
          <ul class="footerMenu">   

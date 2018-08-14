@@ -9,7 +9,7 @@
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
       <!-- конец тегов для индексации -->
-      <link rel="shortcut icon" href="bootstrap/img/favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="/Static/bootstrap/img/favicon.ico" type="image/x-icon">
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
       <link href="/Static/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -38,8 +38,8 @@
             <c:import url="parts/newsBlock.jsp"></c:import>
          </div>
       </div>
-      <c:import url="/Static/parts/footer.jsp"></c:import>
-      <c:import url="/Static/parts/topButton.jsp"></c:import>
+      <c:import url="parts/footer.jsp"></c:import>
+      <c:import url="parts/topButton.jsp"></c:import>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->

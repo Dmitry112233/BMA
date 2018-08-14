@@ -3,5 +3,5 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <div id="pnf" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">      
    <br>
-   <a class="pnfout" href="index.html">Перейти на главную</a>   
+   <a class="pnfout" href="Bookmakers">Перейти на главную</a>   
 </div>
