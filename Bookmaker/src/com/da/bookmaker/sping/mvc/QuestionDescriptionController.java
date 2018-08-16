@@ -22,7 +22,7 @@ public class QuestionDescriptionController extends BookmakerController {
 
 		Map<String, Object> map = getQuestionByID(id);
 		map.putAll(getBookmakerList());
-		return new ModelAndView("lessonsDetails", map);
+		return new ModelAndView("lessonsDescriptionPage", map);
 	}
 
 	private Map<String, Object> getQuestionByID(int id) throws DaoException {
