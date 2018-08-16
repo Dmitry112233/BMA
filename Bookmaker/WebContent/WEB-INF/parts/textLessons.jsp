@@ -6,6 +6,7 @@
 	   <input type="checkbox" id="hd-${question.questionID}" class="hide"/>
 	   <label for="hd-${question.questionID}" >${question.question}</label>
 	   <div>${question.answer}</div>
+	   <a class="toEventDescription" href="FAQList_${question.questionID}_details">Открыть ответ</a>
 	   <br>
    </c:forEach>   
 </div>
