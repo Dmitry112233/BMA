@@ -187,14 +187,30 @@ h1 {
 	text-align: center;	
 }
 
-.tobkbut:visited, .tobkbut:focus, .toBkDescr:visited, .toBkDescr:focus, .toDetailsButton:visited, .toDetailsButton:focus, .detailToBKButton:visited, .detailToBKButton:focus, .bkReitLink:visited, .bkReitLink:focus, .sportsListTable tr:visited, .sportsListTable tr:focus, .BackButton:visited, .BackButton:focus, .toEventDescription:visited, .toEventDescription:focus, .toBestBK:visited, .toBestBK:focus {
+.pnfout {
+	text-align: center;	
+	font-size: 14pt;	
+	display: block;
+	background-color: #52c153;
+	color: #ffffff;
+	padding: 8px;
+	width: 210px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tobkbut:visited, .tobkbut:focus, .toBkDescr:visited, .toBkDescr:focus, .toDetailsButton:visited, .toDetailsButton:focus, .detailToBKButton:visited, .detailToBKButton:focus, .bkReitLink:visited, .bkReitLink:focus, .sportsListTable tr:visited, .sportsListTable tr:focus, .BackButton:visited, .BackButton:focus, .toEventDescription:visited, .toEventDescription:focus, .toBestBK:visited, .toBestBK:focus, .pnfout:visited, .pnfout:focus {
 	color: #ffffff;
 }
 
-.tobkbut:hover, .toBkDescr:hover, .toDetailsButton:hover, .detailToBKButton:hover, .bkReitLink:hover, .BackButton:hover, .toEventDescription:hover, .toBestBK:hover {
+.tobkbut:hover, .toBkDescr:hover, .toDetailsButton:hover, .detailToBKButton:hover, .bkReitLink:hover, .BackButton:hover, .toEventDescription:hover, .toBestBK:hover, .pnfout:hover {
 	box-shadow: inset 1px 1px 5px -2px black;
 	color: #dadada;
 	cursor: pointer;
+}
+
+#pnf p {
+	text-align: center;
 }
 
 .sportsListTable tr a:hover {
@@ -514,13 +530,6 @@ a {
 
 #newsBlock hr {
 	width: 57%;
-}
-
-.pnfout {
-	text-align: center;
-	text-decoration: underline;
-	font-size: 14pt;	
-	display: block;
 }
 
 .BMALogo {

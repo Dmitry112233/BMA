@@ -59,7 +59,7 @@
       <ul class="pagination">
          <c:forEach var="button" items="${pageMass}">
             <c:if test = "${button + 1 == currentPage}">
-               <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}"><strong>${button + 1}</strong></a></li>
+               <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}">${button + 1}</a></li>
             </c:if>
             <c:if test = "${button + 1 != currentPage}">
                <li class="page-item"><a class="page-link" href="ExpressesList_${button * 20}">${button + 1}</a></li>
