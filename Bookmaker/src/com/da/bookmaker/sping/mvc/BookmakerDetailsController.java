@@ -16,10 +16,11 @@ import com.da.bookmaker.dao.DaoFactory;
 public class BookmakerDetailsController extends BookmakerController {
 
 	@RequestMapping("/Bookmaker_{id}")
-	public ModelAndView getBmkList(@PathVariable("id") int id) throws DaoException {
+	public ModelAndView getBookmaker(@PathVariable("id") int id) throws DaoException {
 		Map<String, Object> map = new HashMap<>();
 		BookmakerBean bean = DaoFactory.getBookmakerDao().getById(id);
-		map.put("Bookmaker", bean);
+		map.put("bookmaker", bean);
+		map.putAll(getBookmakerList());
 		return new ModelAndView("bkDescriptionPage", map);
 	}
 }
