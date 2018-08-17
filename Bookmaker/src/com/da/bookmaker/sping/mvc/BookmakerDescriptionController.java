@@ -17,4 +17,10 @@ public class BookmakerDescriptionController extends BookmakerController{
 		Map<String, Map<String, BookmakerBean>> map = getBookmakerList();
 		return new ModelAndView("bkDescription", map);
 	}
+	
+	@RequestMapping("/index.spr")
+	public ModelAndView getBmkList1() throws DaoException {
+		Map<String, Map<String, BookmakerBean>> map = getBookmakerList();
+		return new ModelAndView("bkDescription", map);
+	}
 }
