@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="allExp" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <br>
-   <a class="BackButton" href="ExpressesList_0"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список экспрессов</a>
+   <a class="BackButton" href="${contextPath}/ExpressesList_0"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список экспрессов</a>
    <br><br>
    <div>
       <p>Экспресс. Дата начала: <b>${express.dateStr}</b></p>

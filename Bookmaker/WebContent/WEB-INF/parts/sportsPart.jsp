@@ -25,9 +25,5 @@
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Немецкая Бундеслига.png"></td>
          <td><a href="${contextPath}/PremierLeague_${'Немецкая Бундеслига'}_List">Бундеслига (Германия)</a></td>
       </tr>
-      <tr onclick="window.location.href='${contextPath}/PremierLeague_${'Чемпионат Мира'}_List'; return false">
-         <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Чемпионат Мира.png"></td>
-         <td><a href="${contextPath}/PremierLeague_${'Чемпионат Мира'}_List">Чемпионат Мира 2018</a></td>
-      </tr>
    </table>
 </div>

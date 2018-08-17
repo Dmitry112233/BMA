@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="allExp" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <br>
    <c:if test="${expressList.size() > 0}">
@@ -47,7 +48,7 @@
                </b>
             </p>
          </div>
-         <a class="toEventDescription" href="ExpressDescription_${express.expressID}_details">Описание события</a>
+         <a class="toEventDescription" href="${contextPath}/ExpressDescription_${express.expressID}_details">Описание события</a>
          <br>                
       </c:forEach>
       <br>
@@ -59,10 +60,10 @@
       <ul class="pagination">
          <c:forEach var="button" items="${pageMass}">
             <c:if test = "${button + 1 == currentPage}">
-               <li class="page-item active"><a class="page-link" href="ExpressesList_${button * 20}">${button + 1}</a></li>
+               <li class="page-item active"><a class="page-link" href="${contextPath}/ExpressesList_${button * 20}">${button + 1}</a></li>
             </c:if>
             <c:if test = "${button + 1 != currentPage}">
-               <li class="page-item"><a class="page-link" href="ExpressesList_${button * 20}">${button + 1}</a></li>
+               <li class="page-item"><a class="page-link" href="${contextPath}/ExpressesList_${button * 20}">${button + 1}</a></li>
             </c:if>
          </c:forEach>
       </ul>

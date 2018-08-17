@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="allEv" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">   
    <br>
    <c:if test="${allEvents.sports.size() > 0}">
@@ -23,7 +24,7 @@
                         <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${ivent.coefficient}" />
                      </b>
                   </td>
-                  <td width="10%" align="right"><a class="toEventDescription" href="EventDescription_${ivent.iventID}_details">Описание</a></td>
+                  <td width="10%" align="right"><a class="toEventDescription" href="${contextPath}/EventDescription_${ivent.iventID}_details">Описание</a></td>
                </tr>
             </c:forEach>
          </table>

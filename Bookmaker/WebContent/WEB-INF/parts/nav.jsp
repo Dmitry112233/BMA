@@ -24,8 +24,7 @@
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Английская Примьер Лига'}_List">Премьер-Лига (Англия)</a></li>
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Испанская Ла Лига'}_List">Ла Лига (Испания)</a></li>
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Итальянская серия А'}_List">Серия А (Италия)</a></li>
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Немецкая Бундеслига'}_List">Бундеслига (Германия)</a></li>                                     
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Чемпионат Мира'}_List">Чемпионат Мира 2018</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Немецкая Бундеслига'}_List">Бундеслига (Германия)</a></li>
                         </ul>
                      </li>            
                      <li class="${param.betMenu == 'true'?'active':''} dropdown">

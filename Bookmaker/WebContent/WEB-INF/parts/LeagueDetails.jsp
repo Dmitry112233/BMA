@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="DetailsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="details">      
       <br>
-      <a class="BackButton" href="PremierLeague_${xBetList.get(0).league}_List"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
+      <a class="BackButton" href="${contextPath}/PremierLeague_${xBetList.get(0).league}_List"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
       <br>
       <br>
       <div>

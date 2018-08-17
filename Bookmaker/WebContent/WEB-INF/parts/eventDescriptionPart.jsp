@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="allEv" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <br>
-   <a class="BackButton" href="EventsList"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список прогнозов</a>
+   <a class="BackButton" href="${contextPath}/EventsList"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список прогнозов</a>
    <br><br>
    <p>Дата события: ${ivent.dateStr}</p>
    <table class="evtable">

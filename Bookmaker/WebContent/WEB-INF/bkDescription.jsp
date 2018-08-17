@@ -32,7 +32,7 @@
       <div class="container backing">
          <div class="row">
             <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            	<h1>Описание букмекерских контор</h1>
+            	<h1>Сравнение букмекерских контор</h1>
             </div>
          </div>
       </div>
