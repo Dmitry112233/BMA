@@ -785,6 +785,10 @@ a {
 	width: 100%;	
 }
 
+.bkReitTableSecondaryRow,  .toDescrSecondary, .toBKSecondary {
+	display: none;
+}
+
 .bkReit {
 	margin-left: 10px;
 	margin-right: 10px;
@@ -808,6 +812,14 @@ a {
 	
 	.video {
 		height: 200px;
+	}
+	
+	.toDescrMain{
+		display: none;
+	}
+	
+	.toDescrSecondary{
+		display: inline;
 	}
 }
 
@@ -858,6 +870,14 @@ a {
 	.BMALogo {
 		height: 35px;
 		margin-right: 5px;
+	}
+	
+	.toDescrMain, .toBKMain {
+		display: none;
+	}
+	
+	.toDescrSecondary, .toBKSecondary {
+		display: inline;
 	}
 }
 
@@ -946,5 +966,19 @@ a {
 	
 	.leagueIcon {
 		display: none;
+	}
+	
+	.bkReitTableMainRow {
+		display: none;
+	}
+	
+	.bkReitTableSecondaryRow {
+		display: block;
+	}
+	
+	.toBkDescrPage {
+		margin-left: 0px;
+		margin-top: 10px;
+		margin-bottom: 12px;
 	}
 }

@@ -17,10 +17,19 @@
                   <c:set var="separatorBk" value="true" />
                </td>
             </tr>
-            <tr>
+            <tr class="bkReitTableMainRow">
                <td width="25%"><a rel="nofollow" href="Counter?id=${bookmaker.bookMakerId}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a></td>
-               <td width="25%"><a class="toBkDescrPage" href="${contextPath}/Bookmaker_${bookmaker.bookMakerId}">Описание букмекера</a></td>
-               <td width="50%"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></td>
+               <td width="25%"><a class="toBkDescrPage" href="${contextPath}/Bookmaker_${bookmaker.bookMakerId}"><span class="toDescrMain">Описание букмекера</span><span class="toDescrSecondary">Описание</span></a></td>
+               <td width="50%"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter?id=${bookmaker.bookMakerId}"><span class="toBKMain">Регистрация на сайте ${bookmaker.name}</span><span class="toBKSecondary">Регистрация</span></a></td>
+            </tr>
+            <tr class="bkReitTableSecondaryRow">
+               <td colspan="3"><a rel="nofollow" href="Counter?id=${bookmaker.bookMakerId}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a></td>
+            </tr>
+            <tr class="bkReitTableSecondaryRow">               
+               <td colspan="3"><a class="toBkDescrPage" href="${contextPath}/Bookmaker_${bookmaker.bookMakerId}">Описание букмекера</a></td>               
+            </tr>
+            <tr class="bkReitTableSecondaryRow">               
+               <td colspan="3"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></td>
             </tr>
             <tr>
                <td colspan="3">
