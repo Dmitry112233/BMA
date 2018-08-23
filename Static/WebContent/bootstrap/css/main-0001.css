@@ -199,10 +199,35 @@ h1 {
 
 .toBestBK {
 	background-color: #e84242;
-	padding: 8px;
+	padding-left: 8px;
+	padding-top: 6px;	
 	color: #ffffff;	
 	margin-left: 10px;
+	width: 132.83px;
+	height: 32px;
+	position: absolute;
 }
+
+.toBestBKimg {
+	margin-left: 16px;
+}
+
+.toBestBK img {
+	display: none;
+}
+
+.toBestBK:hover > .toBestBKtxt {
+	display: none;	
+}
+
+.toBestBK:hover {	
+	padding-top: 2px;
+}
+
+.toBestBK:hover > .toBestBKimg img {
+	display: inline;		 	
+}
+.toBestBKimg
 
 .bkReitLinkBlock {
 	text-align: center;	
@@ -525,15 +550,11 @@ a {
 }
 
 #randomBK img {
-	height: 20px;
+	height: 28px;
 }
 
 #randomBK a, #randomBK p  {
 	display: inline;
-}
-
-#randomBK {
-	margin-bottom: 10px;
 }
 
 .progressBarDone p {
