@@ -16,36 +16,43 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class ExpressDescriptionController extends BookmakerController{
-	@RequestMapping("/ExpressDescription_{id}_details")
-	public ModelAndView getMainList(@PathVariable("id") int id) throws DaoException {
-		
+public class ExpressDescriptionController extends BookmakerController {
+	@RequestMapping("/ExpressDescription_{id}_details_{currentPage}")
+	public ModelAndView getMainList(@PathVariable("id") int id, @PathVariable("currentPage") int currentPage)
+			throws DaoException {
+
 		Map<String, Object> map = getExpressById(id);
+		map.put("offset", getOffset(currentPage));
 		map.putAll(getBookmakerList());
 		map.putAll(getBookmakerWeight());
 		return new ModelAndView("expressDescriptionPage", map);
 	}
-	
+
+	public int getOffset(int currentPage) {
+		int offset = (currentPage - 1) * 20;
+		return offset;
+	}
+
 	private Map<String, Object> getExpressById(int id) throws DaoException {
 		ExpressBean express = DaoFactory.getExpressDao().getExpressById(id);
 		Map<String, Object> map = new HashMap<>();
-		map.put("express", express);	
+		map.put("express", express);
 		return map;
 	}
-	
+
 	private Map<String, ArrayList<BookmakerBean>> getBookmakerWeight() throws DaoException {
 		Map<String, BookmakerBean> bookmakerList = DaoFactory.getBookmakerDao().getAllBookmakers();
 		Map<String, ArrayList<BookmakerBean>> mapWeight = new HashMap<>();
 		ArrayList<BookmakerBean> bookmakerWeightList = new ArrayList<>();
-		
-		for (BookmakerBean bean : bookmakerList.values()){
-				for(int i = 0; i <=bean.getWeight() - 1; i++){
-					bookmakerWeightList.add(bean);
-				}
-	   }
-		
+
+		for (BookmakerBean bean : bookmakerList.values()) {
+			for (int i = 0; i <= bean.getWeight() - 1; i++) {
+				bookmakerWeightList.add(bean);
+			}
+		}
+
 		mapWeight.put("BookmakerWeightList", bookmakerWeightList);
-		
+
 		return mapWeight;
 	}
 

@@ -48,7 +48,7 @@
                </b>
             </p>
          </div>
-         <a class="toEventDescription" href="${contextPath}/ExpressDescription_${express.expressID}_details">Описание события</a>
+         <a class="toEventDescription" href="${contextPath}/ExpressDescription_${express.expressID}_details_${currentPage}">Описание события</a>
          <br>                
       </c:forEach>
       <br>
