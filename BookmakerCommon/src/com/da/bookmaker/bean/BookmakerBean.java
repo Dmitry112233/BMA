@@ -31,6 +31,16 @@ public class BookmakerBean {
 	private int weight;
 	
 	private int counter;
+	
+	private String bonus;
+
+	public String getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(String bonus) {
+		this.bonus = bonus;
+	}
 
 	public int getCounter() {
 		return counter;

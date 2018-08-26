@@ -18,17 +18,17 @@ import com.da.bookmaker.dao.DaoException;
 public class BookmakerDaoTemplateImpl implements BookmakerDao{
 
 	private final static String GET_ALL_BOOKMAKERS = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
-	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT FROM BOOKMAKERS";
+	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT, BONUS FROM BOOKMAKERS";
 
 
 	private static final String GET_BY_NAME = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
-	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT FROM BOOKMAKERS WHERE NAME = ?";
+	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT, BONUS FROM BOOKMAKERS WHERE NAME = ?";
 	
 	private static final String UPDATE_BOOKMAKER_BY_ID = "UPDATE BOOKMAKERS SET COUNTER = COUNTER + 1 WHERE ID = ?";
 	
 	
 	private static final String GET_BY_ID = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
-			"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT, COUNTER FROM BOOKMAKERS WHERE ID = ?";
+			"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT, COUNTER, BONUS FROM BOOKMAKERS WHERE ID = ?";
 	
 	
 	private DataSource dataSource;
@@ -63,6 +63,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setUsability(rs.getInt("USABILITY"));
 				bookmaker.setResult(rs.getInt("RESULT"));
 				bookmaker.setWeight(rs.getInt("WEIGHT"));
+				bookmaker.setBonus("BONUS");
 				return bookmaker;
 			}
 		}); 
@@ -96,6 +97,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setUsability(rs.getInt("USABILITY"));
 				bookmaker.setResult(rs.getInt("RESULT"));
 				bookmaker.setWeight(rs.getInt("WEIGHT"));
+				bookmaker.setBonus("BONUS");
 				return bookmaker;
 			}
 		}); 
@@ -129,6 +131,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setResult(rs.getInt("RESULT"));
 				bookmaker.setWeight(rs.getInt("WEIGHT"));
 				bookmaker.setCounter(rs.getInt("COUNTER"));
+				bookmaker.setBonus("BONUS");
 				return bookmaker;
 			}
 		}); 
