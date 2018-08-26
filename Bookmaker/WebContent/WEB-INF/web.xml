@@ -28,6 +28,17 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	<filter>
+		<filter-name>SlashRedirect</filter-name>
+		<filter-class>com.da.bookmaker.filter.SlashRedirect</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>SlashRedirect</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/Error404Page</location>
