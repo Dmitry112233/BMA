@@ -23,7 +23,7 @@ public class OneXbetParser extends AbstractParser {
 
 	static final private String ENG = "https://1xbet.com/by/line/Football/88637-England-Premier-League/";
 	static final private String RUS = "https://1xbet.com/by/line/Football/225733-Russia-Premier-League/";	
-	static final private String ESP = "https://1xvix.top/line/Football/127733-Spain-Primera-Division/";	
+	static final private String ESP = "https://1xvix.top/line/Football/127733-Spain-La-Liga/";	
 	static final private String GER = "https://1xvix.top/line/Football/96463-Germany-Bundesliga/";
 	static final private String ITA = "https://1xvix.top/line/Football/110163-Italy-Serie-A/";
 	

@@ -12,7 +12,7 @@
             <hr>
          </c:if>
          <c:set var="separatorNews" value="true" />
-         <div class="newsComp">
+         <div class="listNewsComp">
             <p>${newsItem.sport}<br>${newsItem.competition}</p>
          </div>
          <div class="newsTitle">

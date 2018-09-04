@@ -70,7 +70,7 @@ body {
 	width: 262.5px;
 }
 
-h1 {
+h1, .newsComp {
 	text-align: right;	
 	font-size: 24pt;
 	font-weight: bold;
@@ -527,7 +527,7 @@ a {
 	height: 300px;
 }
 
-.newsComp {
+.listNewsComp {
 	text-align: center;	
 }
 

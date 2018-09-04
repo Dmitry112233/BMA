@@ -29,7 +29,7 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         	<h1>Детали новости...</h1>
+         	<h2 class="newsComp">${news.sport}. ${news.competition}</h2>
          </div>
       </div>
       <div class="container">

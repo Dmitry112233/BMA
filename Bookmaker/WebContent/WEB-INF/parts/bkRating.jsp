@@ -32,13 +32,21 @@
                <td colspan="3"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></td>
             </tr>
             <tr>
+            	<td colspan="3">            	
+	            	<br>
+	            	<p>Бонусы:</p>
+	            	<p>${bookmaker.bonus}</p>  
+	            	<br>          	
+            	</td>            
+            </tr>
+            <tr>
                <td colspan="3">
                   <h4>Общий рейтинг</h4>
                   <div class="progressBar">
                      <div class="progressBarDone"><p>${bookmaker.result}</p></div>
                   </div>
                </td>
-            </tr>
+           </tr>                        
          </c:forEach>
       </table>
       <br>      

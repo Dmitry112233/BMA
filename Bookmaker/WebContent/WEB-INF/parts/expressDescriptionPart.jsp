@@ -50,5 +50,5 @@
       <!-- вывод лучшего БК -->      
       <a class="toBestBK" rel="nofollow" href="Counter?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank"><span class="toBestBKtxt">Повторить ставку </span><span class="toBestBKimg"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></span></a>                 
    </div>
-   <br>
+   <br><br><br>
 </div>
