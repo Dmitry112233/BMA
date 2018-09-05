@@ -63,7 +63,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setUsability(rs.getInt("USABILITY"));
 				bookmaker.setResult(rs.getInt("RESULT"));
 				bookmaker.setWeight(rs.getInt("WEIGHT"));
-				bookmaker.setBonus("BONUS");
+				bookmaker.setBonus(rs.getString("BONUS"));
 				return bookmaker;
 			}
 		}); 
@@ -97,7 +97,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setUsability(rs.getInt("USABILITY"));
 				bookmaker.setResult(rs.getInt("RESULT"));
 				bookmaker.setWeight(rs.getInt("WEIGHT"));
-				bookmaker.setBonus("BONUS");
+				bookmaker.setBonus(rs.getString("BONUS"));
 				return bookmaker;
 			}
 		}); 
@@ -131,7 +131,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setResult(rs.getInt("RESULT"));
 				bookmaker.setWeight(rs.getInt("WEIGHT"));
 				bookmaker.setCounter(rs.getInt("COUNTER"));
-				bookmaker.setBonus("BONUS");
+				bookmaker.setBonus(rs.getString("BONUS"));
 				return bookmaker;
 			}
 		}); 
