@@ -2,7 +2,7 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Описание и сравнение легальных букмекеров</title>
+      <title>Рейтинг букмекеров, официальный сайт | findbestbet.ru</title>
       <meta name="Description" content="Сравнение лучших легальных букмекеров по ключевым параметрам с рейтингом и оценками"/>
       <meta name="Keywords" content="букмекеры плюсы минусы рейтинг оценки валюты платежные системы описания надежность линия удобство работы"/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
       <div class="container backing">
          <div class="row">
             <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            	<h1>Сравнение букмекерских контор</h1>
+            	<h1>Рейтинг букмекеров</h1>
             </div>
          </div>
       </div>

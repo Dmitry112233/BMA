@@ -28,7 +28,7 @@
                         </ul>
                      </li>            
                      <li class="${param.betMenu == 'true'?'active':''} dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown">Ставки <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown">Прогнозы <span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu3">
                            <li class="${param.secondMenu == 'true'?'active':''}"><a href="${contextPath}/ExpressesList_0">Экспрессы</a></li>
                            <li class="${param.sixthMenu == 'true'?'active':''}"><a href="${contextPath}/EventsList">Одиночные прогнозы</a></li>                           
