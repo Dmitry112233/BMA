@@ -13,7 +13,7 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class NewDescriptionController extends BookmakerController {
+public class NewsDescriptionController extends BookmakerController {
 
 	@RequestMapping("/NewsDescription_{id}_details_{currentPage}")
 	public ModelAndView getMainList(@PathVariable("id") int id, @PathVariable("currentPage") int currentPage) throws DaoException {
