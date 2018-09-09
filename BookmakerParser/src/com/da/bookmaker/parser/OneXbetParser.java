@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 import com.da.bookmaker.bean.PremierLeagueBean;
 import com.da.bookmaker.dao.DaoFactory;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlDivision;
@@ -162,6 +163,8 @@ public class OneXbetParser extends AbstractParser {
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				logger.info("1xBet saved for url: " + url);
 			}
+		} catch (FailingHttpStatusCodeException e) {
+			System.err.println(url + " IS NOT FOUND");
 		} finally {
 			webClient.closeAllWindows();
 		}
