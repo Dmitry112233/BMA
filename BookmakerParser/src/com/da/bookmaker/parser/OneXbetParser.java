@@ -1,11 +1,14 @@
 package com.da.bookmaker.parser;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
 import java.util.TimeZone;
 
 import org.apache.log4j.Level;
@@ -21,15 +24,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class OneXbetParser extends AbstractParser {
 
-	static final private String ENG = "https://1xbet.com/by/line/Football/88637-England-Premier-League/";
-	static final private String RUS = "https://1xbet.com/by/line/Football/225733-Russia-Premier-League/";	
-	static final private String ESP = "https://1xvix.top/line/Football/127733-Spain-La-Liga/";	
-	static final private String GER = "https://1xvix.top/line/Football/96463-Germany-Bundesliga/";
-	static final private String ITA = "https://1xvix.top/line/Football/110163-Italy-Serie-A/";
-	
-	static final private String CL = "https://1xvix.top/line/Football/118587-UEFA-Champions-League/";
-	static final private String LE = "https://1xvix.top/line/Football/118593-UEFA-Europa-League/";
-	static final private String WC = "https://1xvix.top/line/Football/1536237-FIFA-World-Cup-2018/";
+	private InputStream fis;
+	static private Properties property;
 
 	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
 
@@ -43,18 +39,31 @@ public class OneXbetParser extends AbstractParser {
 	}
 
 	public void paresAllChamp() throws Exception {
-		List<String> urls = new ArrayList<>();
-		urls.add(ENG);
-		urls.add(RUS);		
-		urls.add(ESP);		
-		urls.add(GER);
-		urls.add(ITA);
-		for (String url : urls) {
-			parseOneXBet(url);
+		try {
+			if (property == null) {
+				property = new Properties();
+				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("xBetUrl.properties");
+				property.load(fis);
+			}
+			List<String> urls = new ArrayList<>();
+			urls.add(property.getProperty("ENG"));
+			urls.add(property.getProperty("RUS"));
+			urls.add(property.getProperty("ESP"));
+			urls.add(property.getProperty("GER"));
+			urls.add(property.getProperty("ITA"));
+			for (String url : urls) {
+				parseOneXBet(url, property);
+			}
+		} catch (IOException e) {
+			System.err.println("Файл xBetUrl не найден");
+		} finally {
+			if (fis != null) {
+				fis.close();
+			}
 		}
 	}
 
-	private void parseOneXBet(String url) throws Exception {
+	private void parseOneXBet(String url, Properties property) throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
 			logger.info("1xBet start for url: " + url);
@@ -79,76 +88,78 @@ public class OneXbetParser extends AbstractParser {
 				ArrayList<String> names = getName(events_name);
 				bean = getCoefficients(c_bets, bean);
 				bean.setDateStr(time);
-				if (names.get(0).contains("голы") || names.get(0).contains("Хозяева") 
-						|| names.get(1).contains("голы") || names.get(1).contains("Гости")) {
+				if (names.get(0).contains("голы") || names.get(0).contains("Хозяева") || names.get(1).contains("голы")
+						|| names.get(1).contains("Гости")) {
 					continue;
 				} else {
 					bean.setTeam1(names.get(0));
 					bean.setTeam2(names.get(1));
 				}
-				switch (url) {
-				case ENG:
+				if (url.equals(property.getProperty("ENG"))) {
 					bean.setLeague("Английская Примьер Лига");
-					break;
-				case RUS:
+				}
+				if (url.equals(property.getProperty("RUS"))) {
 					bean.setLeague("Российская Примьер Лига");
-					break;
-				case GER:
+				}
+				if (url.equals(property.getProperty("GER"))) {
 					bean.setLeague("Немецкая Бундеслига");
-					break;
-				case ITA:
+				}
+				if (url.equals(property.getProperty("ITA"))) {
 					bean.setLeague("Итальянская серия А");
-					break;
-				case ESP:
+				}
+				if (url.equals(property.getProperty("ESP"))) {
 					bean.setLeague("Испанская Ла Лига");
-					break;
-				case CL:
+				}
+				if (url.equals(property.getProperty("CL"))) {
 					bean.setLeague("Лига Чемпионов");
-					break;
-				case LE:
+				}
+				if (url.equals(property.getProperty("LE"))) {
 					bean.setLeague("Лига Европы");
-					break;
-				case WC:
+				}
+				if (url.equals(property.getProperty("WC"))) {
 					bean.setLeague("Чемпионат Мира");
-					break;
 				}
 				bean.setBookmakerId(bookmakerId);
 				beans.add(bean);
 			}
-			switch (url) {
-			case ENG:
+			if (url.equals(property.getProperty("ENG"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				break;
-			case RUS:
+				logger.info("1xBet saved for url: " + url);
+			}
+			if (url.equals(property.getProperty("RUS"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				break;
-			case GER:
+				logger.info("1xBet saved for url: " + url);
+			}
+			if (url.equals(property.getProperty("GER"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Немецкая Бундеслига", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				break;
-			case ITA:
+				logger.info("1xBet saved for url: " + url);
+			}
+			if (url.equals(property.getProperty("ITA"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Итальянская серия А", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				break;
-			case ESP:
+				logger.info("1xBet saved for url: " + url);
+			}
+			if (url.equals(property.getProperty("ESP"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Испанская Ла Лига", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				break;
-			case CL:
+				logger.info("1xBet saved for url: " + url);
+			}
+			if (url.equals(property.getProperty("CL"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Чемпионов", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				break;
-			case LE:
+				logger.info("1xBet saved for url: " + url);
+			}
+			if (url.equals(property.getProperty("LE"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				break;
-			case WC:
+				logger.info("1xBet saved for url: " + url);
+			}
+			if (url.equals(property.getProperty("WC"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				break;
-			default:
 				logger.info("1xBet saved for url: " + url);
 			}
 		} finally {
