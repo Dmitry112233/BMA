@@ -9,10 +9,10 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">         
          <ul class="footerMenu">   
-            <li class="menuName">Ставки</li>            
+            <li class="menuName">Ставки на спорт</li>            
             <li><a href="${contextPath}/Competishions">Чемпионаты</a></li>
             <li><a href="${contextPath}/ExpressesList_0">Экспрессы</a></li>
-            <li><a href="${contextPath}/EventsList">Одиночные ставки</a></li>
+            <li><a href="${contextPath}/EventsList">Одиночные прогнозы</a></li>
          </ul>                  
       </div>
       <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">

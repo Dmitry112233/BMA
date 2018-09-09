@@ -79,7 +79,7 @@ h1, .newsComp {
 	margin-right: 10px;
 }
 
-.bkListContent h2 {
+.bkListContent h2, .article h2 {
 	text-align: center;	
 	font-size: 20pt;
 	font-weight: bold;	
@@ -108,7 +108,7 @@ h1, .newsComp {
 }
 
 .bmReitLogo {
-	width: 150px;
+	width: 137px;
 }
 
 #textLessons a, #videoPart a {
@@ -813,6 +813,28 @@ a {
 .bkReit {
 	margin-left: 10px;
 	margin-right: 10px;
+}
+
+.article {
+	padding: 10px;
+	background-color: #e2e2e2;
+}
+
+#textLessons ul li {
+	list-style-type: none;
+}
+
+#textLessons ul {
+	padding-left: 10px;
+}
+
+#bkReitBlock ul {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.testest {
+	text-align: right;
 }
 
 /* adaptation */
