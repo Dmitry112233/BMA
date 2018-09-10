@@ -33,19 +33,19 @@ public class QuestionDescriptionController extends BookmakerController {
 				property.load(fis);
 			}
 			if (id == 1) {
-				map.put("Question1_T", property.getProperty("Question1_T"));
-				map.put("Question1_T", property.getProperty("Question1_T"));
-				map.put("Question1_T", property.getProperty("Question1_T"));
+				map.put("Question_T", property.getProperty("Question1_T"));
+				map.put("Question_H1", property.getProperty("Question1_H1"));
+				map.put("Question_D", property.getProperty("Question1_D"));
 			}
 			if (id == 6) {
-				map.put("Question6_T", property.getProperty("Question6_T"));
-				map.put("Question6_T", property.getProperty("Question6_T"));
-				map.put("Question6_T", property.getProperty("Question6_T"));
+				map.put("Question_T", property.getProperty("Question6_T"));
+				map.put("Question_H1", property.getProperty("Question6_H1"));
+				map.put("Question_D", property.getProperty("Question6_D"));
 			}
 			if (id == 10) {
-				map.put("Question10_T", property.getProperty("Question10_T"));
-				map.put("Question10_T", property.getProperty("Question10_T"));
-				map.put("Question10_T", property.getProperty("Question10_T"));
+				map.put("Question_T", property.getProperty("Question10_T"));
+				map.put("Question_H1", property.getProperty("Question10_H1"));
+				map.put("Question_D", property.getProperty("Question10_D"));
 			}
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");

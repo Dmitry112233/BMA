@@ -30,4 +30,5 @@
       </c:if>
       <br>
    </div>
+   <p>${League_T}/${League_H1}/${League_D}</p>
 </div>

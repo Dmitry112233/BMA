@@ -70,4 +70,5 @@
       	</div>
       <br>
    </div>
+   <p>${Bookmakers_T}/${Bookmakers_H1}/${Bookmakers_D}</p>
 </div>

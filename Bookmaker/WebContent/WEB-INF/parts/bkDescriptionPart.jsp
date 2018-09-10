@@ -75,4 +75,5 @@
       <div class="bkReitLinkBlock"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></div>
       <br>   
    </div>
+   <p>${Bookmaker_T}/${Bookmaker_H1}/${Bookmaker_D}</p>
 </div>
