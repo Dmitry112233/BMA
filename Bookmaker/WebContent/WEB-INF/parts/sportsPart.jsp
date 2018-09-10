@@ -26,5 +26,5 @@
          <td><a href="${contextPath}/PremierLeague_${'Немецкая Бундеслига'}_List">Бундеслига (Германия)</a></td>
       </tr>
    </table>
-   <p>${Competishions_T}/${Competishions_H1}/${Competishions_D}</p>
+   <%-- <p>${Competishions_T}/${Competishions_H1}/${Competishions_D}</p> --%>
 </div>

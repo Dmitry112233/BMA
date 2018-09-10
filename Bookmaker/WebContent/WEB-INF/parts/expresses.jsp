@@ -68,5 +68,5 @@
          </c:forEach>
       </ul>
    </nav>
-   <p>${Express_T}/${Express_H1}/${Express_D}</p>
+   <%-- <p>${Express_T}/${Express_H1}/${Express_D}</p> --%>
 </div>

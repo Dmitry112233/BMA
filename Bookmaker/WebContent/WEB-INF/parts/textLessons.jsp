@@ -8,5 +8,5 @@
 	   	<li> <a href="${contextPath}/FAQList_${question.questionID}_details">${question.question}</a></li>	   	
 	   </ul>
    </c:forEach>   
-   <p>${FAQ_T}/${FAQ_H1}/${FAQ_D}</p>
+   <%-- <p>${FAQ_T}/${FAQ_H1}/${FAQ_D --%>}</p>
 </div>
