@@ -2,8 +2,8 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>${Competishions_D}</title>
-      <meta name="Description" content="${Bookmakers_D}"/>
+      <title>${Competishions_T}</title>
+      <meta name="Description" content="${Competishions_D}"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>

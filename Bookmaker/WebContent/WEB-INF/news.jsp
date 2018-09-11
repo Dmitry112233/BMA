@@ -4,7 +4,7 @@
       <!-- теги для индексации -->
       <title>Новости спорта - футбол, хоккей, теннис, баскетбол</title>
       <meta name="Description" content="Самые свежие новости мирового спорта с обзорами и фото"/>
-      <meta name="Keywords" content="последние новости спорт футбол теннис хоккей баскетбол фигурное катание"/>
+      <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>

@@ -5,7 +5,8 @@
    <br>
    <a class="BackButton" href="${contextPath}/FAQList"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие вопросы</a>
    <br><br>
+   <div class="article">${Question_Txt}</div>
+   <br>
    <div>${question.answer}</div>
    <br>
-   <%-- <p>${Question_T}/${Question_H1}/${Question_D}</p> --%>
 </div>

@@ -2,8 +2,8 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Ответ на вопрос</title>      
-      <meta name="Description" content=""/>      
+      <title>${Question_T}</title>      
+      <meta name="Description" content="${Question_D}"/>      
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -30,7 +30,7 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         	<h1>${question.question}</h1>
+         	<h1>${Question_H1}</h1>
          </div>
       </div>
       <div class="container">

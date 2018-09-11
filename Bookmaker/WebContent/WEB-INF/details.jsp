@@ -4,7 +4,7 @@
       <!-- теги для индексации -->
       <title>details...</title>
       <meta name="Description" content="details..."/>
-      <meta name="Keywords" content="details..."/>
+      <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>

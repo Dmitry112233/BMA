@@ -439,7 +439,12 @@ a {
 }
 
 .leagueIcon {
-	height: 31px;
+	height: 40px;	
+	padding-bottom: 10px;
+}
+
+.leagueH1 {
+	display: inline-block;	
 }
 
 .leagueIconSmall {
@@ -818,6 +823,14 @@ a {
 .article {
 	padding: 10px;
 	background-color: #e2e2e2;
+}
+
+.article ul {
+	padding-left: 40px !important;
+}
+
+.article ul li {
+	list-style-type: disc !important;
 }
 
 #textLessons ul li {

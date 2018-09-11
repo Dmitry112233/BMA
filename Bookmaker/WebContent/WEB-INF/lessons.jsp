@@ -2,9 +2,9 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Ответы на Ваши вопросы, которые помогут начать играть и выигрывать</title>      
-      <meta name="Description" content="Ответы на Ваши вопросы про ставки на спорт. Оптимальные стратегии по ставкам. Стабильный выигрыш на ставках."/>      
-      <meta name="Keywords" content="ставки спорт вопросы ответы букмекеры прогнозы экспрессы bet коэффициент регистрация выигрыш деньги карточка исход ординар информация знания теория FAQ"/>
+      <title>${FAQ_T}</title>      
+      <meta name="Description" content="${FAQ_D}"/>      
+      <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
@@ -30,7 +30,7 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         	<h1>Вопросы - ответы</h1>
+         	<h1>${FAQ_H1}</h1>
          </div>
       </div>
       <div class="container">

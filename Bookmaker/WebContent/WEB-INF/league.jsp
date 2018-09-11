@@ -2,9 +2,9 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>АПЛ...</title>
-      <meta name="Description" content="АПЛ..."/>
-      <meta name="Keywords" content="АПЛ..."/>
+      <title>${League_T}</title>
+      <meta name="Description" content="${League_D}"/>
+      <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
@@ -30,7 +30,8 @@
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
          	<c:if test="${matchesList.size() > 0}">
-         		<h1>${matchesList.get(0).league} <img class="leagueIcon" src="/Static/bootstrap/img/leagueIcon/${matchesList.get(0).league}.png"></h1>
+         		<h1 class="leagueH1">${League_H1}</h1>
+         		<img class="leagueIcon" src="/Static/bootstrap/img/leagueIcon/${matchesList.get(0).league}.png">
          	</c:if>
          	<c:if test="${matchesList.size() == NULL}">
          		<h1>Футбол</h1>

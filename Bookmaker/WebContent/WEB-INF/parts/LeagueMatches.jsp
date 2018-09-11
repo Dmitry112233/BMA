@@ -15,7 +15,7 @@
                   <td>${leagueEvent.dateStr}</td>
                   <td><b>${leagueEvent.team1}</b> (${leagueEvent.win1})</td>
                   <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"></td>
-                  <td><!-- -<br> -->ничья: ${leagueEvent.x}</td>
+                  <td>ничья: ${leagueEvent.x}</td>
                   <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${leagueEvent.team2}.png" onerror="this.style.display='none'"></td>
                   <td>(${leagueEvent.win2}) <b>${leagueEvent.team2}</b></td>
                   <td><a class="toDetailsButton" href="${contextPath}/PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details">Подробности</a></td>
@@ -29,6 +29,7 @@
          <p class="DataMissed">Соревнование не проходит в данный момент либо данные отсутствуют из-за технических проблем.</p>
       </c:if>
       <br>
-   </div>
-   <%-- <p>${League_T}/${League_H1}/${League_D}</p> --%>
+      	<div class="article">${League_Txt}</div>
+      <br>
+   </div>   
 </div>

@@ -67,6 +67,7 @@
             </c:if>
          </c:forEach>
       </ul>
-   </nav>
-   <%-- <p>${Express_T}/${Express_H1}/${Express_D}</p> --%>
+   </nav>   
+   <div class="article">${Express_Txt}</div>
+   <br>   
 </div>
