@@ -11,7 +11,7 @@
       <!-- конец тегов для индексации -->
       <link rel="shortcut icon" href="/Static/bootstrap/img/favicon.ico" type="image/x-icon">
       <%@ page contentType="text/html;charset=utf-8" %>
-      <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>    
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
       <link href="/Static/bootstrap/css/bootstrap.css" rel="stylesheet">
       <link href="/Static/bootstrap/css/main-${cssVersion}.css" rel="stylesheet">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -20,6 +20,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
+      <link rel="canonical" href="https://findbestbet.ru/ExpressesList_0"/>
    </head>
    <body>
       <div class="bg"></div>

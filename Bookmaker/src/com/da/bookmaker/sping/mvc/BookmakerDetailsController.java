@@ -43,13 +43,13 @@ public class BookmakerDetailsController extends BookmakerController {
 				map.put("Bookmaker_T", property.getProperty("Leon_T"));
 				map.put("Bookmaker_H1", property.getProperty("Leon_H1"));
 				map.put("Bookmaker_D", property.getProperty("Leon_D"));
-				map.put("Bookmaker_D", property.getProperty("Leon_Txt"));
+				map.put("Bookmaker_Txt", property.getProperty("Leon_Txt"));
 			}
 			if (id == 3) {
 				map.put("Bookmaker_T", property.getProperty("LigaStavok_T"));
 				map.put("Bookmaker_H1", property.getProperty("LigaStavok_H1"));
 				map.put("Bookmaker_D", property.getProperty("LigaStavok_D"));
-				map.put("Bookmaker_D", property.getProperty("LigaStavok_Txt"));
+				map.put("Bookmaker_Txt", property.getProperty("LigaStavok_Txt"));
 			}
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");

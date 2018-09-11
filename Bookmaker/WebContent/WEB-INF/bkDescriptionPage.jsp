@@ -2,8 +2,8 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Описание букмекера</title>
-      <meta name="Description" content=""/>
+      <title>${Bookmaker_T}</title>
+      <meta name="Description" content="${Bookmaker_D}"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -32,7 +32,7 @@
       <div class="container backing">
          <div class="row">
             <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            	<h1>Описание букмекерской конторы ${bookmaker.name}</h1>
+            	<h1>${Bookmaker_H1}</h1>
             </div>
          </div>
       </div>

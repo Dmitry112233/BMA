@@ -28,10 +28,10 @@ public class CompetishionsController extends BookmakerController {
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			map.put("Competishions_T", property.get("Competishions_T"));
-			map.put("Competishions_H1", property.get("Competishions_H1"));
-			map.put("Competishions_D", property.get("Competishions_D"));
-			map.put("Competishions_Txt", property.get("Competishions_Txt"));
+			map.put("Competishions_T", property.getProperty("Competishions_T"));
+			map.put("Competishions_H1", property.getProperty("Competishions_H1"));
+			map.put("Competishions_D", property.getProperty("Competishions_D"));
+			map.put("Competishions_Txt", property.getProperty("Competishions_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");
 		} finally {
