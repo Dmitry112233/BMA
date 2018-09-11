@@ -1,7 +1,8 @@
 package com.da.bookmaker.parser;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,9 +25,10 @@ import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class OneXbetParser extends AbstractParser {
-
-	private InputStream fis;
-	static private Properties property;
+	
+	private File file = new File("D://xBetUrl.properties");
+	private FileInputStream fis;
+	static private Properties property;	
 
 	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
 
@@ -43,7 +45,7 @@ public class OneXbetParser extends AbstractParser {
 		try {
 			if (property == null) {
 				property = new Properties();
-				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("xBetUrl.properties");
+				fis = new FileInputStream(file);
 				property.load(fis);
 			}
 			List<String> urls = new ArrayList<>();
