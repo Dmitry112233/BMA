@@ -31,6 +31,7 @@ public class CompetishionsController extends BookmakerController {
 			map.put("Competishions_T", property.get("Competishions_T"));
 			map.put("Competishions_H1", property.get("Competishions_H1"));
 			map.put("Competishions_D", property.get("Competishions_D"));
+			map.put("Competishions_Txt", property.get("Competishions_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");
 		} finally {

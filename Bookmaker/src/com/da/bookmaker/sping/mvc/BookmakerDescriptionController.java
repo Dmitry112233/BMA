@@ -33,6 +33,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 			map.put("Bookmakers_T", property.getProperty("Bookmakers_T"));
 			map.put("Bookmakers_H1", property.getProperty("Bookmakers_H1"));
 			map.put("Bookmakers_D", property.getProperty("Bookmakers_D"));
+			map.put("Bookmakers_Txt", property.getProperty("Bookmakers_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл с проперти не найден");
 		} finally {

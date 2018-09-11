@@ -46,6 +46,7 @@ public class EventController extends BookmakerController {
 			modelAndView.addObject("Event_T", property.getProperty("Event_T"));
 			modelAndView.addObject("Event_H1", property.getProperty("Event_H1"));
 			modelAndView.addObject("Event_D", property.getProperty("Event_D"));
+			modelAndView.addObject("Event_Txt", property.getProperty("Event_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");
 		} finally {

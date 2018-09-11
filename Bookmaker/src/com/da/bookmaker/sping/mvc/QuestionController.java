@@ -35,6 +35,7 @@ public class QuestionController extends BookmakerController {
 			map.put("FAQ_T", property.getProperty("FAQ_T"));
 			map.put("FAQ_H1", property.getProperty("FAQ_H1"));
 			map.put("FAQ_D", property.getProperty("FAQ_D"));
+			map.put("FAQ_Txt", property.getProperty("FAQ_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");
 		} finally {

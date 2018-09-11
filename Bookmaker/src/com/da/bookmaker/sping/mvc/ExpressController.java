@@ -44,6 +44,7 @@ public class ExpressController extends BookmakerController {
 			map.put("Express_T", property.getProperty("Express_T"));
 			map.put("Express_H1", property.getProperty("Express_H1"));
 			map.put("Express_D", property.getProperty("Express_D"));
+			map.put("Express_Txt", property.getProperty("Express_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");
 		} finally {
