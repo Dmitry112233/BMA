@@ -20,6 +20,16 @@ public class ExpressBean {
 	private ArrayList<IventBean> iventList;
 
 	private String description;
+	
+	private int like;
+
+	public int getLike() {
+		return like;
+	}
+
+	public void setLike(int like) {
+		this.like = like;
+	}
 
 	public Double getResultCoeff() {
 		Double resultCoeff = 1.0;

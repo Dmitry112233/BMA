@@ -1,43 +1,94 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/JavaScript"
+src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js">
+</script>
+
+<script type="text/javascript">
+
+
+
+function doAjax() {  
+  
+ $.ajax({
+  url : 'GetLikes',
+  type: 'GET',
+  dataType: 'json',
+  contentType: 'application/json',
+     mimeType: 'application/json',
+  data : ({
+   id: 575
+  }),
+  success: function (data) {    
+	  alert('+data.like+');
+  }
+ });
+}
+</script> 
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <div id="allExp" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-   <br>
-   <c:if test="${expressList.size() > 0}">
-      <!-- переменная для вывода полоски над каждым экспрессом, кроме первого -->
-      <c:set var="separator" value="false" />
-      <!-- вывод экспрессов в цикле -->
-      <c:forEach var="express" items="${expressList}">
-         <c:if test="${separator != false}">
-            <hr>
-         </c:if>
-         <c:set var="separator" value="true" />
-         <div>
-            <p>Экспресс. Дата начала: <b>${express.dateStr}</b></p>
-         </div>
-         <table class="dayexptable">
-            <!-- переменная для увеличивающегося номера строки в таблице с эвентами -->
-            <c:set var="tableRow" value="0" />
-            <c:forEach var="ivent" items="${express.iventList}">
-               <tr class="mainLine">
-                  <td colspan="4"><img class="sportIcon" src="${ivent.sportIcon}">&nbsp;${ivent.competition}</td>
-               </tr>
-               <tr class="slaveLine">
-                  <td width="5%" align="center">
-                     <c:out value="${tableRow=tableRow+1}" />
-                  </td>
-                  <td width="45%"><b>&nbsp;${ivent.name}</b></td>
-                  <td width="25%" align="center"><b>${ivent.bet}</b></td>
-                  <td width="25%" align="center">
-                     <b>
-                        <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${ivent.coefficient}" />
-                     </b>
-                  </td>
-               </tr>
-            </c:forEach>
-         </table>
-         <div class="dataSourse">
+	<br>
+	<c:if test="${expressList.size() > 0}">
+		<!-- переменная для вывода полоски над каждым экспрессом, кроме первого -->
+		<c:set var="separator" value="false" />
+		<!-- вывод экспрессов в цикле -->
+		<c:forEach var="express" items="${expressList}">
+			<c:if test="${separator != false}">
+				<hr>
+			</c:if>
+			<c:set var="separator" value="true" />
+			<div>
+				<p>
+					Экспресс. Дата начала: <b>${express.dateStr}</b>
+				</p>
+			</div>
+			<table class="dayexptable">
+				<!-- переменная для увеличивающегося номера строки в таблице с эвентами -->
+				<c:set var="tableRow" value="0" />
+				<c:forEach var="ivent" items="${express.iventList}">
+					<tr class="mainLine">
+						<td colspan="4"><img class="sportIcon"
+							src="${ivent.sportIcon}">&nbsp;${ivent.competition}</td>
+					</tr>
+					<tr class="slaveLine">
+						<td width="5%" align="center"><c:out
+								value="${tableRow=tableRow+1}" /></td>
+						<td width="45%"><b>&nbsp;${ivent.name}</b></td>
+						<td width="25%" align="center"><b>${ivent.bet}</b></td>
+						<td width="25%" align="center"><b> <fmt:formatNumber
+									type="number" maxFractionDigits="2" minFractionDigits="2"
+									value="${ivent.coefficient}" />
+						</b></td>
+					</tr>
+				</c:forEach>
+			</table>
+			<div class="dataSourse">
+
+
+
+
+        
+         
+          <p>Лайки нахуй: ${express.like} </p>
+          <input type="button" value="КЛИКНИ НАХУЙ" onclick="doAjax()">
+          <p>ID нахуй = ${express.expressID}</p>
+          <p id="result_text"></p>
+          
+         
+         
+         
+         
+         
+         
+      
+         
+         
+         
+         
+         
+         
+         
             <p>Источник: <a rel="nofollow" target="_blank" href="${express.source}">vprognoze.ru</a></p>
          </div>
          <div>

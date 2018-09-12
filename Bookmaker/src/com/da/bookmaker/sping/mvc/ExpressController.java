@@ -11,6 +11,9 @@ import java.util.Properties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.BookmakerBean;
@@ -24,6 +27,15 @@ public class ExpressController extends BookmakerController {
 
 	private InputStream fis;
 	static private Properties property;
+	
+	
+	@RequestMapping(value = "/GetLikes", method = RequestMethod.GET)
+	 public @ResponseBody ExpressBean getLikes(@RequestParam int id) throws DaoException {		
+	  ExpressBean bean = DaoFactory.getExpressDao().getExpressById(id);	
+	  bean.setLike(bean.getLike()+1);  
+	  DaoFactory.getExpressDao().updateLikeForExpress(id, bean.getLike() + 1);
+	  return bean;
+	 }
 
 	@RequestMapping("/ExpressesList_{offset}")
 	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException, IOException {

@@ -26,12 +26,12 @@ import com.da.bookmaker.dao.ExpressDao;
 
 public class ExpressDaoTemplateImpl implements ExpressDao {
 
-	private final static String GET_ALL_EXPRESSES = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
+	private final static String GET_ALL_EXPRESSES = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, E.LIKE EXPRESS_LIKE, "
 			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE SOURCE IS NOT NULL";
 
-	private final static String GET_MY_EXPRESS = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
+	private final static String GET_MY_EXPRESS = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, E.LIKE EXPRESS_LIKE, "
 			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID "
@@ -44,13 +44,15 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	private final static String LINKED_IVENT_LIST = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) VALUES (?,?)";
 
 	private final static String DELETE_EXPRESSES_LIST = "DELETE FROM EXPRESSES WHERE SOURCE = ? ";
+	
+	private final static String UPDATE_LIKE = "UPDATE EXPRESSES SET `LIKE` = ? WHERE ID = ?";
 
-	private final static String GET_EXPRESSES_BY_ID = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
+	private final static String GET_EXPRESSES_BY_ID = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, E.LIKE EXPRESS_LIKE, "
 			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE E.ID = ?";
 
-	private final static String GET_EXPRESSES_FOR_PAGE = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
+	private final static String GET_EXPRESSES_FOR_PAGE = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, E.LIKE EXPRESS_LIKE, "
 			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
 			+ "I.DATE IVENT_DATE, SOURCE " + "FROM EXPRESSES E " + "JOIN EXPRESS_IVENT EI "
 			+ "ON E.ID = EI.EXPRESSES_ID " + "JOIN IVENTS I " + "ON I.ID = EI.IVENTS_ID " + "WHERE SOURCE IS NOT NULL ORDER BY E.ID LIMIT ? OFFSET ?";
@@ -93,11 +95,13 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 			ExpressBean bean = map.get(expresId);
 			if (bean == null) {
 				bean = new ExpressBean();
+				bean.setExpressID(rs.getLong("EXPRESS_ID"));
 				bean.setDate(rs.getDate("EXPRESS_DATE"));
 				bean.setIventList(new ArrayList<>());
 				bean.setName(rs.getString("EXPRESS_NAME"));
 				bean.setSource(rs.getString("SOURCE"));
 				bean.setDescription(rs.getString("EXPRESS_DESCRIPTION"));
+				bean.setLike(rs.getInt("EXPRESS_LIKE"));
 				bean.getIventList().add(createIvent(rs));
 				bean.setExpressID(expresId);
 				map.put(expresId, bean);
@@ -207,5 +211,11 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		List<ExpressBean> list = template.query(GET_EXPRESSES_FOR_PAGE, new Object[] {limit, offset}, new ExpressSetExecuter());
 		list.removeAll(Collections.singleton(null));
 		return list;
+	}
+
+	@Override
+	public void updateLikeForExpress(int count, int id) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(UPDATE_LIKE, new Object[] {count , id});		
 	}
 }
