@@ -21,13 +21,13 @@ public class ExpressBean {
 
 	private String description;
 	
-	private int like;
+	private String like;
 
-	public int getLike() {
+	public String getLike() {
 		return like;
 	}
 
-	public void setLike(int like) {
+	public void setLike(String like) {
 		this.like = like;
 	}
 

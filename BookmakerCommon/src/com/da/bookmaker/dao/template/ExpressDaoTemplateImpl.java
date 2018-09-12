@@ -101,7 +101,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 				bean.setName(rs.getString("EXPRESS_NAME"));
 				bean.setSource(rs.getString("SOURCE"));
 				bean.setDescription(rs.getString("EXPRESS_DESCRIPTION"));
-				bean.setLike(rs.getInt("EXPRESS_LIKE"));
+				bean.setLike(rs.getString("EXPRESS_LIKE"));
 				bean.getIventList().add(createIvent(rs));
 				bean.setExpressID(expresId);
 				map.put(expresId, bean);

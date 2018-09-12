@@ -9,8 +9,7 @@ src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js">
 
 
 
-function doAjax() {  
-  
+function doAjax(id) {   
  $.ajax({
   url : 'GetLikes',
   type: 'GET',
@@ -18,10 +17,10 @@ function doAjax() {
   contentType: 'application/json',
      mimeType: 'application/json',
   data : ({
-   id: 575
+   id: id
   }),
   success: function (data) {    
-	  alert('+data.like+');
+	  alert(data);
   }
  });
 }
@@ -71,7 +70,7 @@ function doAjax() {
         
          
           <p>Лайки нахуй: ${express.like} </p>
-          <input type="button" value="КЛИКНИ НАХУЙ" onclick="doAjax()">
+          <input type="button" value="КЛИКНИ НАХУЙ" onclick="doAjax(${express.expressID})">
           <p>ID нахуй = ${express.expressID}</p>
           <p id="result_text"></p>
           
