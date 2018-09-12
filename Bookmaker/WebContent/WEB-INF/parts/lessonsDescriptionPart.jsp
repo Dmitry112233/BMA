@@ -5,8 +5,10 @@
    <br>
    <a class="BackButton" href="${contextPath}/FAQList"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие вопросы</a>
    <br><br>
-   <div class="article">${Question_Txt}</div>
-   <br>
+   <c:if test = "${Question_Txt != Null}">
+      <div class="article">${Question_Txt}</div>
+      <br>
+   </c:if>
    <div>${question.answer}</div>
    <br>
 </div>

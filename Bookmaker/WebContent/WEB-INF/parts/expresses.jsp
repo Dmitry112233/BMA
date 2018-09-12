@@ -67,7 +67,9 @@
             </c:if>
          </c:forEach>
       </ul>
-   </nav>   
-   <div class="article">${Express_Txt}</div>
-   <br>   
+   </nav>
+   <c:if test = "${Express_Txt != Null}">
+      <div class="article">${Express_Txt}</div>
+      <br>
+   </c:if>
 </div>

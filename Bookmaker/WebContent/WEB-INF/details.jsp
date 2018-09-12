@@ -3,7 +3,7 @@
    <head>
       <!-- теги для индексации -->
       <title>details...</title>
-      <meta name="Description" content="details..."/>
+      <meta name="Description" content="Аналитика по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2}. Статистика последних встреч. Сравнение коэффициентов"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
