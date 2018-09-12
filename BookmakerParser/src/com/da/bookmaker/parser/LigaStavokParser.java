@@ -46,12 +46,10 @@ public class LigaStavokParser {
 				property.load(fis);
 			}
 			List<String> urls = new ArrayList<>();
-			/*
-			 * urls.add(property.getProperty("ENG"));
-			 * urls.add(property.getProperty("RUS"));
-			 * urls.add(property.getProperty("ESP"));
-			 * urls.add(property.getProperty("ITA"));
-			 */
+			urls.add(property.getProperty("ENG"));
+			urls.add(property.getProperty("RUS"));
+			urls.add(property.getProperty("ESP"));
+			urls.add(property.getProperty("ITA"));
 			urls.add(property.getProperty("GER"));
 			for (String url : urls) {
 				parseLigaStavok(url, property);
@@ -163,9 +161,10 @@ public class LigaStavokParser {
 			if (url.equals(property.getProperty("WC"))) {
 				bean.setLeague("Чемпионат Мира");
 			}
-			// проверка, нужна т.к в методе getWinCoeff сетим нули, на случай если нет элемента с коэффициентом
-			if(bean.getWin1() != 0 || bean.getWin2() != 0){
-				beans.add(bean);	
+			// проверка, нужна т.к в методе getWinCoeff сетим нули, на случай
+			// если нет элемента с коэффициентом
+			if (bean.getWin1() != 0 || bean.getWin2() != 0) {
+				beans.add(bean);
 			}
 		}
 		return beans;
@@ -203,7 +202,7 @@ public class LigaStavokParser {
 			bean.setWin2(Double
 					.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
 			bean.setDateStr("16.04.2018 16:00:00");
-		}else{
+		} else {
 			bean.setWin1(0);
 			bean.setX(0);
 			bean.setWin2(0);
