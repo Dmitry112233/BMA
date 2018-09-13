@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -95,7 +96,7 @@ public class VprognozeParser {
 			ExpressBean bean = new ExpressBean();
 			bean.setDate(getDate(blockMatch));
 			bean.setDescription(description.getTextContent());
-			
+			bean.setLikes(new Random().nextInt(10));
 			bean.setSource(URL);
 			
 			bean.setIventList(createEvents(expressList, bean));

@@ -29,11 +29,12 @@ public class ExpressController extends BookmakerController {
 	static private Properties property;
 	
 	
-	@RequestMapping(value = "/GetLikes", method = RequestMethod.GET)
-	 public @ResponseBody String getLikes(@RequestParam int id) throws DaoException {		
+	@RequestMapping(value = "/SetLikes", method = RequestMethod.GET)
+	 public @ResponseBody void setLikes(@RequestParam int id) throws DaoException {		
 	  ExpressBean bean = DaoFactory.getExpressDao().getExpressById(id);	
+	  int count = bean.getLikes() + 1;
+	  DaoFactory.getExpressDao().updateLikeForExpress(count, id);
 	  
-	  return bean.getLike();
 	 }
 
 	@RequestMapping("/ExpressesList_{offset}")

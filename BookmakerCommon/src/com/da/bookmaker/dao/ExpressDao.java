@@ -20,6 +20,6 @@ public interface ExpressDao {
 	
 	List<ExpressBean> getExpressesForPage(int limit, int offset) throws DaoException;
 	
-	void updateLikeForExpress(int id, int count) throws DaoException;
+	void updateLikeForExpress(int count, int id) throws DaoException;
 	
 }

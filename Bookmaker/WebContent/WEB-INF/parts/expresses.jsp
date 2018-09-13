@@ -1,17 +1,18 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script type="text/JavaScript"
-src="${pageContext.request.contextPath}/resources/js/jquery-1.9.1.min.js">
-</script>
+
 
 <script type="text/javascript">
 
-
-
-function doAjax(id) {   
+function doAjax(id) { 
+	
+var currentLike = Number(document.getElementById(id).innerHTML);
+var newLike = currentLike + 1;
+document.getElementById(id).innerHTML = newLike;
+	
  $.ajax({
-  url : 'GetLikes',
+  url : 'SetLikes',
   type: 'GET',
   dataType: 'json',
   contentType: 'application/json',
@@ -20,10 +21,13 @@ function doAjax(id) {
    id: id
   }),
   success: function (data) {    
-	  alert(data);
+	  
   }
  });
 }
+
+
+
 </script> 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <div id="allExp" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
@@ -69,9 +73,8 @@ function doAjax(id) {
 
         
          
-          <p>Лайки нахуй: ${express.like} </p>
+          <p id = '${express.expressID}'>${express.likes}</p>
           <input type="button" value="КЛИКНИ НАХУЙ" onclick="doAjax(${express.expressID})">
-          <p>ID нахуй = ${express.expressID}</p>
           <p id="result_text"></p>
           
          

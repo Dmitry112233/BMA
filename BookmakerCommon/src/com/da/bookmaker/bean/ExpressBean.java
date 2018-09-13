@@ -21,14 +21,14 @@ public class ExpressBean {
 
 	private String description;
 	
-	private String like;
+	private int likes;
 
-	public String getLike() {
-		return like;
+	public int getLikes() {
+		return likes;
 	}
 
-	public void setLike(String like) {
-		this.like = like;
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
 
 	public Double getResultCoeff() {
