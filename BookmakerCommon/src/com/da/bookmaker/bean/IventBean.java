@@ -23,6 +23,26 @@ public class IventBean {
 	private String source;
 
 	private String sport;
+	
+	private String time;
+	
+	private String result;
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
 
 	public String getSport() {
 		return sport;

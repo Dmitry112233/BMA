@@ -27,6 +27,11 @@ public class BetFaqParser {
 		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
 	}
 
+	public static void main(String[] args) throws Exception{
+		new BetFaqParser().parseBetFaq();
+	}
+	
+	
 	public void parseBetFaq() throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		
@@ -75,19 +80,23 @@ public class BetFaqParser {
 						String competition = getCompetision(title);
 						
 						String name = getName(title);
+						String time = getTime(title);
 						
 						double coefficient = getCoefficient(tdChild.next());
 						String matchUrl = getMatchUrl(title);
+						String result = getResult(tdChild.next());
 						
 						if (!parseMatch(matchUrl, bean)){
 							continue;
 						}
+						bean.setResult(result);
 						bean.setSport(sportName);
 						bean.setName(name);
 						bean.setCoefficient(coefficient);
 						bean.setCompetition(competition);
 						bean.setSource(URL);
 						bean.setDate(new Date());
+						bean.setTime(time);
 						beans.add(bean);
 					}
 				}
@@ -176,6 +185,24 @@ public class BetFaqParser {
 		DomElement fore = teamChild.next(); // fore
 		Node element = fore.getLastChild();
 		return element.getTextContent();
+	}
+	
+	private String getResult(DomElement elementResult){
+		String result = elementResult.getFirstElementChild().getTextContent().trim();
+		if(result.equals("Подробнее")){
+			return null;
+		}else{
+			return result;	
+		}
+	}
+	
+	private String getTime (DomElement title) {
+		Iterator<DomElement> titleChild = title.getChildElements().iterator();
+		titleChild.next();
+		DomElement team = titleChild.next(); // time
+		Iterator<DomElement> teamChild = team.getChildElements().iterator();
+		DomElement time = teamChild.next();
+		return time.getTextContent(); // time;
 	}
 
 	private String getCompetision(DomElement title) {
