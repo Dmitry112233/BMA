@@ -12,9 +12,6 @@
             <hr>
          </c:if>
          <c:set var="separatorNews" value="true" />
-         <div class="listNewsComp">
-            <p>${newsItem.sport}<br>${newsItem.competition}</p>
-         </div>
          <div class="newsTitle">
             <a href="${contextPath}/NewsDescription_${newsItem.id}_details_${currentPage}">${newsItem.title}</a>
          </div>

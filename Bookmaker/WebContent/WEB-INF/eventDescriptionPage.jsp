@@ -2,8 +2,8 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Описание прогноза</title>      
-      <meta name="Description" content="Описание прогноза..."/>      
+      <title>Описание прогноза ${ivent.name} (${ivent.sport}) | findbestbet.ru</title>      
+      <meta name="Description" content="Описание прогноза ${ivent.name} (${ivent.sport}) | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>      
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>

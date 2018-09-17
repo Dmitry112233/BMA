@@ -10,7 +10,7 @@
       <div>
          <p>Начало события: <b>${xBetList.get(0).dateStr}</b></p>
       </div>
-      <h3>Сравнение коэффициентов лучших букмекеров:</h3>
+      <h3>Сравнение коэффициентов букмекеров:</h3>
       <table class="CoeffCompareTable">
          <tr class="CoeffCompareTableHeader">
             <td class="CoeffCompareTableBM"><b>Букмекер</b></td>
@@ -37,7 +37,7 @@
       </table>
       <c:if test="${lastMatchesTeam1.size() > 0}">
          <br>	
-         <h3>История последних встреч команды ${xBetList.get(0).team1}:</h3>
+         <h3>Последние встречи ${xBetList.get(0).team1}:</h3>
          <table class="HistoryTable">
             <c:forEach var="Team1Matches" items="${lastMatchesTeam1}">
                <tr>
@@ -69,7 +69,7 @@
       </c:if>
       <c:if test="${lastMatchesTeam2.size() > 0}">
          <br>		
-         <h3>История последних встреч команды ${xBetList.get(0).team2}:</h3>
+         <h3>Последние встречи ${xBetList.get(0).team2}:</h3>
          <table class="HistoryTable">
             <c:forEach var="Team2Matches" items="${lastMatchesTeam2}">
                <tr>
@@ -101,7 +101,7 @@
       </c:if>
       <c:if test="${lastMatchesTeam1Team2.size() > 0}">
          <br>		
-         <h3>История личных встреч между командами ${xBetList.get(0).team1} и ${xBetList.get(0).team2}:</h3>
+         <h3>Личные встречи ${xBetList.get(0).team1} и ${xBetList.get(0).team2}:</h3>
          <table class="HistoryTable">
             <c:forEach var="Team1Team2Matches" items="${lastMatchesTeam1Team2}">
                <tr>

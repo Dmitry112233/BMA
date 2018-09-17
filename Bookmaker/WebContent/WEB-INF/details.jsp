@@ -2,8 +2,8 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>details...</title>
-      <meta name="Description" content="Аналитика по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2}. Статистика последних встреч. Сравнение коэффициентов"/>
+      <title>Сравнение коэффициентов, детали по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2}</title>
+      <meta name="Description" content="Сравнение коэффициентов, детали по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2} | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -29,7 +29,7 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         	<h1>Детали по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2}</h1>
+         	<h1>Сравнение коэффициентов, детали по матчу ${xBetList.get(0).team1} - ${xBetList.get(0).team2}</h1>         	
          </div>
       </div>
       <div class="container">
