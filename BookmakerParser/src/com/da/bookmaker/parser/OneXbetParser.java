@@ -50,10 +50,10 @@ public class OneXbetParser extends AbstractParser {
 			}
 			List<String> urls = new ArrayList<>();
 			urls.add(property.getProperty("ENG"));
-			urls.add(property.getProperty("RUS"));
+			/*urls.add(property.getProperty("RUS"));
 			urls.add(property.getProperty("ESP"));
 			urls.add(property.getProperty("GER"));
-			urls.add(property.getProperty("ITA"));
+			urls.add(property.getProperty("ITA"));*/
 			for (String url : urls) {
 				parseOneXBet(url, property);
 			}
@@ -281,7 +281,10 @@ public class OneXbetParser extends AbstractParser {
 		String[] subStr;
 		String delimeter = " ";
 		subStr = date.split(delimeter);
-		date = subStr[0] + "." + getCurrentYear() + " " + subStr[1] + ":00";
+		String[] hourAndMinutes = subStr[1].split(":");
+		int hour = Integer.parseInt(hourAndMinutes[0]);
+		hour += 3;
+		date = subStr[0] + "." + getCurrentYear() + " " + hour + ":" + hourAndMinutes[1] + ":00";
 		return date;
 	}
 
