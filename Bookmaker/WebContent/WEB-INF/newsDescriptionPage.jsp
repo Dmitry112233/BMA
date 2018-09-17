@@ -2,11 +2,11 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Детали новости...</title>
+      <title>${news.title} | findbestbet.ru</title>
       <meta name="Description" content=""/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="robots" content="all"/>
+      <meta name="robots" content="noindex"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
       <!-- конец тегов для индексации -->
       <link rel="shortcut icon" href="/Static/bootstrap/img/favicon.ico" type="image/x-icon">
@@ -29,7 +29,7 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         	<h2 class="newsComp">${news.sport}. ${news.competition}</h2>
+         	<h1 class="newsComp">${news.title}</h1>
          </div>
       </div>
       <div class="container">

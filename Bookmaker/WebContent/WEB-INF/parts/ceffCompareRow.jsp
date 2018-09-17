@@ -69,7 +69,7 @@
       </td>
       <td class="CoeffCompareTableSecondary">
          <c:choose>
-            <c:when test="${CeffSource.hand != ''}">${CeffSource.hand}</c:when>
+            <c:when test="${CeffSource.hand != null}">${CeffSource.hand}</c:when>
             <c:otherwise>-</c:otherwise>
          </c:choose>
       </td>

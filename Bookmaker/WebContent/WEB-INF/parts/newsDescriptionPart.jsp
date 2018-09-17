@@ -5,7 +5,9 @@
    <br>
    	<a class="BackButton" href="${contextPath}/News_${offset}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие новости</a>
    <br><br>   
-   <h3>${news.title}</h3>
+   <div class="listNewsComp">
+   	<p>${news.sport}<br>${news.competition}</p>
+   </div>
    <p>${news.description}</p>
    <img class="newsPic" src="${news.image}" alt="${news.sport} ${news.competition} новости"></img>
    <br>
