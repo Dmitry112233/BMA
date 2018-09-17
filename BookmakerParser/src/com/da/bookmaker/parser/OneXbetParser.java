@@ -50,10 +50,10 @@ public class OneXbetParser extends AbstractParser {
 			}
 			List<String> urls = new ArrayList<>();
 			urls.add(property.getProperty("ENG"));
-			/*urls.add(property.getProperty("RUS"));
+			urls.add(property.getProperty("RUS"));
 			urls.add(property.getProperty("ESP"));
 			urls.add(property.getProperty("GER"));
-			urls.add(property.getProperty("ITA"));*/
+			urls.add(property.getProperty("ITA"));
 			for (String url : urls) {
 				parseOneXBet(url, property);
 			}
@@ -258,7 +258,6 @@ public class OneXbetParser extends AbstractParser {
 			} else {
 				list.add("0.0");
 			}
-
 		}
 		return list;
 	}
