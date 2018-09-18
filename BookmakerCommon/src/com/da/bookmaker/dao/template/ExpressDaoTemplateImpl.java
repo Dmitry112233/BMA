@@ -69,7 +69,7 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	public List<ExpressBean> getAllExpresses() {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<ExpressBean> list = template.query(GET_ALL_EXPRESSES, new ExpressSetExecuter());
-		//list.removeAll(Collections.singleton(null));
+		list.removeAll(Collections.singleton(null));
 		return list;
 	}
 

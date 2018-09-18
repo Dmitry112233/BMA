@@ -29,7 +29,7 @@ public class ExpressDescriptionController extends BookmakerController {
 	}
 
 	public int getOffset(int currentPage) {
-		int offset = (currentPage - 1) * 20;
+		int offset = (currentPage - 1) * 10;
 		return offset;
 	}
 

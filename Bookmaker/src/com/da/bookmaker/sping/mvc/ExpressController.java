@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.BookmakerBean;
 import com.da.bookmaker.bean.ExpressBean;
-import com.da.bookmaker.bean.NewsBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
@@ -29,7 +28,7 @@ public class ExpressController extends BookmakerController {
 	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException, IOException {
 		ArrayList<Integer> pageMass = getPageMass(offset);
 		int currentPage = getCurrentPage(offset);
-		int limit = 20;
+		int limit = 10;
 		Map<String, Object> map = getExpressListForPage(limit, offset);
 		map.put("pageMass", pageMass);
 		map.put("currentPage", currentPage);
@@ -62,18 +61,18 @@ public class ExpressController extends BookmakerController {
 		if (offset == 0) {
 			currentPage = 1;
 		} else {
-			currentPage = offset / 20 + 1;
+			currentPage = offset / 10 + 1;
 		}
 		return currentPage;
 	}
 
 	private ArrayList<Integer> getPageMass(int offset) throws DaoException {
 		Map<String, Object> mapSize = getExpressList();
-		ArrayList<NewsBean> list = (ArrayList<NewsBean>) mapSize.get("expressList");
+		ArrayList<ExpressBean> list = (ArrayList<ExpressBean>) mapSize.get("expressList");
 		ArrayList<Integer> pageMass = new ArrayList<>();
 		int quantity = list.size();
-		int pageCount = quantity / 20;
-		if (pageCount % 20 != 0) {
+		int pageCount = quantity / 10;
+		if (pageCount % 10 != 0) {
 			pageCount += 1;
 		}
 		for (int i = 0; i < pageCount; i++) {
@@ -90,10 +89,25 @@ public class ExpressController extends BookmakerController {
 	}
 
 	private Map<String, Object> getExpressListForPage(int limit, int offset) throws DaoException {
-		List<ExpressBean> expressList = DaoFactory.getExpressDao().getExpressesForPage(limit, offset);
+		List<ExpressBean> allExpressList = DaoFactory.getExpressDao().getAllExpresses();
+		List<ExpressBean> expressList = new ArrayList<>();
+		int size = getSizeForCycle(offset, limit, allExpressList.size());
+		for (int i = offset; i <= size ; i++) {
+				expressList.add(allExpressList.get(i));
+		}
 		Map<String, Object> map = new HashMap<>();
 		map.put("expressList", expressList);
 		return map;
+	}
+	
+	private int getSizeForCycle(int offset, int limit, int listSize){
+		int size;
+		if(offset + limit-1 >= listSize){
+			size = listSize - 1;
+		}else{
+			size = offset + limit - 1;
+		}
+		return size;
 	}
 
 	private Map<String, ArrayList<BookmakerBean>> getBookmakerWeight() throws DaoException {
