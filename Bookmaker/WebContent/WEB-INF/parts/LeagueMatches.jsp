@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="LeagueMatchesBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="LeagueMatches">      
@@ -12,7 +13,7 @@
          <table class="LeagueMatchesTable">
             <c:forEach var="leagueEvent" items="${matchesList}">
                <tr onclick="window.location.href='${contextPath}/PremierLeague_${leagueEvent.team1}_${leagueEvent.team2}_${leagueEvent.league}_details'; return false">
-                  <td>${leagueEvent.dateStr}</td>
+                  <td><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${leagueEvent.date}" /> МСК</td>
                   <td><b>${leagueEvent.team1}</b> (${leagueEvent.win1})</td>
                   <td><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${leagueEvent.team1}.png" onerror="this.style.display='none'"></td>
                   <td>ничья: ${leagueEvent.x}</td>

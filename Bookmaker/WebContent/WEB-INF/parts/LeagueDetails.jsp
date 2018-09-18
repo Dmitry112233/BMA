@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="DetailsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="details">      
@@ -8,7 +9,7 @@
       <br>
       <br>
       <div>
-         <p>Начало события: <b>${xBetList.get(0).dateStr}</b></p>
+         <p>Начало события: <b><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" /> МСК</b></p>
       </div>
       <h3>Сравнение коэффициентов букмекеров:</h3>
       <table class="CoeffCompareTable">

@@ -6,7 +6,7 @@
    <br>
    <a class="BackButton" href="${contextPath}/EventsList"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список прогнозов</a>
    <br><br>
-   <p>Дата события: ${ivent.dateStr}</p>
+   <p>Дата события: <b>${ivent.dateStr}</b></p>
    <table class="evtable">
       <tr class="mainLine">
          <td colspan="3">                     
