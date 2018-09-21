@@ -20,7 +20,7 @@
       <div id="desc1" class="container-fluid">
          <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               <h4>Критерии</h4>
+               <p class="TextLikeHeadline2">Критерии</p>
                <p>надежность</p>
                <div class="progressBar">
                   <div class="progressBarDone"><p>${bookmaker.reliability}</p></div>
@@ -35,11 +35,11 @@
                </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               <h4>Плюсы</h4>
+               <p class="TextLikeHeadline2">Плюсы</p>
                <div>${bookmaker.pluses}</div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               <h4>Минусы</h4>
+               <p class="TextLikeHeadline2">Минусы</p>
                <div>${bookmaker.minuses}</div>
             </div>
          </div>
@@ -49,11 +49,11 @@
          <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0"></div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               <h4>Валюты</h4>
+               <p class="TextLikeHeadline2">Валюты</p>
                <div>${bookmaker.currency}</div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               <h4>Платежные системы</h4>
+               <p class="TextLikeHeadline2">Платежные системы</p>
                <div>${bookmaker.payments}</div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0"></div>
@@ -63,7 +63,7 @@
          <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-0"></div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-               <h4>Общий рейтинг</h4>
+               <p class="TextLikeHeadline2">Общий рейтинг</p>
                <div class="progressBar">
 	               <div class="progressBarDone"><p>${bookmaker.result}</p></div>
                </div>

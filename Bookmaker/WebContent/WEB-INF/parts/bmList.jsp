@@ -3,7 +3,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="bklist" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
    <div class="bkListContent">
-      <h2>Букмекеры</h2>
+      <p class="BmListHeadline">Букмекеры</p>
       <ol>
          <c:forEach var="bookmaker" items="${bookmakerList.values()}">
             <li>

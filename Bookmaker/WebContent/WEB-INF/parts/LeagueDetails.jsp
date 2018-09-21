@@ -11,7 +11,7 @@
       <div>
          <p>Начало события: <b><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" /> МСК</b></p>
       </div>
-      <h3>Сравнение коэффициентов букмекеров:</h3>
+      <p class="TextLikeHeadline">Сравнение коэффициентов букмекеров:</p>
       <table class="CoeffCompareTable">
          <tr class="CoeffCompareTableHeader">
             <td class="CoeffCompareTableBM"><b>Букмекер</b></td>
@@ -38,7 +38,7 @@
       </table>
       <c:if test="${lastMatchesTeam1.size() > 0}">
          <br>	
-         <h3>Последние встречи ${xBetList.get(0).team1}:</h3>
+         <p class="TextLikeHeadline">Последние встречи ${xBetList.get(0).team1}:</p>
          <table class="HistoryTable">
             <c:forEach var="Team1Matches" items="${lastMatchesTeam1}">
                <tr>
@@ -70,7 +70,7 @@
       </c:if>
       <c:if test="${lastMatchesTeam2.size() > 0}">
          <br>		
-         <h3>Последние встречи ${xBetList.get(0).team2}:</h3>
+         <p class="TextLikeHeadline">Последние встречи ${xBetList.get(0).team2}:</p>
          <table class="HistoryTable">
             <c:forEach var="Team2Matches" items="${lastMatchesTeam2}">
                <tr>
@@ -102,7 +102,7 @@
       </c:if>
       <c:if test="${lastMatchesTeam1Team2.size() > 0}">
          <br>		
-         <h3>Личные встречи ${xBetList.get(0).team1} и ${xBetList.get(0).team2}:</h3>
+         <p class="TextLikeHeadline">Личные встречи ${xBetList.get(0).team1} и ${xBetList.get(0).team2}:</p>
          <table class="HistoryTable">
             <c:forEach var="Team1Team2Matches" items="${lastMatchesTeam1Team2}">
                <tr>
@@ -131,7 +131,7 @@
       <c:if test="${leagueTable.size() > 0}">
          <br>		
          <div class="LeagueTableBlock">
-            <h3>Таблица чемпионата:</h3>
+            <p class="TextLikeHeadline">Таблица чемпионата:</p>
             <table class="LeagueTable">
                <tr class="LeagueTableHeader">
                   <td></td>
@@ -165,7 +165,7 @@
       <c:if test="${groupTeam1.size() > 0}">      
          <br>		
          <div class="GroupTableBlock">
-            <h3>Группа ${groupTeam1.get(0).group}:</h3>
+            <p class="TextLikeHeadline">Группа ${groupTeam1.get(0).group}:</p>
             <table class="GroupTable">
                <tr class="GroupTableHeader">
                   <td></td>
@@ -199,7 +199,7 @@
       <c:if test="${groupTeam2.size() > 0}">      
          <br>		
          <div class="GroupTableBlock">
-            <h3>Группа ${groupTeam2.get(0).group}:</h3>
+            <p class="TextLikeHeadline">Группа ${groupTeam2.get(0).group}:</p>
             <table class="GroupTable">
                <tr class="GroupTableHeader">
                   <td></td>

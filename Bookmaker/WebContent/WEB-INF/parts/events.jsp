@@ -6,7 +6,7 @@
    <br>
    <c:if test="${allEvents.sports.size() > 0}">
       <c:forEach var="sport" items="${allEvents.sports}">
-         <h3>Прогнозы на ${sport} на ${allEvents.get(sport).get(0).dateStr}</h3>
+         <p class="TextLikeHeadline">Прогнозы на ${sport} на ${allEvents.get(sport).get(0).dateStr}</p>
          <table class="evtable">
             <c:set var="tableRow" value="0" />
             <c:forEach var="ivent" items="${allEvents.get(sport)}">

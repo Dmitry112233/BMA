@@ -79,11 +79,16 @@ h1, .newsComp {
 	margin-right: 10px;
 }
 
-.bkListContent h2, .article h2 {
+.BmListHeadline, .article h2 {
 	text-align: center;	
 	font-size: 20pt;
 	font-weight: bold;	
 	color: black;
+}
+
+.BmListHeadline {
+	margin-top: 25px;
+	margin-bottom: 0px;
 }
 
 .bkListContent ol {
@@ -531,11 +536,17 @@ a {
 	font-weight: bold;
 }
 
-#allEv h3, #DetailsBlock h3 {
+.TextLikeHeadline {
 	font-size: 18px;	
 	margin-left: 10px;
 	margin-top: 10px;
 	font-weight: bold;
+}
+
+.TextLikeHeadline2 {
+	font-size: 18px;	
+	margin-bottom: 5px !important;
+	margin-top: 5px;
 }
 
 .newsPic, .video {
