@@ -98,6 +98,7 @@ public class BetFaqParser {
 						bean.setDate(new Date());
 						bean.setTime(time);
 						beans.add(bean);
+						System.out.println(name);
 					}
 				}
 			}
@@ -135,15 +136,14 @@ public class BetFaqParser {
 			bean.setBet(bet);
 			Iterator<DomElement> iteratorDesc = prognozSoccer.getChildElements().iterator();
 			iteratorDesc.next();
-			iteratorDesc.next();
-			iteratorDesc.next();
 			DomElement descriptionElem = iteratorDesc.next();
 			DomElement simpleTest = descriptionElem.getFirstElementChild();
 			Iterator<DomElement> iteratorSimpleTest = simpleTest.getChildElements().iterator();
 			iteratorSimpleTest.next();
 			iteratorSimpleTest.next();
 			iteratorSimpleTest.next();
-			String description = iteratorSimpleTest.next().getTextContent();
+			String description = iteratorSimpleTest.next().getTextContent().trim();
+			System.out.println(description);
 			bean.setDescription(description);
 			return true;
 		}catch(Exception e){
