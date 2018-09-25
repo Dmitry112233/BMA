@@ -16,12 +16,17 @@ import com.da.bookmaker.bean.MatchDetailsBean;
 import com.da.bookmaker.bean.PremierLeagueBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
+import com.da.bookmaker.util.TranslationUtils;
 
 @Controller
 public class PremierLeagueDetailsController extends BookmakerController {
 	@RequestMapping("/PremierLeague_{team1}_{team2}_{league}_details")
 	public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2,
 			@PathVariable("league") String league) throws DaoException, ParseException {
+		team1 = TranslationUtils.toRus(team1);
+		team2 = TranslationUtils.toRus(team2);
+		league = TranslationUtils.toRus(league);
+		
 		Map<String, Object> map = get1xBetCeffByTeams(team1, team2);
 		List<MatchDetailsBean> lastMatchesTeam1 = getMatchesDetailsTeam(team1);
 		List<MatchDetailsBean> lastMatchesTeam2 = getMatchesDetailsTeam(team2);
@@ -43,7 +48,7 @@ public class PremierLeagueDetailsController extends BookmakerController {
 			wildstatTeam2 = DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(team2);
 		}
 		
-		if (league.equals("Лига Чемпионов") || league.equals("Чемпионат Мира")) {
+		if (league.equals("лига чемпионов") || league.equals("чемпионат мира")) {
 			groupListTeam1 = getGroupForTeam(wildstatTeam1, league);
 			groupListTeam2 = getGroupForTeam(wildstatTeam2, league);
 			if (groupListTeam1.get(0).getGroup().equals(groupListTeam2.get(0).getGroup())) {

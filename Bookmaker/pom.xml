@@ -76,5 +76,10 @@
 			<artifactId>bookmaker-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.40.0</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -29,5 +29,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.9.RELEASE</version>
 		</dependency>
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>26.0-jre</version>
+		</dependency>
+		
 	</dependencies>
 </project>

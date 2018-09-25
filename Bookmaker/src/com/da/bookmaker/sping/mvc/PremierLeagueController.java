@@ -38,35 +38,41 @@ public class PremierLeagueController extends BookmakerController {
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			if (league.equals("Английская Примьер Лига")){
-				map.put("League_T", property.get("ENG_League_T"));
-				map.put("League_H1", property.get("ENG_League_H1"));
-				map.put("League_D", property.get("ENG_League_D"));
-				map.put("League_Txt", property.get("ENG_League_Txt"));
-			}
-			if (league.equals("Испанская Ла Лига")){
-				map.put("League_T", property.get("SPA_League_T"));
-				map.put("League_H1", property.get("SPA_League_H1"));
-				map.put("League_D", property.get("SPA_League_D"));
-				map.put("League_Txt", property.get("SPA_League_Txt"));
-			}
-			if (league.equals("Российская Примьер Лига")){
-				map.put("League_T", property.get("RUS_League_T"));
-				map.put("League_H1", property.get("RUS_League_H1"));
-				map.put("League_D", property.get("RUS_League_D"));
-				map.put("League_Txt", property.get("RUS_League_Txt"));
-			}
-			if (league.equals("Немецкая Бундеслига")){
-				map.put("League_T", property.get("GER_League_T"));
-				map.put("League_H1", property.get("GER_League_H1"));
-				map.put("League_D", property.get("GER_League_D"));
-				map.put("League_Txt", property.get("GER_League_Txt"));
-			}
-			if (league.equals("Итальянская серия А")){
-				map.put("League_T", property.get("ITA_League_T"));
-				map.put("League_H1", property.get("ITA_League_H1"));
-				map.put("League_D", property.get("ITA_League_D"));
-				map.put("League_Txt", property.get("ITA_League_Txt"));
+			switch(league){
+				case "Английская Примьер Лига": 
+					map.put("League_T", property.get("ENG_League_T"));
+					map.put("League_H1", property.get("ENG_League_H1"));
+					map.put("League_D", property.get("ENG_League_D"));
+					map.put("League_Txt", property.get("ENG_League_Txt"));
+					break;
+					
+				case "Испанская Ла Лига":
+					map.put("League_T", property.get("SPA_League_T"));
+					map.put("League_H1", property.get("SPA_League_H1"));
+					map.put("League_D", property.get("SPA_League_D"));
+					map.put("League_Txt", property.get("SPA_League_Txt"));
+					break;
+			
+				case "Российская Примьер Лига" :
+					map.put("League_T", property.get("RUS_League_T"));
+					map.put("League_H1", property.get("RUS_League_H1"));
+					map.put("League_D", property.get("RUS_League_D"));
+					map.put("League_Txt", property.get("RUS_League_Txt"));
+					break;
+					
+				case "Немецкая Бундеслига" :
+					map.put("League_T", property.get("GER_League_T"));
+					map.put("League_H1", property.get("GER_League_H1"));
+					map.put("League_D", property.get("GER_League_D"));
+					map.put("League_Txt", property.get("GER_League_Txt"));
+					break;
+
+				case "Итальянская серия А" :
+					map.put("League_T", property.get("ITA_League_T"));
+					map.put("League_H1", property.get("ITA_League_H1"));
+					map.put("League_D", property.get("ITA_League_D"));
+					map.put("League_Txt", property.get("ITA_League_Txt"));
+					break;
 			}
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");

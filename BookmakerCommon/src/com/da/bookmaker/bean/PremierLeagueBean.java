@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.da.bookmaker.util.TranslationUtils;
+
 public class PremierLeagueBean {
 
 	private long id;
@@ -206,5 +208,13 @@ public class PremierLeagueBean {
 	public void setDateStr(String date) throws ParseException {
 		this.date = FORMATTER.parse(date);
 	}
+	
+	public String getUrl(){
+		return "/PremierLeague_" + 
+				TranslationUtils.toTranslit(team1) + "_" + 
+				TranslationUtils.toTranslit(team2) + "_" + 
+				TranslationUtils.toTranslit(league) + "_details";
+	}
+	
 
 }
