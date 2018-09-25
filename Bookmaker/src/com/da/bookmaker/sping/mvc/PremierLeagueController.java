@@ -26,64 +26,6 @@ public class PremierLeagueController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 	
-	@RequestMapping("/match_list")
-	public ModelAndView getMatchList(@RequestParam("league") String league) throws DaoException, ParseException, IOException{
-		league = new String(league.getBytes("iso-8859-1"), "UTF-8");
-		Map<String, Object> map = getMatchesList(league); 
-		System.out.println(league);
-		map.putAll(getBookmakerList());
-		try {
-			if (property == null) {
-				property = new Properties();
-				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
-				property.load(fis);
-			}
-			switch(league){
-				case "Английская Примьер Лига": 
-					map.put("League_T", property.get("ENG_League_T"));
-					map.put("League_H1", property.get("ENG_League_H1"));
-					map.put("League_D", property.get("ENG_League_D"));
-					map.put("League_Txt", property.get("ENG_League_Txt"));
-					break;
-					
-				case "Испанская Ла Лига":
-					map.put("League_T", property.get("SPA_League_T"));
-					map.put("League_H1", property.get("SPA_League_H1"));
-					map.put("League_D", property.get("SPA_League_D"));
-					map.put("League_Txt", property.get("SPA_League_Txt"));
-					break;
-			
-				case "Российская Примьер Лига" :
-					map.put("League_T", property.get("RUS_League_T"));
-					map.put("League_H1", property.get("RUS_League_H1"));
-					map.put("League_D", property.get("RUS_League_D"));
-					map.put("League_Txt", property.get("RUS_League_Txt"));
-					break;
-					
-				case "Немецкая Бундеслига" :
-					map.put("League_T", property.get("GER_League_T"));
-					map.put("League_H1", property.get("GER_League_H1"));
-					map.put("League_D", property.get("GER_League_D"));
-					map.put("League_Txt", property.get("GER_League_Txt"));
-					break;
-
-				case "Итальянская серия А" :
-					map.put("League_T", property.get("ITA_League_T"));
-					map.put("League_H1", property.get("ITA_League_H1"));
-					map.put("League_D", property.get("ITA_League_D"));
-					map.put("League_Txt", property.get("ITA_League_Txt"));
-					break;
-			}
-		} catch (IOException e) {
-			System.err.println("Файл отсутствует");
-		} finally {
-			if (fis != null) {
-				fis.close();
-			}
-		}	
-		return new ModelAndView("league", map);
-	}
-
 	@RequestMapping("/PremierLeague_{leagueName}_List")
 	public ModelAndView getMainList(@PathVariable("leagueName") String leagueName) throws DaoException, ParseException, IOException {
 		Map<String, Object> map = getMatchesList(leagueName);
