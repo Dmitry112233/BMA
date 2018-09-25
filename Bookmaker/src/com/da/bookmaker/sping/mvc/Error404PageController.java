@@ -12,7 +12,7 @@ import com.da.bookmaker.dao.DaoException;
 @Controller
 public class Error404PageController extends BookmakerController{
 	
-	@RequestMapping("/Error404Page")
+	@RequestMapping("/error404Page")
 	public ModelAndView getMainList() throws DaoException {
 		Map<String, Object> map = new HashMap<>();
 		map.putAll(getBookmakerList());

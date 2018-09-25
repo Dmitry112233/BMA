@@ -143,7 +143,6 @@ public class BetFaqParser {
 			iteratorSimpleTest.next();
 			iteratorSimpleTest.next();
 			String description = iteratorSimpleTest.next().getTextContent().trim();
-			System.out.println(description);
 			bean.setDescription(description);
 			return true;
 		}catch(Exception e){

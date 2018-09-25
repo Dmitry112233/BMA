@@ -16,7 +16,7 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class CompetishionsTableController extends BookmakerController{
 
-	@RequestMapping("/{league}_Table")
+	@RequestMapping("/{league}_table")
 	public ModelAndView getTable(@PathVariable("league") String league) throws DaoException{
 		List<LeagueTableBean> table = DaoFactory.getLeaguTableDao().getTableForLeague(league);
 		Map<String, Object> map = new HashMap<String, Object>();

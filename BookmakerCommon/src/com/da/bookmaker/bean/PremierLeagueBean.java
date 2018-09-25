@@ -210,11 +210,7 @@ public class PremierLeagueBean {
 	}
 	
 	public String getUrl(){
-		return "/PremierLeague_" + 
-				TranslationUtils.toTranslit(team1) + "_" + 
-				TranslationUtils.toTranslit(team2) + "_" + 
-				TranslationUtils.toTranslit(league) + "_details";
+		return "/"+ (league.toLowerCase()) + "_" + (team1.toLowerCase()) + "_" + (team2.toLowerCase()) + "_детали";
 	}
-	
 
 }

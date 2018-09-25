@@ -27,7 +27,7 @@ public class EventController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/EventsList")
+	@RequestMapping("/events_list")
 	public ModelAndView getMainList() throws DaoException, IOException {
 		Map<String, Object> map = getIventList();
 		List<String> sports = getSortedSports(map.keySet());

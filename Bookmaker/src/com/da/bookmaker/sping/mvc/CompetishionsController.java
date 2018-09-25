@@ -18,7 +18,7 @@ public class CompetishionsController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 	
-	@RequestMapping("/Competishions")
+	@RequestMapping("/competishions")
 	public ModelAndView getMainList() throws DaoException, IOException {
 		Map<String, Object> map = new HashMap<>();
 		map.putAll(getBookmakerList());

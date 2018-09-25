@@ -19,7 +19,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/Bookmakers")
+	@RequestMapping("/bookmakers")
 	public ModelAndView getBmkList() throws DaoException, IOException {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();

@@ -21,7 +21,7 @@ public class BookmakerDetailsController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/Bookmaker_{id}")
+	@RequestMapping("/bookmaker_{id}")
 	public ModelAndView getBookmaker(@PathVariable("id") int id) throws DaoException, IOException {
 		Map<String, Object> map = new HashMap<>();
 		BookmakerBean bean = DaoFactory.getBookmakerDao().getById(id);
@@ -33,24 +33,26 @@ public class BookmakerDetailsController extends BookmakerController {
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			if (id == 1) {
+			switch(id){
+			case 1:	
 				map.put("Bookmaker_T", property.getProperty("1xBet_T"));
 				map.put("Bookmaker_H1", property.getProperty("1xBet_H1"));
 				map.put("Bookmaker_D", property.getProperty("1xBet_D"));
 				map.put("Bookmaker_Txt", property.getProperty("1xBet_Txt"));
-			}
-			if (id == 2) {
+				break;
+			case 2:
 				map.put("Bookmaker_T", property.getProperty("Leon_T"));
 				map.put("Bookmaker_H1", property.getProperty("Leon_H1"));
 				map.put("Bookmaker_D", property.getProperty("Leon_D"));
 				map.put("Bookmaker_Txt", property.getProperty("Leon_Txt"));
-			}
-			if (id == 3) {
+				break;
+			case 3:
 				map.put("Bookmaker_T", property.getProperty("LigaStavok_T"));
 				map.put("Bookmaker_H1", property.getProperty("LigaStavok_H1"));
 				map.put("Bookmaker_D", property.getProperty("LigaStavok_D"));
 				map.put("Bookmaker_Txt", property.getProperty("LigaStavok_Txt"));
-			}
+				break;
+			}			
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");
 		} finally {

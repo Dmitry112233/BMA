@@ -11,7 +11,7 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class CounterController {
 
-	@RequestMapping("/Counter")
+	@RequestMapping("/counter")
 	public String setBookmakerCounter(@RequestParam("id") long id) throws DaoException {
 		
 		BookmakerBean bean = DaoFactory.getBookmakerDao().getById(id);

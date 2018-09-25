@@ -22,7 +22,7 @@ public class QuestionDescriptionController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/FAQList_{id}_details")
+	@RequestMapping("/faq_list_{id}_details")
 	public ModelAndView getMainList(@PathVariable("id") int id) throws DaoException, IOException {
 		Map<String, Object> map = getQuestionByID(id);
 		map.putAll(getBookmakerList());

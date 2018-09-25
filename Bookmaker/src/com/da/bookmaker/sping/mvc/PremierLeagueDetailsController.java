@@ -16,16 +16,12 @@ import com.da.bookmaker.bean.MatchDetailsBean;
 import com.da.bookmaker.bean.PremierLeagueBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
-import com.da.bookmaker.util.TranslationUtils;
 
 @Controller
 public class PremierLeagueDetailsController extends BookmakerController {
-	@RequestMapping("/PremierLeague_{team1}_{team2}_{league}_details")
+	@RequestMapping("/{league}_{team1}_{team2}_детали")
 	public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2,
 			@PathVariable("league") String league) throws DaoException, ParseException {
-		team1 = TranslationUtils.toRus(team1);
-		team2 = TranslationUtils.toRus(team2);
-		league = TranslationUtils.toRus(league);
 		
 		Map<String, Object> map = get1xBetCeffByTeams(team1, team2);
 		List<MatchDetailsBean> lastMatchesTeam1 = getMatchesDetailsTeam(team1);
