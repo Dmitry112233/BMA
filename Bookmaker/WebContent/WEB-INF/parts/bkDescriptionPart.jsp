@@ -4,14 +4,14 @@
 <div id="bkReitBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <div class="bkReit">
       <br>
-      <a class="BackButton" href="${contextPath}/Bookmakers"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие букмекеры</a>
+      <a class="BackButton" href="${contextPath}/bookmakers"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие букмекеры</a>
       <br><br>
       <br>
       <div class="container-fluid">
          <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                <div class="bkName">
-                  <a rel="nofollow" href="Counter?id=${bookmaker.bookMakerId}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>	      		     		
+                  <a rel="nofollow" href="counter?id=${bookmaker.bookMakerId}" target="_blank"><img class="bmReitLogo" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>	      		     		
                </div>
             </div>
          </div>
@@ -72,7 +72,7 @@
          </div>
       </div>
       <br>
-      <div class="bkReitLinkBlock"><a class="bkReitLink" rel="nofollow" target="_blank" href="Counter?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></div>
+      <div class="bkReitLinkBlock"><a class="bkReitLink" rel="nofollow" target="_blank" href="counter?id=${bookmaker.bookMakerId}">Регистрация на сайте ${bookmaker.name}</a></div>
       <br>
       	<div class="article">${Bookmaker_Txt}</div>
       <br>         

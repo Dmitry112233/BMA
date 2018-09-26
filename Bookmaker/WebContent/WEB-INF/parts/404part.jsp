@@ -5,5 +5,5 @@
 <div id="pnf" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">      
    <br><br><br><br><br>
    <p>К сожалению, страница не найдена.</p>
-   <a class="pnfout" href="${contextPath}/Bookmakers">Перейти на главную</a>   
+   <a class="pnfout" href="${contextPath}/bookmakers">Перейти на главную</a>   
 </div>

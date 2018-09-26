@@ -7,7 +7,7 @@
    <table class="sportsListTable">
       <tr onclick="window.location.href='${contextPath}/${'российская Примьер Лига'}_матчи'; return false">
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Российская Примьер Лига.png"></td>
-         <td><a href="${contextPath}/PremierLeague_${'российская примьер лига'}_List">Премьер-Лига (Россия)</a></td>
+         <td><a href="${contextPath}/${'российская примьер лига'}_матчи">Премьер-Лига (Россия)</a></td>
       </tr>
       <tr onclick="window.location.href='${contextPath}/${'английская примьер лига'}_матчи'; return false">
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Английская Примьер Лига.png"></td>

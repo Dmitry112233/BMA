@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:forEach var="CeffSource" items="${RowListName}">
-   <tr onclick="window.open('Counter?id=${CeffSource.bookmakerBean.bookMakerId}', '_blank'); return false;">
+   <tr onclick="window.open('counter?id=${CeffSource.bookmakerBean.bookMakerId}', '_blank'); return false;">
       <td class="CoeffCompareTableBM">
-         <a rel="nofollow" href="Counter?id=${CeffSource.bookmakerBean.bookMakerId}" target="_blank">
+         <a rel="nofollow" href="counter?id=${CeffSource.bookmakerBean.bookMakerId}" target="_blank">
          <img src="${CeffSource.bookmakerBean.image}" alt="${CeffSource.bookmakerBean.name} logo">
          </a>
       </td>
@@ -79,6 +79,6 @@
             <c:otherwise>-</c:otherwise>
          </c:choose>
       </td>
-      <td class="CoeffCompareTableSecondary2"><a class="detailToBKButton" rel="nofollow" href="Counter?id=${CeffSource.bookmakerBean.bookMakerId}" target="_blank">На сайт</a></td>
+      <td class="CoeffCompareTableSecondary2"><a class="detailToBKButton" rel="nofollow" href="counter?id=${CeffSource.bookmakerBean.bookMakerId}" target="_blank">На сайт</a></td>
    </tr>
 </c:forEach>

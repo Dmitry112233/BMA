@@ -3,7 +3,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="textLessons" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <br>
-   <a class="BackButton" href="${contextPath}/FAQList"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие вопросы</a>
+   <a class="BackButton" href="${contextPath}/faq_list"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие вопросы</a>
    <br><br>
    <c:if test = "${Question_Txt != Null}">
       <div class="article">${Question_Txt}</div>

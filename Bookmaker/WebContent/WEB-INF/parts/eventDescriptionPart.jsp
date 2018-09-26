@@ -4,7 +4,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="allEv" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <br>
-   <a class="BackButton" href="${contextPath}/EventsList"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список прогнозов</a>
+   <a class="BackButton" href="${contextPath}/events_list"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список прогнозов</a>
    <br><br>
    <p>Дата события: <b>${ivent.dateStr}</b></p>
    <table class="evtable">
@@ -36,7 +36,7 @@
       <jsp:useBean id="random" class="java.util.Random" scope="application"/>
       <c:set var="randID">${random.nextInt(countBK)}</c:set>
       <!-- вывод лучшего БК -->
-      <a class="toBestBK" rel="nofollow" href="Counter?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank"><span class="toBestBKtxt">Повторить ставку </span><span class="toBestBKimg"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></span></a>                        
+      <a class="toBestBK" rel="nofollow" href="counter?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank"><span class="toBestBKtxt">Повторить ставку </span><span class="toBestBKimg"><img src="${BookmakerWeightList.get(randID).image}" alt="${BookmakerWeightList.get(randID).name} logo"></span></a>                        
    </div>
    <br><br><br>
 </div>

@@ -7,9 +7,9 @@
       <ol>
          <c:forEach var="bookmaker" items="${bookmakerList.values()}">
             <li>
-               <a rel="nofollow" href="Counter?id=${bookmaker.bookMakerId}" target="_blank" class="bmlogo"><img class="tilt" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>
-               <a class="toBkDescr" href="${contextPath}/Bookmaker_${bookmaker.bookMakerId}">Обзор</a>
-               <a rel="nofollow" class="tobkbut" target="_blank" href="Counter?id=${bookmaker.bookMakerId}">На сайт</a>        
+               <a rel="nofollow" href="counter?id=${bookmaker.bookMakerId}" target="_blank" class="bmlogo"><img class="tilt" src="${bookmaker.image}" alt="${bookmaker.name} logo"></a>
+               <a class="toBkDescr" href="${contextPath}/bookmaker_${bookmaker.bookMakerId}">Обзор</a>
+               <a rel="nofollow" class="tobkbut" target="_blank" href="counter?id=${bookmaker.bookMakerId}">На сайт</a>        
             </li>
          </c:forEach>
       </ol>

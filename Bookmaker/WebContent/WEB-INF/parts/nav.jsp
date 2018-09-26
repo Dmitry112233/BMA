@@ -12,31 +12,31 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   </button>
-                  <a href="${contextPath}/Bookmakers" class="navbar-brand"><img class="BMALogo" src="/Static/bootstrap/img/BMAlogo.png" alt="BestBet"></a>
+                  <a href="${contextPath}/bookmakers" class="navbar-brand"><img class="BMALogo" src="/Static/bootstrap/img/BMAlogo.png" alt="BestBet"></a>
                </div>
                <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">
-                     <li class="${param.fourthMenu == 'true'?'active':''}"><a href="${contextPath}/Bookmakers">Букмекеры</a></li>      
+                     <li class="${param.fourthMenu == 'true'?'active':''}"><a href="${contextPath}/bookmakers">Букмекеры</a></li>      
                      <li class="${param.eighthMenu == 'true'?'active':''} dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Ставки на футбол<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu3">                           
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Российская Примьер Лига'}_List">Премьер-Лига (Россия)</a></li>
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Английская Примьер Лига'}_List">Премьер-Лига (Англия)</a></li>
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Испанская Ла Лига'}_List">Ла Лига (Испания)</a></li>
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Итальянская серия А'}_List">Серия А (Италия)</a></li>
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/PremierLeague_${'Немецкая Бундеслига'}_List">Бундеслига (Германия)</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'Российская Примьер Лига'}_матчи">Премьер-Лига (Россия)</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'Английская Примьер Лига'}_матчи">Премьер-Лига (Англия)</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'Испанская Ла Лига'}_матчи">Ла Лига (Испания)</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'Итальянская серия А'}_матчи">Серия А (Италия)</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'Немецкая Бундеслига'}_матчи">Бундеслига (Германия)</a></li>
                         </ul>
                      </li>            
                      <li class="${param.betMenu == 'true'?'active':''} dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Прогнозы <span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu3">
-                           <li class="${param.secondMenu == 'true'?'active':''}"><a href="${contextPath}/ExpressesList_0">Экспрессы</a></li>
-                           <li class="${param.sixthMenu == 'true'?'active':''}"><a href="${contextPath}/EventsList">Одиночные прогнозы</a></li>                           
+                           <li class="${param.secondMenu == 'true'?'active':''}"><a href="${contextPath}/expresses_list_0">Экспрессы</a></li>
+                           <li class="${param.sixthMenu == 'true'?'active':''}"><a href="${contextPath}/events_list">Одиночные прогнозы</a></li>                           
                         </ul>
                      </li>
-                     <li class="${param.fifthMenu == 'true'?'active':''}"><a href="${contextPath}/News_0">Новости</a></li>
+                     <li class="${param.fifthMenu == 'true'?'active':''}"><a href="${contextPath}/news_0">Новости</a></li>
                      
-                     <li class="${param.therdMenu == 'true'?'active':''}"><a href="${contextPath}/FAQList">Теория</a></li>
+                     <li class="${param.therdMenu == 'true'?'active':''}"><a href="${contextPath}/faq_list">Теория</a></li>
                      <li class="${param.noneMenu == 'true'?'fakeMenu':''}"></li>
                   </ul>
                </div>

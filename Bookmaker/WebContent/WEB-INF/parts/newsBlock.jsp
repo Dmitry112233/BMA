@@ -13,9 +13,9 @@
          </c:if>
          <c:set var="separatorNews" value="true" />
          <div class="newsTitle">
-            <a href="${contextPath}/NewsDescription_${newsItem.id}_details_${currentPage}">${newsItem.title}</a>
+            <a href="${contextPath}/news_description_${newsItem.id}_details_${currentPage}">${newsItem.title}</a>
          </div>
-         <a href="${contextPath}/NewsDescription_${newsItem.id}_details_${currentPage}"><img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img></a>
+         <a href="${contextPath}/news_description_${newsItem.id}_details_${currentPage}"><img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img></a>
       </c:forEach>
    </c:if>
    <br>
@@ -26,10 +26,10 @@
       <ul class="pagination">
          <c:forEach var="button" items="${pageMass}">
             <c:if test = "${button + 1 == currentPage}">
-               <li class="page-item active"><a class="page-link" href="${contextPath}/News_${button * 10}">${button + 1}</a></li>
+               <li class="page-item active"><a class="page-link" href="${contextPath}/news_${button * 10}">${button + 1}</a></li>
             </c:if>
             <c:if test = "${button + 1 != currentPage}">
-               <li class="page-item"><a class="page-link" href="${contextPath}/News_${button * 10}">${button + 1}</a></li>
+               <li class="page-item"><a class="page-link" href="${contextPath}/news_${button * 10}">${button + 1}</a></li>
             </c:if>
          </c:forEach>
       </ul>

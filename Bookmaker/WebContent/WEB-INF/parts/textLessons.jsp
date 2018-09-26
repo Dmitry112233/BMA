@@ -5,7 +5,7 @@
    <br>
    <c:forEach var="question" items="${questionsList}">
 	   <ul>
-	   	<li> <a href="${contextPath}/FAQList_${question.questionID}_details">${question.question}</a></li>	   	
+	   	<li> <a href="${contextPath}/faq_list_${question.questionID}_details">${question.question}</a></li>	   	
 	   </ul>
    </c:forEach>   
    <div class="article">${FAQ_Txt}</div>

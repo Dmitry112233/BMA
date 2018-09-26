@@ -5,22 +5,22 @@
    <div class="icons">Icons designed by <a rel="nofollow" target="_blank" href="http://www.freepik.com" title="Freepik">Freepik</a> from <a rel="nofollow" target="_blank" href="https://www.flaticon.com/" title="Flaticon">Flaticon</a></div>
    <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-         <a href="${contextPath}/Bookmakers" class="Alogo"><img class="BMAminiLogo" src="/Static/bootstrap/img/BMAlogo.png" alt="BestBet"></a>
+         <a href="${contextPath}/bookmakers" class="Alogo"><img class="BMAminiLogo" src="/Static/bootstrap/img/BMAlogo.png" alt="BestBet"></a>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">         
          <ul class="footerMenu">   
             <li class="menuName">Ставки на спорт</li>            
-            <li><a href="${contextPath}/Competishions">Чемпионаты</a></li>
-            <li><a href="${contextPath}/ExpressesList_0">Экспрессы</a></li>
-            <li><a href="${contextPath}/EventsList">Одиночные прогнозы</a></li>
+            <li><a href="${contextPath}/competishions">Чемпионаты</a></li>
+            <li><a href="${contextPath}/expresses_list_0">Экспрессы</a></li>
+            <li><a href="${contextPath}/events_list">Одиночные прогнозы</a></li>
          </ul>                  
       </div>
       <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
       	<ul class="footerMenu">            
             <li class="menuName">Информация</li>            
-            <li><a href="${contextPath}/Bookmakers">Сравнение букмекеров</a></li>
-            <li><a href="${contextPath}/News_0">Новости спорта</a></li>
-            <li><a href="${contextPath}/FAQList">Вопросы - ответы</a></li>
+            <li><a href="${contextPath}/bookmakers">Сравнение букмекеров</a></li>
+            <li><a href="${contextPath}/news_0">Новости спорта</a></li>
+            <li><a href="${contextPath}/faq_list">Вопросы - ответы</a></li>
          </ul>
       </div>
    </div>      

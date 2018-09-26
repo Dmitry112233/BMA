@@ -2,3 +2,4 @@ eclipse.preferences.version=1
 encoding//src/com/da/bookmaker/bean/IventBean.java=UTF-8
 encoding//src/com/da/bookmaker/bean/PremierLeagueBean.java=UTF-8
 encoding//src/com/da/bookmaker/dao/template/PremierLeagueDaoTemplateImpl.java=UTF-8
+encoding//src/com/da/bookmaker/util/TranslationUtils.java=UTF-8

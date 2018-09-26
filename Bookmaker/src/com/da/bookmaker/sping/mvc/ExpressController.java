@@ -24,7 +24,7 @@ public class ExpressController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/expressesList_{offset}")
+	@RequestMapping("/expresses_list_{offset}")
 	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException, IOException {
 		ArrayList<Integer> pageMass = getPageMass(offset);
 		int currentPage = getCurrentPage(offset);

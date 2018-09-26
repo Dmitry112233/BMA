@@ -3,7 +3,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="newsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">   
    <br>
-   	<a class="BackButton" href="${contextPath}/News_${offset}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие новости</a>
+   	<a class="BackButton" href="${contextPath}/news_${offset}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие новости</a>
    <br><br>   
    <div class="listNewsComp">
    	<p>${news.sport}<br>${news.competition}</p>
