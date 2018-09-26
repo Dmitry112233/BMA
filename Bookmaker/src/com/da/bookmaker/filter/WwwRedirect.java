@@ -21,7 +21,7 @@ public class WwwRedirect implements Filter{
 				((HttpServletResponse)response).sendRedirect(url.replace("www.", ""));
 			}
 			else if(httpServletRequest.getServletPath().equals("/index.html")){
-				httpServletRequest.getRequestDispatcher("Bookmakers").forward(request, response);
+				httpServletRequest.getRequestDispatcher("bookmakers").forward(request, response);
 			} 
 			else {
 				chain.doFilter(request, response);
