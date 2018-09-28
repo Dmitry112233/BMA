@@ -63,7 +63,7 @@ public class PremierLeagueBean {
 	}
 
 	public String getTeam1() {
-		return team1.toLowerCase();
+		return team1;
 	}
 
 	public void setTeam1(String team1) {
@@ -71,7 +71,7 @@ public class PremierLeagueBean {
 	}
 
 	public String getTeam2() {
-		return team2.toLowerCase();
+		return team2;
 	}
 
 	public void setTeam2(String team2) {
@@ -175,7 +175,7 @@ public class PremierLeagueBean {
 	}
 	
 	public String getLeague() {
-		return league.toLowerCase();
+		return league;
 	}
 
 	public void setLeague(String league) {
@@ -210,7 +210,7 @@ public class PremierLeagueBean {
 	}
 	
 	public String getUrl(){
-		return "/${"+ (league.toLowerCase()) + "}_${" + (team1.toLowerCase()) + "}_${" + (team2.toLowerCase()) + "}_детали";
+		return (league.toLowerCase()) + "_" + (team1.toLowerCase()) + "_" + (team2.toLowerCase()) + "_детали";
 	}
 
 }
