@@ -15,7 +15,7 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class NewsDescriptionController extends BookmakerController {
 
-	@RequestMapping("/news_description_{id}_details_{currentPage}")
+	@RequestMapping("/{id}_news_{currentPage}")
 	public ModelAndView getMainList(@PathVariable("id") int id, @PathVariable("currentPage") int currentPage) throws DaoException {
 		Map<String, Object> map = getNewsList(id);
 		map.put("offset", getOffset(currentPage));

@@ -13,9 +13,9 @@
          </c:if>
          <c:set var="separatorNews" value="true" />
          <div class="newsTitle">
-            <a href="${contextPath}/news_description_${newsItem.id}_details_${currentPage}">${newsItem.title}</a>
+            <a href="${contextPath}/${newsItem.id}_news_${currentPage}">${newsItem.title}</a>
          </div>
-         <a href="${contextPath}/news_description_${newsItem.id}_details_${currentPage}"><img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img></a>
+         <a href="${contextPath}/${newsItem.id}_news_${currentPage}"><img class="newsPic" src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img></a>
       </c:forEach>
    </c:if>
    <br>
