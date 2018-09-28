@@ -35,32 +35,32 @@ public class PremierLeagueController extends BookmakerController {
 				property.load(fis);
 			}
 			switch (leagueName) {
-			case "Английская Примьер Лига":
+			case "английская примьер лига":
 				map.put("League_T", property.get("ENG_League_T"));
 				map.put("League_H1", property.get("ENG_League_H1"));
 				map.put("League_D", property.get("ENG_League_D"));
 				map.put("League_Txt", property.get("ENG_League_Txt"));
 				break;
-			case "Испанская Ла Лига":
+			case "испанская ла лига":
 				map.put("League_T", property.get("SPA_League_T"));
 				map.put("League_H1", property.get("SPA_League_H1"));
 				map.put("League_D", property.get("SPA_League_D"));
 				map.put("League_Txt", property.get("SPA_League_Txt"));
 				break;
-			case "Российская Примьер Лига":
+			case "российская примьер лига":
 				map.put("League_T", property.get("RUS_League_T"));
 				map.put("League_H1", property.get("RUS_League_H1"));
 				map.put("League_D", property.get("RUS_League_D"));
 				map.put("League_Txt", property.get("RUS_League_Txt"));
 				break;
-			case "Немецкая Бундеслига":
+			case "немецкая бундеслига":
 				map.put("league", property.getProperty("GER"));
 				map.put("League_T", property.get("GER_League_T"));
 				map.put("League_H1", property.get("GER_League_H1"));
 				map.put("League_D", property.get("GER_League_D"));
 				map.put("League_Txt", property.get("GER_League_Txt"));
 				break;
-			case "Итальянская серия А":
+			case "итальянская серия а":
 				map.put("League_T", property.get("ITA_League_T"));
 				map.put("League_H1", property.get("ITA_League_H1"));
 				map.put("League_D", property.get("ITA_League_D"));
