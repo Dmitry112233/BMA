@@ -19,7 +19,7 @@ public class CompetishionsDecriptionController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/{league}_description")
+	@RequestMapping("/{league}_описание")
 	public ModelAndView getLeagueDescription(@PathVariable("league") String league) throws DaoException, IOException {
 		try {
 			if (property == null) {
@@ -48,6 +48,6 @@ public class CompetishionsDecriptionController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView();
+		return new ModelAndView("leagueDescriptionPage");
 	}
 }

@@ -2,14 +2,14 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>${League_T}</title>
-      <meta name="Description" content="${League_D}"/>
+      <title>${test_T}</title>      
+      <meta name="Description" content="${test_D}"/>      
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
       <!-- конец тегов для индексации -->
-      <link rel="shortcut icon" href="/Static/bootstrap/img/favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="/Static/bootstrap/img/favicon.ico" type="image/x-icon">      
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
       <link href="/Static/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -29,19 +29,13 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         	<c:if test="${matchesList.size() > 0}">
-         		<h1 class="leagueH1">${League_H1}</h1>
-         		<img class="leagueIcon" src="/Static/bootstrap/img/leagueIcon/${matchesList.get(0).league}.png">
-         	</c:if>
-         	<c:if test="${matchesList.size() == NULL}">
-         		<h1>Футбол</h1>
-         	</c:if>
+         	<h1>${test_H1}</h1>
          </div>
       </div>
       <div class="container">
          <div class="row mainHeight">
-            <c:import url="parts/bmList.jsp"></c:import>
-            <c:import url="parts/LeagueMatches.jsp"></c:import>
+            <c:import url="parts/bmList.jsp"></c:import>            
+            <c:import url="parts/leagueDescriptionPart.jsp"></c:import>
          </div>
       </div>
       <c:import url="parts/footer.jsp"></c:import>

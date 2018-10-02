@@ -5,9 +5,10 @@
 <div id="sports" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">   
    <br><br> 
    <table class="sportsListTable">
-      <tr onclick="window.location.href='${contextPath}/${'российская примьер лига'}_матчи'; return false">
+      <tr>
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Российская Примьер Лига.png"></td>
          <td><a href="${contextPath}/${'российская примьер лига'}_матчи">Премьер-Лига (Россия)</a></td>
+         <td><a href="${contextPath}/${'российская примьер лига'}_описание">Описание чемпионата</a></td>
       </tr>
       <tr onclick="window.location.href='${contextPath}/${'английская примьер лига'}_матчи'; return false">
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Английская Примьер Лига.png"></td>
