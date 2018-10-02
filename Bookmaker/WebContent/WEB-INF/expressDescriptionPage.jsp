@@ -2,8 +2,8 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>Описание экспресса ${express.iventList.get(0).name}, ${express.iventList.get(1).name} | findbestbet.ru</title>      
-      <meta name="Description" content="Описание экспресса ${express.iventList.get(0).name}, ${express.iventList.get(1).name} | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>      
+      <title>Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet} | findbestbet.ru</title>      
+      <meta name="Description" content="Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet} | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>      
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -30,7 +30,7 @@
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         	<h1>Описание экспресса ${express.iventList.get(0).name}, ${express.iventList.get(1).name}</h1>
+         	<h1>Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet}</h1>
          </div>
       </div>
       <div class="container">

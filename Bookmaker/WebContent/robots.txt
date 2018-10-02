@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /results
 Disallow: /?marker*
 Disallow: /?utm*
-Sitemap: https://http://findbestbet.ru.ru/sitemap.xml
+Sitemap: https://findbestbet.ru.ru/sitemap.xml
