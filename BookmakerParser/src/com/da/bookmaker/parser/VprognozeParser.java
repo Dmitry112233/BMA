@@ -4,8 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -49,6 +51,10 @@ public class VprognozeParser {
 				// String url = getProxyUrl(URL, i == 1?"/express/":"/express/page/" + i + "/");
 				beans.addAll(parsePage(url, webClient));
 			}
+			Set<ExpressBean> hs = new HashSet<>();
+			hs.addAll(beans);
+			beans.clear();
+			beans.addAll(hs);
 			
 			DaoFactory.getExpressDao().deleteExpressesList(URL);
 			DaoFactory.getIventDao().deleteIventsList(URL);
