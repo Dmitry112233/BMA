@@ -5,25 +5,30 @@
 <div id="sports" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">   
    <br><br> 
    <table class="sportsListTable">
-      <tr onclick="window.location.href='${contextPath}/${'российская примьер лига'}_матчи'; return false">
+      <tr>
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Российская Примьер Лига.png"></td>
-         <td><a href="${contextPath}/${'российская примьер лига'}_матчи">Премьер-Лига (Россия)</a></td>         
+         <td><a href="${contextPath}/${'российская примьер лига'}_матчи">Премьер-Лига (Россия)</a></td>
+         <td><a href="${contextPath}/${'российская примьер лига'}_описание">Описание чемпионата</a></td>
       </tr>
-      <tr onclick="window.location.href='${contextPath}/${'английская примьер лига'}_матчи'; return false">
+      <tr>
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Английская Примьер Лига.png"></td>
-         <td><a href="${contextPath}/${'английская Примьер Лига'}_матчи">Премьер-Лига (Англия)</a></td>
+         <td><a href="${contextPath}/${'английская примьер лига'}_матчи">Премьер-Лига (Англия)</a></td>
+         <td><a href="${contextPath}/${'английская примьер лига'}_описание">Описание чемпионата</a></td>
       </tr>
-      <tr onclick="window.location.href='${contextPath}/${'испанская ла лига'}_матчи'; return false">
+      <tr>
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Испанская Ла Лига.png"></td>
          <td><a href="${contextPath}/${'испанская ла лига'}_матчи">Ла Лига (Испания)</a></td>
+         <td><a href="${contextPath}/${'испанская ла лига'}_описание">Описание чемпионата</a></td>
       </tr>
-      <tr onclick="window.location.href='${contextPath}/${'итальянская серия а'}_матчи'; return false">
+      <tr>
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Итальянская серия А.png"></td>
          <td><a href="${contextPath}/${'итальянская серия а'}_матчи">Серия А (Италия)</a></td>
+         <td><a href="${contextPath}/${'итальянская серия а'}_описание">Описание чемпионата</a></td>
       </tr>
-      <tr onclick="window.location.href='${contextPath}/${'немецкая бундеслига'}_матчи'; return false">
+      <tr>
          <td><img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Немецкая Бундеслига.png"></td>
          <td><a href="${contextPath}/${'немецкая бундеслига'}_матчи">Бундеслига (Германия)</a></td>
+         <td><a href="${contextPath}/${'немецкая бундеслига'}_описание">Описание чемпионата</a></td>
       </tr>
    </table>
    <br>
