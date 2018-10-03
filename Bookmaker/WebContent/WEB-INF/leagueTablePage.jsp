@@ -30,7 +30,7 @@
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
          	<h1 class="leagueH1">${Table_H1}</h1>
-         	<img class="leagueIcon" src="/Static/bootstrap/img/leagueIcon/${league.name.Dima.mega.koder}.png" onerror="this.style.display='none'">
+         	<img class="leagueIcon" src="/Static/bootstrap/img/leagueIcon/${leaguename.Dima.mega.koder}.png" onerror="this.style.display='none'">
          </div>
       </div>
       <div class="container">
