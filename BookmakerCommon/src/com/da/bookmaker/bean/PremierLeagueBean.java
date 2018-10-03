@@ -177,6 +177,10 @@ public class PremierLeagueBean {
 	public String getLeague() {
 		return league;
 	}
+	
+	public String getLeaguelow(){
+		return league.toLowerCase();
+	}
 
 	public void setLeague(String league) {
 		this.league = league;

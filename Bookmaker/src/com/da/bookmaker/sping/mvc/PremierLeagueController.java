@@ -54,7 +54,6 @@ public class PremierLeagueController extends BookmakerController {
 				map.put("League_Txt", property.get("RUS_League_Txt"));
 				break;
 			case "немецкая бундеслига":
-				map.put("league", property.getProperty("GER"));
 				map.put("League_T", property.get("GER_League_T"));
 				map.put("League_H1", property.get("GER_League_H1"));
 				map.put("League_D", property.get("GER_League_D"));
