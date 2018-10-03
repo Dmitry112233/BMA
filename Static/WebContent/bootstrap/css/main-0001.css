@@ -885,6 +885,14 @@ a {
 	padding-right: 20px;
 }
 
+.greenText {
+	color: #3d943e;
+}
+
+.redText {
+	color: #bd3737;
+}
+
 /* adaptation */
 @media (max-width: 1305px) {
 	.topbutton {
@@ -1071,5 +1079,9 @@ a {
 		margin-left: 0px;
 		margin-top: 10px;
 		margin-bottom: 12px;
+	}
+	
+	.toEventDescription {
+		display: none;
 	}
 }
