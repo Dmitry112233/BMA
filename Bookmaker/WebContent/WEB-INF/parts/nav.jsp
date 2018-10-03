@@ -16,7 +16,7 @@
                </div>
                <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav navbar-right">
-                     <li class="${param.fourthMenu == 'true'?'active':''}"><a href="/Bookmaker">Букмекеры</a></li>      
+                     <li class="${param.fourthMenu == 'true'?'active':''}"><a href="${contextPath}/bookmakers">Букмекеры</a></li>
                      <li class="${param.eighthMenu == 'true'?'active':''} dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Ставки на футбол<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu3">                           
