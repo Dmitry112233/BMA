@@ -40,7 +40,7 @@ body {
 	position: relative;
 }
 
-#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #LeagueMatchesBlock, #videoPart, #DetailsBlock, #sports, #leagueDescription {
+#bkReitBlock, #newsBlock, #allExp, #dayexp, #textLessons, #allEv, #pnf, #LeagueMatchesBlock, #videoPart, #DetailsBlock, #sports, #leagueDescription, #leagueTable {
 	float: right;
 	height: auto;
 	background: #efefef;

@@ -22,7 +22,7 @@ public class CompetishionsTableController extends BookmakerController{
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/{league}_table")
+	@RequestMapping("/{league}_таблица")
 	public ModelAndView getTable(@PathVariable("league") String league) throws DaoException, IOException{
 		List<LeagueTableBean> table = DaoFactory.getLeaguTableDao().getTableForLeague(league);
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -73,6 +73,6 @@ public class CompetishionsTableController extends BookmakerController{
 				fis.close();
 			}
 		}
-		return new ModelAndView("leagueTable", map);
+		return new ModelAndView("leagueTablePage", map);
 	}
 }
