@@ -24,10 +24,11 @@ public class CompetishionsTableController extends BookmakerController{
 
 	@RequestMapping("/{league}_таблица")
 	public ModelAndView getTable(@PathVariable("league") String league) throws DaoException, IOException{
-		List<LeagueTableBean> table = DaoFactory.getLeaguTableDao().getTableForLeague(league);
+		List<LeagueTableBean> table = getLeagueTable(league);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.putAll(getBookmakerList());
 		map.put("table", table);
+		map.put("league", league);
 		try {
 			if (property == null) {
 				property = new Properties();
@@ -74,5 +75,15 @@ public class CompetishionsTableController extends BookmakerController{
 			}
 		}
 		return new ModelAndView("leagueTablePage", map);
+	}
+	
+	private List<LeagueTableBean> getLeagueTable(String league) throws DaoException {
+		List<LeagueTableBean> list = DaoFactory.getLeaguTableDao().getTableForLeague(league);
+		for (LeagueTableBean table : list) {
+			if (DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(table.getTeam()) != null) {
+				table.setTeam(DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(table.getTeam()));
+			}
+		}
+		return list;
 	}
 }
