@@ -17,7 +17,6 @@ public class WwwRedirect implements Filter{
 		if (request instanceof HttpServletRequest){
 			HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 			String url = httpServletRequest.getRequestURL().toString();
-			System.out.println(url);
 			if (url.contains("www.")){
 				((HttpServletResponse)response).sendRedirect(url.replace("www.", ""));
 			}
