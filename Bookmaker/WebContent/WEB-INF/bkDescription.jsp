@@ -44,6 +44,7 @@
             <c:import url="parts/bkRating.jsp"></c:import>
          </div>
       </div>
+      <c:import url="parts/linksBlock.jsp"></c:import>
       <c:import url="parts/footer.jsp"></c:import>
       <c:import url="parts/topButton.jsp"></c:import>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
