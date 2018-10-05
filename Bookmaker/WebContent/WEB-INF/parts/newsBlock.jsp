@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<div id="newsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+<div id="newsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
    <br>
    <c:if test="${newsList.size() > 0}">
       <!-- переменная для вывода полоски над каждой новостью, кроме первой -->
