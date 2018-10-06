@@ -144,10 +144,7 @@ public class VprognozeParser {
 	}
 
 	private List<ExpressBean> removeAllDuplicates(ArrayList<ExpressBean> beans) {
-
 		int size = beans.size();
-		int duplicates = 0;
-
 		for (int i = 0; i < size - 1; i++) {
 			// start from the next item after strings[i]
 			// since the ones before are checked
@@ -156,7 +153,6 @@ public class VprognozeParser {
 				if (!beans.get(j).getDescription().equals(beans.get(i).getDescription())) {
 					continue;
 				} else {
-					duplicates++;
 					beans.remove(j);
 					// decrease j because the array got re-indexed
 					j--;
