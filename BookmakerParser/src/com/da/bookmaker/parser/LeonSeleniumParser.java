@@ -3,11 +3,11 @@ package com.da.bookmaker.parser;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+/*
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;*/
 
 import com.da.bookmaker.bean.PremierLeagueBean;
 import com.da.bookmaker.dao.DaoException;
@@ -15,7 +15,7 @@ import com.da.bookmaker.dao.DaoFactory;
 
 public class LeonSeleniumParser {
 
-	public static void main(String[] args) throws DaoException {
+	/*public static void main(String[] args) throws DaoException {
 		new LeonSeleniumParser().parseLeon();
 	}
 
@@ -46,5 +46,5 @@ public class LeonSeleniumParser {
 		}
 		DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 2);
 		DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-	}
+	}*/
 }
