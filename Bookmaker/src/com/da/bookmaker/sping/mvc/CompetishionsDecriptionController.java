@@ -25,36 +25,43 @@ public class CompetishionsDecriptionController extends BookmakerController {
 		try {
 			if (property == null) {
 				property = new Properties();
-				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("leagueDescription.properties");
+				fis = Thread.currentThread().getContextClassLoader()
+						.getResourceAsStream("leagueDescription.properties");
 				property.load(fis);
 			}
+			map.put("league", getFirstLetteruppercase(league));
 			map.putAll(getBookmakerList());
-			switch (league){
-			case "английская примьер лига" : map.put("league", property.getProperty("ENG"));
-			map.put("league_D", property.getProperty("ENG_D"));
-			map.put("league_H1", property.getProperty("ENG_H1"));
-			map.put("league_T", property.getProperty("ENG_T"));
-			break;
-			case "испанская ла лига": map.put("league", property.getProperty("SPA"));
-			map.put("league_D", property.getProperty("SPA_D"));
-			map.put("league_H1", property.getProperty("SPA_H1"));
-			map.put("league_T", property.getProperty("SPA_T"));
-			break;
-			case "российская примьер лига" : map.put("league", property.getProperty("RUS"));
-			map.put("league_D", property.getProperty("RUS_D"));
-			map.put("league_H1", property.getProperty("RUS_H1"));
-			map.put("league_T", property.getProperty("RUS_T"));
-			break;
-			case "немецкая бундеслига" : map.put("league", property.getProperty("GER"));
-			map.put("league_D", property.getProperty("GER_D"));
-			map.put("league_H1", property.getProperty("GER_H1"));
-			map.put("league_T", property.getProperty("GER_T"));
-			break;
-			case "итальянская серия а" : map.put("league", property.getProperty("ITA"));
-			map.put("league_D", property.getProperty("ITA_D"));
-			map.put("league_H1", property.getProperty("ITA_H1"));
-			map.put("league_T", property.getProperty("ITA_T"));
-			break;
+			switch (league) {
+			case "английская примьер лига":
+				map.put("league_Descr", property.getProperty("ENG"));
+				map.put("league_D", property.getProperty("ENG_D"));
+				map.put("league_H1", property.getProperty("ENG_H1"));
+				map.put("league_T", property.getProperty("ENG_T"));
+				break;
+			case "испанская ла лига":
+				map.put("league_Descr", property.getProperty("SPA"));
+				map.put("league_D", property.getProperty("SPA_D"));
+				map.put("league_H1", property.getProperty("SPA_H1"));
+				map.put("league_T", property.getProperty("SPA_T"));
+				break;
+			case "российская примьер лига":
+				map.put("league_Descr", property.getProperty("RUS"));
+				map.put("league_D", property.getProperty("RUS_D"));
+				map.put("league_H1", property.getProperty("RUS_H1"));
+				map.put("league_T", property.getProperty("RUS_T"));
+				break;
+			case "немецкая бундеслига":
+				map.put("league_Descr", property.getProperty("GER"));
+				map.put("league_D", property.getProperty("GER_D"));
+				map.put("league_H1", property.getProperty("GER_H1"));
+				map.put("league_T", property.getProperty("GER_T"));
+				break;
+			case "итальянская серия а":
+				map.put("league_Descr", property.getProperty("ITA"));
+				map.put("league_D", property.getProperty("ITA_D"));
+				map.put("league_H1", property.getProperty("ITA_H1"));
+				map.put("league_T", property.getProperty("ITA_T"));
+				break;
 			}
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");
@@ -64,5 +71,22 @@ public class CompetishionsDecriptionController extends BookmakerController {
 			}
 		}
 		return new ModelAndView("leagueDescriptionPage", map);
+	}
+
+	private String getFirstLetteruppercase(String text) {
+		String output = "";// все слова с заглавной буквы.
+		String[] words = text.split(" ");// разделяем на массив из слов
+		int i = 0;
+		for (String word : words) {
+			String first = word.substring(0, 1).toUpperCase();
+			String all = word.substring(1);
+			if (i == 0) {
+				output += first + all;
+			} else {
+				output += " " + first + all;
+			}
+			i++;
+		}
+		return output;
 	}
 }
