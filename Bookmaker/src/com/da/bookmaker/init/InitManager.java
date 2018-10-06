@@ -13,6 +13,6 @@ public class InitManager implements ServletContextListener {
 	
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		event.getServletContext().setAttribute("cssVersion", "0001");
+		event.getServletContext().setAttribute("cssVersion", "0002");
 	}
 }
