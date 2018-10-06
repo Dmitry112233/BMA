@@ -192,31 +192,39 @@ public class LigaStavokParser {
 	}
 
 	public PremierLeagueBean getWinCoeff(DomElement winElement, PremierLeagueBean bean) throws ParseException {
-		if (winElement.getChildElementCount() > 0) {
-			Iterator<DomElement> iterator = winElement.getFirstElementChild().getChildElements().iterator();
+		try {
+			if (winElement.getChildElementCount() > 0) {
+				Iterator<DomElement> iterator = winElement.getFirstElementChild().getChildElements().iterator();
 
-			bean.setWin1(Double
-					.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
-			bean.setX(Double
-					.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
-			bean.setWin2(Double
-					.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
-			bean.setDateStr("16.04.2018 16:00:00");
-		} else {
-			bean.setWin1(0);
-			bean.setX(0);
-			bean.setWin2(0);
+				bean.setWin1(Double
+						.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
+				bean.setX(Double
+						.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
+				bean.setWin2(Double
+						.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
+				bean.setDateStr("16.04.2018 16:00:00");
+			} else {
+				bean.setWin1(0);
+				bean.setX(0);
+				bean.setWin2(0);
+			}
+		} catch (Exception e) {
+			System.err.println(e);
 		}
 		return bean;
 	}
 
 	public PremierLeagueBean getTotalCoeff(DomElement totalElement, PremierLeagueBean bean) {
+		try{
 		Iterator<DomElement> iterator = totalElement.getFirstElementChild().getChildElements().iterator();
 		bean.setLessTotal(
 				Double.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
 		bean.setTotal(Double.parseDouble(iterator.next().getTextContent().trim().replace(",", ".")));
 		bean.setMoreTotal(
 				Double.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
+		}catch(Exception e){
+			System.err.println(e);
+		}
 		return bean;
 	}
 }
