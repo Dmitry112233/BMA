@@ -128,6 +128,7 @@ public class WildstatParser {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
 			}
+			logger.info("Wildstat parser has finished");
 		} catch (IOException e) {
 			System.err.println("Файл свойств отсуствует!");
 		} finally {

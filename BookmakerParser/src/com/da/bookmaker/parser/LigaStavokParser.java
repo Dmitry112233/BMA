@@ -80,42 +80,42 @@ public class LigaStavokParser {
 			if (url.equals(property.getProperty("ENG"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("RUS"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("GER"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Немецкая Бундеслига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("ITA"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Итальянская серия А", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("ESP"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Испанская Ла Лига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("CL"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Чемпионов", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("LE"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("WC"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 		} catch (FailingHttpStatusCodeException e) {
 			System.err.println(url + " IS NOT FOUND");
