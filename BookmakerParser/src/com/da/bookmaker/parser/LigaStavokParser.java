@@ -31,7 +31,7 @@ public class LigaStavokParser {
 		new LigaStavokParser().parseAllChamp();
 	}
 
-	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
+	private static final Logger logger = Logger.getLogger(LigaStavokParser.class);
 
 	static {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);

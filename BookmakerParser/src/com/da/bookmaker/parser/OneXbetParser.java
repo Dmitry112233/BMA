@@ -30,7 +30,7 @@ public class OneXbetParser extends AbstractParser {
 	private FileInputStream fis;
 	static private Properties property;	
 
-	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
+	private static final Logger logger = Logger.getLogger(OneXbetParser.class);
 
 	static {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
