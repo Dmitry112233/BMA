@@ -118,16 +118,17 @@ public class WildstatParser {
 			urls.add(property.getProperty("RUS_CURRENT"));
 			urls.add(property.getProperty("GER_CURRENT"));
 			urls.add(property.getProperty("ITA_CURRENT"));
-			// urls.add(property.getProperty("FLC_CURRENT"));
-			// urls.add(property.getProperty("CUP_CURRENT"));
-			// urls.add(property.getProperty("EUR_CL_CURRENT"));
-			// urls.add(property.getProperty("EUR_EL_CURRENT"));
-			// urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
-			// urls.add(property.getProperty("RUS_CUP_CURRENT"));
+			urls.add(property.getProperty("FLC_CURRENT"));
+			urls.add(property.getProperty("CUP_CURRENT"));
+			urls.add(property.getProperty("EUR_CL_CURRENT"));
+			urls.add(property.getProperty("EUR_EL_CURRENT"));
+			//urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
+			urls.add(property.getProperty("RUS_CUP_CURRENT"));
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
 				parseWildstat(url, webClient, property);
 			}
+			logger.info("Wildstat parser has finished");
 		} catch (IOException e) {
 			System.err.println("Файл свойств отсуствует!");
 		} finally {

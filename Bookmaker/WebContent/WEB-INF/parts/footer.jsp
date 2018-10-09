@@ -7,7 +7,7 @@
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
          <a href="${contextPath}/bookmakers" class="Alogo"><img class="BMAminiLogo" src="/Static/bootstrap/img/BMAlogo.png" alt="BestBet"></a>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">         
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">         
          <ul class="footerMenu">   
             <li class="menuName">Ставки на спорт</li>            
             <li><a href="${contextPath}/competishions">Чемпионаты</a></li>
@@ -15,7 +15,7 @@
             <li><a href="${contextPath}/events_list">Одиночные прогнозы</a></li>
          </ul>                  
       </div>
-      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
       	<ul class="footerMenu">            
             <li class="menuName">Информация</li>            
             <li><a href="${contextPath}/bookmakers">Сравнение букмекеров</a></li>

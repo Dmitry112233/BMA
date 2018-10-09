@@ -72,6 +72,11 @@ body {
 	box-shadow: inset -1px 1px 5px -2px black;	
 }
 
+#bklistMobile {	
+	background: #c7c7c7;
+	box-shadow: inset 0px -1px 5px -2px black;
+}
+
 .bkListContent {
 	position: fixed;
 	color: black;
@@ -87,19 +92,19 @@ h1, .newsComp {
 	margin-right: 10px;
 }
 
-.BmListHeadline, .article h2, #leagueDescription h2 {
+.BmListHeadline, .article h2, .BmListHeadlineMobile, #leagueDescription h2 {
 	text-align: center;	
 	font-size: 20pt;
 	font-weight: bold;	
 	color: black;
 }
 
-.BmListHeadline {
+.BmListHeadline, .BmListHeadlineMobile {
 	margin-top: 25px;
 	margin-bottom: 0px;
 }
 
-.bkListContent ol {
+.bkListContent ol, #bklistMobile ol {
 	padding-left: 0px;
 	padding-top: 20px;
 	list-style-type: none;	
@@ -114,6 +119,11 @@ h1, .newsComp {
 	width: 100px;
 	vertical-align: middle;	
 	padding-bottom: 4px;
+}
+
+#bklistMobile img {	
+	width: 100px;
+	vertical-align: middle;	
 }
 
 .bmlogo {
@@ -888,6 +898,10 @@ a {
 	text-align: right;
 }
 
+.mobileBK {
+	display: none;
+}
+
 #leagueDescription p {
 	padding-left: 10px;
 	padding-right: 20px;
@@ -927,6 +941,10 @@ a {
 	
 	.toDescrSecondary{
 		display: inline;
+	}
+	
+	.mobileBK {
+		display: none;
 	}
 }
 
@@ -986,15 +1004,15 @@ a {
 	.toDescrSecondary, .toBKSecondary {
 		display: inline;
 	}
+	
+	.mobileBK {
+		display: none;
+	}
 }
 
 @media (max-width: 767px) {
 	.bkListContent {
 		width: 157.5px;
-	}
-	
-	.tobkbut, .toBkDescr {
-		display: none;
 	}
 	
 	.bkListContent li {
@@ -1006,10 +1024,6 @@ a {
 		height: auto;
 	}
 	
-	.BmListHeadline {
-		display: none;
-	}
-	
 	#footer {
 		height: auto;
 	}
@@ -1017,6 +1031,7 @@ a {
 	.footerMenu {
 		margin-top: 0px;
 		margin-bottom: 11px;
+		padding-left: 0px;
 	}
 	
 	.BMAminiLogo {
@@ -1089,7 +1104,23 @@ a {
 		margin-bottom: 12px;
 	}
 	
-	.toEventDescription {
+	#bklist {
 		display: none;
+	}
+	
+	.mobileBK {
+		display: block;
+	}
+	
+	.BmListHeadlineMobile {
+		margin-top: 5px;
+	}
+	
+	#bklistMobile ol {
+		padding-top: 0px; 
+	}
+	
+	.newsPic {
+		width: 90%;
 	}
 }

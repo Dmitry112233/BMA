@@ -10,25 +10,21 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class WwwRedirect implements Filter{
+public class IndexRedirect implements Filter {
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		if (request instanceof HttpServletRequest){
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		if (request instanceof HttpServletRequest) {
 			HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 			String url = httpServletRequest.getRequestURL().toString();
-			if (url.contains("www.")){
-				((HttpServletResponse)response).sendRedirect(url.replace("www.", ""));
-			}
-			else if(httpServletRequest.getServletPath().equals("/index.html") && !url.contains("/index.html")){
-				httpServletRequest.getRequestDispatcher("bookmakers").forward(request, response);
-			} 
-			else {
+			if (url.contains("index.html")) {
+				((HttpServletResponse) response).sendRedirect(url.replace("/index.html", ""));
+			}else {
 				chain.doFilter(request, response);
 			}
 		} else {
 			chain.doFilter(request, response);
 		}
 	}
-	
 }

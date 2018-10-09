@@ -98,7 +98,6 @@ public class BetFaqParser {
 						bean.setDate(new Date());
 						bean.setTime(time);
 						beans.add(bean);
-						System.out.println(name);
 					}
 				}
 			}

@@ -39,6 +39,7 @@
          </div>
       </div>
       <div class="container">
+         <c:import url="parts/bmListMobile.jsp"></c:import>
          <div class="row mainHeight">
             <c:import url="parts/bmList.jsp"></c:import>
             <c:import url="parts/bkRating.jsp"></c:import>

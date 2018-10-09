@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<div id="allEv" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">   
+<div id="allEv" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">   
    <br>
    <c:if test="${allEvents.sports.size() > 0}">
       <c:forEach var="sport" items="${allEvents.sports}">

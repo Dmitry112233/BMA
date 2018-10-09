@@ -4,8 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -22,59 +24,60 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 public class VprognozeParser {
 
 	private static final Logger logger = Logger.getLogger(VprognozeParser.class);
-	
-	private static final String URL =  "https://vprognoze.ru";
-	
-	static{
+
+	private static final String URL = "https://vprognoze.ru";
+
+	static {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
 		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
 	}
-	
+
 	private HtmlPage page;
-	
+
 	public static void main(String[] args) {
 		new VprognozeParser().parseVprognoze();
 	}
-	
+
 	public void parseVprognoze() {
 		logger.info("Vprognoze parser starts...");
-		
+
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			List<ExpressBean> beans = new ArrayList<>();
 			for (int i = 1; i < 5; i++) {
-				String page = (i == 1?"/express/":"/express/page/" + i + "/");
+				String page = (i == 1 ? "/express/" : "/express/page/" + i + "/");
 				String url = URL + page;
-				// String url = getProxyUrl(URL, i == 1?"/express/":"/express/page/" + i + "/");
+				// String url = getProxyUrl(URL, i ==
+				// 1?"/express/":"/express/page/" + i + "/");
 				beans.addAll(parsePage(url, webClient));
 			}
-			
+			beans = removeAllDuplicates((ArrayList<ExpressBean>) beans);
 			DaoFactory.getExpressDao().deleteExpressesList(URL);
 			DaoFactory.getIventDao().deleteIventsList(URL);
 			DaoFactory.getExpressDao().addExpressesList(beans);
 		} catch (Exception ex) {
 			logger.warn("Vprognoze failed! ", ex);
-		}finally{
+		} finally {
 			webClient.closeAllWindows();
 		}
-		
+
 		logger.info("Vprognoze parser finished.");
 	}
-	
-	private List<ExpressBean> parsePage( String url, WebClient webClient) throws Exception{
-		
+
+	private List<ExpressBean> parsePage(String url, WebClient webClient) throws Exception {
+
 		logger.info("Vprognoze parse : " + url);
-	
-		if (url.endsWith("/express/")){
+
+		if (url.endsWith("/express/")) {
 			page = webClient.getPage(url);
 		} else {
 			HtmlAnchor anchor = page.getAnchorByHref(url);
 			page = anchor.click();
-			
+
 		}
 		List<ExpressBean> beans = new ArrayList<>();
-		
+
 		for (DomElement newsBox : page.getElementById("dle-content").getChildElements()) {
 			if (!newsBox.getAttribute("class").equals("news_boxing")) {
 				continue;
@@ -82,7 +85,7 @@ public class VprognozeParser {
 			Iterator<DomElement> newsBoxChildren = newsBox.getChildElements().iterator();
 			newsBoxChildren.next(); // title_news
 			DomElement news = newsBoxChildren.next(); // news
-	
+
 			Iterator<DomElement> newsChildren = news.getFirstElementChild().getChildElements().iterator();
 			newsChildren.next();
 			newsChildren.next();
@@ -91,13 +94,13 @@ public class VprognozeParser {
 			DomElement blockMatch = newsChildren.next();
 			newsChildren.next();
 			DomElement description = newsChildren.next();
-	
+
 			ExpressBean bean = new ExpressBean();
 			bean.setDate(getDate(blockMatch));
 			bean.setDescription(description.getTextContent());
-			
+
 			bean.setSource(URL);
-			
+
 			bean.setIventList(createEvents(expressList, bean));
 			beans.add(bean);
 		}
@@ -133,10 +136,32 @@ public class VprognozeParser {
 				bean.setCoefficient(Double.parseDouble(datas[6].trim()));
 				bean.setCompetition(competition);
 				bean.setDate(express.getDate());
-				bean.setSource(URL);			
+				bean.setSource(URL);
 				list.add(bean);
 			}
 		}
 		return list;
 	}
+
+	private List<ExpressBean> removeAllDuplicates(ArrayList<ExpressBean> beans) {
+		int size = beans.size();
+		for (int i = 0; i < size - 1; i++) {
+			// start from the next item after strings[i]
+			// since the ones before are checked
+			for (int j = i + 1; j < size; j++) {
+				// no need for if ( i == j ) here
+				if (!beans.get(j).getDescription().equals(beans.get(i).getDescription())) {
+					continue;
+				} else {
+					beans.remove(j);
+					// decrease j because the array got re-indexed
+					j--;
+					// decrease the size of the array
+					size--;
+				}
+			} // for j
+		} // for i
+		return beans;
+	}
+
 }

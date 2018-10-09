@@ -31,7 +31,7 @@ public class LigaStavokParser {
 		new LigaStavokParser().parseAllChamp();
 	}
 
-	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
+	private static final Logger logger = Logger.getLogger(LigaStavokParser.class);
 
 	static {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
@@ -80,42 +80,42 @@ public class LigaStavokParser {
 			if (url.equals(property.getProperty("ENG"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("RUS"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("GER"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Немецкая Бундеслига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("ITA"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Итальянская серия А", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("ESP"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Испанская Ла Лига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("CL"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Чемпионов", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("LE"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("WC"))) {
 				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-				logger.info("1xBet saved for url: " + url);
+				logger.info("LigaStavok saved for url: " + url);
 			}
 		} catch (FailingHttpStatusCodeException e) {
 			System.err.println(url + " IS NOT FOUND");
@@ -192,31 +192,39 @@ public class LigaStavokParser {
 	}
 
 	public PremierLeagueBean getWinCoeff(DomElement winElement, PremierLeagueBean bean) throws ParseException {
-		if (winElement.getChildElementCount() > 0) {
-			Iterator<DomElement> iterator = winElement.getFirstElementChild().getChildElements().iterator();
+		try {
+			if (winElement.getChildElementCount() > 0) {
+				Iterator<DomElement> iterator = winElement.getFirstElementChild().getChildElements().iterator();
 
-			bean.setWin1(Double
-					.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
-			bean.setX(Double
-					.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
-			bean.setWin2(Double
-					.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
-			bean.setDateStr("16.04.2018 16:00:00");
-		} else {
-			bean.setWin1(0);
-			bean.setX(0);
-			bean.setWin2(0);
+				bean.setWin1(Double
+						.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
+				bean.setX(Double
+						.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
+				bean.setWin2(Double
+						.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
+				bean.setDateStr("16.04.2018 16:00:00");
+			} else {
+				bean.setWin1(0);
+				bean.setX(0);
+				bean.setWin2(0);
+			}
+		} catch (Exception e) {
+			System.err.println(e);
 		}
 		return bean;
 	}
 
 	public PremierLeagueBean getTotalCoeff(DomElement totalElement, PremierLeagueBean bean) {
+		try{
 		Iterator<DomElement> iterator = totalElement.getFirstElementChild().getChildElements().iterator();
 		bean.setLessTotal(
 				Double.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
 		bean.setTotal(Double.parseDouble(iterator.next().getTextContent().trim().replace(",", ".")));
 		bean.setMoreTotal(
 				Double.parseDouble(iterator.next().getFirstElementChild().getTextContent().trim().replace(",", ".")));
+		}catch(Exception e){
+			System.err.println(e);
+		}
 		return bean;
 	}
 }
