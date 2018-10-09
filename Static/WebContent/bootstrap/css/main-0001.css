@@ -249,6 +249,32 @@ h1, .newsComp {
 	position: absolute;
 }
 
+.toLeagueMatchesButton {
+	line-height: 16px;
+	background-color: #e84242;
+	background: linear-gradient(#e84242, #bd3737);
+	border: 1px solid #7d7d7d;
+	padding: 8px;	
+	color: #ffffff;	
+}
+
+.toLeagueTableButton {
+	line-height: 16px;
+	background-color: #007acc;
+	background: linear-gradient(#007acc, #005994);
+	border: 1px solid #7d7d7d;
+	padding: 8px;
+	color: #ffffff;	
+}
+
+.toLeagueDescrButton {
+	background-color: #52c153;
+	background: linear-gradient(#52c153, #3d943e);
+	border: 1px solid #7d7d7d;
+	padding: 8px;
+	color: #ffffff;
+}
+
 .toBestBKimg {
 	margin-left: 16px;
 }
@@ -286,7 +312,7 @@ h1, .newsComp {
 	margin-right: auto;
 }
 
-.tobkbut:visited, .tobkbut:focus, .toBkDescr:visited, .toBkDescr:focus, .toDetailsButton:visited, .toDetailsButton:focus, .detailToBKButton:visited, .detailToBKButton:focus, .bkReitLink:visited, .bkReitLink:focus, .sportsListTable tr:visited, .sportsListTable tr:focus, .BackButton:visited, .BackButton:focus, .toEventDescription:visited, .toEventDescription:focus, .toBestBK:visited, .toBestBK:focus, .pnfout:visited, .pnfout:focus {
+.tobkbut:visited, .tobkbut:focus, .toBkDescr:visited, .toBkDescr:focus, .toDetailsButton:visited, .toDetailsButton:focus, .detailToBKButton:visited, .detailToBKButton:focus, .bkReitLink:visited, .bkReitLink:focus, .sportsListTable tr:visited, .BackButton:visited, .BackButton:focus, .toEventDescription:visited, .toEventDescription:focus, .toBestBK:visited, .toBestBK:focus, .pnfout:visited, .pnfout:focus {
 	color: #ffffff;
 }
 
@@ -298,10 +324,6 @@ h1, .newsComp {
 
 #pnf p {
 	text-align: center;
-}
-
-.sportsListTable tr a:hover {
-	color: #dadada;
 }
 
 .dayexptable, .evtable {
@@ -810,23 +832,6 @@ a {
 	display: none !important;
 }
 
-.sportsListTable {
-	width: 230px;
-	margin: auto;
-	border-collapse: separate;
-	border-spacing: 0 10px;
-}
-
-.sportsListTable a {	
-	color: #ffffff;
-}
-
-.sportsListTable td {
-	background-color: #52c153;
-	background: linear-gradient(#52c153, #3d943e);	
-	padding: 5px;
-}
-
 #header li {
 	cursor: pointer;
 }
@@ -913,6 +918,15 @@ a {
 
 .redText {
 	color: #bd3737;
+}
+
+.leaguesHeadline {
+	margin-bottom: 12px;
+	margin-top: 30px;	
+}
+
+.leaguesList {
+	text-align: center;	
 }
 
 /* adaptation */
