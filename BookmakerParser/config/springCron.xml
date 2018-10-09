@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
-	<bean id="vprognoze" class="com.da.bookmaker.parser.VprognozeParser"></bean>
+<!-- 	<bean id="vprognoze" class="com.da.bookmaker.parser.VprognozeParser"></bean>
 
 	<bean id="rss" class="com.da.bookmaker.rss.EurosportXmlImpl"></bean>
 
@@ -14,9 +14,15 @@
 
 	<bean id="xBet" class="com.da.bookmaker.parser.OneXbetParser"></bean>
 
-	<bean id="ligaStavok" class="com.da.bookmaker.parser.LigaStavokParser"></bean>
-
+	<bean id="ligaStavok" class="com.da.bookmaker.parser.LigaStavokParser"></bean> -->
+	
+	<bean id="leonSeleniumParser" class="com.da.bookmaker.parser.LeonSeleniumParser"></bean>
+	
 	<task:scheduled-tasks>
+		<task:scheduled ref="leonSeleniumParser" method="parseAllChamp" cron="0 7 * * * ?" />
+	</task:scheduled-tasks>
+
+	<!-- <task:scheduled-tasks>
 		<task:scheduled ref="ligaStavok" method="parseAllChamp" cron="0 0 */1 * * ?" />
 	</task:scheduled-tasks>
 
@@ -42,6 +48,6 @@
 
 	<task:scheduled-tasks>
 		<task:scheduled ref="xBet" method="paresAllChamp" cron="0 0 */1 * * ?" />
-	</task:scheduled-tasks>
+	</task:scheduled-tasks> -->
 
 </beans>

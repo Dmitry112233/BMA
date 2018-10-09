@@ -3,6 +3,7 @@ package com.da.bookmaker;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.da.bookmaker.parser.BetFaqParser;
+import com.da.bookmaker.parser.LeonSeleniumParser;
 import com.da.bookmaker.parser.LigaStavokParser;
 import com.da.bookmaker.parser.OneXbetParser;
 import com.da.bookmaker.parser.VprognozeParser;
@@ -20,12 +21,13 @@ public class Main {
 			}
 		}).start();
 		
-		new EurosportXmlImpl().parseRss();
+	/*	new EurosportXmlImpl().parseRss();
 		new VprognozeParser().parseVprognoze();
 		new BetFaqParser().parseBetFaq();
 		new OneXbetParser().paresAllChamp();
 		new LigaStavokParser().parseAllChamp();
 		new WildstatParser().parseLastSeasons();
-		new WildstatParser().parseWildstatLeagueTables();
+		new WildstatParser().parseWildstatLeagueTables();*/
+		new LeonSeleniumParser().paresAllChamp();
 	}
 }
