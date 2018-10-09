@@ -5,6 +5,6 @@
    <br>
    <a class="BackButton" href="${contextPath}/competishions"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Другие чемпионаты</a>
    <br><br>
-   <div>${league}</div>
+   <div>${league_Descr}</div>
    <br> 
 </div>
