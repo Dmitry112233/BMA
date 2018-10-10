@@ -68,6 +68,7 @@ public class LeonSeleniumParser {
 			if (driver != null) {
 				driver.close();
 			}
+			logger.info("Leon Parser has finished");
 		}
 	}
 
