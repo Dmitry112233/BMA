@@ -19,7 +19,7 @@
 	<bean id="leonSeleniumParser" class="com.da.bookmaker.parser.LeonSeleniumParser"></bean>
 	
 	<task:scheduled-tasks>
-		<task:scheduled ref="leonSeleniumParser" method="parseAllChamp" cron="0 7 * * * ?" />
+		<task:scheduled ref="leonSeleniumParser" method="parseAllChamp" cron="0 0 */12 * * ?" />
 	</task:scheduled-tasks>
 
 	<!-- <task:scheduled-tasks>

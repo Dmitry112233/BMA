@@ -80,7 +80,7 @@ public class LeonSeleniumParser {
 		List<WebElement> elementsWin2 = driver
 				.findElements(By.xpath(".//*[@value='event.market1x2.runnerAway.price']"));
 		List<PremierLeagueBean> beans = new ArrayList<>();
-		for (int i = 1; i < elementsName.size(); i++) {
+		for (int i = 0; i < elementsName.size(); i++) {
 			PremierLeagueBean bean = new PremierLeagueBean();
 			String teamNames = elementsName.get(i).getText();
 			bean.setTeam1(teamNames.split("-")[0].trim());
