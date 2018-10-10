@@ -25,7 +25,6 @@ public class LeonSeleniumParser {
 	private File file = new File("D://LeonUrl.properties");
 	private FileInputStream fis;
 	static private Properties property;
-	static private WebDriver driver;
 
 	private static final Logger logger = Logger.getLogger(LeonSeleniumParser.class);
 
@@ -35,11 +34,12 @@ public class LeonSeleniumParser {
 	}
 
 	public static void main(String[] args) throws Exception {
-		new LeonSeleniumParser().paresAllChamp();
+		new LeonSeleniumParser().parseAllLeonChamp();
 
 	}
 
-	public void paresAllChamp() throws Exception {
+	public void parseAllLeonChamp() throws Exception {
+		WebDriver driver = null;
 		try {
 			String exePath = "D://exe/chromedriver_win32/chromedriver.exe";
 			System.setProperty("webdriver.chrome.driver", exePath);
@@ -64,100 +64,103 @@ public class LeonSeleniumParser {
 		} finally {
 			if (fis != null) {
 				fis.close();
+			}
+			if (driver != null) {
 				driver.close();
 			}
 		}
 	}
 
 	public void parseLeon(String url, Properties property, WebDriver driver) throws DaoException {
-		try{
-		driver.get(url);
-		List<WebElement> elementsName = driver.findElements(By.xpath(".//*[@ng-bind-html='event.htmlName']"));
-		List<WebElement> elementsWin1 = driver
-				.findElements(By.xpath(".//*[@value='event.market1x2.runnerHome.price']"));
-		List<WebElement> elementsDraw = driver
-				.findElements(By.xpath(".//*[@value='event.market1x2.runnerDraw.price']"));
-		List<WebElement> elementsWin2 = driver
-				.findElements(By.xpath(".//*[@value='event.market1x2.runnerAway.price']"));
-		List<PremierLeagueBean> beans = new ArrayList<>();
-		for (int i = 0; i < elementsName.size(); i++) {
-			PremierLeagueBean bean = new PremierLeagueBean();
-			String teamNames = elementsName.get(i).getText();
-			bean.setTeam1(teamNames.split("-")[0].trim());
-			bean.setTeam2(teamNames.split("-")[1].trim());
-			bean.setWin1(Double.parseDouble(elementsWin1.get(i).getText().trim()));
-			bean.setWin2(Double.parseDouble(elementsWin2.get(i).getText().trim()));
-			bean.setX(Double.parseDouble(elementsDraw.get(i).getText().trim()));
-			bean.setBookmakerId(2);
-			bean.setDate(new Date());
-			beans.add(bean);
+		try {
+			driver.get(url);
+			List<WebElement> elementsName = driver.findElements(By.xpath(".//*[@ng-bind-html='event.htmlName']"));
+			List<WebElement> elementsWin1 = driver
+					.findElements(By.xpath(".//*[@value='event.market1x2.runnerHome.price']"));
+			List<WebElement> elementsDraw = driver
+					.findElements(By.xpath(".//*[@value='event.market1x2.runnerDraw.price']"));
+			List<WebElement> elementsWin2 = driver
+					.findElements(By.xpath(".//*[@value='event.market1x2.runnerAway.price']"));
+			List<PremierLeagueBean> beans = new ArrayList<>();
+			for (int i = 0; i < elementsName.size(); i++) {
+				PremierLeagueBean bean = new PremierLeagueBean();
+				String teamNames = elementsName.get(i).getText();
+				bean.setTeam1(teamNames.split("-")[0].trim());
+				bean.setTeam2(teamNames.split("-")[1].trim());
+				bean.setWin1(Double.parseDouble(elementsWin1.get(i).getText().trim()));
+				bean.setWin2(Double.parseDouble(elementsWin2.get(i).getText().trim()));
+				bean.setX(Double.parseDouble(elementsDraw.get(i).getText().trim()));
+				bean.setBookmakerId(2);
+				bean.setDate(new Date());
+				beans.add(bean);
+				System.out.println(teamNames);
+				if (url.equals(property.getProperty("ENG"))) {
+					bean.setLeague("Английская Примьер Лига");
+				}
+				if (url.equals(property.getProperty("RUS"))) {
+					bean.setLeague("Российская Примьер Лига");
+				}
+				if (url.equals(property.getProperty("GER"))) {
+					bean.setLeague("Немецкая Бундеслига");
+				}
+				if (url.equals(property.getProperty("ITA"))) {
+					bean.setLeague("Итальянская серия А");
+				}
+				if (url.equals(property.getProperty("ESP"))) {
+					bean.setLeague("Испанская Ла Лига");
+				}
+				if (url.equals(property.getProperty("CL"))) {
+					bean.setLeague("Лига Чемпионов");
+				}
+				if (url.equals(property.getProperty("LE"))) {
+					bean.setLeague("Лига Европы");
+				}
+				if (url.equals(property.getProperty("WC"))) {
+					bean.setLeague("Чемпионат Мира");
+				}
+			}
 			if (url.equals(property.getProperty("ENG"))) {
-				bean.setLeague("Английская Примьер Лига");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				logger.info("Leon Parser saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("RUS"))) {
-				bean.setLeague("Российская Примьер Лига");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				logger.info("Leon Parser saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("GER"))) {
-				bean.setLeague("Немецкая Бундеслига");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Немецкая Бундеслига", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				logger.info("Leon Parser saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("ITA"))) {
-				bean.setLeague("Итальянская серия А");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Итальянская серия А", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				logger.info("Leon Parser saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("ESP"))) {
-				bean.setLeague("Испанская Ла Лига");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Испанская Ла Лига", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				logger.info("Leon Parser saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("CL"))) {
-				bean.setLeague("Лига Чемпионов");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Чемпионов", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				logger.info("Leon Parser saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("LE"))) {
-				bean.setLeague("Лига Европы");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				logger.info("Leon Parser saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("WC"))) {
-				bean.setLeague("Чемпионат Мира");
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 2);
+				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
+				logger.info("Leon Parser saved for url: " + url);
 			}
-		}
-		if (url.equals(property.getProperty("ENG"))) {
-			DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 2);
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-			logger.info("Leon Parser saved for url: " + url);
-		}
-		if (url.equals(property.getProperty("RUS"))) {
-			DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 2);
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-			logger.info("Leon Parser saved for url: " + url);
-		}
-		if (url.equals(property.getProperty("GER"))) {
-			DaoFactory.getPremierLeagueDao().deleteMatchesList("Немецкая Бундеслига", 2);
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-			logger.info("Leon Parser saved for url: " + url);
-		}
-		if (url.equals(property.getProperty("ITA"))) {
-			DaoFactory.getPremierLeagueDao().deleteMatchesList("Итальянская серия А", 2);
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-			logger.info("Leon Parser saved for url: " + url);
-		}
-		if (url.equals(property.getProperty("ESP"))) {
-			DaoFactory.getPremierLeagueDao().deleteMatchesList("Испанская Ла Лига", 2);
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-			logger.info("Leon Parser saved for url: " + url);
-		}
-		if (url.equals(property.getProperty("CL"))) {
-			DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Чемпионов", 2);
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-			logger.info("Leon Parser saved for url: " + url);
-		}
-		if (url.equals(property.getProperty("LE"))) {
-			DaoFactory.getPremierLeagueDao().deleteMatchesList("Лига Европы", 2);
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-			logger.info("Leon Parser saved for url: " + url);
-		}
-		if (url.equals(property.getProperty("WC"))) {
-			DaoFactory.getPremierLeagueDao().deleteMatchesList("Чемпионат Мира", 2);
-			DaoFactory.getPremierLeagueDao().addMatchesList(beans);
-			logger.info("Leon Parser saved for url: " + url);
-		}
-		}catch(Exception e){
-		    logger.error("Тут парсер старт фор Рассея типо)");
+		} catch (Exception e) {
+			logger.error("Тут парсер старт фор Рассея типо)");
 		}
 	}
 }

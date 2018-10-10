@@ -28,6 +28,6 @@ public class Main {
 		new LigaStavokParser().parseAllChamp();
 		new WildstatParser().parseLastSeasons();
 		new WildstatParser().parseWildstatLeagueTables();*/
-		new LeonSeleniumParser().paresAllChamp();
+		new LeonSeleniumParser().parseAllLeonChamp();
 	}
 }
