@@ -93,7 +93,6 @@ public class LeonSeleniumParser {
 				bean.setBookmakerId(2);
 				bean.setDate(new Date());
 				beans.add(bean);
-				System.out.println(teamNames);
 				if (url.equals(property.getProperty("ENG"))) {
 					bean.setLeague("Английская Примьер Лига");
 				}
