@@ -160,7 +160,7 @@ public class LeonSeleniumParser {
 				logger.info("Leon Parser saved for url: " + url);
 			}
 		} catch (Exception e) {
-			logger.error("Тут парсер старт фор Рассея типо)");
+			logger.error("There is not url in properties");
 		}
 	}
 }
