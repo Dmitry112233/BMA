@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,11 +26,19 @@ public class EventDescriptionController extends BookmakerController{
 	@RequestMapping("/event_description_{id}_details")
 	public ModelAndView getMainList(@PathVariable("id") int id) throws DaoException {
 		IventBean ivent = getIventById(id);
+		if (ivent == null) {
+			throw new ResourceNotFoundException();
+		}
 		ModelAndView modelAndView = new ModelAndView("eventDescriptionPage");
 		modelAndView.addAllObjects(getBookmakerList());
 		modelAndView.addAllObjects(getBookmakerWeight());
 		modelAndView.addObject("ivent", ivent);
 		return modelAndView;
+	}
+	
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ModelAndView handleError404(HttpServletRequest request, Exception e) {
+		return new ModelAndView("/error404Page");
 	}
 	
 	private IventBean getIventById(int id) throws DaoException {

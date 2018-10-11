@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,11 +24,22 @@ public class ExpressDescriptionController extends BookmakerController {
 	public ModelAndView getMainList(@PathVariable("id") int id, @PathVariable("currentPage") int currentPage)
 			throws DaoException {
 
-		Map<String, Object> map = getExpressById(id);
+		Map<String, Object> map = new HashMap<>();
+
+		ExpressBean express = getExpressById(id);
+		if (express == null) {
+			throw new ResourceNotFoundException();
+		}
+		map.put("express", express);
 		map.put("offset", getOffset(currentPage));
 		map.putAll(getBookmakerList());
 		map.putAll(getBookmakerWeight());
 		return new ModelAndView("expressDescriptionPage", map);
+	}
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ModelAndView handleError404(HttpServletRequest request, Exception e) {
+		return new ModelAndView("/error404Page");
 	}
 
 	public int getOffset(int currentPage) {
@@ -33,11 +47,9 @@ public class ExpressDescriptionController extends BookmakerController {
 		return offset;
 	}
 
-	private Map<String, Object> getExpressById(int id) throws DaoException {
+	private ExpressBean getExpressById(int id) throws DaoException {
 		ExpressBean express = DaoFactory.getExpressDao().getExpressById(id);
-		Map<String, Object> map = new HashMap<>();
-		map.put("express", express);
-		return map;
+		return express;
 	}
 
 	private Map<String, ArrayList<BookmakerBean>> getBookmakerWeight() throws DaoException {
