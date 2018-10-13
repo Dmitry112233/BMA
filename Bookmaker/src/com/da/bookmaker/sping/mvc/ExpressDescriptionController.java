@@ -2,7 +2,6 @@ package com.da.bookmaker.sping.mvc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.BookmakerBean;
@@ -20,10 +20,12 @@ import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class ExpressDescriptionController extends BookmakerController {
-	@RequestMapping("/express_description_{id}_details_{currentPage}")
-	public ModelAndView getMainList(@PathVariable("id") int id, @PathVariable("currentPage") int currentPage)
-			throws DaoException {
+	@RequestMapping("/express_{id}_description")
+	public ModelAndView getMainList(@PathVariable("id") int id,
+			@RequestParam(value = "currentPage", required = false) String currentPage) throws DaoException {
 
+		int currentPage1 = getCurrentPage(currentPage);
+		
 		Map<String, Object> map = new HashMap<>();
 
 		ExpressBean express = getExpressById(id);
@@ -31,19 +33,23 @@ public class ExpressDescriptionController extends BookmakerController {
 			throw new ResourceNotFoundException();
 		}
 		map.put("express", express);
-		map.put("offset", getOffset(currentPage));
+		map.put("offset", getOffset(currentPage1));
 		map.putAll(getBookmakerList());
 		map.putAll(getBookmakerWeight());
 		return new ModelAndView("expressDescriptionPage", map);
 	}
-
-	@ExceptionHandler(ResourceNotFoundException.class)
-	public ModelAndView handleError404(HttpServletRequest request, Exception e) {
-		return new ModelAndView("/error404Page");
+	
+	// получаем текущу страницу. Два условия при переходе по ссылку и по кнопке с сайта
+	private int getCurrentPage(String currentPage){
+		if (currentPage == null) {
+			return 1;
+		}else{
+			return Integer.parseInt(currentPage);
+		}
 	}
 
 	public int getOffset(int currentPage) {
-		int offset = (currentPage - 1) * 10;
+		int offset = (currentPage - 1) * 20;
 		return offset;
 	}
 

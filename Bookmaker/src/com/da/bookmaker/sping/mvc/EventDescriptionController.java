@@ -36,11 +36,6 @@ public class EventDescriptionController extends BookmakerController{
 		return modelAndView;
 	}
 	
-	@ExceptionHandler(ResourceNotFoundException.class)
-	public ModelAndView handleError404(HttpServletRequest request, Exception e) {
-		return new ModelAndView("/error404Page");
-	}
-	
 	private IventBean getIventById(int id) throws DaoException {
 		IventBean ivent = DaoFactory.getIventDao().getEventById(id);
 	
