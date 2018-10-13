@@ -44,6 +44,8 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 	private final static String LINKED_IVENT_LIST = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) VALUES (?,?)";
 
 	private final static String DELETE_EXPRESSES_LIST = "DELETE FROM EXPRESSES WHERE SOURCE = ? ";
+	
+	private final static String DELETE_OLD_EXPRESS = "DELETE FROM EXPRESSES WHERE `DATE` <= (NOW() - INTERVAL 3 DAY) AND SOURCE = ? ";
 
 	private final static String GET_EXPRESSES_BY_ID = "SELECT DISTINCT E.DESCRIPTION EXPRESS_DESCRIPTION, E.ID EXPRESS_ID, E.NAME EXPRESS_NAME, "
 			+ "I.DESCRIPTION IVENT_DESCRIPTION, I.COEFFICIENT IVENT_COEFFICIENT, BET, E.DATE EXPRESS_DATE, COMPETITION, I.ID IVENT_ID, I.NAME IVENT_NAME, "
@@ -207,5 +209,11 @@ public class ExpressDaoTemplateImpl implements ExpressDao {
 		List<ExpressBean> list = template.query(GET_EXPRESSES_FOR_PAGE, new Object[] {limit, offset}, new ExpressSetExecuter());
 		list.removeAll(Collections.singleton(null));
 		return list;
+	}
+
+	@Override
+	public void deleteOldExpresses(String url) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(DELETE_OLD_EXPRESS, url);	
 	}
 }

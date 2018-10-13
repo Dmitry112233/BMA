@@ -31,6 +31,10 @@
 	<task:scheduled-tasks>
 		<task:scheduled ref="vprognoze" method="parseVprognoze" cron="0 0 */1 * * ?" />
 	</task:scheduled-tasks>
+	
+	<task:scheduled-tasks>
+		<task:scheduled ref="vprognoze" method="deleteOldExpress" cron="0 0 */1 * * ?" />
+	</task:scheduled-tasks>
 
 	<task:scheduled-tasks>
 		<task:scheduled ref="wildstat" method="parseLastSeasons" cron="0 0 */1 * * ?" />
