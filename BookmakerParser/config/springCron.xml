@@ -21,7 +21,8 @@
 	</task:scheduled-tasks>
 
 	<task:scheduled-tasks>
-		<task:scheduled ref="betFaq" method="parseBetFaq" cron="0 0 */1 * * ?" />
+		<task:scheduled ref="betFaq" method="parseBetFaq" cron="0 0 1 * * ?" />
+		<!-- At 01:00:00am every day -->
 	</task:scheduled-tasks>
 
 	<task:scheduled-tasks>
