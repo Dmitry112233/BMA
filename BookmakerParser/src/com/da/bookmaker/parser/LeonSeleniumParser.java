@@ -44,7 +44,7 @@ public class LeonSeleniumParser {
 			bean.setDate(new Date());
 			beans.add(bean);
 		}
-		DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 2);
+		DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Премьер Лига", 2);
 		DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 	}*/
 }

@@ -78,12 +78,12 @@ public class LigaStavokParser {
 			List<PremierLeagueBean> beans = getAllStat(table, url, property);
 			allBeans.addAll(beans);
 			if (url.equals(property.getProperty("ENG"))) {
-				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 3);
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Премьер Лига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				logger.info("LigaStavok saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("RUS"))) {
-				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 3);
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Премьер Лига", 3);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				logger.info("LigaStavok saved for url: " + url);
 			}
@@ -138,10 +138,10 @@ public class LigaStavokParser {
 			bean = getEventName(eventNameElem, bean);
 			bean = getEventCoeff(eventCoeffElem, bean);
 			if (url.equals(property.getProperty("ENG"))) {
-				bean.setLeague("Английская Примьер Лига");
+				bean.setLeague("Английская Премьер Лига");
 			}
 			if (url.equals(property.getProperty("RUS"))) {
-				bean.setLeague("Российская Примьер Лига");
+				bean.setLeague("Российская Премьер Лига");
 			}
 			if (url.equals(property.getProperty("GER"))) {
 				bean.setLeague("Немецкая Бундеслига");

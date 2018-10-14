@@ -32,7 +32,7 @@ public class CompetishionsDecriptionController extends BookmakerController {
 			map.put("league", getFirstLetteruppercase(league));
 			map.putAll(getBookmakerList());
 			switch (league) {
-			case "английская примьер лига":
+			case "английская премьер лига":
 				map.put("league_Descr", property.getProperty("ENG"));
 				map.put("league_D", property.getProperty("ENG_D"));
 				map.put("league_H1", property.getProperty("ENG_H1"));
@@ -44,7 +44,7 @@ public class CompetishionsDecriptionController extends BookmakerController {
 				map.put("league_H1", property.getProperty("SPA_H1"));
 				map.put("league_T", property.getProperty("SPA_T"));
 				break;
-			case "российская примьер лига":
+			case "российская премьер лига":
 				map.put("league_Descr", property.getProperty("RUS"));
 				map.put("league_D", property.getProperty("RUS_D"));
 				map.put("league_H1", property.getProperty("RUS_H1"));

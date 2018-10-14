@@ -35,7 +35,7 @@ public class PremierLeagueController extends BookmakerController {
 				property.load(fis);
 			}
 			switch (leagueName) {
-			case "английская примьер лига":
+			case "английская премьер лига":
 				map.put("League_T", property.get("ENG_League_T"));
 				map.put("League_H1", property.get("ENG_League_H1"));
 				map.put("League_D", property.get("ENG_League_D"));
@@ -47,7 +47,7 @@ public class PremierLeagueController extends BookmakerController {
 				map.put("League_D", property.get("SPA_League_D"));
 				map.put("League_Txt", property.get("SPA_League_Txt"));
 				break;
-			case "российская примьер лига":
+			case "российская премьер лига":
 				map.put("League_T", property.get("RUS_League_T"));
 				map.put("League_H1", property.get("RUS_League_H1"));
 				map.put("League_D", property.get("RUS_League_D"));
