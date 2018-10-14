@@ -25,10 +25,10 @@ import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class OneXbetParser extends AbstractParser {
-	
+
 	private File file = new File("D://xBetUrl.properties");
 	private FileInputStream fis;
-	static private Properties property;	
+	static private Properties property;
 
 	private static final Logger logger = Logger.getLogger(OneXbetParser.class);
 
@@ -76,16 +76,27 @@ public class OneXbetParser extends AbstractParser {
 			HtmlPage page = (HtmlPage) webClient.getPage(url);
 			List<PremierLeagueBean> beans = new ArrayList<>();
 			List<?> htmlDivisions = page.getByXPath("//*[contains(@class, 'c-events__item c-events__item_col')]");
+
 			long bookmakerId = DaoFactory.getBookmakerDao().getByName("1xBet").getBookMakerId();
 			for (Object object : htmlDivisions) {
+
 				HtmlDivision division = (HtmlDivision) object;
-				DomElement c_events__item = division.getFirstElementChild();
-				DomElement c_events__subitem = c_events__item.getFirstElementChild();
-				Iterator<DomElement> matchChildren = c_events__subitem.getChildElements().iterator();
-				DomElement events_time = matchChildren.next();
-				matchChildren.next();
-				DomElement events_name = matchChildren.next();
-				DomElement c_bets = c_events__item.getLastElementChild();
+
+				DomElement c_events__item_game = division.getLastElementChild();
+
+				Iterator<DomElement> matchChildren = c_events__item_game.getChildElements().iterator();
+
+				DomElement c_events__subitem = matchChildren.next();
+
+				Iterator<DomElement> subitemIterator = c_events__subitem.getChildElements().iterator();
+
+				DomElement events_time = subitemIterator.next();
+
+				subitemIterator.next();
+				DomElement events_name = subitemIterator.next();
+
+				DomElement c_bets = c_events__item_game.getLastElementChild();
+
 				PremierLeagueBean bean = new PremierLeagueBean();
 				String time = getDate(events_time);
 				ArrayList<String> names = getName(events_name);
@@ -247,32 +258,6 @@ public class OneXbetParser extends AbstractParser {
 			bean.setHand2(0.0);
 		}
 		return bean;
-	}
-
-	// неактуальный метод
-	private ArrayList<String> getCoefficientForHand(DomElement element) {
-		ArrayList<String> list = new ArrayList<>();
-		for (DomElement coeff : element.getChildElements()) {
-			if (!coeff.getTextContent().trim().equals("-")) {
-				list.add((coeff.getTextContent().trim()));
-			} else {
-				list.add("0.0");
-			}
-		}
-		return list;
-	}
-
-	// неактуальный метод
-	private ArrayList<Double> getCoefficientForItem(DomElement element) {
-		ArrayList<Double> mass = new ArrayList<>();
-		for (DomElement coeff : element.getChildElements()) {
-			if (!coeff.getTextContent().trim().equals("-")) {
-				mass.add(Double.parseDouble(coeff.getTextContent().trim().replace(",", ".")));
-			} else {
-				mass.add(0.0);
-			}
-		}
-		return mass;
 	}
 
 	private String getDate(DomElement element) {
