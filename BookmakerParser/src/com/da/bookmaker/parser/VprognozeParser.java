@@ -180,7 +180,7 @@ public class VprognozeParser {
 		return beans;
 	}
 	
-	private void deleteOldExpress() throws DaoException{
+	public void deleteOldExpress() throws DaoException{
 		DaoFactory.getExpressDao().deleteOldExpresses(URL);
 		//DaoFactory.getExpressDao().deleteExpressesList(URL);
 		DaoFactory.getIventDao().deleteIventsList(URL);
