@@ -5,20 +5,20 @@
 <div id="sports" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
    <div class="leaguesList">
       <div class="leaguesHeadline">
-         <img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Российская Примьер Лига.png" onerror="this.style.display='none'"> Премьер-Лига (Россия)
+         <img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Российская Премьер Лига.png" onerror="this.style.display='none'"> Премьер-Лига (Россия)
       </div>
       <div class="leaguesbattonsLine">
-         <a class= "toLeagueMatchesButton" href="${contextPath}/${'российская примьер лига'}_матчи">Аналитика</a>         
-         <a class= "toLeagueTableButton" href="${contextPath}/${'российская примьер лига'}_таблица">Таблица</a>
-         <a class= "toLeagueDescrButton" href="${contextPath}/${'российская примьер лига'}_описание">Описание</a>
+         <a class= "toLeagueMatchesButton" href="${contextPath}/${'российская премьер лига'}_матчи">Аналитика</a>         
+         <a class= "toLeagueTableButton" href="${contextPath}/${'российская премьер лига'}_таблица">Таблица</a>
+         <a class= "toLeagueDescrButton" href="${contextPath}/${'российская премьер лига'}_описание">Описание</a>
       </div>
       <div class="leaguesHeadline">
-         <img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Английская Примьер Лига_dark.png" onerror="this.style.display='none'"> Премьер-Лига (Англия)
+         <img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Английская Премьер Лига_dark.png" onerror="this.style.display='none'"> Премьер-Лига (Англия)
       </div>
       <div class="leaguesbattonsLine">
-         <a class= "toLeagueMatchesButton" href="${contextPath}/${'английская примьер лига'}_матчи">Аналитика</a>         
-         <a class= "toLeagueTableButton" href="${contextPath}/${'английская примьер лига'}_таблица">Таблица</a>
-         <a class= "toLeagueDescrButton" href="${contextPath}/${'английская примьер лига'}_описание">Описание</a>
+         <a class= "toLeagueMatchesButton" href="${contextPath}/${'английская премьер лига'}_матчи">Аналитика</a>         
+         <a class= "toLeagueTableButton" href="${contextPath}/${'английская премьер лига'}_таблица">Таблица</a>
+         <a class= "toLeagueDescrButton" href="${contextPath}/${'английская премьер лига'}_описание">Описание</a>
       </div>
       <div class="leaguesHeadline">
          <img class="leagueIconSmall" src="/Static/bootstrap/img/leagueIcon/Испанская Ла Лига.png" onerror="this.style.display='none'"> Ла Лига (Испания)

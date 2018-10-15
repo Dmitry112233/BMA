@@ -20,8 +20,8 @@
                      <li class="${param.eighthMenu == 'true'?'active':''} dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Ставки на футбол<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu3">                           
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'российская примьер лига'}_матчи">Премьер-Лига (Россия)</a></li>
-						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'английская примьер лига'}_матчи">Премьер-Лига (Англия)</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'российская премьер лига'}_матчи">Премьер-Лига (Россия)</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'английская премьер лига'}_матчи">Премьер-Лига (Англия)</a></li>
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'испанская ла лига'}_матчи">Ла Лига (Испания)</a></li>
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'итальянская серия а'}_матчи">Серия А (Италия)</a></li>
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'немецкая бундеслига'}_матчи">Бундеслига (Германия)</a></li>
