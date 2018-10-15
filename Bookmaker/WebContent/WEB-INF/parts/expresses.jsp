@@ -48,8 +48,12 @@
                </b>
             </p>
          </div>
-         <a class="toEventDescription" href="${contextPath}/express_description_${express.expressID}_details_${currentPage}">Описание экспресса</a>
-         <br>                
+         <%-- <a class="toEventDescription" href="${contextPath}/express_description_${express.expressID}_details_${currentPage}">Описание экспресса</a> --%>
+         <form action="${contextPath}/express_${express.expressID}_description" method="post">
+            <input type="hidden" name="currentPage" value="${currentPage}">
+            <input class="toEventDescription" type="submit" value="Описание экспресса">
+         </form>
+         <br>
       </c:forEach>
       <br>
    </c:if>
@@ -60,10 +64,10 @@
       <ul class="pagination">
          <c:forEach var="button" items="${pageMass}">
             <c:if test = "${button + 1 == currentPage}">
-               <li class="page-item active"><a class="page-link" href="${contextPath}/expresses_list_${button * 10}">${button + 1}</a></li>
+               <li class="page-item active"><a class="page-link" href="${contextPath}/expresses_list_${button * 20}">${button + 1}</a></li>
             </c:if>
             <c:if test = "${button + 1 != currentPage}">
-               <li class="page-item"><a class="page-link" href="${contextPath}/expresses_list_${button * 10}">${button + 1}</a></li>
+               <li class="page-item"><a class="page-link" href="${contextPath}/expresses_list_${button * 20}">${button + 1}</a></li>
             </c:if>
          </c:forEach>
       </ul>

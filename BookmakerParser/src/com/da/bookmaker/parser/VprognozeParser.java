@@ -4,16 +4,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import com.da.bookmaker.bean.ExpressBean;
 import com.da.bookmaker.bean.IventBean;
+import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -34,7 +33,7 @@ public class VprognozeParser {
 
 	private HtmlPage page;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws DaoException {
 		new VprognozeParser().parseVprognoze();
 	}
 
@@ -53,8 +52,7 @@ public class VprognozeParser {
 				beans.addAll(parsePage(url, webClient));
 			}
 			beans = removeAllDuplicates((ArrayList<ExpressBean>) beans);
-			DaoFactory.getExpressDao().deleteExpressesList(URL);
-			DaoFactory.getIventDao().deleteIventsList(URL);
+			beans = removeAllExisting((ArrayList<ExpressBean>) beans);
 			DaoFactory.getExpressDao().addExpressesList(beans);
 		} catch (Exception ex) {
 			logger.warn("Vprognoze failed! ", ex);
@@ -162,6 +160,31 @@ public class VprognozeParser {
 			} // for j
 		} // for i
 		return beans;
+	}
+	
+	private List<ExpressBean> removeAllExisting(ArrayList<ExpressBean> beans) throws DaoException{
+		ArrayList<ExpressBean> existBeans = (ArrayList<ExpressBean>) DaoFactory.getExpressDao().getAllExpresses();
+		int size = beans.size();
+		for (int i = 0; i < existBeans.size(); i++){
+			for (int j = 0; j < size; j++) {
+				if (!beans.get(j).getDescription().equals(existBeans.get(i).getDescription())) {
+					continue;
+				} else {
+					beans.remove(j);	
+					size--;
+					j--;
+				}
+			}
+		}
+		logger.info("There are " + beans.size() + " new express");
+		return beans;
+	}
+	
+	public void deleteOldExpress() throws DaoException{
+		DaoFactory.getExpressDao().deleteOldExpresses(URL);
+		//DaoFactory.getExpressDao().deleteExpressesList(URL);
+		DaoFactory.getIventDao().deleteIventsList(URL);
+		logger.info("Exprees older 3 days have deleted");
 	}
 
 }

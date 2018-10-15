@@ -123,7 +123,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				bean.setTeam1(rs.getString("TEAM1"));
 				bean.setTeam2(rs.getString("TEAM2"));
 				bean.setWin1(rs.getDouble("WIN1"));
-				bean.setX(rs.getShort("X"));
+				bean.setX(rs.getDouble("X"));
 				bean.setWin2(rs.getDouble("WIN2"));
 				bean.setX1(rs.getDouble("X1"));
 				bean.setX2(rs.getDouble("X2"));
@@ -165,7 +165,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				bean.setTeam1(rs.getString("TEAM1"));
 				bean.setTeam2(rs.getString("TEAM2"));
 				bean.setWin1(rs.getDouble("WIN1"));
-				bean.setX(rs.getShort("X"));
+				bean.setX(rs.getDouble("X"));
 				bean.setWin2(rs.getDouble("WIN2"));
 				bean.setX1(rs.getDouble("X1"));
 				bean.setX2(rs.getDouble("X2"));
@@ -206,7 +206,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				bean.setTeam1(rs.getString("TEAM1"));
 				bean.setTeam2(rs.getString("TEAM2"));
 				bean.setWin1(rs.getDouble("WIN1"));
-				bean.setX(rs.getShort("X"));
+				bean.setX(rs.getDouble("X"));
 				bean.setWin2(rs.getDouble("WIN2"));
 				bean.setX1(rs.getDouble("X1"));
 				bean.setX2(rs.getDouble("X2"));
@@ -247,7 +247,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				bean.setTeam1(rs.getString("TEAM1"));
 				bean.setTeam2(rs.getString("TEAM2"));
 				bean.setWin1(rs.getDouble("WIN1"));
-				bean.setX(rs.getShort("X"));
+				bean.setX(rs.getDouble("X"));
 				bean.setWin2(rs.getDouble("WIN2"));
 				bean.setX1(rs.getDouble("X1"));
 				bean.setX2(rs.getDouble("X2"));

@@ -28,7 +28,7 @@ public class ExpressController extends BookmakerController {
 	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException, IOException {
 		ArrayList<Integer> pageMass = getPageMass(offset);
 		int currentPage = getCurrentPage(offset);
-		int limit = 10;
+		int limit = 20;
 		Map<String, Object> map = getExpressListForPage(limit, offset);
 		map.put("pageMass", pageMass);
 		map.put("currentPage", currentPage);
@@ -61,7 +61,7 @@ public class ExpressController extends BookmakerController {
 		if (offset == 0) {
 			currentPage = 1;
 		} else {
-			currentPage = offset / 10 + 1;
+			currentPage = offset / 20 + 1;
 		}
 		return currentPage;
 	}
@@ -71,8 +71,8 @@ public class ExpressController extends BookmakerController {
 		ArrayList<ExpressBean> list = (ArrayList<ExpressBean>) mapSize.get("expressList");
 		ArrayList<Integer> pageMass = new ArrayList<>();
 		int quantity = list.size();
-		int pageCount = quantity / 10;
-		if (pageCount % 10 != 0) {
+		int pageCount = quantity / 20;
+		if (pageCount % 20 != 0) {
 			pageCount += 1;
 		}
 		for (int i = 0; i < pageCount; i++) {
@@ -92,19 +92,19 @@ public class ExpressController extends BookmakerController {
 		List<ExpressBean> allExpressList = DaoFactory.getExpressDao().getAllExpresses();
 		List<ExpressBean> expressList = new ArrayList<>();
 		int size = getSizeForCycle(offset, limit, allExpressList.size());
-		for (int i = offset; i <= size ; i++) {
-				expressList.add(allExpressList.get(i));
+		for (int i = offset; i <= size; i++) {
+			expressList.add(allExpressList.get(i));
 		}
 		Map<String, Object> map = new HashMap<>();
 		map.put("expressList", expressList);
 		return map;
 	}
-	
-	private int getSizeForCycle(int offset, int limit, int listSize){
+
+	private int getSizeForCycle(int offset, int limit, int listSize) {
 		int size;
-		if(offset + limit-1 >= listSize){
+		if (offset + limit - 1 >= listSize) {
 			size = listSize - 1;
-		}else{
+		} else {
 			size = offset + limit - 1;
 		}
 		return size;
