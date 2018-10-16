@@ -25,6 +25,7 @@
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'испанская ла лига'}_матчи">Ла Лига (Испания)</a></li>
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'итальянская серия а'}_матчи">Серия А (Италия)</a></li>
 						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/${'немецкая бундеслига'}_матчи">Бундеслига (Германия)</a></li>
+						   <li class="${param.Menu == 'true'?'active':''}"><a href="${contextPath}/competishions">Все чемпионаты</a></li>
                         </ul>
                      </li>            
                      <li class="${param.betMenu == 'true'?'active':''} dropdown">
