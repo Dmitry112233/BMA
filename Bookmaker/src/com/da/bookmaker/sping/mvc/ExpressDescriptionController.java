@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.BookmakerBean;
@@ -21,11 +17,8 @@ import com.da.bookmaker.dao.DaoFactory;
 @Controller
 public class ExpressDescriptionController extends BookmakerController {
 	@RequestMapping("/express_{id}_description")
-	public ModelAndView getMainList(@PathVariable("id") int id,
-			@RequestParam(value = "currentPage", required = false) String currentPage) throws DaoException {
+	public ModelAndView getMainList(@PathVariable("id") int id) throws DaoException {
 
-		int currentPage1 = getCurrentPage(currentPage);
-		
 		Map<String, Object> map = new HashMap<>();
 
 		ExpressBean express = getExpressById(id);
@@ -33,24 +26,27 @@ public class ExpressDescriptionController extends BookmakerController {
 			throw new ResourceNotFoundException();
 		}
 		map.put("express", express);
-		map.put("offset", getOffset(currentPage1));
+		map.put("offset", getOffset(id));
 		map.putAll(getBookmakerList());
 		map.putAll(getBookmakerWeight());
 		return new ModelAndView("expressDescriptionPage", map);
 	}
-	
-	// получаем текущу страницу. Два условия при переходе по ссылку и по кнопке с сайта
-	private int getCurrentPage(String currentPage){
-		if (currentPage == null) {
-			return 1;
-		}else{
-			return Integer.parseInt(currentPage);
-		}
-	}
 
-	public int getOffset(int currentPage) {
-		int offset = (currentPage - 1) * 20;
-		return offset;
+	public int getOffset(int id) throws DaoException {
+		ArrayList<ExpressBean> list = (ArrayList<ExpressBean>) DaoFactory.getExpressDao().getAllExpresses();
+		int offset = 0;
+		long newId = id;
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getExpressID() == newId) {
+				if (i == 0) {
+					offset = 0;
+				} else {
+					offset = i / 20;
+				}
+				break;
+			}
+		}
+		return offset * 20;
 	}
 
 	private ExpressBean getExpressById(int id) throws DaoException {
