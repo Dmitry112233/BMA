@@ -184,7 +184,7 @@ public class VprognozeParser {
 		DaoFactory.getExpressDao().deleteOldExpresses(URL);
 		//DaoFactory.getExpressDao().deleteExpressesList(URL);
 		DaoFactory.getIventDao().deleteIventsList(URL);
-		logger.info("Exprees older 3 days have deleted");
+		logger.info("Exprees older 2 days have deleted");
 	}
 
 }
