@@ -49,10 +49,6 @@
             </p>
          </div>
          <a class="toEventDescription" href="${contextPath}/express_${express.expressID}_description">Описание экспресса</a>
-         <%-- <form action="${contextPath}/express_${express.expressID}_description" method="post">
-            <input type="hidden" name="currentPage" value="${currentPage}">
-            <input class="toEventDescription" type="submit" value="Описание экспресса">
-         </form> --%>
          <br>
       </c:forEach>
       <br>
