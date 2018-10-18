@@ -18,7 +18,6 @@ import org.apache.log4j.Logger;
 import com.da.bookmaker.bean.NewsBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
-import com.da.bookmaker.parser.BetFaqParser;
 import com.da.bookmaker.rss.eurosport.Channel;
 import com.da.bookmaker.rss.eurosport.Item;
 import com.da.bookmaker.rss.eurosport.Rss;
@@ -29,7 +28,7 @@ public class EurosportXmlImpl {
 		new EurosportXmlImpl().parseRss();
 	}
 	
-	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
+	private static final Logger logger = Logger.getLogger(EurosportXmlImpl.class);
 
 	static {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);

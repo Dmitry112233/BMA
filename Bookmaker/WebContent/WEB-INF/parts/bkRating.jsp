@@ -48,7 +48,7 @@
          </c:forEach>
       </table>
       <br><br>
-      	<div class="article">${Bookmakers_Txt}</div>
+      	<div class="article">${bookmakers_Txt}</div>
       <br>
    </div>   
 </div>

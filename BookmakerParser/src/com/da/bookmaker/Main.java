@@ -22,7 +22,9 @@ public class Main {
 		
 		new EurosportXmlImpl().parseRss();
 		new VprognozeParser().parseVprognoze();
+		new VprognozeParser().deleteOldExpress();
 		new BetFaqParser().parseBetFaq();
+		new BetFaqParser().deleteOldBetFaqIvents();		
 		new OneXbetParser().paresAllChamp();
 		new LigaStavokParser().parseAllChamp();
 		new WildstatParser().parseLastSeasons();

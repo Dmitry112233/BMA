@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.w3c.dom.Node;
 
 import com.da.bookmaker.bean.IventBean;
+import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -19,27 +20,26 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 public class BetFaqParser {
 
 	static final private String URL = "https://betfaq.ru";
-	
+
 	private static final Logger logger = Logger.getLogger(BetFaqParser.class);
-	
-	static{
+
+	static {
 		Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
 		Logger.getLogger("org.apache.http.client.protocol").setLevel(Level.OFF);
 	}
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
 		new BetFaqParser().parseBetFaq();
 	}
-	
-	
+
 	public void parseBetFaq() throws Exception {
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
-		
+
 		logger.info("BetFaq parser starts...");
 		try {
 			webClient.getOptions().setThrowExceptionOnScriptError(false);
 			HtmlPage page = (HtmlPage) webClient.getPage(URL);
-			List<IventBean> beans = new ArrayList<>();		
+			List<IventBean> beans = new ArrayList<>();
 			for (DomElement sport : page.getElementById("sticky").getChildElements()) {
 				String sportName = null;
 				if (!sport.getAttribute("class").equals("soccer") && !sport.getAttribute("class").equals("hockey")
@@ -51,7 +51,7 @@ public class BetFaqParser {
 				case "soccer":
 					sportName = "футбол";
 					break;
-				case "hockey":                              
+				case "hockey":
 					sportName = "хоккей";
 					break;
 				case "tennis":
@@ -76,17 +76,17 @@ public class BetFaqParser {
 						Iterator<DomElement> tdChild = tr.getChildElements().iterator();
 						tdChild.next(); // flag
 						DomElement title = tdChild.next(); // title
-						
+
 						String competition = getCompetision(title);
-						
+
 						String name = getName(title);
 						String time = getTime(title);
-						
+
 						double coefficient = getCoefficient(tdChild.next());
 						String matchUrl = getMatchUrl(title);
 						String result = getResult(tdChild.next());
-						
-						if (!parseMatch(matchUrl, bean)){
+
+						if (!parseMatch(matchUrl, bean)) {
 							continue;
 						}
 						bean.setResult(result);
@@ -101,12 +101,37 @@ public class BetFaqParser {
 					}
 				}
 			}
-			DaoFactory.getIventDao().deletBetFaqList();
+			beans = removeAllExisting(beans);
 			DaoFactory.getIventDao().addIventsList(beans);
 			logger.info("Parser has finished.");
-		} finally{
+		} finally {
 			webClient.closeAllWindows();
 		}
+	}
+
+	public void deleteOldBetFaqIvents() throws DaoException {
+		DaoFactory.getIventDao().deletOldBetFaqList();
+		logger.info("BetFaq events older 1 days have deleted");
+	}
+
+	private List<IventBean> removeAllExisting(List<IventBean> beans) throws DaoException {
+		ArrayList<IventBean> existIvents = (ArrayList<IventBean>) DaoFactory.getIventDao().getEventsForEqual();
+		if (existIvents.size() > 0) {
+			int size = beans.size();
+			for (int i = 0; i < existIvents.size(); i++) {
+				for (int j = 0; j < size; j++) {
+					if (!beans.get(j).getDescription().equals(existIvents.get(i).getDescription())) {
+						continue;
+					} else {
+						beans.remove(j);
+						size--;
+						j--;
+					}
+				}
+			}
+			logger.info("There are " + beans.size() + " new BetFaq events");
+		}
+		return beans;
 	}
 
 	private boolean parseMatch(String url, IventBean bean) throws Exception {
@@ -144,7 +169,7 @@ public class BetFaqParser {
 			String description = iteratorSimpleTest.next().getTextContent().trim();
 			bean.setDescription(description);
 			return true;
-		}catch(Exception e){
+		} catch (Exception e) {
 			logger.warn("can not parse sub page", e);
 			return false;
 		} finally {
@@ -184,17 +209,17 @@ public class BetFaqParser {
 		Node element = fore.getLastChild();
 		return element.getTextContent();
 	}
-	
-	private String getResult(DomElement elementResult){
+
+	private String getResult(DomElement elementResult) {
 		String result = elementResult.getFirstElementChild().getTextContent().trim();
-		if(result.equals("Подробнее")){
+		if (result.equals("Подробнее")) {
 			return null;
-		}else{
-			return result;	
+		} else {
+			return result;
 		}
 	}
-	
-	private String getTime (DomElement title) {
+
+	private String getTime(DomElement title) {
 		Iterator<DomElement> titleChild = title.getChildElements().iterator();
 		titleChild.next();
 		DomElement team = titleChild.next(); // time

@@ -64,7 +64,6 @@ public class LigaStavokParser {
 	}
 
 	private void parseLigaStavok(String url, Properties property) throws Exception {
-		System.out.println(url);
 		WebClient webClient = new WebClient(BrowserVersion.CHROME);
 		try {
 			logger.info("LigaStavok start for url: " + url);

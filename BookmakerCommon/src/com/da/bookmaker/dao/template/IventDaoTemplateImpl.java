@@ -34,14 +34,16 @@ public class IventDaoTemplateImpl implements IventDao {
 	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE, TIME, RESULT) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT) AND SOURCE_IVENT = ?";
-	
+
 	private final static String GET_EVENTS_LIST = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE, TIME, RESULT FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru'";
 
 	private final static String DELETE_BETFAQ_IVENTS = "DELETE FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru'";
-	
+
+	private final static String DELETE_OLD_BETFAQ_IVENTS = "DELETE FROM IVENTS WHERE `DATE` <= (NOW() - INTERVAL 1 DAY) AND SOURCE_IVENT = 'https://betfaq.ru'";
+
 	private final static String GET_EVENT_BY_ID = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, "
 			+ "DATE, TIME, RESULT FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru' AND ID = ?";
-	
+
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -120,13 +122,12 @@ public class IventDaoTemplateImpl implements IventDao {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		template.update(DELETE_IVENTS_LIST, url);
 	}
-	
 
 	@Override
 	public Map<String, Object> getEvents() throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		Map<String, Object> result = new HashMap<>();
-		
+
 		template.query(GET_EVENTS_LIST, new RowMapper<IventBean>() {
 
 			@SuppressWarnings("unchecked")
@@ -134,7 +135,7 @@ public class IventDaoTemplateImpl implements IventDao {
 			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				String sport = rs.getString("SPORT");
 				List<IventBean> list = (List<IventBean>) result.get(sport);
-				if(list == null){
+				if (list == null) {
 					list = new ArrayList<>();
 					result.put(sport, list);
 				}
@@ -164,9 +165,15 @@ public class IventDaoTemplateImpl implements IventDao {
 	}
 
 	@Override
+	public void deletOldBetFaqList() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(DELETE_OLD_BETFAQ_IVENTS);
+	}
+
+	@Override
 	public IventBean getEventById(int id) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		
+
 		List<IventBean> list = template.query(GET_EVENT_BY_ID, new Object[] { id }, new RowMapper<IventBean>() {
 			@SuppressWarnings("unchecked")
 			@Override
@@ -186,10 +193,36 @@ public class IventDaoTemplateImpl implements IventDao {
 				return bean;
 			}
 		});
-		if (list.size()> 0){
+		if (list.size() > 0) {
 			return list.get(0);
-		}else{
-			return null;	
+		} else {
+			return null;
 		}
+	}
+
+	@Override
+	public List<IventBean> getEventsForEqual() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+
+		List<IventBean> list = template.query(GET_EVENTS_LIST, new RowMapper<IventBean>() {
+			@Override
+			public IventBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+			
+				IventBean bean = new IventBean();
+				bean.setIventID(rs.getLong("ID"));
+				bean.setCompetition(rs.getString("COMPETITION"));
+				bean.setBet(rs.getString("BET"));
+				bean.setName(rs.getString("NAME"));
+				bean.setCoefficient(rs.getDouble("COEFFICIENT"));
+				bean.setSource(rs.getString("SOURCE_IVENT"));
+				bean.setSport(rs.getString("SPORT"));
+				bean.setDescription(rs.getString("DESCRIPTION"));
+				bean.setDate(rs.getDate("DATE"));
+				bean.setTime(rs.getString("TIME"));
+				bean.setResult(rs.getString("RESULT"));
+				return bean;
+			}
+		});
+		return list;
 	}
 }
