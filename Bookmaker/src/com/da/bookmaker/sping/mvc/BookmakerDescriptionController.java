@@ -19,11 +19,16 @@ public class BookmakerDescriptionController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/bookmakers")
-	public ModelAndView getBmkList() throws DaoException, IOException {
+	public Map<String, Object> getMainStat() throws DaoException{
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
 		map.putAll(mapBokmakers);
+		return map;
+	}
+
+	@RequestMapping("/bookmakers")
+	public ModelAndView getBmkList() throws DaoException, IOException {
+		Map<String, Object> map = getMainStat();
 		try {
 			if (property == null) {
 				property = new Properties();
@@ -47,9 +52,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 	// Букмекер без
 	@RequestMapping("/bookmakers1")
 	public ModelAndView getBmkList1() throws DaoException, IOException {
-		Map<String, Object> map = new HashMap<String, Object>();
-		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
-		map.putAll(mapBokmakers);
+		Map<String, Object> map = getMainStat();
 		try {
 			if (property == null) {
 				property = new Properties();
@@ -73,9 +76,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 	// Букмекер контора
 	@RequestMapping("/bookmakers2")
 	public ModelAndView getBmkList2() throws DaoException, IOException {
-		Map<String, Object> map = new HashMap<String, Object>();
-		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
-		map.putAll(mapBokmakers);
+		Map<String, Object> map = getMainStat();
 		try {
 			if (property == null) {
 				property = new Properties();
@@ -99,9 +100,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 	// Букмекер онлайн
 	@RequestMapping("/bookmakers3")
 	public ModelAndView getBmkList3() throws DaoException, IOException {
-		Map<String, Object> map = new HashMap<String, Object>();
-		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
-		map.putAll(mapBokmakers);
+		Map<String, Object> map = getMainStat();
 		try {
 			if (property == null) {
 				property = new Properties();
@@ -125,9 +124,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 	// Букмекер офицальный сайт
 		@RequestMapping("/bookmakers4")
 		public ModelAndView getBmkList4() throws DaoException, IOException {
-			Map<String, Object> map = new HashMap<String, Object>();
-			Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
-			map.putAll(mapBokmakers);
+			Map<String, Object> map = getMainStat();
 			try {
 				if (property == null) {
 					property = new Properties();
@@ -147,10 +144,143 @@ public class BookmakerDescriptionController extends BookmakerController {
 			}
 			return new ModelAndView("bkDescription", map);
 		}
+		
+		
+		@RequestMapping("/bookmakers5")
+		public ModelAndView getBmkList5() throws DaoException, IOException {
+			Map<String, Object> map = getMainStat();
+			try {
+				if (property == null) {
+					property = new Properties();
+					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
+					property.load(fis);
+				}
+				map.put("bookmakers5_T", property.getProperty("bookmakers5_T"));
+				map.put("bookmakers5_H1", property.getProperty("bookmakers5_H1"));
+				map.put("bookmakers5_D", property.getProperty("bookmakers5_D"));
+				map.put("bookmakers5_Txt", property.getProperty("bookmakers5_Txt"));
+			} catch (IOException e) {
+				System.err.println("Файл с проперти не найден");
+			} finally {
+				if (fis != null) {
+					fis.close();
+				}
+			}
+			return new ModelAndView("bkDescription", map);
+		}
+		
+		@RequestMapping("/bookmakers6")
+		public ModelAndView getBmkList6() throws DaoException, IOException {
+			Map<String, Object> map = getMainStat();
+			try {
+				if (property == null) {
+					property = new Properties();
+					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
+					property.load(fis);
+				}
+				map.put("bookmakers6_T", property.getProperty("bookmakers6_T"));
+				map.put("bookmakers6_H1", property.getProperty("bookmakers6_H1"));
+				map.put("bookmakers6_D", property.getProperty("bookmakers6_D"));
+				map.put("bookmakers6_Txt", property.getProperty("bookmakers6_Txt"));
+			} catch (IOException e) {
+				System.err.println("Файл с проперти не найден");
+			} finally {
+				if (fis != null) {
+					fis.close();
+				}
+			}
+			return new ModelAndView("bkDescription", map);
+		}
+		
+		@RequestMapping("/bookmakers7")
+		public ModelAndView getBmkList7() throws DaoException, IOException {
+			Map<String, Object> map = getMainStat();
+			try {
+				if (property == null) {
+					property = new Properties();
+					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
+					property.load(fis);
+				}
+				map.put("bookmakers7_T", property.getProperty("bookmakers7_T"));
+				map.put("bookmakers7_H1", property.getProperty("bookmakers7_H1"));
+				map.put("bookmakers7_D", property.getProperty("bookmakers7_D"));
+				map.put("bookmakers7_Txt", property.getProperty("bookmakers7_Txt"));
+			} catch (IOException e) {
+				System.err.println("Файл с проперти не найден");
+			} finally {
+				if (fis != null) {
+					fis.close();
+				}
+			}
+			return new ModelAndView("bkDescription", map);
+		}
+		
+		@RequestMapping("/bookmakers8")
+		public ModelAndView getBmkList8() throws DaoException, IOException {
+			Map<String, Object> map = getMainStat();
+			try {
+				if (property == null) {
+					property = new Properties();
+					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
+					property.load(fis);
+				}
+				map.put("bookmakers8_T", property.getProperty("bookmakers8_T"));
+				map.put("bookmakers8_H1", property.getProperty("bookmakers8_H1"));
+				map.put("bookmakers8_D", property.getProperty("bookmakers8_D"));
+				map.put("bookmakers8_Txt", property.getProperty("bookmakers8_Txt"));
+			} catch (IOException e) {
+				System.err.println("Файл с проперти не найден");
+			} finally {
+				if (fis != null) {
+					fis.close();
+				}
+			}
+			return new ModelAndView("bkDescription", map);
+		}
+		
+		@RequestMapping("/bookmakers9")
+		public ModelAndView getBmkList9() throws DaoException, IOException {
+			Map<String, Object> map = getMainStat();
+			try {
+				if (property == null) {
+					property = new Properties();
+					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
+					property.load(fis);
+				}
+				map.put("bookmakers9_T", property.getProperty("bookmakers9_T"));
+				map.put("bookmakers9_H1", property.getProperty("bookmakers9_H1"));
+				map.put("bookmakers9_D", property.getProperty("bookmakers9_D"));
+				map.put("bookmakers9_Txt", property.getProperty("bookmakers9_Txt"));
+			} catch (IOException e) {
+				System.err.println("Файл с проперти не найден");
+			} finally {
+				if (fis != null) {
+					fis.close();
+				}
+			}
+			return new ModelAndView("bkDescription", map);
+		}
 
-	@RequestMapping("/index.spr")
-	public ModelAndView getBmk() throws DaoException {
-		Map<String, Map<String, BookmakerBean>> map = getBookmakerList();
-		return new ModelAndView("bkDescription", map);
-	}
+		@RequestMapping("/bookmakers10")
+		public ModelAndView getBmkList10() throws DaoException, IOException {
+			Map<String, Object> map = getMainStat();
+			try {
+				if (property == null) {
+					property = new Properties();
+					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
+					property.load(fis);
+				}
+				map.put("bookmakers10_T", property.getProperty("bookmakers10_T"));
+				map.put("bookmakers10_H1", property.getProperty("bookmakers10_H1"));
+				map.put("bookmakers10_D", property.getProperty("bookmakers10_D"));
+				map.put("bookmakers10_Txt", property.getProperty("bookmakers10_Txt"));
+			} catch (IOException e) {
+				System.err.println("Файл с проперти не найден");
+			} finally {
+				if (fis != null) {
+					fis.close();
+				}
+			}
+			return new ModelAndView("bkDescription", map);
+		}
 }
