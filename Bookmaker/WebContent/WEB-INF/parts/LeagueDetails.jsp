@@ -5,7 +5,7 @@
 <div id="DetailsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
    <div class="details">
       <br>
-      <a class="BackButton" href="${contextPath}/${xBetList.get(0).leaguelow}_матчи"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
+      <a class="BackButton" href="${contextPath}/${league}_матчи"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
       <c:if test="${xBetList.size() > 0}">
          <br>
          <br>
@@ -43,7 +43,7 @@
       </c:if>
       <c:if test="${lastMatchesTeam1.size() > 0}">
          <br>	
-         <p class="TextLikeHeadline">Последние встречи ${xBetList.get(0).team1}:</p>
+         <p class="TextLikeHeadline">Последние встречи ${team1}:</p>
          <table class="HistoryTable">
             <c:forEach var="Team1Matches" items="${lastMatchesTeam1}">
                <tr>
@@ -75,7 +75,7 @@
       </c:if>
       <c:if test="${lastMatchesTeam2.size() > 0}">
          <br>		
-         <p class="TextLikeHeadline">Последние встречи ${xBetList.get(0).team2}:</p>
+         <p class="TextLikeHeadline">Последние встречи ${team2}:</p>
          <table class="HistoryTable">
             <c:forEach var="Team2Matches" items="${lastMatchesTeam2}">
                <tr>
@@ -107,7 +107,7 @@
       </c:if>
       <c:if test="${lastMatchesTeam1Team2.size() > 0}">
          <br>		
-         <p class="TextLikeHeadline">Личные встречи ${xBetList.get(0).team1} и ${xBetList.get(0).team2}:</p>
+         <p class="TextLikeHeadline">Личные встречи ${team1} и ${team2}:</p>
          <table class="HistoryTable">
             <c:forEach var="Team1Team2Matches" items="${lastMatchesTeam1Team2}">
                <tr>
