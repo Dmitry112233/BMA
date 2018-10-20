@@ -29,6 +29,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 	@RequestMapping("/bookmakers")
 	public ModelAndView getBmkList() throws DaoException, IOException {
 		Map<String, Object> map = getMainStat();
+		map.put("relCanonical", "<link rel='canonical' href='https://findbestbet.ru'/>");
 		try {
 			if (property == null) {
 				property = new Properties();
@@ -59,10 +60,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			map.put("bookmakers1_T", property.getProperty("bookmakers1_T"));
-			map.put("bookmakers1_H1", property.getProperty("bookmakers1_H1"));
-			map.put("bookmakers1_D", property.getProperty("bookmakers1_D"));
-			map.put("bookmakers1_Txt", property.getProperty("bookmakers1_Txt"));
+			map.put("bookmakers_T", property.getProperty("bookmakers1_T"));
+			map.put("bookmakers_H1", property.getProperty("bookmakers1_H1"));
+			map.put("bookmakers_D", property.getProperty("bookmakers1_D"));
+			map.put("bookmakers_Txt", property.getProperty("bookmakers1_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл с проперти не найден");
 		} finally {
@@ -83,10 +84,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			map.put("bookmakers2_T", property.getProperty("bookmakers2_T"));
-			map.put("bookmakers2_H1", property.getProperty("bookmakers2_H1"));
-			map.put("bookmakers2_D", property.getProperty("bookmakers2_D"));
-			map.put("bookmakers2_Txt", property.getProperty("bookmakers2_Txt"));
+			map.put("bookmakers_T", property.getProperty("bookmakers2_T"));
+			map.put("bookmakers_H1", property.getProperty("bookmakers2_H1"));
+			map.put("bookmakers_D", property.getProperty("bookmakers2_D"));
+			map.put("bookmakers_Txt", property.getProperty("bookmakers2_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл с проперти не найден");
 		} finally {
@@ -107,10 +108,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			map.put("bookmakers3_T", property.getProperty("bookmakers3_T"));
-			map.put("bookmakers3_H1", property.getProperty("bookmakers3_H1"));
-			map.put("bookmakers3_D", property.getProperty("bookmakers3_D"));
-			map.put("bookmakers3_Txt", property.getProperty("bookmakers3_Txt"));
+			map.put("bookmakers_T", property.getProperty("bookmakers3_T"));
+			map.put("bookmakers_H1", property.getProperty("bookmakers3_H1"));
+			map.put("bookmakers_D", property.getProperty("bookmakers3_D"));
+			map.put("bookmakers_Txt", property.getProperty("bookmakers3_Txt"));
 		} catch (IOException e) {
 			System.err.println("Файл с проперти не найден");
 		} finally {
@@ -131,10 +132,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 					property.load(fis);
 				}
-				map.put("bookmakers4_T", property.getProperty("bookmakers4_T"));
-				map.put("bookmakers4_H1", property.getProperty("bookmakers4_H1"));
-				map.put("bookmakers4_D", property.getProperty("bookmakers4_D"));
-				map.put("bookmakers4_Txt", property.getProperty("bookmakers4_Txt"));
+				map.put("bookmakers_T", property.getProperty("bookmakers4_T"));
+				map.put("bookmakers_H1", property.getProperty("bookmakers4_H1"));
+				map.put("bookmakers_D", property.getProperty("bookmakers4_D"));
+				map.put("bookmakers_Txt", property.getProperty("bookmakers4_Txt"));
 			} catch (IOException e) {
 				System.err.println("Файл с проперти не найден");
 			} finally {
@@ -155,10 +156,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 					property.load(fis);
 				}
-				map.put("bookmakers5_T", property.getProperty("bookmakers5_T"));
-				map.put("bookmakers5_H1", property.getProperty("bookmakers5_H1"));
-				map.put("bookmakers5_D", property.getProperty("bookmakers5_D"));
-				map.put("bookmakers5_Txt", property.getProperty("bookmakers5_Txt"));
+				map.put("bookmakers_T", property.getProperty("bookmakers5_T"));
+				map.put("bookmakers_H1", property.getProperty("bookmakers5_H1"));
+				map.put("bookmakers_D", property.getProperty("bookmakers5_D"));
+				map.put("bookmakers_Txt", property.getProperty("bookmakers5_Txt"));
 			} catch (IOException e) {
 				System.err.println("Файл с проперти не найден");
 			} finally {
@@ -178,10 +179,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 					property.load(fis);
 				}
-				map.put("bookmakers6_T", property.getProperty("bookmakers6_T"));
-				map.put("bookmakers6_H1", property.getProperty("bookmakers6_H1"));
-				map.put("bookmakers6_D", property.getProperty("bookmakers6_D"));
-				map.put("bookmakers6_Txt", property.getProperty("bookmakers6_Txt"));
+				map.put("bookmakers_T", property.getProperty("bookmakers6_T"));
+				map.put("bookmakers_H1", property.getProperty("bookmakers6_H1"));
+				map.put("bookmakers_D", property.getProperty("bookmakers6_D"));
+				map.put("bookmakers_Txt", property.getProperty("bookmakers6_Txt"));
 			} catch (IOException e) {
 				System.err.println("Файл с проперти не найден");
 			} finally {
@@ -201,10 +202,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 					property.load(fis);
 				}
-				map.put("bookmakers7_T", property.getProperty("bookmakers7_T"));
-				map.put("bookmakers7_H1", property.getProperty("bookmakers7_H1"));
-				map.put("bookmakers7_D", property.getProperty("bookmakers7_D"));
-				map.put("bookmakers7_Txt", property.getProperty("bookmakers7_Txt"));
+				map.put("bookmakers_T", property.getProperty("bookmakers7_T"));
+				map.put("bookmakers_H1", property.getProperty("bookmakers7_H1"));
+				map.put("bookmakers_D", property.getProperty("bookmakers7_D"));
+				map.put("bookmakers_Txt", property.getProperty("bookmakers7_Txt"));
 			} catch (IOException e) {
 				System.err.println("Файл с проперти не найден");
 			} finally {
@@ -224,10 +225,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 					property.load(fis);
 				}
-				map.put("bookmakers8_T", property.getProperty("bookmakers8_T"));
-				map.put("bookmakers8_H1", property.getProperty("bookmakers8_H1"));
-				map.put("bookmakers8_D", property.getProperty("bookmakers8_D"));
-				map.put("bookmakers8_Txt", property.getProperty("bookmakers8_Txt"));
+				map.put("bookmakers_T", property.getProperty("bookmakers8_T"));
+				map.put("bookmakers_H1", property.getProperty("bookmakers8_H1"));
+				map.put("bookmakers_D", property.getProperty("bookmakers8_D"));
+				map.put("bookmakers_Txt", property.getProperty("bookmakers8_Txt"));
 			} catch (IOException e) {
 				System.err.println("Файл с проперти не найден");
 			} finally {
@@ -247,10 +248,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 					property.load(fis);
 				}
-				map.put("bookmakers9_T", property.getProperty("bookmakers9_T"));
-				map.put("bookmakers9_H1", property.getProperty("bookmakers9_H1"));
-				map.put("bookmakers9_D", property.getProperty("bookmakers9_D"));
-				map.put("bookmakers9_Txt", property.getProperty("bookmakers9_Txt"));
+				map.put("bookmakers_T", property.getProperty("bookmakers9_T"));
+				map.put("bookmakers_H1", property.getProperty("bookmakers9_H1"));
+				map.put("bookmakers_D", property.getProperty("bookmakers9_D"));
+				map.put("bookmakers_Txt", property.getProperty("bookmakers9_Txt"));
 			} catch (IOException e) {
 				System.err.println("Файл с проперти не найден");
 			} finally {
@@ -270,10 +271,10 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 					property.load(fis);
 				}
-				map.put("bookmakers10_T", property.getProperty("bookmakers10_T"));
-				map.put("bookmakers10_H1", property.getProperty("bookmakers10_H1"));
-				map.put("bookmakers10_D", property.getProperty("bookmakers10_D"));
-				map.put("bookmakers10_Txt", property.getProperty("bookmakers10_Txt"));
+				map.put("bookmakers_T", property.getProperty("bookmakers10_T"));
+				map.put("bookmakers_H1", property.getProperty("bookmakers10_H1"));
+				map.put("bookmakers_D", property.getProperty("bookmakers10_D"));
+				map.put("bookmakers_Txt", property.getProperty("bookmakers10_Txt"));
 			} catch (IOException e) {
 				System.err.println("Файл с проперти не найден");
 			} finally {
