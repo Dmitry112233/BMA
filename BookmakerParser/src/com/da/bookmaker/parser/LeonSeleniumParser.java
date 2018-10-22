@@ -95,10 +95,10 @@ public class LeonSeleniumParser {
 				bean.setDate(new Date());
 				beans.add(bean);
 				if (url.equals(property.getProperty("ENG"))) {
-					bean.setLeague("Английская Примьер Лига");
+					bean.setLeague("Английская Премьер Лига");
 				}
 				if (url.equals(property.getProperty("RUS"))) {
-					bean.setLeague("Российская Примьер Лига");
+					bean.setLeague("Российская Премьер Лига");
 				}
 				if (url.equals(property.getProperty("GER"))) {
 					bean.setLeague("Немецкая Бундеслига");
@@ -120,12 +120,12 @@ public class LeonSeleniumParser {
 				}
 			}
 			if (url.equals(property.getProperty("ENG"))) {
-				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 2);
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Премьер Лига", 2);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				logger.info("Leon Parser saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("RUS"))) {
-				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 2);
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Премьер Лига", 2);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				logger.info("Leon Parser saved for url: " + url);
 			}
