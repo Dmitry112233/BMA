@@ -23,7 +23,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
       <meta name="google-site-verification" content="zxpjmOEovT6ZSjOnOYmVyz0q1t-7QcqfxAd41aUkP8M" />
-      <link rel="canonical" href="https://findbestbet.ru"/>
+      ${relCanonical}
    </head>
    <body>
       <div class="bg"></div>
@@ -45,6 +45,7 @@
             <c:import url="parts/bkRating.jsp"></c:import>
          </div>
       </div>
+      <c:import url="parts/linksBlock.jsp"></c:import>
       <c:import url="parts/footer.jsp"></c:import>
       <c:import url="parts/topButton.jsp"></c:import>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -3,42 +3,47 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div id="DetailsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-   <div class="details">      
+   <div class="details">
       <br>
-      <a class="BackButton" href="${contextPath}/${xBetList.get(0).leaguelow}_матчи"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
-      <br>
-      <br>
-      <div>
-         <p>Начало события: <b><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" /> МСК</b></p>
-      </div>
-      <p class="TextLikeHeadline">Сравнение коэффициентов букмекеров:</p>
-      <table class="CoeffCompareTable">
-         <tr class="CoeffCompareTableHeader">
-            <td class="CoeffCompareTableBM"><b>Букмекер</b></td>
-            <td><b>1</b></td>
-            <td><b>X</b></td>
-            <td><b>2</b></td>
-            <td><b>1X</b></td>
-            <td><b>12</b></td>
-            <td><b>2X</b></td>
-            <td class="CoeffCompareTableSecondary"><b>Б</b></td>
-            <td class="CoeffCompareTableSecondary"><b>ТОТАЛ</b></td>
-            <td class="CoeffCompareTableSecondary"><b>М</b></td>
-            <td class="CoeffCompareTableSecondary"><b>1</b></td>
-            <td class="CoeffCompareTableSecondary"><b>ФОРА</b></td>
-            <td class="CoeffCompareTableSecondary"><b>2</b></td>
-            <td class="CoeffCompareTableSecondary2"></td>
-         </tr>
-         <c:set var="RowListName" value="${xBetList}" scope="request"/>
-         <c:import url="parts/ceffCompareRow.jsp"/>
-         <c:set var="RowListName" value="${leonList}" scope="request"/>
-         <c:import url="parts/ceffCompareRow.jsp"/>
-         <c:set var="RowListName" value="${ligaList}" scope="request"/>
-         <c:import url="parts/ceffCompareRow.jsp"/>
-      </table>
+      <a class="BackButton" href="${contextPath}/${league}_матчи"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
+      <c:if test="${xBetList.size() > 0}">
+         <br>
+         <br>
+         <div>
+            <p>
+               Начало события: 
+               <b><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" />МСК</b>
+            </p>
+         </div>
+         <p class="TextLikeHeadline">Сравнение коэффициентов букмекеров:</p>
+         <table class="CoeffCompareTable">
+            <tr class="CoeffCompareTableHeader">
+               <td class="CoeffCompareTableBM"><b>Букмекер</b></td>
+               <td><b>1</b></td>
+               <td><b>X</b></td>
+               <td><b>2</b></td>
+               <td><b>1X</b></td>
+               <td><b>12</b></td>
+               <td><b>2X</b></td>
+               <td class="CoeffCompareTableSecondary"><b>Б</b></td>
+               <td class="CoeffCompareTableSecondary"><b>ТОТАЛ</b></td>
+               <td class="CoeffCompareTableSecondary"><b>М</b></td>
+               <td class="CoeffCompareTableSecondary"><b>1</b></td>
+               <td class="CoeffCompareTableSecondary"><b>ФОРА</b></td>
+               <td class="CoeffCompareTableSecondary"><b>2</b></td>
+               <td class="CoeffCompareTableSecondary2"></td>
+            </tr>
+            <c:set var="RowListName" value="${xBetList}" scope="request"/>
+            <c:import url="parts/ceffCompareRow.jsp"/>
+            <c:set var="RowListName" value="${leonList}" scope="request"/>
+            <c:import url="parts/ceffCompareRow.jsp"/>
+            <c:set var="RowListName" value="${ligaList}" scope="request"/>
+            <c:import url="parts/ceffCompareRow.jsp"/>
+         </table>
+      </c:if>
       <c:if test="${lastMatchesTeam1.size() > 0}">
          <br>	
-         <p class="TextLikeHeadline">Последние встречи ${xBetList.get(0).team1}:</p>
+         <p class="TextLikeHeadline">Последние встречи ${xBetList.get(0).team1}<c:if test = "${xBetList == Null}">${team1}</c:if>:</p>
          <table class="HistoryTable">
             <c:forEach var="Team1Matches" items="${lastMatchesTeam1}">
                <tr>
@@ -58,19 +63,19 @@
                   <td class="HistoryTableSecondary">${Team1Matches.championship}</td>
                </tr>
                <!-- 
-               <tr>
-                  <td class="HistoryTableDisclosure" colspan="5">
-                     Дата: ${Team1Matches.dateStr}<br>
-                     Чемпионат: ${Team1Matches.championship}
-                  </td>
-               </tr>
-                -->
+                  <tr>
+                     <td class="HistoryTableDisclosure" colspan="5">
+                        Дата: ${Team1Matches.dateStr}<br>
+                        Чемпионат: ${Team1Matches.championship}
+                     </td>
+                  </tr>
+                   -->
             </c:forEach>
          </table>
       </c:if>
       <c:if test="${lastMatchesTeam2.size() > 0}">
          <br>		
-         <p class="TextLikeHeadline">Последние встречи ${xBetList.get(0).team2}:</p>
+         <p class="TextLikeHeadline">Последние встречи ${xBetList.get(0).team2}<c:if test = "${xBetList == Null}">${team2}</c:if>:</p>
          <table class="HistoryTable">
             <c:forEach var="Team2Matches" items="${lastMatchesTeam2}">
                <tr>
@@ -90,19 +95,19 @@
                   <td class="HistoryTableSecondary">${Team2Matches.championship}</td>
                </tr>
                <!--
-               <tr>
-                  <td class="HistoryTableDisclosure" colspan="5">
-                     Дата: ${Team2Matches.dateStr}<br>
-                     Чемпионат: ${Team2Matches.championship}
-                  </td>
-               </tr>
-                -->
+                  <tr>
+                     <td class="HistoryTableDisclosure" colspan="5">
+                        Дата: ${Team2Matches.dateStr}<br>
+                        Чемпионат: ${Team2Matches.championship}
+                     </td>
+                  </tr>
+                   -->
             </c:forEach>
          </table>
       </c:if>
       <c:if test="${lastMatchesTeam1Team2.size() > 0}">
          <br>		
-         <p class="TextLikeHeadline">Личные встречи ${xBetList.get(0).team1} и ${xBetList.get(0).team2}:</p>
+         <p class="TextLikeHeadline">Личные встречи ${xBetList.get(0).team1}<c:if test = "${xBetList == Null}">${team1}</c:if> и ${xBetList.get(0).team2}<c:if test = "${xBetList == Null}">${team2}</c:if>:</p>
          <table class="HistoryTable">
             <c:forEach var="Team1Team2Matches" items="${lastMatchesTeam1Team2}">
                <tr>
@@ -118,13 +123,13 @@
                   <td class="HistoryTableSecondary">${Team1Team2Matches.championship}</td>
                </tr>
                <!--
-               <tr>
-                  <td class="HistoryTableDisclosure" colspan="5">
-                     Дата: ${Team1Team2Matches.dateStr}<br>
-                     Чемпионат: ${Team1Team2Matches.championship}
-                  </td>
-               </tr>
-                -->
+                  <tr>
+                     <td class="HistoryTableDisclosure" colspan="5">
+                        Дата: ${Team1Team2Matches.dateStr}<br>
+                        Чемпионат: ${Team1Team2Matches.championship}
+                     </td>
+                  </tr>
+                   -->
             </c:forEach>
          </table>
       </c:if>
@@ -162,7 +167,7 @@
             </table>
          </div>
       </c:if>
-      <c:if test="${groupTeam1.size() > 0}">      
+      <c:if test="${groupTeam1.size() > 0}">
          <br>		
          <div class="GroupTableBlock">
             <p class="TextLikeHeadline">Группа ${groupTeam1.get(0).group}:</p>
@@ -196,7 +201,7 @@
          </div>
       </c:if>
       <br>
-      <c:if test="${groupTeam2.size() > 0}">      
+      <c:if test="${groupTeam2.size() > 0}">
          <br>		
          <div class="GroupTableBlock">
             <p class="TextLikeHeadline">Группа ${groupTeam2.get(0).group}:</p>

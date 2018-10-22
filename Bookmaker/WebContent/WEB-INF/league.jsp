@@ -31,7 +31,7 @@
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
          	<c:if test="${matchesList.size() > 0}">
          		<h1 class="leagueH1">${League_H1}</h1>
-         		<img class="leagueIcon" src="/Static/bootstrap/img/leagueIcon/${matchesList.get(0).league}.png">
+         		<img class="leagueIcon" src="/Static/bootstrap/img/leagueIcon/${matchesList.get(0).league}.png" onerror="this.style.display='none'">
          	</c:if>
          	<c:if test="${matchesList.size() == NULL}">
          		<h1>Футбол</h1>

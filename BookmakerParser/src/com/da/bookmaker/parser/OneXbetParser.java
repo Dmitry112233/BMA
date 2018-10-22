@@ -110,10 +110,10 @@ public class OneXbetParser extends AbstractParser {
 					bean.setTeam2(names.get(1));
 				}
 				if (url.equals(property.getProperty("ENG"))) {
-					bean.setLeague("Английская Примьер Лига");
+					bean.setLeague("Английская Премьер Лига");
 				}
 				if (url.equals(property.getProperty("RUS"))) {
-					bean.setLeague("Российская Примьер Лига");
+					bean.setLeague("Российская Премьер Лига");
 				}
 				if (url.equals(property.getProperty("GER"))) {
 					bean.setLeague("Немецкая Бундеслига");
@@ -137,12 +137,12 @@ public class OneXbetParser extends AbstractParser {
 				beans.add(bean);
 			}
 			if (url.equals(property.getProperty("ENG"))) {
-				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 1);
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Премьер Лига", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				logger.info("1xBet saved for url: " + url);
 			}
 			if (url.equals(property.getProperty("RUS"))) {
-				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 1);
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Премьер Лига", 1);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				logger.info("1xBet saved for url: " + url);
 			}

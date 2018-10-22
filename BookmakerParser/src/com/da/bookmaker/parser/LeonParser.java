@@ -72,10 +72,10 @@ public class LeonParser {
 						bean = new PremierLeagueBean();
 						switch (url) {
 						case ENG:
-							bean.setLeague("Английская Примьер Лига");
+							bean.setLeague("Английская Премьер Лига");
 							break;
 						case RUS:
-							bean.setLeague("Российская Примьер Лига");
+							bean.setLeague("Российская Премьер Лига");
 							break;
 						case GER:
 							bean.setLeague("Немецкая Бундеслига");
@@ -106,11 +106,11 @@ public class LeonParser {
 			}
 			switch (url) {
 			case ENG:
-				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Примьер Лига", 2);
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Английская Премьер Лига", 2);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				break;
 			case RUS:
-				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Примьер Лига", 2);
+				DaoFactory.getPremierLeagueDao().deleteMatchesList("Российская Премьер Лига", 2);
 				DaoFactory.getPremierLeagueDao().addMatchesList(beans);
 				break;
 			case GER:

@@ -2,8 +2,8 @@
 <html lang="ru">
    <head>
       <!-- теги для индексации -->
-      <title>${test_T}</title>      
-      <meta name="Description" content="${test_D}"/>      
+      <title>${league_T}</title>      
+      <meta name="Description" content="${league_D}"/>      
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -24,15 +24,17 @@
    <body>
       <div class="bg"></div>
       <c:import url="parts/nav.jsp">
-         <c:param name="eighthMenu" value="true"/>
+         <c:param name="fakeMenu" value="true"/>
       </c:import>
       <c:import url="parts/topAdBanner.jsp"></c:import>
       <div class="container backing">
          <div class="pageNameBlock" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-         	<h1>${test_H1}</h1>
+         	<h1 class="leagueH1">${league_H1}</h1>         	
+         	<img class="leagueIcon" src="/Static/bootstrap/img/leagueIcon/${league}.png" onerror="this.style.display='none'">
          </div>
       </div>
       <div class="container">
+         <c:import url="parts/bmListMobile.jsp"></c:import>
          <div class="row mainHeight">
             <c:import url="parts/bmList.jsp"></c:import>            
             <c:import url="parts/leagueDescriptionPart.jsp"></c:import>
