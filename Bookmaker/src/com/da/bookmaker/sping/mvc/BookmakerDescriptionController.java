@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.BookmakerBean;
 import com.da.bookmaker.dao.DaoException;
+import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class BookmakerDescriptionController extends BookmakerController {
@@ -22,6 +23,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 	public Map<String, Object> getMainStat() throws DaoException{
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
+		map.putAll(DaoFactory.getIventDao().getEvents());
 		map.putAll(mapBokmakers);
 		return map;
 	}
