@@ -121,6 +121,9 @@ public class BetFaqParser {
 			for (int i = 0; i < existIvents.size(); i++) {
 				for (int j = 0; j < size; j++) {
 					if (!beans.get(j).getDescription().equals(existIvents.get(i).getDescription())) {
+						if(existIvents.get(i).getResult() == null && beans.get(j).getResult() != null){
+							DaoFactory.getIventDao().updateResult(existIvents.get(i).getIventID(), beans.get(j).getResult());
+						}
 						continue;
 					} else {
 						beans.remove(j);

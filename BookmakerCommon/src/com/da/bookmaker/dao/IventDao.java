@@ -24,4 +24,6 @@ public interface IventDao {
 	public void deletOldBetFaqList() throws DaoException;
 	
 	List<IventBean> getEventsForEqual() throws DaoException;
+	
+	void updateResult(long id, String result) throws DaoException;
 }

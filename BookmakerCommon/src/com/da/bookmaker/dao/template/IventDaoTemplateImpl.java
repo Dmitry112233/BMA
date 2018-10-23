@@ -17,7 +17,6 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 
-import com.da.bookmaker.bean.ExpressBean;
 import com.da.bookmaker.bean.IventBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.IventDao;
@@ -43,6 +42,9 @@ public class IventDaoTemplateImpl implements IventDao {
 
 	private final static String GET_EVENT_BY_ID = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, "
 			+ "DATE, TIME, RESULT FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru' AND ID = ?";
+	
+	private final static String UPDATE_RESULT = "UPDATE IVENTS SET RESULT = ? WHERE ID = ?";
+
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -224,5 +226,11 @@ public class IventDaoTemplateImpl implements IventDao {
 			}
 		});
 		return list;
+	}
+
+	@Override
+	public void updateResult(long id, String result) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		template.update(UPDATE_RESULT, result, id);		
 	}
 }
