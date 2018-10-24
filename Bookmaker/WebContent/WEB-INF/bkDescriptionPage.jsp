@@ -32,6 +32,10 @@
                   </div>
                </div>
                <div id="w-node-e810e40df812" class="criteria_bookmaker">
+                  <div id="w-node-e810e40df81a" class="criteria_title">
+                     <div id="w-node-e810e40df81b" class="criteria-text">Критерии</div>
+                     <img src="${bookmaker.image}" width="80" height="26" id="w-node-e810e40df81d" alt="${bookmaker.name} logo" />
+                  </div>
                   <div id="w-node-e810e40df813" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
                         <div class="criteria-rating-text">НАДЕЖНОСТЬ</div>
@@ -43,9 +47,8 @@
                      <div class="column-rating-settings _2 w-col w-col-2 w-col-small-6 w-col-tiny-6">
                      </div>
                   </div>
-                  <div id="w-node-e810e40df81a" class="criteria_title">
-                     <div id="w-node-e810e40df81b" class="criteria-text">Критерии</div>
-                     <img src="${bookmaker.image}" width="80" height="26" id="w-node-e810e40df81d" alt="${bookmaker.name} logo" />
+                  <div id="w-node-e810e40df83a" class="rating-numeral">
+                     <div class="criteria-rating-text numeral">${bookmaker.reliability}</div>
                   </div>
                   <div id="w-node-e810e40df81e" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
@@ -58,24 +61,8 @@
                      <div class="column-rating-settings _2 w-col w-col-2 w-col-small-6 w-col-tiny-6">
                      </div>
                   </div>
-                  <div id="w-node-e810e40df825" class="rating-numeral">
-                     <div class="criteria-rating-text numeral">1</div>
-                  </div>
-                  <div id="w-node-e810e40df828" class="rating_general">
-                     <div id="w-node-e810e40df829" class="rating-numeral">
-                        <div class="criteria-rating-text numeral">2</div>
-                     </div>
-                     <div id="w-node-e810e40df82c" class="columns-3 w-row">
-                        <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
-                           <div class="criteria-rating-text">ОБЩИЙ РЕЙТИНГ</div>
-                           <div class="criteria-rating-progress">
-                              <div class="criteria-rating-progress dynamic">
-                              </div>
-                           </div>
-                        </div>
-                        <div class="column-rating-settings _2 w-col w-col-2 w-col-small-6 w-col-tiny-6">
-                        </div>
-                     </div>
+                  <div id="w-node-e810e40df83d" class="rating-numeral">
+                     <div class="criteria-rating-text numeral">${bookmaker.line}</div>
                   </div>
                   <div id="w-node-e810e40df833" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
@@ -88,11 +75,24 @@
                      <div class="column-rating-settings _2 w-col w-col-2 w-col-small-6 w-col-tiny-6">
                      </div>
                   </div>
-                  <div id="w-node-e810e40df83a" class="rating-numeral">
-                     <div class="criteria-rating-text numeral">1</div>
+                  <div id="w-node-e810e40df825" class="rating-numeral">
+                     <div class="criteria-rating-text numeral">${bookmaker.usability}</div>
                   </div>
-                  <div id="w-node-e810e40df83d" class="rating-numeral">
-                     <div class="criteria-rating-text numeral">1</div>
+                  <div id="w-node-e810e40df828" class="rating_general">
+                     <div id="w-node-e810e40df829" class="rating-numeral">
+                        <div class="criteria-rating-text numeral">${bookmaker.result}</div>
+                     </div>
+                     <div id="w-node-e810e40df82c" class="columns-3 w-row">
+                        <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
+                           <div class="criteria-rating-text">ОБЩИЙ РЕЙТИНГ</div>
+                           <div class="criteria-rating-progress">
+                              <div class="criteria-rating-progress dynamic">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="column-rating-settings _2 w-col w-col-2 w-col-small-6 w-col-tiny-6">
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
