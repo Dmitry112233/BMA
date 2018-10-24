@@ -36,6 +36,10 @@
   font-weight: 400;
 }
 
+.progressValue {
+	display: none;
+}
+
 .container {
   display: block;
   width: 100%;
@@ -862,7 +866,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 215px;
+  width: 250px;
   height: 37px;
   margin-top: 10px;
   -webkit-box-align: center;
@@ -1393,12 +1397,7 @@
 .criteria-rating-progress {
   width: 200px;
   height: 5px;
-  background-color: rgba(207, 255, 131, .4);
-}
-
-.criteria-rating-progress.dynamic {
-  width: 160px;
-  color: #c5df9b;
+  background: #cfcdb1;
 }
 
 .columns-3 {

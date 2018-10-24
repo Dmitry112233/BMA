@@ -32,31 +32,31 @@
       </div>
       <div id="w-node-fa354157dd57" class="comments_wrapper">
          <div id="w-node-fa354157dd58" class="user_comment_text">
-            <div id="w-node-fa354157dd59" class="comments_user_text">Сегодня в лайве поставил ставку на то что след гол забьет команда  Событие произошло, сначало выигрыш поступил на</div>
+            <div id="w-node-fa354157dd59" class="comments_user_text">${comments.get(1).comment}</div>
          </div>
-         <a href="#" id="w-node-fa354157dd5b" class="link_open_more">Показать полностью</a>
+         <!-- <a href="#" id="w-node-fa354157dd5b" class="link_open_more">Показать полностью</a> -->
          <div id="w-node-fa354157dd5d" class="comments_avatar expert">
-            <div id="w-node-fa354157dd5e" class="comments_avatar_text">Н</div>
+            <div id="w-node-fa354157dd5e" class="comments_avatar_text">Д</div>
          </div>
          <div id="w-node-fa354157dd60" class="comments_user_name_block">
-            <div id="w-node-fa354157dd61" class="text-block-37">${comments.get(0).name}</div>
+            <div id="w-node-fa354157dd61" class="text-block-37">${comments.get(1).name}</div>
             <div class="comments_user_status expert">
-               <div class="commsents_user_status_text">Эксперт</div>
+               <div class="commsents_user_status_text">${comments.get(1).level}</div>
             </div>
          </div>
       </div>
       <div id="w-node-fa354157dd66" class="comments_wrapper">
          <div id="w-node-fa354157dd67" class="user_comment_text">
-            <div id="w-node-fa354157dd68" class="comments_user_text">Сегодня в лайве поставил ставку на то что след гол забьет команда  Событие произошло, сначало выигрыш поступил на</div>
+            <div id="w-node-fa354157dd68" class="comments_user_text">${comments.get(0).comment}</div>
          </div>
-         <a href="#" id="w-node-fa354157dd6a" class="link_open_more">Показать полностью</a>
+         <!-- <a href="#" id="w-node-fa354157dd6a" class="link_open_more">Показать полностью</a> -->
          <div id="w-node-fa354157dd6c" class="comments_avatar">
-            <div id="w-node-fa354157dd6d" class="comments_avatar_text">Н</div>
+            <div id="w-node-fa354157dd6d" class="comments_avatar_text">А</div>
          </div>
          <div id="w-node-fa354157dd6f" class="comments_user_name_block">
-            <div id="w-node-fa354157dd70" class="text-block-37">Нурбол Жайлаубаев</div>
+            <div id="w-node-fa354157dd70" class="text-block-37">${comments.get(0).name}</div>
             <div class="comments_user_status">
-               <div class="commsents_user_status_text">Новичок</div>
+               <div class="commsents_user_status_text">${comments.get(0).level}</div>
             </div>
          </div>
       </div>

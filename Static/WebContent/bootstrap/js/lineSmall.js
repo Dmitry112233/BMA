@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
  
 	  function setColor(number, progressBarDone){
-		  if(number <= 4){
-			  progressBarDone.style.background = '#ce6464';
+		  if(number <= 3){
+			  progressBarDone.style.background = '#ff9400';			  
 		  }
-		  if(number > 4 && number <= 7){
-			  progressBarDone.style.background = '#ecec71';
+		  if(number > 3 && number <= 6){
+			  progressBarDone.style.background = '#ff9400';			  
 		  }
-		  if(7 < number){
-			  progressBarDone.style.background = '#52c153';
+		  if(6 < number){
+			  progressBarDone.style.background = '#98b768';			  
 		  }
 	  }
 	
@@ -18,9 +18,19 @@ document.addEventListener('DOMContentLoaded', function() {
 	 
 	  setInterval(function() {
 		var progressBarDoneList = document.getElementsByClassName('progressBarDone');
+		var progressBarList = document.getElementsByClassName('progressBar');
 		for (var i = 0; i < progressBarDoneList.length; i++){
 			var progressBarDone = progressBarDoneList[i];
 			var number = Number.parseInt(progressBarDone.firstChild.firstChild.nodeValue);
+			if(number <= 3){
+				progressBarList[i].style.background = '#ffdfb2';			  
+			  }
+			  if(number > 3 && number <= 6){
+				  progressBarList[i].style.background = '#ffdfb2';			  
+			  }
+			  if(6 < number){
+				  progressBarList[i].style.background = '#738656';			  
+			  }
 			setColor(number,progressBarDone);
 			
 			var targetPos = progressBarDone.getBoundingClientRect().top;
@@ -33,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				if (!percent){
 					percent = -20;
 				}
-				percent = percent < 10*number ? percent + 0.2 : 10*number;
+				percent = percent < 10*number ? percent + 0.6 : 10*number;
 			    
 			    progressBarDone.setAttribute('percent', percent);
 			    progressBarDone.setAttribute('alredyStarted', true);
