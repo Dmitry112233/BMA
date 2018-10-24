@@ -28,6 +28,7 @@ public class BookmakerDetailsController extends BookmakerController {
 		Map<String, Object> map = new HashMap<>();
 		BookmakerBean bean = DaoFactory.getBookmakerDao().getById(id);
 		ArrayList<CommentBean> comments = (ArrayList<CommentBean>) DaoFactory.getCommentDao().getCommentsForBookmaker(id);
+		System.out.println(comments.size());
 		map.put("comments", comments);
 		map.put("bookmaker", bean);
 		map.putAll(getBookmakerList());

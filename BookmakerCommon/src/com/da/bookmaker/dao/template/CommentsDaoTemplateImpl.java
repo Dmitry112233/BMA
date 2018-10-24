@@ -21,7 +21,7 @@ public class CommentsDaoTemplateImpl implements CommentDao {
 
 	private final static String SAVE_COMMENT = "INSERT INTO COMMENTS (NAME, EMAIL, COMMENT, LEVEL, BOOKMAKER_ID, VISIBLE) VALUES (?,?,?,?,?,?)";
 
-	private final static String GET_COMMENTS_FOR_BOOKMAKER = "SELECT NAME, EMAIL, COMMENT, LEVEL FROM COMMENTS WHERE BOOKMAKER_ID = ? AND VISIBLE = 1";
+	private final static String GET_COMMENTS_FOR_BOOKMAKER = "SELECT NAME, EMAIL, COMMENT, LEVEL, ID FROM COMMENTS WHERE BOOKMAKER_ID = ? AND VISIBLE = 1";
 
 	private DataSource dataSource;
 
