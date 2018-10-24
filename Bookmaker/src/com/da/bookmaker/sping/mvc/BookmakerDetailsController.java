@@ -2,6 +2,7 @@ package com.da.bookmaker.sping.mvc;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.BookmakerBean;
+import com.da.bookmaker.bean.CommentBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
@@ -25,6 +27,8 @@ public class BookmakerDetailsController extends BookmakerController {
 	public ModelAndView getBookmaker(@PathVariable("id") int id) throws DaoException, IOException {
 		Map<String, Object> map = new HashMap<>();
 		BookmakerBean bean = DaoFactory.getBookmakerDao().getById(id);
+		ArrayList<CommentBean> comments = (ArrayList<CommentBean>) DaoFactory.getCommentDao().getCommentsForBookmaker(id);
+		map.put("comments", comments);
 		map.put("bookmaker", bean);
 		map.putAll(getBookmakerList());
 		try {

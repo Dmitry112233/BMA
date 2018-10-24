@@ -39,7 +39,7 @@
             <div id="w-node-fa354157dd5e" class="comments_avatar_text">Н</div>
          </div>
          <div id="w-node-fa354157dd60" class="comments_user_name_block">
-            <div id="w-node-fa354157dd61" class="text-block-37">Нурбол Жайлаубаев</div>
+            <div id="w-node-fa354157dd61" class="text-block-37">${comments.get(0).name}</div>
             <div class="comments_user_status expert">
                <div class="commsents_user_status_text">Эксперт</div>
             </div>
