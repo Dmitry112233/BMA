@@ -9,15 +9,16 @@
       </div>
       <div id="w-node-fa354157dd46" class="leave_comments">
          <div id="w-node-fa354157dd47" class="comments_form w-form">
-            <form commandName="comment" action="_save_comment" method="post" id="email-form" name="email-form" data-name="Email Form" class="w-clearfix">
-               <label for="name" path="name" class="field-label">Оставить отзыв</label>
-               <input type="email" path="email" class="comments_name_field email w-input" maxlength="256" name="name" data-name="Name" placeholder="email" id="name" />
-               <input type="text" class="comments_name_field _1 w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="Ваша имя" id="name-2" required="" />
-               <textarea path="comment" id="field" name="field" maxlength="5000" placeholder="Ваш текст" data-name="Field" class="comments_textarea w-input"></textarea>
-               <select path="level" id="field-2" name="field-2" class="comments_select w-select">
+            <form action="${contextPath}/save_comment" method="post" id="email-form" name="email-form" data-name="Email Form" class="w-clearfix">
+               <label for="name" class="field-label">Оставить отзыв</label>
+               <input type="email" name="email"  class="comments_name_field email w-input" maxlength="256" placeholder="email" id="name" />
+               <input type="hidden" name = "id" value="${bookmaker.bookMakerId}" />
+               <input type="text" name="name" class="comments_name_field _1 w-input" maxlength="256" placeholder="Ваша имя" id="name-2" />
+               <textarea id="field" name="comment" maxlength="5000" placeholder="Ваш текст" class="comments_textarea w-input"></textarea>
+               <select id="field-2" name="level" class="comments_select w-select">
                   <option value="">Ваш статус</option>                  
-                  <option value="First">Любитель</option>                 
-                  <option value="Second">Эксперт</option>
+                  <option value="Любитель">Любитель</option>                 
+                  <option value="Эксперт">Эксперт</option>
                </select>
                <input type="submit" value="Оставить отзыв" data-wait="Ожидайте..." class="button_comment w-button" />
             </form>
