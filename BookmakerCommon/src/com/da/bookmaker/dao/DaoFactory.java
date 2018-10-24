@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.da.bookmaker.dao.template.BookmakerDaoTemplateImpl;
+import com.da.bookmaker.dao.template.CommentsDaoTemplateImpl;
 import com.da.bookmaker.dao.template.ExpressDaoTemplateImpl;
 import com.da.bookmaker.dao.template.GroupDaoTemplateImpl;
 import com.da.bookmaker.dao.template.IventDaoTemplateImpl;
@@ -66,5 +67,10 @@ public class DaoFactory {
 	public static GroupDao getGroupDao() {
 
 		return context.getBean(GroupDaoTemplateImpl.class);
+	}
+	
+	public static CommentDao getCommentDao() {
+
+		return context.getBean(CommentsDaoTemplateImpl.class);
 	}
 }

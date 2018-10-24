@@ -50,6 +50,10 @@
 	<bean id="GroupDao" class="com.da.bookmaker.dao.template.GroupDaoTemplateImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<bean id="CommentDao" class="com.da.bookmaker.dao.template.CommentsDaoTemplateImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
