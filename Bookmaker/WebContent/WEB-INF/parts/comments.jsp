@@ -1,5 +1,40 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<head>
+<script type="text/javascript">
+
+function doAjax(id) { 
+	
+	 $.ajax({
+		  url : 'save_comment',
+		  type: 'GET',
+		  dataType: 'json',
+		  contentType: 'application/json',
+		     mimeType: 'application/json',
+		  data : ({
+		   id: id,
+		   name: $("#name").val(),
+		   comment: $("textarea[name='comment']").val(),
+		   level: $("select[name='level']").val(),
+		   email: $("#email").val()
+		  }),
+		  success: function (data) {    
+		  }
+		 });
+	 
+	 document.getElementById('name').value = "";
+	 document.getElementById('email').value = "";
+	 document.getElementsByClassName('comments_textarea w-input')[0].value = "";
+	 document.getElementsByClassName('comments_select w-select')[0].value = "";
+	 document.getElementById("message").style.color = "#4169E0"
+	 document.getElementById('message').innerHTML="Комментарий отправлен модератору";	 
+	}
+	
+	
+</script>
+</head>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div class="col_comments w-col w-col-4 w-col-stack">
    <div class="comments_block">
@@ -9,25 +44,21 @@
       </div>
       <div id="w-node-fa354157dd46" class="leave_comments">
          <div id="w-node-fa354157dd47" class="comments_form w-form">
-            <form action="${contextPath}/save_comment" method="post" id="email-form" name="email-form" data-name="Email Form" class="w-clearfix">
+            <form action="${contextPath}/save_comment" method="get" id="email-form" name="email-form" data-name="Email Form" class="w-clearfix">
                <label for="name" class="field-label">Оставить отзыв</label>
-               <input type="email" name="email"  class="comments_name_field email w-input" maxlength="256" placeholder="email" id="name" />
+               <input type="email" name="email"  id="email" class="comments_name_field email w-input" maxlength="256" placeholder="email" />
                <input type="hidden" name = "id" value="${bookmaker.bookMakerId}" />
-               <input type="text" name="name" class="comments_name_field _1 w-input" maxlength="256" placeholder="Ваша имя" id="name-2" />
+               <input type="text" id="name" name="name" class="comments_name_field _1 w-input" maxlength="256" placeholder="Ваша имя" />
                <textarea id="field" name="comment" maxlength="5000" placeholder="Ваш текст" class="comments_textarea w-input"></textarea>
                <select id="field-2" name="level" class="comments_select w-select">
                   <option value="">Ваш статус</option>                  
                   <option value="Любитель">Любитель</option>                 
                   <option value="Эксперт">Эксперт</option>
                </select>
-               <input type="submit" value="Оставить отзыв" data-wait="Ожидайте..." class="button_comment w-button" />
+               <input type="button" value="Оставить отзыв" onClick="doAjax(${bookmaker.bookMakerId})" class="button_comment w-button" />
+               <div id= "message"></div>
             </form>
-            <div class="w-form-done">
-               <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div class="w-form-fail">
-               <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
+            
          </div>
       </div>
       <div id="w-node-fa354157dd57" class="comments_wrapper">
