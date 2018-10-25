@@ -42,6 +42,13 @@
 }
 
 /* it's mine */
+.bonusShort li {
+	font-family: Helveticaneuecyr, sans-serif;
+	color: #5a5c6e;
+	font-weight: 300;
+}
+
+/* it's mine */
 #message {
 	margin-top: 10px;
 	font-family: Helveticaneuecyr, sans-serif;
@@ -373,24 +380,20 @@
   background-color: rgba(255, 148, 0, .3);
 }
 
+/* it's mine */
 .progress._3 {
-  background-color: rgba(255, 148, 0, .3);
+  background: #cfcdb1;
 }
 
+/* it's mine */
 .processing {
   width: 80px;
   height: 5px;
-  background-color: #c4df9b;
 }
 
-.processing._1 {
-  width: 50px;
-  background-color: #ff9400;
-}
-
+/* it's mine */
 .processing._3 {
   width: 60px;
-  background-color: #ff9400;
 }
 
 .content-block-text {
