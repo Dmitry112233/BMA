@@ -7,9 +7,9 @@
          <div class="column-3 w-col w-col-4">
             <div class="footer-links">
                <h4 class="heading-7">Меню</h4>
-               <div class="text-block-23">Букмекеры</div>
-               <div class="text-block-23">Новости</div>
-               <div class="text-block-23">Обучение</div>
+               <div class="text-block-23"><a href="${contextPath}/bookmakers">Букмекеры</a></div>
+               <div class="text-block-23"><a href="${contextPath}/news_0">Новости</a></div>
+               <div class="text-block-23"><a href="${contextPath}/faq_list">Обучение</a></div>
             </div>
          </div>
          <div class="column-4 w-col w-col-4">

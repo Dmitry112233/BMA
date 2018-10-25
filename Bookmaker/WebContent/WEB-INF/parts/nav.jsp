@@ -3,7 +3,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="db9a7df6-37d1-925e-5aa6-efd7dadd119d" class="navbar w-nav">
    <div class="nav-container w-container">
-      <a href="#" class="brand w-nav-brand">
+      <a href="${contextPath}/bookmakers" class="brand w-nav-brand">
       <img src="/Static/bootstrap/img/BMAlogoNew.png" width="160" alt="" />
       </a>
       <nav role="navigation" class="nav-menu w-nav-menu">
