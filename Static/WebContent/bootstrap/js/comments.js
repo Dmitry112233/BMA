@@ -1,5 +1,5 @@
 function doAjax(id) { 
-	
+	$("#message").fadeIn();
 	 $.ajax({
 		  url : 'save_comment',
 		  type: 'GET',
@@ -16,11 +16,11 @@ function doAjax(id) {
 		  success: function (data) {    
 		  }
 		 });
-	 
 	 document.getElementById('name').value = "";
 	 document.getElementById('email').value = "";
 	 document.getElementsByClassName('comments_textarea w-input')[0].value = "";
 	 document.getElementsByClassName('comments_select w-select')[0].value = "";
 	 document.getElementById("message").style.color = "#2f80ed"
-	 document.getElementById('message').innerHTML="Ваш комментарий рассматривается";	 
+	 document.getElementById('message').innerHTML="Ваш комментарий рассматривается";
+	 $("#message").fadeOut(4500);
 	}
