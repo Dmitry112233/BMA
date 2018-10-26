@@ -28,6 +28,7 @@ public class PremierLeagueController extends BookmakerController {
 			throws DaoException, ParseException, IOException {
 		Map<String, Object> map = getMatchesList(leagueName);
 		map.putAll(getBookmakerList());
+		map.put("leagueName", leagueName);
 		try {
 			if (property == null) {
 				property = new Properties();
