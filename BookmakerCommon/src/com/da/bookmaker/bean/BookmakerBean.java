@@ -10,7 +10,7 @@ public class BookmakerBean {
 	
 	private String image;
 	
-	private String description;
+	private String bonus_int;
 	
 	private String pluses;
 
@@ -122,12 +122,12 @@ public class BookmakerBean {
 		this.result = result;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getBonus_int() {
+		return bonus_int;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setBonus_int(String bonus_int) {
+		this.bonus_int = bonus_int;
 	}
 
 	public Long getBookMakerId() {

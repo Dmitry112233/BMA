@@ -17,17 +17,17 @@ import com.da.bookmaker.dao.DaoException;
 
 public class BookmakerDaoTemplateImpl implements BookmakerDao{
 
-	private final static String GET_ALL_BOOKMAKERS = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
+	private final static String GET_ALL_BOOKMAKERS = "SELECT ID, NAME, LINK, IMAGE, BONUS_INT, PLUSES, MINUSES, " + 
 	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT, BONUS FROM BOOKMAKERS";
 
 
-	private static final String GET_BY_NAME = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
+	private static final String GET_BY_NAME = "SELECT ID, NAME, LINK, IMAGE, BONUS_INT, PLUSES, MINUSES, " + 
 	"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT, BONUS FROM BOOKMAKERS WHERE NAME = ?";
 	
 	private static final String UPDATE_BOOKMAKER_BY_ID = "UPDATE BOOKMAKERS SET COUNTER = COUNTER + 1 WHERE ID = ?";
 	
 	
-	private static final String GET_BY_ID = "SELECT ID, NAME, LINK, IMAGE, DESCRIPTION, PLUSES, MINUSES, " + 
+	private static final String GET_BY_ID = "SELECT ID, NAME, LINK, IMAGE, BONUS_INT, PLUSES, MINUSES, " + 
 			"CURRENCY, PAYMENTS, RELIABILITY, LINE, USABILITY, RESULT, WEIGHT, COUNTER, BONUS FROM BOOKMAKERS WHERE ID = ?";
 	
 	
@@ -53,7 +53,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setName(rs.getString("NAME"));
 				bookmaker.setLink(rs.getString("LINK"));
 				bookmaker.setImage(rs.getString("IMAGE"));
-				bookmaker.setDescription(rs.getString("DESCRIPTION"));
+				bookmaker.setBonus_int(rs.getString("BONUS_INT"));
 				bookmaker.setPluses(rs.getString("PLUSES"));
 				bookmaker.setMinuses(rs.getString("MINUSES"));
 				bookmaker.setCurrency(rs.getString("CURRENCY"));
@@ -87,7 +87,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setName(rs.getString("NAME"));
 				bookmaker.setLink(rs.getString("LINK"));
 				bookmaker.setImage(rs.getString("IMAGE"));
-				bookmaker.setDescription(rs.getString("DESCRIPTION"));
+				bookmaker.setBonus_int(rs.getString("BONUS_INT"));
 				bookmaker.setPluses(rs.getString("PLUSES"));
 				bookmaker.setMinuses(rs.getString("MINUSES"));
 				bookmaker.setCurrency(rs.getString("CURRENCY"));
@@ -120,7 +120,7 @@ public class BookmakerDaoTemplateImpl implements BookmakerDao{
 				bookmaker.setName(rs.getString("NAME"));
 				bookmaker.setLink(rs.getString("LINK"));
 				bookmaker.setImage(rs.getString("IMAGE"));
-				bookmaker.setDescription(rs.getString("DESCRIPTION"));
+				bookmaker.setBonus_int(rs.getString("BONUS_INT"));
 				bookmaker.setPluses(rs.getString("PLUSES"));
 				bookmaker.setMinuses(rs.getString("MINUSES"));
 				bookmaker.setCurrency(rs.getString("CURRENCY"));
