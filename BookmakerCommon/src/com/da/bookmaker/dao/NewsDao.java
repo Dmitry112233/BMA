@@ -16,4 +16,6 @@ public interface NewsDao {
 	
 	List<NewsBean> getNewsForPage(int limit, int offset) throws DaoException;
 	
+	List<NewsBean> getNewsForMainPage() throws DaoException;
+	
 }

@@ -19,12 +19,31 @@ public class BookmakerDescriptionController extends BookmakerController {
 
 	private InputStream fis;
 	static private Properties property;
+	
+	private static Map<String, String> linkMap = new HashMap<>();
 
+	
+	static {
+		linkMap.put("Букмекер без идентификации", "${contextPath}/bookmakers1");
+		linkMap.put("Букмекерские конторы", "${contextPath}/bookmakers2");
+		linkMap.put("Букмекеры онлайн", "${contextPath}/bookmakers3");
+		linkMap.put("Официальные сайты букмекеров", "${contextPath}/bookmakers4");
+		linkMap.put("Лучшие букмекеры 2018", "${contextPath}/bookmakers5");
+		linkMap.put("Букмекеры Москвы", "${contextPath}/bookmakers6");
+		linkMap.put("Букмекеры РФ", "${contextPath}/bookmakers7");
+		linkMap.put("Данные букмекеров", "${contextPath}/bookmakers8");
+		linkMap.put("Интернет букмекеры", "${contextPath}/bookmakers9");
+		linkMap.put("Лучшие букмекеры", "${contextPath}/bookmakers10");
+	}
+	
 	public Map<String, Object> getMainStat() throws DaoException{
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
-		map.putAll(DaoFactory.getIventDao().getEvents());
 		map.putAll(mapBokmakers);
+		map.put("events", DaoFactory.getIventDao().getEvents());
+		map.put("news", DaoFactory.getNewsDao().getNewsForMainPage());
+		map.put("linkMap", linkMap);
+		
 		return map;
 	}
 

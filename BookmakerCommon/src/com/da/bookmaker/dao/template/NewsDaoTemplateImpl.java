@@ -31,6 +31,8 @@ public class NewsDaoTemplateImpl implements NewsDao {
 	
 	private final static String GET_NEWS_FOR_PAGE = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS " +
 	"ORDER BY ID LIMIT ? OFFSET ?";
+	
+	private final static String GET_NEWS_FOR_MAIN_PAGE = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS LIMIT 2";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -117,6 +119,25 @@ public class NewsDaoTemplateImpl implements NewsDao {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		List<NewsBean> list = template.query(GET_NEWS_FOR_PAGE, new Object[] {limit, offset}, new RowMapper<NewsBean>() {
 
+			@Override
+			public NewsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
+				NewsBean bean = new NewsBean();
+				bean.setId(rs.getLong("ID"));
+				bean.setSport(rs.getString("SPORT"));
+				bean.setCompetition(rs.getString("COMPETITION"));
+				bean.setDescription(rs.getString("DESCRIPTION"));
+				bean.setImage(rs.getString("IMAGE"));
+				bean.setTitle(rs.getString("TITLE"));
+				return bean;
+			}
+		});
+		return list;
+	}
+
+	@Override
+	public List<NewsBean> getNewsForMainPage() throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<NewsBean> list = template.query(GET_NEWS_FOR_MAIN_PAGE, new RowMapper<NewsBean>() {
 			@Override
 			public NewsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				NewsBean bean = new NewsBean();
