@@ -31,7 +31,7 @@
                <div id="w-node-e810e40df812-0f967a12" class="criteria_bookmaker">
                   <div id="w-node-e810e40df81a-0f967a12" class="criteria_title">
                      <div id="w-node-e810e40df81b-0f967a12" class="criteria-text">Критерии</div>
-                     <img src="${bookmaker.image}" width="80" height="26" id="w-node-e810e40df81d-0f967a12" alt="${bookmaker.name} logo" />
+                     <img src="/Static/bootstrap/img/bkLogo/${bookmaker.name}.png" onerror="this.style.display='none'" width="80" height="26" id="w-node-e810e40df81d-0f967a12" alt="${bookmaker.name} logo" />                     
                   </div>
                   <div id="w-node-e810e40df813-0f967a12" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
