@@ -8,7 +8,7 @@
             <h1 class="home_title_h1">Рейтинги букмекеров</h1>
          </div>
          <div class="w-clearfix w-col w-col-6">
-            <a href="#" class="link">Как меняются рейтинги?</a>
+            <a href="${contextPath}/competishions" class="link">Аналитика ближайших матчей</a>
          </div>
       </div>
    </div>
