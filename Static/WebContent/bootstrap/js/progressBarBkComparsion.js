@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
  
 	  function setColor(number, progressBarDone){
 		  if(number <= 4){
-			  progressBarDone.style.background = '#ff9400';			  
+			  progressBarDone.style.background = '#ffae00';			  
 		  }
 		  if(number > 4 && number <= 7){
-			  progressBarDone.style.background = '#ff9400';			  
+			  progressBarDone.style.background = '#ffae00';			  
 		  }
 		  if(7 < number){
-			  progressBarDone.style.background = '#98b768';			  
+			  progressBarDone.style.background = '#c5df9b';			  
 		  }
 	  }
 	
@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			var progressBarDone = progressBarDoneList[i];
 			var number = Number.parseInt(progressBarDone.firstChild.firstChild.nodeValue);
 			if(number <= 4){
-				progressBarList[i].style.background = '#ffdfb2';			  
+				progressBarList[i].style.background = '#ffd499';			  
 			  }
 			  if(number > 4 && number <= 7){
-				  progressBarList[i].style.background = '#ffdfb2';			  
+				  progressBarList[i].style.background = '#ffd499';			  
 			  }
 			  if(7 < number){
-				  progressBarList[i].style.background = '#738656';			  
+				  progressBarList[i].style.background = '#e8f2d7';			  
 			  }
 			setColor(number,progressBarDone);
 			

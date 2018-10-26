@@ -39,6 +39,6 @@ public class CompetishionsController extends BookmakerController {
 				fis.close();
 			}
 		}	
-		return new ModelAndView("sports", map);
+		return new ModelAndView("allCompetitions", map);
 	}
 }

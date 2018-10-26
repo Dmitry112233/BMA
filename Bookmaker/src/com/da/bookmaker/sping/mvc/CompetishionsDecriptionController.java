@@ -70,7 +70,7 @@ public class CompetishionsDecriptionController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("leagueDescriptionPage", map);
+		return new ModelAndView("leagueDescription", map);
 	}
 
 	private String getFirstLetteruppercase(String text) {

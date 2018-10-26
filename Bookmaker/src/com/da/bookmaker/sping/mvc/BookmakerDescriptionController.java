@@ -68,7 +68,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("bkDescription", map);
+		return new ModelAndView("bkComparison", map);
 	}
 
 	// Букмекер без
@@ -92,7 +92,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("bkDescription", map);
+		return new ModelAndView("bkComparison", map);
 	}
 
 	// Букмекер контора
@@ -116,7 +116,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("bkDescription", map);
+		return new ModelAndView("bkComparison", map);
 	}
 
 	// Букмекер онлайн
@@ -140,7 +140,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("bkDescription", map);
+		return new ModelAndView("bkComparison", map);
 	}
 	
 	// Букмекер офицальный сайт
@@ -164,7 +164,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis.close();
 				}
 			}
-			return new ModelAndView("bkDescription", map);
+			return new ModelAndView("bkComparison", map);
 		}
 		
 		
@@ -188,7 +188,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis.close();
 				}
 			}
-			return new ModelAndView("bkDescription", map);
+			return new ModelAndView("bkComparison", map);
 		}
 		
 		@RequestMapping("/bookmakers6")
@@ -211,7 +211,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis.close();
 				}
 			}
-			return new ModelAndView("bkDescription", map);
+			return new ModelAndView("bkComparison", map);
 		}
 		
 		@RequestMapping("/bookmakers7")
@@ -234,7 +234,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis.close();
 				}
 			}
-			return new ModelAndView("bkDescription", map);
+			return new ModelAndView("bkComparison", map);
 		}
 		
 		@RequestMapping("/bookmakers8")
@@ -257,7 +257,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis.close();
 				}
 			}
-			return new ModelAndView("bkDescription", map);
+			return new ModelAndView("bkComparison", map);
 		}
 		
 		@RequestMapping("/bookmakers9")
@@ -280,7 +280,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis.close();
 				}
 			}
-			return new ModelAndView("bkDescription", map);
+			return new ModelAndView("bkComparison", map);
 		}
 
 		@RequestMapping("/bookmakers10")
@@ -303,6 +303,6 @@ public class BookmakerDescriptionController extends BookmakerController {
 					fis.close();
 				}
 			}
-			return new ModelAndView("bkDescription", map);
+			return new ModelAndView("bkComparison", map);
 		}
 }

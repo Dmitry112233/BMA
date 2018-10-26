@@ -73,7 +73,7 @@ public class PremierLeagueController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("league", map);
+		return new ModelAndView("leagueMatches", map);
 	}
 
 	private Map<String, Object> getMatchesList(String leagueName) throws DaoException, ParseException {
