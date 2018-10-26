@@ -29,6 +29,7 @@ public class PremierLeagueController extends BookmakerController {
 		Map<String, Object> map = getMatchesList(leagueName);
 		map.putAll(getBookmakerList());
 		map.put("leagueName", leagueName);
+		map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(leagueName));
 		try {
 			if (property == null) {
 				property = new Properties();

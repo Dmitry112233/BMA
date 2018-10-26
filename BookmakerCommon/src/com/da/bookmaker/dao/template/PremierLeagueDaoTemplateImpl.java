@@ -27,13 +27,13 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	private final static String DELETE_MATCHES_LIST = "DELETE FROM PREMIER_LEAGUE WHERE LEAGUE = ? AND BOOKMAKER_ID = ?";
 	
 	//Расставить алиасы для повторяющихся полей, также алиасы в мапинге и имена таблиц перед поялми. 
-	private final static String GET_APL_MATCHES_LIST = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
+	private final static String GET_ALL_MATCHES_LIST = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
 	"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
 	"B.LINK, B.IMAGE"
 	+ " FROM PREMIER_LEAGUE PL "
 	+ " JOIN BOOKMAKERS B "
 	+ " ON B.ID = PL.BOOKMAKER_ID"
-	+ " WHERE LEAGUE = ? AND BOOKMAKER_ID = 1";
+	+ " WHERE LEAGUE = ? AND BOOKMAKER_ID = 1 ORDER BY PL.DATE ASC";
 	
 	private final static String GET_1XBET_CEFF_BY_TEAMS = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
 			"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
@@ -114,7 +114,7 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	@Override
 	public List<PremierLeagueBean> getAllMatchesForLeague(String leagueName) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<PremierLeagueBean> list = template.query(GET_APL_MATCHES_LIST, new Object[]{leagueName}, new RowMapper<PremierLeagueBean>() {
+		List<PremierLeagueBean> list = template.query(GET_ALL_MATCHES_LIST, new Object[]{leagueName}, new RowMapper<PremierLeagueBean>() {
 			@Override
 			public PremierLeagueBean mapRow(ResultSet rs, int rowNum) throws SQLException {
 				PremierLeagueBean bean = new PremierLeagueBean();

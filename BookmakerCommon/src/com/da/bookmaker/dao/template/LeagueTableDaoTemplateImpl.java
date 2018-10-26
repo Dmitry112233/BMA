@@ -31,7 +31,7 @@ public class LeagueTableDaoTemplateImpl implements LeagueTableDao {
 			+ "VALUES (?,?,?,?,?,?,?,?,?)";
 	
 	private static final String GET_TABLE_BY_LEAGUE = "SELECT PLACE, GAMES, WIN, DRAW, LOSE, GOALS, TEAM, POINTS"
-			+ " FROM LEAGUES_TABLES WHERE LEAGUE = ? ORDER BY PLACE";
+			+ " FROM LEAGUES_TABLES WHERE LEAGUE = UPPER(?) ORDER BY PLACE";
 	
 	private static final String DELETE_MATCH_DETAILS = "DELETE FROM LEAGUES_TABLES WHERE LEAGUE = ?";
 	
