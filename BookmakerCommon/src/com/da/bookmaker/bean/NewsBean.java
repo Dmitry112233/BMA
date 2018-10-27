@@ -13,19 +13,17 @@ public class NewsBean {
 	private String image;
 	
 	private String title;
-
-//	public NewsBean(Item item) {
-//		if (item.getCategorys().size() > 0){
-//			this.sport = item.getCategorys().get(0);
-//		}
-//		if (item.getCategorys().size() > 1){
-//			this.competition = item.getCategorys().get(1);
-//		}
-//		this.description = item.getDescription();
-//		this.image = item.getImage().getUrl();
-//		this.title = item.getTitle();
-//	}
 	
+	private String Date;
+	
+	public String getDate() {
+		return Date;
+	}
+
+	public void setDate(String date) {
+		Date = date;
+	}
+
 	public long getId() {
 		return id;
 	}

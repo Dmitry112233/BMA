@@ -21,13 +21,13 @@ public class NewsDaoTemplateImpl implements NewsDao {
 
 	private DataSource dataSource;
 
-	private final static String GET_ALL_NEWS = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS";
+	private final static String GET_ALL_NEWS = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE, DATE  FROM SPORT_NEWS";
 
-	private final static String INSERT_NEWS_LIST = "INSERT INTO SPORT_NEWS (SPORT, COMPETITION, TITLE, DESCRIPTION, IMAGE) VALUES (?,?,?,?,?)";
+	private final static String INSERT_NEWS_LIST = "INSERT INTO SPORT_NEWS (SPORT, COMPETITION, TITLE, DESCRIPTION, IMAGE, DATE) VALUES (?,?,?,?,?,?)";
 
 	private final static String DELETE_ALL_NEWS = "DELETE FROM SPORT_NEWS";
 
-	private final static String GET_NEWS_BY_ID = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS WHERE ID = ?";
+	private final static String GET_NEWS_BY_ID = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE, DATE FROM SPORT_NEWS WHERE ID = ?";
 	
 	private final static String GET_NEWS_FOR_PAGE = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS " +
 	"ORDER BY ID LIMIT ? OFFSET ?";
@@ -78,6 +78,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 					statement.setString(3, news.getTitle());
 					statement.setString(4, news.getDescription());
 					statement.setString(5, news.getImage());
+					statement.setString(6, news.getDate());
 					return statement;
 				}
 			}, holder);
@@ -104,6 +105,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 				bean.setDescription(rs.getString("DESCRIPTION"));
 				bean.setImage(rs.getString("IMAGE"));
 				bean.setTitle(rs.getString("TITLE"));
+				bean.setSport(rs.getString("DATE"));
 				return bean;
 			}
 		});
@@ -128,6 +130,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 				bean.setDescription(rs.getString("DESCRIPTION"));
 				bean.setImage(rs.getString("IMAGE"));
 				bean.setTitle(rs.getString("TITLE"));
+				bean.setSport(rs.getString("DATE"));
 				return bean;
 			}
 		});
@@ -147,6 +150,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 				bean.setDescription(rs.getString("DESCRIPTION"));
 				bean.setImage(rs.getString("IMAGE"));
 				bean.setTitle(rs.getString("TITLE"));
+				bean.setSport(rs.getString("DATE"));
 				return bean;
 			}
 		});

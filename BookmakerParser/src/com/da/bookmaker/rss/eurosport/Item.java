@@ -13,6 +13,7 @@ public class Item {
 	private String title;
 	private String description;
 	private Image image;
+	private String pubDate;
 	
 	@XmlElement(name = "category")
 	public List<String> getCategorys() {
@@ -41,6 +42,15 @@ public class Item {
 	@XmlElement(name = "image")
 	public Image getImage() {
 		return image;
+	}
+	
+	@XmlElement(name = "pubDate")
+	public String getPubDate() {
+		return pubDate;
+	}
+	
+	public void setPubDate(String pubDate) {
+		this.pubDate = pubDate;
 	}
 	
 	public void setImage(Image image) {
