@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -19,9 +20,9 @@ import com.da.bookmaker.dao.DaoException;
 
 public class CommentsDaoTemplateImpl implements CommentDao {
 
-	private final static String SAVE_COMMENT = "INSERT INTO COMMENTS (NAME, EMAIL, COMMENT, LEVEL, BOOKMAKER_ID, VISIBLE) VALUES (?,?,?,?,?,?)";
+	private final static String SAVE_COMMENT = "INSERT INTO COMMENTS (NAME, EMAIL, COMMENT, LEVEL, BOOKMAKER_ID, VISIBLE, DATE) VALUES (?,?,?,?,?,?,?)";
 
-	private final static String GET_COMMENTS_FOR_BOOKMAKER = "SELECT NAME, EMAIL, COMMENT, LEVEL, ID FROM COMMENTS WHERE BOOKMAKER_ID = ? AND VISIBLE = 1";
+	private final static String GET_COMMENTS_FOR_BOOKMAKER = "SELECT NAME, EMAIL, COMMENT, LEVEL, ID, DATE FROM COMMENTS WHERE BOOKMAKER_ID = ? AND VISIBLE = 1";
 
 	private DataSource dataSource;
 
@@ -48,6 +49,7 @@ public class CommentsDaoTemplateImpl implements CommentDao {
 				statement.setString(4, comment.getLevel());
 				statement.setLong(5, comment.getBookmakerID());
 				statement.setInt(6, comment.getVisible());
+				statement.setTimestamp(7, new Timestamp(comment.getDate().getTime()));
 				return statement;
 			}
 		}, holder);
@@ -66,6 +68,7 @@ public class CommentsDaoTemplateImpl implements CommentDao {
 						bean.setComment(rs.getString("COMMENT"));
 						bean.setLevel(rs.getString("LEVEL"));
 						bean.setId(rs.getLong("ID"));
+						bean.setDate(rs.getTimestamp("DATE"));
 						return bean;
 					}
 				});

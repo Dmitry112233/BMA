@@ -4,6 +4,7 @@ import static java.nio.charset.StandardCharsets.ISO_8859_1;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,7 @@ public class CommentController {
 		bean.setLevel(level);
 		bean.setName(name);
 		bean.setVisible(0);
+		bean.setDate(Calendar.getInstance().getTime());
 		DaoFactory.getCommentDao().addComment(bean);
 	}
 
