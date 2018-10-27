@@ -29,10 +29,10 @@ public class NewsDaoTemplateImpl implements NewsDao {
 
 	private final static String GET_NEWS_BY_ID = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE, DATE FROM SPORT_NEWS WHERE ID = ?";
 	
-	private final static String GET_NEWS_FOR_PAGE = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS " +
+	private final static String GET_NEWS_FOR_PAGE = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE, DATE FROM SPORT_NEWS " +
 	"ORDER BY ID LIMIT ? OFFSET ?";
 	
-	private final static String GET_NEWS_FOR_MAIN_PAGE = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE FROM SPORT_NEWS LIMIT 2";
+	private final static String GET_NEWS_FOR_MAIN_PAGE = "SELECT ID, SPORT, COMPETITION, DESCRIPTION, IMAGE, TITLE, DATE FROM SPORT_NEWS LIMIT 2";
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -56,6 +56,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 				bean.setDescription(rs.getString("DESCRIPTION"));
 				bean.setImage(rs.getString("IMAGE"));
 				bean.setTitle(rs.getString("TITLE"));
+				bean.setSport(rs.getString("DATE"));
 				return bean;
 			}
 		});
