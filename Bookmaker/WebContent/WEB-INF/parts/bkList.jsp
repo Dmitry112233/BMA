@@ -8,7 +8,7 @@
             <h1 class="home_title_h1">Рейтинги букмекеров</h1>
          </div>
          <div class="w-clearfix w-col w-col-6">
-            <a href="${contextPath}/competishions" class="link">Аналитика ближайших матчей</a>
+            <a href="${contextPath}/competitions" class="link">Аналитика ближайших матчей</a>
          </div>
       </div>
    </div>
@@ -42,7 +42,7 @@
                <div class="bonus-block">
                   <div class="reg_bonus">
                      <div class="text-block-5">При регистрации</div>
-                     <div class="text-block-6">БОНУС 99999₽</div>
+                     <div class="text-block-6">БОНУС ${bookmaker.bonus_int}₽</div>
                   </div>
                   <a href="${contextPath}/bookmaker_${bookmaker.bookMakerId}" class="registration-btn _2 w-inline-block">
                      <div class="text-block-7">О БУКМЕКЕРЕ</div>
