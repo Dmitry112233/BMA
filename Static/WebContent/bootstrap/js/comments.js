@@ -8,9 +8,8 @@ function doAjax(id) {
 	if (document.getElementById('name').value != ""
 			&& $("textarea[name='comment']").val() != "") {
 		document.getElementsByClassName('comments_textarea w-input')[0].style.border = "1px solid #e2e2e5";
-		$("#message").fadeIn();
 		document.getElementById("name").style.border = "1px solid #e2e2e5";
-
+		$("#message").fadeIn();
 		$.ajax({
 			url : 'save_comment',
 			type : 'GET',
