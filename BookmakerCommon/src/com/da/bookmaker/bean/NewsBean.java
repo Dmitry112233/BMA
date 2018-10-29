@@ -73,4 +73,7 @@ public class NewsBean {
 		this.image = image;
 	}
 	
+	public String getDateTime() {
+		return Date.split(" ")[5];
+	}
 }
