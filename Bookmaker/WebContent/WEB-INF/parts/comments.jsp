@@ -30,12 +30,12 @@
          <div id="w-node-fa354157dd47-0f967a12" class="comments_form w-form">
             <form action="${contextPath}/save_comment" method="get" id="email-form" name="email-form" data-name="Email Form" class="w-clearfix">
                <label for="name" class="field-label">Оставить отзыв</label>
-               <input type="email" name="email"  id="email" class="comments_name_field email w-input" maxlength="256" placeholder="email" />
+               <input type="email" name="email"  id="email" class="comments_name_field email w-input" maxlength="256" placeholder="Email" />
                <input type="hidden" name = "id" value="${bookmaker.bookMakerId}" />
-               <input type="text" id="name" name="name" class="comments_name_field _1 w-input" maxlength="256" placeholder="Ваша имя" />
-               <textarea id="field" name="comment" maxlength="5000" placeholder="Ваш текст" class="comments_textarea w-input"></textarea>
+               <input type="text" id="name" name="name" class="comments_name_field _1 w-input" maxlength="256" placeholder="Имя" />
+               <textarea id="field" name="comment" maxlength="5000" placeholder="Комментарий" class="comments_textarea w-input"></textarea>
                <select id="field-2" name="level" class="comments_select w-select">
-                  <option value="">Ваш статус</option>
+                  <option value="">Статус</option>
                   <option value="Любитель">Любитель</option>
                   <option value="Эксперт">Эксперт</option>
                </select>
