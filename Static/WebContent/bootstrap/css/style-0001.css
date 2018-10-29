@@ -37,23 +37,6 @@
 }
 
 /* it's mine */
-.progressValue {
-	display: none;
-}
-
-/* it's mine */
-.bonusShort li {
-	font-family: Helveticaneuecyr, sans-serif;
-	color: #5a5c6e;
-	font-weight: 300;
-}
-
-/* it's mine */
-#message {
-	margin-top: 10px;
-	font-family: Helveticaneuecyr, sans-serif;
-}
-
 .container {
   display: block;
   width: 100%;

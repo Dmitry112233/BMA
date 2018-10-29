@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div class="col_comments w-col w-col-4 w-col-stack">
    <div class="myCommentsBlock">
@@ -21,6 +22,9 @@
                   </div>
                   <div class="user_comment_text">
                      <div class="comments_user_text">${comment.comment}</div>
+                  </div>
+                  <div class="user_comment_text">
+                     <div class="myCommentsDate"><fmt:formatDate pattern = "dd.MM.yyyy HH:mm" value = "${comment.date}" /></div>
                   </div>
                </div>
             </c:forEach>
