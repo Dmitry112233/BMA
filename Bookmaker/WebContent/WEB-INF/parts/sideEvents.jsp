@@ -32,7 +32,7 @@
          </div>
          <div class="tabs-content w-tab-content">
             <div data-w-tab="football" class="tab-pane-tab-1 w-tab-pane w--tab-active">
-               <c:forEach var="footballIvents" items="${events.sports.get("футбол")}">
+               <c:forEach var="footballIvents" items="${football}">
                <div class="express-content">
                   <div class="football-text">
                      <div class="w-row">
@@ -60,7 +60,7 @@
                </c:forEach>
             </div>
             <div data-w-tab="basketball" class="w-tab-pane">
-               <c:forEach var="basketballIvents" items="${test}">
+               <c:forEach var="basketballIvents" items="${basketball}">
                   <div class="express-content">
                      <div class="football-text">
                         <div class="w-row">
@@ -88,12 +88,12 @@
                </c:forEach>
             </div>
             <div data-w-tab="hockey" class="w-tab-pane">
-               <c:forEach var="hockeyIvents" items="${test}">
+               <c:forEach var="hockeyIvents" items="${hockey}">
                   <div class="express-content">
                      <div class="football-text">
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
-                              <img src="/Static/bootstrap/img/sportsIconsNew/volley-ball.svg" width="20" alt="" class="ball-img" />
+                              <img src="/Static/bootstrap/img/sportsIconsNew/hockey.svg" width="20" alt="" class="ball-img" />
                               <div class="text-block-14">${hockeyIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
@@ -116,12 +116,12 @@
                </c:forEach>
             </div>
             <div data-w-tab="tennis" class="w-tab-pane">
-               <c:forEach var="tennisIvents" items="${test}">
+               <c:forEach var="tennisIvents" items="${tennis}">
                   <div class="express-content">
                      <div class="football-text">
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
-                              <img src="/Static/bootstrap/img/sportsIconsNew/volley-ball.svg" width="20" alt="" class="ball-img" />
+                              <img src="/Static/bootstrap/img/sportsIconsNew/tennis-ball.svg" width="20" alt="" class="ball-img" />
                               <div class="text-block-14">${tennisIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
@@ -145,7 +145,7 @@
             </div>
             <div class="express-content button-block">
                <div class="football-text">
-                  <a href="#" class="button_all w-button">Все прогнозы</a>
+                  <a href="${contextPath}/events_list" class="button_all w-button">Все прогнозы</a>
                </div>
             </div>
          </div>
