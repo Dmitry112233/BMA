@@ -100,7 +100,7 @@ public class CommentBean {
 	}
 	
 	public String getFirstLetter() {
-		return name.substring(0, 0);
+		return name.substring(0, 1);
 	}
 
 }
