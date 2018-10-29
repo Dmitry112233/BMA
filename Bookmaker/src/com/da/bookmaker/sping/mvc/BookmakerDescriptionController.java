@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -26,16 +25,16 @@ public class BookmakerDescriptionController extends BookmakerController {
 	private static Map<String, String> linkMap = new HashMap<>();
 
 	static {
-		linkMap.put("Букмекер без идентификации", "${contextPath}/bookmakers1");
-		linkMap.put("Букмекерские конторы", "${contextPath}/bookmakers2");
-		linkMap.put("Букмекеры онлайн", "${contextPath}/bookmakers3");
-		linkMap.put("Официальные сайты букмекеров", "${contextPath}/bookmakers4");
-		linkMap.put("Лучшие букмекеры 2018", "${contextPath}/bookmakers5");
-		linkMap.put("Букмекеры Москвы", "${contextPath}/bookmakers6");
-		linkMap.put("Букмекеры РФ", "${contextPath}/bookmakers7");
-		linkMap.put("Данные букмекеров", "${contextPath}/bookmakers8");
-		linkMap.put("Интернет букмекеры", "${contextPath}/bookmakers9");
-		linkMap.put("Лучшие букмекеры", "${contextPath}/bookmakers10");
+		linkMap.put("Букмекер без идентификации", "bookmakers1");
+		linkMap.put("Букмекерские конторы", "bookmakers2");
+		linkMap.put("Букмекеры онлайн", "bookmakers3");
+		linkMap.put("Официальные сайты букмекеров", "bookmakers4");
+		linkMap.put("Лучшие букмекеры 2018", "bookmakers5");
+		linkMap.put("Букмекеры Москвы", "bookmakers6");
+		linkMap.put("Букмекеры РФ", "bookmakers7");
+		linkMap.put("Данные букмекеров", "bookmakers8");
+		linkMap.put("Интернет букмекеры", "bookmakers9");
+		linkMap.put("Лучшие букмекеры", "bookmakers10");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -44,15 +43,12 @@ public class BookmakerDescriptionController extends BookmakerController {
 		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
 		map.putAll(mapBokmakers);
 		Map<String, Object> mapEvents = DaoFactory.getIventDao().getEvents();
-
 		map.put("football", getMainList(((ArrayList<IventBean>) mapEvents.get("футбол"))));
 		map.put("hockey", getMainList(((ArrayList<IventBean>) mapEvents.get("хоккей"))));
 		map.put("tennis", getMainList(((ArrayList<IventBean>) mapEvents.get("теннис"))));
 		map.put("basketball", getMainList(((ArrayList<IventBean>) mapEvents.get("баскетбол"))));
-
 		map.put("news", DaoFactory.getNewsDao().getNewsForMainPage());
 		map.put("linkMap", linkMap);
-
 		return map;
 	}
 
