@@ -74,6 +74,6 @@ public class NewsBean {
 	}
 	
 	public String getTime() {
-		return date.split(" ")[4];
+		return date.split(" ")[4].substring(0, 5);
 	}
 }
