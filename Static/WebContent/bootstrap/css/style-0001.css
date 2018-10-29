@@ -1128,9 +1128,13 @@
   float: left;
 }
 
+/* it's mine */
 .news-block-item {
-  height: 630px;
-  margin-top: 10px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-row-gap: 10px;
+	height: auto;
+	/* margin-top: 10px; */
 }
 
 .news-item-1 {
@@ -1140,13 +1144,7 @@
   background-color: #fff;
 }
 
-.news-bg {
-  height: 180px;
-  background-image: url("../images/5ba6892db828fc1f9a524693_rsz_slider_img.png");
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+/* it's mine */
 
 .news-bg.next-img {
   background-image: url("../images/5ba7b34cf49b770899f09c49_2423990-50378579-640-360.jpg");
