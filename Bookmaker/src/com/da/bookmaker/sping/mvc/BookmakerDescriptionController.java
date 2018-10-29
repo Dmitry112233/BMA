@@ -38,6 +38,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 		linkMap.put("Лучшие букмекеры", "${contextPath}/bookmakers10");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Map<String, Object> getMainStat() throws DaoException{
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
