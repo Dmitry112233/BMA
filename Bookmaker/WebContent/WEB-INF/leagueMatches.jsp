@@ -29,7 +29,7 @@
                   <div class="rpl_description">
                      <h1 class="champ_title">${League_H1}</h1>
                      <a href="${contextPath}/${leagueName}_описание" class="button_description_grew position w-button">Описание</a>
-                     <a href="${contextPath}/competishions" class="button_all_champ w-button">Все чемпионаты</a>
+                     <a href="${contextPath}/competitions" class="button_all_champ w-button">Все чемпионаты</a>
                   </div>
                   <div class="rpl_matches_block">
                      <div class="date_matches">19.10.2018</div>

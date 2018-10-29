@@ -28,7 +28,7 @@
                   </div>
                   <div class="rpl_description">
                      <h1 class="champ_title">${league_H1}</h1>
-                     <a href="${contextPath}/competishions" class="button_all_champ w-button">Все чемпионаты</a>
+                     <a href="${contextPath}/competitions" class="button_all_champ w-button">Все чемпионаты</a>
                   </div>
                   <div class="seoBlock">
                      ${league_Descr}

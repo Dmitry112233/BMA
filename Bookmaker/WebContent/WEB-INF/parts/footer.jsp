@@ -23,9 +23,9 @@
          <div class="column-5 w-col w-col-4">
             <div class="footer-links">
                <h4 class="heading-7">Ссылки</h4>
-               <div class="text-block-23">Ссылка 1</div>
-               <div class="text-block-23">Ссылка 2</div>
-               <div class="text-block-23">Ссылка 3</div>
+               <c:forEach var="links" items="${linkMap}">
+               <div class="text-block-23"><a href="${contextPath}/${links.value}">${links.key}</a></div>
+                </c:forEach>
                <div class="logo-fooer">
                   <div class="w-row">
                      <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
