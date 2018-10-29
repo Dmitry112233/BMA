@@ -1,0 +1,48 @@
+.button_all_comments, .link_open_more {
+	display: none;
+}
+
+.myCommentsBlock {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-row-gap: 16px;
+}
+
+.myCommentTitleBlock {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	height: 60px;
+	background-color: #fff;	
+}
+
+.allComments {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-row-gap: 16px;
+	overflow-y: auto; 
+	height: 475px;	
+}
+
+.myCommentsWrapper {
+	display: grid;
+	grid-template-columns: 0.25fr 1fr;
+	background-color: #fff;
+	padding: 20px;	
+}
+
+.comments_avatar {
+	background-color: #eb5757 !important;
+}
+
+.comments_avatar_text {
+	margin-top: 0px;
+}
+
+.comments_user_status {
+	background-color: #6fcf97 !important;
+}
+
+.user_comment_text {
+	grid-column: 1/3;
+}
