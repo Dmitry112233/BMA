@@ -49,7 +49,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 		map.put("football", ((ArrayList<IventBean>) mapEvents.get("футбол")));
 		map.put("hockey", ((ArrayList<IventBean>) mapEvents.get("хоккей")));
 		map.put("tennis", ((ArrayList<IventBean>) mapEvents.get("теннис")));
-		map.put("bascketball", ((ArrayList<IventBean>) mapEvents.get("баскетбол")));	
+		map.put("basketball", ((ArrayList<IventBean>) mapEvents.get("баскетбол")));	
 		
 		map.put("news", DaoFactory.getNewsDao().getNewsForMainPage());
 		map.put("linkMap", linkMap);
