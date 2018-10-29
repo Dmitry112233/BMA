@@ -1128,13 +1128,9 @@
   float: left;
 }
 
-/* it's mine */
 .news-block-item {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-row-gap: 10px;
-	height: auto;
-	/* margin-top: 10px; */
+  height: 630px;
+  margin-top: 10px;
 }
 
 .news-item-1 {
