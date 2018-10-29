@@ -2,6 +2,7 @@ package com.da.bookmaker.sping.mvc;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.BookmakerBean;
+import com.da.bookmaker.bean.IventBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
@@ -40,7 +42,14 @@ public class BookmakerDescriptionController extends BookmakerController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Map<String, BookmakerBean>> mapBokmakers = getBookmakerList();
 		map.putAll(mapBokmakers);
-		map.put("events", DaoFactory.getIventDao().getEvents());
+		
+		Map<String, Object> mapEvents = DaoFactory.getIventDao().getEvents();
+
+		map.put("football", ((ArrayList<IventBean>) mapEvents.get("футбол")));
+		map.put("hockey", ((ArrayList<IventBean>) mapEvents.get("хоккей")));
+		map.put("tennis", ((ArrayList<IventBean>) mapEvents.get("теннис")));
+		map.put("bascketball", ((ArrayList<IventBean>) mapEvents.get("баскетбол")));	
+		
 		map.put("news", DaoFactory.getNewsDao().getNewsForMainPage());
 		map.put("linkMap", linkMap);
 		
