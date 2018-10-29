@@ -14,14 +14,14 @@ public class NewsBean {
 	
 	private String title;
 	
-	private String Date;
+	private String date;
 	
 	public String getDate() {
-		return Date;
+		return this.date;
 	}
 
 	public void setDate(String date) {
-		Date = date;
+		this.date = date;
 	}
 
 	public long getId() {
@@ -73,7 +73,7 @@ public class NewsBean {
 		this.image = image;
 	}
 	
-	public String getDateTime() {
-		return Date.split(" ")[5];
+	public String getTime() {
+		return date.split(" ")[4];
 	}
 }

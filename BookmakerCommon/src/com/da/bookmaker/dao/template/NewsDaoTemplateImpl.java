@@ -56,7 +56,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 				bean.setDescription(rs.getString("DESCRIPTION"));
 				bean.setImage(rs.getString("IMAGE"));
 				bean.setTitle(rs.getString("TITLE"));
-				bean.setSport(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				return bean;
 			}
 		});
@@ -106,7 +106,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 				bean.setDescription(rs.getString("DESCRIPTION"));
 				bean.setImage(rs.getString("IMAGE"));
 				bean.setTitle(rs.getString("TITLE"));
-				bean.setSport(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				return bean;
 			}
 		});
@@ -131,7 +131,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 				bean.setDescription(rs.getString("DESCRIPTION"));
 				bean.setImage(rs.getString("IMAGE"));
 				bean.setTitle(rs.getString("TITLE"));
-				bean.setSport(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				return bean;
 			}
 		});
@@ -151,7 +151,7 @@ public class NewsDaoTemplateImpl implements NewsDao {
 				bean.setDescription(rs.getString("DESCRIPTION"));
 				bean.setImage(rs.getString("IMAGE"));
 				bean.setTitle(rs.getString("TITLE"));
-				bean.setSport(rs.getString("DATE"));
+				bean.setDate(rs.getString("DATE"));
 				return bean;
 			}
 		});
