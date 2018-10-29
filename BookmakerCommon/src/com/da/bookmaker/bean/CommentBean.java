@@ -98,5 +98,9 @@ public class CommentBean {
 	public void setLevel(String level) {
 		this.level = level;
 	}
+	
+	public String getFirstLetter() {
+		return name.substring(0, 0);
+	}
 
 }
