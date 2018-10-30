@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.dao.DaoException;
+import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class CompetishionsDecriptionController extends BookmakerController {
@@ -29,7 +30,9 @@ public class CompetishionsDecriptionController extends BookmakerController {
 						.getResourceAsStream("leagueDescription.properties");
 				property.load(fis);
 			}
+			map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
 			map.put("league", getFirstLetteruppercase(league));
+			map.put("leagueLowerCase", league);
 			map.putAll(getBookmakerList());
 			switch (league) {
 			case "английская премьер лига":
