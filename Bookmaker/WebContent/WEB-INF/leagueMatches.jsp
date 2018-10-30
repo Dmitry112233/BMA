@@ -35,22 +35,27 @@
                      <a href="${contextPath}/competitions" class="button_all_champ w-button">Все чемпионаты</a>
                   </div>
                   <div class="rpl_matches_block">
-                     <div class="date_matches">19.10.2018</div>
+                  <c:forEach var="date" items="${dates}">
+                     <div class="date_matches">${date}</div>
+                     <c:forEach var="events" items="${mapMatch.get(date)}">
                      <div class="rpl_matches">
                         <a id="w-node-9b9f6705a1fb-024158c0" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-39f36a58cf74-024158c0" class="time_msk">23:00 МСК</div>
+                           <div id="w-node-39f36a58cf74-024158c0" class="time_msk">${events.date}<!-- 23:00 МСК --></div>
                            <div id="w-node-c3fc39d24acc-024158c0" class="link_more">Подробности</div>
-                           <div id="w-node-e3c86e1cfb61-024158c0" class="command_name vs">ЦСКА
+                           <div id="w-node-e3c86e1cfb61-024158c0" class="command_name vs">${events.team1}
                               <span class="coefficient_matches">(9.0)</span>
                            </div>
                            <div id="w-node-6581d923a8a4-024158c0" class="draw_coef">ничья
                               <span class="drow_coef_number">(5.0)</span>
                            </div>
-                           <div id="w-node-fe7ec344c575-024158c0" class="command_name">Анжи
+                           <div id="w-node-fe7ec344c575-024158c0" class="command_name">${events.team2}
                               <span class="coefficient_matches">(9.0)</span>
                            </div>
                         </a>
-                        <a id="w-node-6d8045f16adf-024158c0" href="#" class="link_matches_block w-inline-block">
+                        </div>
+                        </c:forEach>
+                        </c:forEach>
+                        <!-- <a id="w-node-6d8045f16adf-024158c0" href="#" class="link_matches_block w-inline-block">
                            <div id="w-node-6d8045f16ae0-024158c0" class="time_msk">22:00 МСК</div>
                            <div id="w-node-6d8045f16ae2-024158c0" class="link_more">Подробности</div>
                            <div id="w-node-6d8045f16ae4-024158c0" class="command_name vs">ЦСКА
@@ -199,7 +204,7 @@
                               <span class="coefficient_matches">(9.0)</span>
                            </div>
                         </a>
-                     </div>
+                     </div> -->
                   </div>
                   <div class="seoBlock">
                      ${League_Txt}
