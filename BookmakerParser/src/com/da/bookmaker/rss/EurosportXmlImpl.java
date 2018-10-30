@@ -1,12 +1,18 @@
 package com.da.bookmaker.rss;
 
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -14,6 +20,7 @@ import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.springframework.jdbc.UncategorizedSQLException;
 
 import com.da.bookmaker.bean.NewsBean;
 import com.da.bookmaker.dao.DaoException;
@@ -39,6 +46,7 @@ public class EurosportXmlImpl {
 		logger.info("Eurosport rss parser starts");
 		URL eurosport = new URL("https://www.eurosport.ru/rss.xml");
 		URLConnection connection = eurosport.openConnection();
+		
 		try (BufferedInputStream socketInStream = new BufferedInputStream (connection.getInputStream())) {
 
 			byte[] byteMass = new byte[0];
@@ -67,7 +75,7 @@ public class EurosportXmlImpl {
 						}
 						bean.setDescription(item.getDescription());
 						bean.setImage(item.getImage().getUrl());
-						bean.setTitle(item.getTitle());
+						bean.setTitle(getStringUtf8(item.getTitle()));
 						buffer.add(bean);
 					}
 				}
@@ -75,10 +83,28 @@ public class EurosportXmlImpl {
 			DaoFactory.getNewsDao().deleteAllNews();
 			DaoFactory.getNewsDao().addNewsList(buffer);
 			logger.info("Eurosport rss parser has eded");
-		} catch (JAXBException | DaoException e) {
+		} catch (JAXBException | DaoException | UncategorizedSQLException e) {
 			e.printStackTrace();
 			logger.info("Eurosport rss parser failed");
 		}
+	}
+	
+	public String getStringUtf8(String name) {
+		String utf8tweet = "";
+        try {
+            byte[] utf8Bytes = name.getBytes("UTF-8");
+
+            utf8tweet = new String(utf8Bytes, "UTF-8");
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        Pattern unicodeOutliers = Pattern.compile("[^\\x400-\\x4ff\\а-яА-ЯёЁ\\-():,.!?]",
+                Pattern.UNICODE_CASE | Pattern.CANON_EQ
+                        | Pattern.CASE_INSENSITIVE);
+        Matcher unicodeOutlierMatcher = unicodeOutliers.matcher(utf8tweet);
+        utf8tweet = unicodeOutlierMatcher.replaceAll(" "); 
+		return utf8tweet;
 	}
 
 }
