@@ -99,11 +99,13 @@ public class EurosportXmlImpl {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        Pattern unicodeOutliers = Pattern.compile("[^\\x400-\\x4ff\\а-яА-ЯёЁ\\-():,.!?]",
+        Pattern unicodeOutliers = Pattern.compile("[^\\a-zA-Z0-9\\а-яА-ЯёЁ\\,.?!-»«—]",
                 Pattern.UNICODE_CASE | Pattern.CANON_EQ
                         | Pattern.CASE_INSENSITIVE);
         Matcher unicodeOutlierMatcher = unicodeOutliers.matcher(utf8tweet);
-        utf8tweet = unicodeOutlierMatcher.replaceAll(" "); 
+
+        utf8tweet = unicodeOutlierMatcher.replaceAll(" ");
+       
 		return utf8tweet;
 	}
 
