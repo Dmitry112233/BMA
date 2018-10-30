@@ -3,6 +3,8 @@ package com.da.bookmaker.sping.mvc;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,10 +28,20 @@ public class PremierLeagueController extends BookmakerController {
 	@RequestMapping("/{league}_матчи")
 	public ModelAndView getMainList(@PathVariable("league") String league)
 			throws DaoException, ParseException, IOException {
-		Map<String, Object> map = getMatchesList(league);
-		map.putAll(getBookmakerList());
-		map.put("leagueLower", league);
-		map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
+		Map<String, Object> map = new HashMap<>();
+		Map<LocalDate, ArrayList<PremierLeagueBean>> map1 = DaoFactory.getPremierLeagueDao().getEventsListByDate(league);
+		List<LocalDate> dates = new ArrayList<LocalDate>(map1.keySet());
+		//getMatchesList(league);
+		ModelAndView modelAndView = new ModelAndView("leagueMatches");
+		//map.putAll(getBookmakerList());
+		//map.put("leagueLower", league);
+		//map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
+		modelAndView.addAllObjects(map);
+		modelAndView.addAllObjects(getBookmakerList());
+		modelAndView.addObject("mapMatch", map1);
+		modelAndView.addObject("dates", dates);
+		modelAndView.addObject("leagueLower", league);
+		modelAndView.addObject("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
 		try {
 			if (property == null) {
 				property = new Properties();
@@ -38,34 +50,34 @@ public class PremierLeagueController extends BookmakerController {
 			}
 			switch (league) {
 			case "английская премьер лига":
-				map.put("League_T", property.get("ENG_League_T"));
-				map.put("League_H1", property.get("ENG_League_H1"));
-				map.put("League_D", property.get("ENG_League_D"));
-				map.put("League_Txt", property.get("ENG_League_Txt"));
+				modelAndView.addObject("League_T", property.get("ENG_League_T"));
+				modelAndView.addObject("League_H1", property.get("ENG_League_H1"));
+				modelAndView.addObject("League_D", property.get("ENG_League_D"));
+				modelAndView.addObject("League_Txt", property.get("ENG_League_Txt"));
 				break;
 			case "испанская ла лига":
-				map.put("League_T", property.get("SPA_League_T"));
-				map.put("League_H1", property.get("SPA_League_H1"));
-				map.put("League_D", property.get("SPA_League_D"));
-				map.put("League_Txt", property.get("SPA_League_Txt"));
+				modelAndView.addObject("League_T", property.get("SPA_League_T"));
+				modelAndView.addObject("League_H1", property.get("SPA_League_H1"));
+				modelAndView.addObject("League_D", property.get("SPA_League_D"));
+				modelAndView.addObject("League_Txt", property.get("SPA_League_Txt"));
 				break;
 			case "российская премьер лига":
-				map.put("League_T", property.get("RUS_League_T"));
-				map.put("League_H1", property.get("RUS_League_H1"));
-				map.put("League_D", property.get("RUS_League_D"));
-				map.put("League_Txt", property.get("RUS_League_Txt"));
+				modelAndView.addObject("League_T", property.get("RUS_League_T"));
+				modelAndView.addObject("League_H1", property.get("RUS_League_H1"));
+				modelAndView.addObject("League_D", property.get("RUS_League_D"));
+				modelAndView.addObject("League_Txt", property.get("RUS_League_Txt"));
 				break;
 			case "немецкая бундеслига":
-				map.put("League_T", property.get("GER_League_T"));
-				map.put("League_H1", property.get("GER_League_H1"));
-				map.put("League_D", property.get("GER_League_D"));
-				map.put("League_Txt", property.get("GER_League_Txt"));
+				modelAndView.addObject("League_T", property.get("GER_League_T"));
+				modelAndView.addObject("League_H1", property.get("GER_League_H1"));
+				modelAndView.addObject("League_D", property.get("GER_League_D"));
+				modelAndView.addObject("League_Txt", property.get("GER_League_Txt"));
 				break;
 			case "итальянская серия а":
-				map.put("League_T", property.get("ITA_League_T"));
-				map.put("League_H1", property.get("ITA_League_H1"));
-				map.put("League_D", property.get("ITA_League_D"));
-				map.put("League_Txt", property.get("ITA_League_Txt"));
+				modelAndView.addObject("League_T", property.get("ITA_League_T"));
+				modelAndView.addObject("League_H1", property.get("ITA_League_H1"));
+				modelAndView.addObject("League_D", property.get("ITA_League_D"));
+				modelAndView.addObject("League_Txt", property.get("ITA_League_Txt"));
 				break;
 			}
 		} catch (IOException e) {
@@ -75,13 +87,22 @@ public class PremierLeagueController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("leagueMatches", map);
+		return modelAndView;
 	}
 
-	private Map<String, Object> getMatchesList(String leagueName) throws DaoException, ParseException {
-		List<PremierLeagueBean> matchesList = DaoFactory.getPremierLeagueDao().getAllMatchesForLeague(leagueName);
-		Map<String, Object> map = new HashMap<>();
-		map.put("matchesList", matchesList);
+	private Map<LocalDate, ArrayList<PremierLeagueBean>> getMatchesList(String leagueName)
+			throws DaoException, ParseException {
+		Map<LocalDate, ArrayList<PremierLeagueBean>> map = DaoFactory.getPremierLeagueDao().getEventsListByDate(leagueName);
+		List<LocalDate> dates = new ArrayList<LocalDate>(map.keySet());
+		System.out.println(dates.size());
+		for (LocalDate date : dates) {
+			System.out.println(date);
+			for (PremierLeagueBean bean : map.get(date)) {
+				if (date.compareTo(bean.getDateTimeStamp().toLocalDateTime().toLocalDate()) == 0) {
+					System.out.println(bean.getTeam1() + " " + bean.getTeam2());
+				}
+			}
+		}
 		return map;
 	}
 }

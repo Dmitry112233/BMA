@@ -1,10 +1,9 @@
 package com.da.bookmaker.bean;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import com.da.bookmaker.util.TranslationUtils;
 
 public class PremierLeagueBean {
 
@@ -12,6 +11,16 @@ public class PremierLeagueBean {
 	
 	private Date date;
 	
+	private Timestamp dateTimeStamp;
+	
+	public Timestamp getDateTimeStamp() {
+		return dateTimeStamp;
+	}
+
+	public void setDateTimeStamp(Timestamp dateTimeStamp) {
+		this.dateTimeStamp = dateTimeStamp;
+	}
+
 	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 	
 	private String league;
