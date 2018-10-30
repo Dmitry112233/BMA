@@ -5,6 +5,18 @@
    <div class="footer-block">
       <div class="w-row">
          <div class="column-3 w-col w-col-4">
+            <c:if test = "${linkMap.size() > 0}">
+            <div class="footer-links">
+               <h4 class="heading-7">Страницы</h4>
+               <c:forEach var="links" items="${linkMap}">
+                  <div class="text-block-23"><a href="${contextPath}/${links.value}">${links.key}</a></div>
+               </c:forEach>
+            </div>            	
+            </c:if>
+            <c:if test = "${linkMap.size() == Null}">
+            </c:if>            
+         </div>
+         <div class="column-4 w-col w-col-4">
             <div class="footer-links">
                <h4 class="heading-7">Меню</h4>
                <div class="text-block-23"><a href="${contextPath}/bookmakers">Букмекеры</a></div>
@@ -12,20 +24,12 @@
                <div class="text-block-23"><a href="${contextPath}/faq_list">Обучение</a></div>
             </div>
          </div>
-         <div class="column-4 w-col w-col-4">
-            <div class="footer-links">
-               <h4 class="heading-7">Ставки на спорт</h4>
-               <div class="text-block-23">Чемпионаты</div>
-               <div class="text-block-23">Экспрессы</div>
-               <div class="text-block-23">Ординары</div>
-            </div>
-         </div>
          <div class="column-5 w-col w-col-4">
             <div class="footer-links">
-               <h4 class="heading-7">Ссылки</h4>
-               <c:forEach var="links" items="${linkMap}">
-               <div class="text-block-23"><a href="${contextPath}/${links.value}">${links.key}</a></div>
-                </c:forEach>
+               <h4 class="heading-7">Ставки на спорт</h4>
+               <div class="text-block-23"><a href="${contextPath}/competishions">Чемпионаты</a></div>
+               <div class="text-block-23"><a href="${contextPath}/expresses_list_0">Экспрессы</a></div>
+               <div class="text-block-23"><a href="${contextPath}/events_list">Ординары</a></div>
                <div class="logo-fooer">
                   <div class="w-row">
                      <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">

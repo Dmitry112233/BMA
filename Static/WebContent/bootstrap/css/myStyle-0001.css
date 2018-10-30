@@ -104,3 +104,75 @@
 .news-text-block {
 	font-size: 14px;
 }
+
+.myChampionatTable {
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 400px;
+	padding: 30px 20px 0px 20px;
+	background-color: #fff;	
+}
+
+.myChampTableTitle {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows: 30px;
+}
+
+.myChampTableHeader {
+	display: grid;
+	grid-template-columns: 0.5fr 3fr 1fr 1fr;
+	grid-column-gap: 10px;	
+	grid-auto-rows: 50px;	
+	border-style: none none solid;
+	border-width: 1px;
+    border-color: #000;
+    align-items: center;    
+}
+
+.myChampTableRowWrapper {
+	display: grid;
+	grid-template-columns: 1fr;	
+}
+
+.myChampTableRow {
+	display: grid;
+	grid-template-columns: 0.5fr 3fr 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-auto-rows: 40px;
+	border-style: none none solid;
+	border-width: 1px;
+	border-color: #e2e2e5;
+	align-items: end;
+}
+
+.myChampTableFooter {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows: 60px;
+	align-items: center;
+	justify-self: end;   
+}
+
+.myTeamPlace, .myTeamPoints {
+	justify-self: center; 	
+}
+
+.myTeamGames {
+	justify-self: end;
+}
+
+.table_commands_text {
+	padding-bottom: 12px;
+}
+
+.fullTableLink {
+	color: #146dda;
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: underline;
+}
+
+.text-block-14 {
+	font-size: 12px;
+}
