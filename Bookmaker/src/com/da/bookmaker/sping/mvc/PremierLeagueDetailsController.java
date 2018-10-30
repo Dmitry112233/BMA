@@ -60,7 +60,7 @@ public class PremierLeagueDetailsController extends BookmakerController {
 		map.put("ligaList", ligaList);
 		map.put("team1", team1.substring(0, 1).toUpperCase() + team1.substring(1));
 		map.put("team2", team2.substring(0, 1).toUpperCase() + team2.substring(1));
-		map.put("league", league.toLowerCase());
+		map.put("leagueLower", league.toLowerCase());
 		map.putAll(lastMatchesTeam1Team2);
 		map.putAll(getBookmakerList());
 

@@ -32,7 +32,7 @@ public class CompetishionsDecriptionController extends BookmakerController {
 			}
 			map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
 			map.put("league", getFirstLetteruppercase(league));
-			map.put("leagueLowerCase", league);
+			map.put("leagueLower", league);
 			map.putAll(getBookmakerList());
 			switch (league) {
 			case "английская премьер лига":

@@ -23,20 +23,20 @@ public class PremierLeagueController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/{leagueName}_матчи")
-	public ModelAndView getMainList(@PathVariable("leagueName") String leagueName)
+	@RequestMapping("/{league}_матчи")
+	public ModelAndView getMainList(@PathVariable("league") String league)
 			throws DaoException, ParseException, IOException {
-		Map<String, Object> map = getMatchesList(leagueName);
+		Map<String, Object> map = getMatchesList(league);
 		map.putAll(getBookmakerList());
-		map.put("leagueName", leagueName);
-		map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(leagueName));
+		map.put("leagueLower", league);
+		map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
 		try {
 			if (property == null) {
 				property = new Properties();
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			switch (leagueName) {
+			switch (league) {
 			case "английская премьер лига":
 				map.put("League_T", property.get("ENG_League_T"));
 				map.put("League_H1", property.get("ENG_League_H1"));
