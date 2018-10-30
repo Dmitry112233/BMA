@@ -9,27 +9,35 @@
             <div class="footer-links">
                <h4 class="heading-7">Страницы</h4>
                <c:forEach var="links" items="${linkMap}">
-                  <div class="text-block-23"><a href="${contextPath}/${links.value}">${links.key}</a></div>
+                  <div><a class="myFooterLink" href="${contextPath}/${links.value}">${links.key}</a></div>
                </c:forEach>
             </div>            	
             </c:if>
             <c:if test = "${linkMap.size() == Null}">
+            	<div class="footer-links">
+               <h4 class="heading-7">Чемпионаты</h4>
+               <div><a class="myFooterLink" href="${contextPath}/${'российская премьер лига'}_матчи">Российская Премьер-Лига</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/${'английская премьер лига'}_матчи">Английская Премьер-лига</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/${'испанская ла лига'}_матчи">Испанская ЛаЛига</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/${'итальянская серия а'}_матчи">Итальянская Серия А</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/${'немецкая бундеслига'}_матчи">Немецкая Бундеслига</a></div>
+            </div>
             </c:if>            
          </div>
          <div class="column-4 w-col w-col-4">
             <div class="footer-links">
                <h4 class="heading-7">Меню</h4>
-               <div class="text-block-23"><a href="${contextPath}/bookmakers">Букмекеры</a></div>
-               <div class="text-block-23"><a href="${contextPath}/news_0">Новости</a></div>
-               <div class="text-block-23"><a href="${contextPath}/faq_list">Обучение</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/bookmakers">Букмекеры</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/news_0">Новости</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/faq_list">Обучение</a></div>
             </div>
          </div>
          <div class="column-5 w-col w-col-4">
             <div class="footer-links">
                <h4 class="heading-7">Ставки на спорт</h4>
-               <div class="text-block-23"><a href="${contextPath}/competishions">Чемпионаты</a></div>
-               <div class="text-block-23"><a href="${contextPath}/expresses_list_0">Экспрессы</a></div>
-               <div class="text-block-23"><a href="${contextPath}/events_list">Ординары</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/competitions">Чемпионаты</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/expresses_list_0">Экспрессы</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/events_list">Ординары</a></div>
                <div class="logo-fooer">
                   <div class="w-row">
                      <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">

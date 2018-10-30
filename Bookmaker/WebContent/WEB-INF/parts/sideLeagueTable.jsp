@@ -23,7 +23,7 @@
          </div>
       </c:forEach>
       <div class="myChampTableFooter">
-         <div><a class="fullTableLink" <%-- href="${contextPath}/${liga name}_таблица" --%>>Полная таблица</a></div>
+         <div><a class="fullTableLink" href="${contextPath}/${leagueLower}_таблица">Полная таблица</a></div>
       </div>
    </div>
 </div>

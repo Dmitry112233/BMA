@@ -176,3 +176,25 @@
 .text-block-14 {
 	font-size: 12px;
 }
+
+.myFooterLink {
+	font-family: Helveticaneuecyr, sans-serif;
+    color: #727272;
+    line-height: 22px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.myFooterLink:hover {
+    text-decoration: underline;
+}
+
+.champ_tab_text {
+	padding-left: 0px;
+	margin-left: 5px;
+}
+
+.champ_tab_text img {
+	width: 40px;
+}

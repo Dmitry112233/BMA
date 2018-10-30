@@ -2124,22 +2124,24 @@
   box-shadow: 0 0 50px 0 hsla(217, 6%, 75%, .5);
 }
 
+/* it's mine */
 .champ_tab_text {
   margin-bottom: 0px;
   margin-left: 10px;
   padding-top: 3px;
   padding-right: 10px;
   padding-left: 35px;
-  background-image: url("../images/5bc621b0b6ba2a4842ee345c_231px-Russian_Premier_League_Logo.png");
+  /* background-image: url("../images/5bc621b0b6ba2a4842ee345c_231px-Russian_Premier_League_Logo.png");
   background-position: 0px 50%;
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   font-size: 18px;
   line-height: 28px;
   font-weight: 700;
 }
 
-.champ_tab_text.england {
+/* it's mine */
+/* .champ_tab_text.england {
   background-image: url("../images/5bc62812b6ba2ad4ceee41b5_i.png");
 }
 
@@ -2158,7 +2160,7 @@
 .champ_tab_text.france {
   background-image: url("../images/5bc621b18ddd7a07b5425c34_france_ligue-1.png");
   background-size: 26px;
-}
+} */
 
 .chemp_tab_title {
   margin-bottom: 20px;
@@ -2249,12 +2251,13 @@
   padding-right: 0px;
 }
 
+/* it's mine */
 .banner_block {
   height: 200px;
   padding: 20px;
-  background-image: url("../images/5bc6c87be70a6095de7b6aa5_banner_leon_4005B200.png");
+  /* background-image: url("../images/5bc6c87be70a6095de7b6aa5_banner_leon_4005B200.png");
   background-position: 0px 0px;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .column-20 {
@@ -2262,12 +2265,13 @@
   padding-left: 0px;
 }
 
-.banner_logo {
+/* it's mine */
+/* .banner_logo {
   background-image: url("../images/5ba6965a2756cb03c0d26c01_leon.png");
   background-position: 0px 0px;
   background-size: auto;
   background-repeat: no-repeat;
-}
+} */
 
 .hero_rpl_block {
   display: block;

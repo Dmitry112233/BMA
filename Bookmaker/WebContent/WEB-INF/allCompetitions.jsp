@@ -22,19 +22,19 @@
             <div data-duration-in="300" data-duration-out="100" class="hero_championats_tab w-tabs">
                <div class="championats_tabs_menu w-tab-menu">
                   <a data-w-tab="Tab 7" class="tab_links w-inline-block w-tab-link w--current">
-                     <div class="champ_tab_text">Премьер-Лига (Россия)</div>
+                     <div class="champ_tab_text"><img src="/Static/bootstrap/img/leagueIcon/Российская Премьер Лига.png" onerror="this.style.display='none'" /> Премьер-Лига (Россия)</div>
                   </a>
                   <a data-w-tab="Tab 8" class="tab_links w-inline-block w-tab-link">
-                     <div class="champ_tab_text england">Премьер-Лига (Англия)</div>
+                     <div class="champ_tab_text england"><img src="/Static/bootstrap/img/leagueIcon/Английская Премьер Лига_dark.png" onerror="this.style.display='none'" /> Премьер-Лига (Англия)</div>
                   </a>
                   <a data-w-tab="Tab 11" class="tab_links w-inline-block w-tab-link">
-                     <div class="champ_tab_text spain">Ла Лига (Испания)</div>
+                     <div class="champ_tab_text spain"><img src="/Static/bootstrap/img/leagueIcon/Испанская Ла Лига.png" onerror="this.style.display='none'" /> Ла Лига (Испания)</div>
                   </a>
                   <a data-w-tab="Tab 10" class="tab_links w-inline-block w-tab-link">
-                     <div class="champ_tab_text italy">Серия А (Италия)</div>
+                     <div class="champ_tab_text italy"><img src="/Static/bootstrap/img/leagueIcon/Итальянская серия А.png" onerror="this.style.display='none'" /> Серия А (Италия)</div>
                   </a>
                   <a data-w-tab="Tab 9" class="tab_links w-inline-block w-tab-link">
-                     <div class="champ_tab_text germany">Бундеслига (Германия)</div>
+                     <div class="champ_tab_text germany"><img src="/Static/bootstrap/img/leagueIcon/Немецкая Бундеслига.png" onerror="this.style.display='none'" /> Бундеслига (Германия)</div>
                   </a>
                   <!-- <a data-w-tab="Tab 12" class="tab_links w-inline-block w-tab-link">
                      <div class="champ_tab_text france">Франция Лига 1</div>
