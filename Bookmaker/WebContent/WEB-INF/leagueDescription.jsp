@@ -28,6 +28,8 @@
                      </div>
                   </div>
                   <div class="rpl_description">
+                  	 <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${league}.png" onerror="this.style.display='none'">
+                  	 <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${league}_dark.png" onerror="this.style.display='none'">
                      <h1 class="champ_title">${league_H1}</h1>
                      <a href="${contextPath}/competitions" class="button_all_champ w-button">Все чемпионаты</a>
                   </div>

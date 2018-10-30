@@ -2319,14 +2319,15 @@
   background-repeat: no-repeat; */
 }
 
+/* it's mine */
 .champ_title {
   display: inline-block;
   margin-top: 5px;
-  padding-left: 50px;
+  /* padding-left: 50px;
   background-image: url("../images/5bc621b0b6ba2a4842ee345c_231px-Russian_Premier_League_Logo.png");
   background-position: 0px 50%;
   background-size: 40px;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   font-size: 24px;
   font-weight: 400;
 }

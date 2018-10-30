@@ -200,10 +200,14 @@
 	margin-left: 5px;
 }
 
-.champ_tab_text img {
+.champ_tab_text img, .myLeagueIcon {
 	width: 40px;
 }
 
 .tab_panel {
 	height: 420px;
+}
+
+.champ_title {
+	text-align: left;
 }
