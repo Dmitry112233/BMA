@@ -24,6 +24,7 @@
                <div class="col_rpl_info w-col w-col-8 w-col-stack">
                   <div class="rpl_img_block">
                      <div class="rpl_img">
+                     	<img src="/Static/bootstrap/img/leagueHeader/${league}.jpg" onerror="this.style.display='none'" />
                      </div>
                   </div>
                   <div class="rpl_description">

@@ -2310,12 +2310,13 @@
   background-color: #fff;
 }
 
+/* it's mine */
 .rpl_img {
   height: 200px;
-  background-image: url("../images/5bc735b4e70a60a0197bd8fa_SD_414220(1).jpg");
+  /* background-image: url("../images/5bc735b4e70a60a0197bd8fa_SD_414220(1).jpg");
   background-position: 50% 23%;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .champ_title {

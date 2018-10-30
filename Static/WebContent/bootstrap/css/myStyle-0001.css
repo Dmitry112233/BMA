@@ -171,6 +171,11 @@
     font-size: 14px;
     font-weight: 300;
     text-decoration: underline;
+    padding-right: 30px;
+    background-image: url("../img/Arrow.png");
+	background-position: 100% 48%;
+	background-size: 24px;
+	background-repeat: no-repeat;
 }
 
 .text-block-14 {
@@ -197,4 +202,8 @@
 
 .champ_tab_text img {
 	width: 40px;
+}
+
+.tab_panel {
+	height: 420px;
 }
