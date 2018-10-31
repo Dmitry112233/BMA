@@ -29,6 +29,7 @@ public class CompetishionsTableController extends BookmakerController {
 		map.putAll(getBookmakerList());
 		map.put("table", table);
 		map.put("league", getFirstLetteruppercase(league));
+		map.put("leagueLower", league);
 		try {
 			if (property == null) {
 				property = new Properties();
