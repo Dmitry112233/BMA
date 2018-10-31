@@ -14,6 +14,7 @@
       <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
       <%@ page contentType="text/html;charset=utf-8" %>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+      <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
       <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
    </head>
    <body class="body">
@@ -24,7 +25,7 @@
                <div class="col_rpl_info w-col w-col-8 w-col-stack">
                   <div class="rpl_img_block">
                      <div class="rpl_img">
-                     	<img src="/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg" onerror="this.style.display='none'" />
+                        <img src="/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg" onerror="this.style.display='none'" />
                      </div>
                   </div>
                   <div class="rpl_description">
@@ -34,176 +35,20 @@
                      <a href="${contextPath}/competitions" class="button_all_champ w-button">Все чемпионаты</a>
                   </div>
                   <div class="rpl_matches_block">
-                  <c:forEach var="date" items="${dates}">
-                     <div class="date_matches">${date}</div>
-                     <c:forEach var="events" items="${mapMatch.get(date)}">
-                     <div class="rpl_matches">
-                        <a id="w-node-9b9f6705a1fb-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-39f36a58cf74-4478b9c4" class="time_msk">${events.date}<!-- 23:00 МСК --></div>
-                           <div id="w-node-c3fc39d24acc-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-e3c86e1cfb61-4478b9c4" class="command_name vs">${events.team1}
-                              <span class="coefficient_matches">(9.0)</span>
+                     <c:forEach var="date" items="${dates}">
+                        <div class="date_matches">${date}</div>
+                        <c:forEach var="events" items="${mapMatch.get(date)}">
+                           <div class="myLeagueMatchesWrapper">
+                              <div class="myLeagueMatches" onclick="window.location.href='${contextPath}/${events.url}'; return false">
+                                 <div class="time_msk"><fmt:formatDate pattern = "HH:mm" value = "${events.date}" /> МСК</div>
+                                 <div class="command_name vs">${events.team1}<span class="coefficient_matches"> (${events.win1}) </span><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team1}.png" onerror="this.style.display='none'"></div>
+                                 <div class="draw_coef">ничья<span class="drow_coef_number"> (${events.x})</span></div>
+                                 <div class="command_name second_command_name"><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team2}.png" onerror="this.style.display='none'"> ${events.team2}<span class="coefficient_matches"> (${events.win2})</span></div>
+                                 <div class="xceff"><a class="link_more" href="${contextPath}/${events.url}">Подробности</a></div>
+                              </div>
                            </div>
-                           <div id="w-node-6581d923a8a4-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-fe7ec344c575-4478b9c4" class="command_name">${events.team2}
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        </div>
                         </c:forEach>
-                        </c:forEach>
-                        <!-- <a id="w-node-6d8045f16adf-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-6d8045f16ae0-4478b9c4" class="time_msk">22:00 МСК</div>
-                           <div id="w-node-6d8045f16ae2-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-6d8045f16ae4-4478b9c4" class="command_name vs">ЦСКА
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-6d8045f16ae8-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-6d8045f16aec-4478b9c4" class="command_name">Анжи
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        <a id="w-node-b9cd04d4b70b-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-b9cd04d4b70c-4478b9c4" class="time_msk">19:00 МСК</div>
-                           <div id="w-node-b9cd04d4b70e-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-b9cd04d4b710-4478b9c4" class="command_name vs">Енисей
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-b9cd04d4b714-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-b9cd04d4b718-4478b9c4" class="command_name">Оренбург
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        <a id="w-node-a3b6a847a096-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-a3b6a847a097-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-a3b6a847a099-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-a3b6a847a09b-4478b9c4" class="command_name vs">Крылья Советов
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-a3b6a847a09f-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-a3b6a847a0a3-4478b9c4" class="command_name">Локомотив
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                     </div>
-                     <div id="w-node-af7e9464c514-4478b9c4" class="date_matches">19.10.2018</div>
-                     <div class="rpl_matches">
-                        <a id="w-node-e746b9d5629e-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-e746b9d5629f-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-e746b9d562a1-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-e746b9d562a3-4478b9c4" class="command_name vs">ЦСКА
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-e746b9d562a7-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-e746b9d562ab-4478b9c4" class="command_name">Анжи
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        <a id="w-node-e746b9d562af-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-e746b9d562b0-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-e746b9d562b2-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-e746b9d562b4-4478b9c4" class="command_name vs">ЦСКА
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-e746b9d562b8-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-e746b9d562bc-4478b9c4" class="command_name">Анжи
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        <a id="w-node-e746b9d562c0-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-e746b9d562c1-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-e746b9d562c3-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-e746b9d562c5-4478b9c4" class="command_name vs">Енисей
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-e746b9d562c9-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-e746b9d562cd-4478b9c4" class="command_name">Оренбург
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        <a id="w-node-e746b9d562d1-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-e746b9d562d2-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-e746b9d562d4-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-e746b9d562d6-4478b9c4" class="command_name vs">Крылья Советов
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-e746b9d562da-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-e746b9d562de-4478b9c4" class="command_name">Локомотив
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                     </div>
-                     <div id="w-node-494a4d4db26a-4478b9c4" class="date_matches">19.10.2018</div>
-                     <div class="rpl_matches">
-                        <a id="w-node-6d28f9f31adb-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-6d28f9f31adc-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-6d28f9f31ade-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-6d28f9f31ae0-4478b9c4" class="command_name vs">ЦСКА
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-6d28f9f31ae4-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-6d28f9f31ae8-4478b9c4" class="command_name">Анжи
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        <a id="w-node-6d28f9f31aec-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-6d28f9f31aed-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-6d28f9f31aef-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-6d28f9f31af1-4478b9c4" class="command_name vs">ЦСКА
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-6d28f9f31af5-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-6d28f9f31af9-4478b9c4" class="command_name">Анжи
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        <a id="w-node-6d28f9f31afd-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-6d28f9f31afe-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-6d28f9f31b00-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-6d28f9f31b02-4478b9c4" class="command_name vs">Енисей
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-6d28f9f31b06-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-6d28f9f31b0a-4478b9c4" class="command_name">Оренбург
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                        <a id="w-node-6d28f9f31b0e-4478b9c4" href="#" class="link_matches_block w-inline-block">
-                           <div id="w-node-6d28f9f31b0f-4478b9c4" class="time_msk">18:00 МСК</div>
-                           <div id="w-node-6d28f9f31b11-4478b9c4" class="link_more">Подробности</div>
-                           <div id="w-node-6d28f9f31b13-4478b9c4" class="command_name vs">Крылья Советов
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                           <div id="w-node-6d28f9f31b17-4478b9c4" class="draw_coef">ничья
-                              <span class="drow_coef_number">(5.0)</span>
-                           </div>
-                           <div id="w-node-6d28f9f31b1b-4478b9c4" class="command_name">Локомотив
-                              <span class="coefficient_matches">(9.0)</span>
-                           </div>
-                        </a>
-                     </div> -->
+                     </c:forEach>
                   </div>
                   <div class="seoBlock">
                      ${League_Txt}

@@ -211,3 +211,59 @@
 .champ_title {
 	text-align: left;
 }
+
+.myLeagueMatchesWrapper {
+	display: grid;
+	grid-template-columns: 1fr;	
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    background-color: #fff;
+}
+
+.myLeagueMatches {
+	display: grid;
+	grid-template-columns: 0.8fr 1.75fr 0.7fr 1.75fr 1fr;
+	grid-column-gap: 10px;
+    height: 60px;
+    grid-row-gap: 16px;
+    grid-template-rows: 60px;
+    color: #000;
+    text-decoration: none;
+    align-items: center;
+    cursor: pointer;
+}
+
+.time_msk, .vs {
+	justify-self: end;
+}
+
+.draw_coef, .xceff {
+	justify-self: center;
+}
+
+.second_command_name {
+	justify-self: start;
+}
+
+.myLeagueMatches:hover {
+	background-color: #e2e2e5;
+}
+
+.teamIcon {
+	height: 28px;
+}
+
+.command_name {
+	font-size: 15px;
+}
+
+.time_msk {
+	font-size: 14px;
+}
+
+.drow_coef_number, .coefficient_matches {
+	font-size: 14px;
+}
