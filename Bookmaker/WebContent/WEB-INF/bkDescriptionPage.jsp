@@ -22,19 +22,19 @@
       <div class="hero_bookmaker_section">
          <div class="hero_wrapper_bookmaker">
             <div class="hero_wrapper_block">
-               <div id="w-node-6a514ac2de5f-0f967a12" class="title-and-image-block">
-                  <div id="w-node-b77efebebee1-0f967a12" class="title_bookmaker_block">
-                     <a href="${contextPath}/bookmakers" id="w-node-3a7defcb2b8b-0f967a12" class="button-5 w-button">Все букмекеры</a>
-                     <a href="counter?id=${bookmaker.bookMakerId}" target="_blank" id="w-node-fe17e119559d-0f967a12" class="btn_bookmaker_black w-button">Перейти на сайт</a>
-                     <h1 id="w-node-379fc290d712-0f967a12" class="title_text_bookmaker">${Bookmaker_H1}</h1>
+               <div id="w-node-6a514ac2de5f-d678b9c0" class="title-and-image-block">
+                  <div id="w-node-b77efebebee1-d678b9c0" class="title_bookmaker_block">
+                     <a href="${contextPath}/bookmakers" id="w-node-3a7defcb2b8b-d678b9c0" class="button-5 w-button">Все букмекеры</a>
+                     <a href="counter?id=${bookmaker.bookMakerId}" target="_blank" id="w-node-fe17e119559d-d678b9c0" class="btn_bookmaker_black w-button">Перейти на сайт</a>
+                     <h1 id="w-node-379fc290d712-d678b9c0" class="title_text_bookmaker">${Bookmaker_H1}</h1>
                   </div>
                </div>
-               <div id="w-node-e810e40df812-0f967a12" class="criteria_bookmaker">
-                  <div id="w-node-e810e40df81a-0f967a12" class="criteria_title">
-                     <div id="w-node-e810e40df81b-0f967a12" class="criteria-text">Критерии</div>
-                     <img src="/Static/bootstrap/img/bkLogo/${bookmaker.name}.png" onerror="this.style.display='none'" width="80" height="26" id="w-node-e810e40df81d-0f967a12" alt="${bookmaker.name} logo" />                     
+               <div id="w-node-e810e40df812-d678b9c0" class="criteria_bookmaker">
+                  <div id="w-node-e810e40df81a-d678b9c0" class="criteria_title">
+                     <div id="w-node-e810e40df81b-d678b9c0" class="criteria-text">Критерии</div>
+                     <img src="/Static/bootstrap/img/bkLogo/${bookmaker.name}.png" onerror="this.style.display='none'" width="80" height="26" id="w-node-e810e40df81d-d678b9c0" alt="${bookmaker.name} logo" />                     
                   </div>
-                  <div id="w-node-e810e40df813-0f967a12" class="columns-3 w-row">
+                  <div id="w-node-e810e40df813-d678b9c0" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
                         <div class="criteria-rating-text">НАДЕЖНОСТЬ</div>
                         <div class="criteria-rating-progress progressBar">
@@ -44,10 +44,10 @@
                      <div class="column-rating-settings _2 w-col w-col-2 w-col-small-6 w-col-tiny-6">
                      </div>
                   </div>
-                  <div id="w-node-e810e40df83a-0f967a12" class="rating-numeral">
+                  <div id="w-node-e810e40df83a-d678b9c0" class="rating-numeral">
                      <div class="criteria-rating-text numeral">${bookmaker.reliability}</div>
                   </div>
-                  <div id="w-node-e810e40df81e-0f967a12" class="columns-3 w-row">
+                  <div id="w-node-e810e40df81e-d678b9c0" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
                         <div class="criteria-rating-text">ЛИНИЯ</div>
                         <div class="criteria-rating-progress progressBar">
@@ -57,10 +57,10 @@
                      <div class="column-rating-settings _2 w-col w-col-2 w-col-small-6 w-col-tiny-6">
                      </div>
                   </div>
-                  <div id="w-node-e810e40df83d-0f967a12" class="rating-numeral">
+                  <div id="w-node-e810e40df83d-d678b9c0" class="rating-numeral">
                      <div class="criteria-rating-text numeral">${bookmaker.line}</div>
                   </div>
-                  <div id="w-node-e810e40df833-0f967a12" class="columns-3 w-row">
+                  <div id="w-node-e810e40df833-d678b9c0" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
                         <div class="criteria-rating-text">УДОБСТВО РАБОТЫ</div>
                         <div class="criteria-rating-progress progressBar">
@@ -70,14 +70,14 @@
                      <div class="column-rating-settings _2 w-col w-col-2 w-col-small-6 w-col-tiny-6">
                      </div>
                   </div>
-                  <div id="w-node-e810e40df825-0f967a12" class="rating-numeral">
+                  <div id="w-node-e810e40df825-d678b9c0" class="rating-numeral">
                      <div class="criteria-rating-text numeral">${bookmaker.usability}</div>
                   </div>
-                  <div id="w-node-e810e40df828-0f967a12" class="rating_general">
-                     <div id="w-node-e810e40df829-0f967a12" class="rating-numeral">
+                  <div id="w-node-e810e40df828-d678b9c0" class="rating_general">
+                     <div id="w-node-e810e40df829-d678b9c0" class="rating-numeral">
                         <div class="criteria-rating-text numeral">${bookmaker.result}</div>
                      </div>
-                     <div id="w-node-e810e40df82c-0f967a12" class="columns-3 w-row">
+                     <div id="w-node-e810e40df82c-d678b9c0" class="columns-3 w-row">
                         <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
                            <div class="criteria-rating-text">ОБЩИЙ РЕЙТИНГ</div>
                            <div class="criteria-rating-progress progressBar">
@@ -102,11 +102,11 @@
                <c:if test = "${bookmaker.bookMakerId == 3}">
                   <c:import url="parts/payments/LigaStavokPayments.jsp"></c:import>
                </c:if>
-               <div id="w-node-6e4e2e1f6acc-0f967a12" class="pluses">
+               <div id="w-node-6e4e2e1f6acc-d678b9c0" class="pluses">
                   <div class="blockTitle">Минусы</div>
                   ${bookmaker.minuses}
                </div>
-               <div id="w-node-438b71409009-0f967a12" class="pluses">
+               <div id="w-node-438b71409009-d678b9c0" class="pluses">
                   <div class="blockTitle">Плюсы</div>
                   ${bookmaker.pluses}                  
                </div>

@@ -31,7 +31,7 @@
          </div>
       </c:if>
       <div class="leave_comments">
-         <div id="w-node-fa354157dd47-0f967a12" class="comments_form w-form">
+         <div id="w-node-fa354157dd47-d678b9c0" class="comments_form w-form">
             <form action="${contextPath}/save_comment" method="get" id="email-form" name="email-form" data-name="Email Form" class="w-clearfix">
                <label for="name" class="field-label">Оставить отзыв</label>
                <input type="email" name="email"  id="email" class="comments_name_field email w-input" maxlength="256" placeholder="Email" />
