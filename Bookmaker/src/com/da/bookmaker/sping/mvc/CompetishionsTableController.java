@@ -74,7 +74,7 @@ public class CompetishionsTableController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("leagueTablePage", map);
+		return new ModelAndView("leagueTable", map);
 	}
 
 	private List<LeagueTableBean> getLeagueTable(String league) throws DaoException {
