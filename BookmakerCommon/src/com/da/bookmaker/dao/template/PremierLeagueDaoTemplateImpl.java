@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,13 +30,10 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 	
 	private final static String DELETE_MATCHES_LIST = "DELETE FROM PREMIER_LEAGUE WHERE LEAGUE = ? AND BOOKMAKER_ID = ?";
 	
-	private static final String GET_EVENTS_LIST_SORTED_BY_DATE = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
-			"PL.X, PL.X1, PL.X2, PL.X12, PL.TOTAL, PL.LESS_TOTAL, PL.MORE_TOTAL, PL.HAND, PL.HAND1, PL.HAND2, PL.LEAGUE, B.ID B_ID, B.NAME, " +
-			"B.LINK, B.IMAGE"
-			+ " FROM PREMIER_LEAGUE PL "
-			+ " JOIN BOOKMAKERS B "
-			+ " ON B.ID = PL.BOOKMAKER_ID"
-			+ " WHERE LEAGUE = UPPER(?) AND BOOKMAKER_ID = 1 ORDER BY PL.DATE ASC";
+	private static final String GET_EVENTS_LIST_SORTED_BY_DATE = "SELECT ID, DATE, TEAM1, TEAM2, WIN1, WIN2, " + 
+			"X, X1, X2, X12, TOTAL, LESS_TOTAL, MORE_TOTAL, HAND, HAND1, HAND2, LEAGUE"
+			+ " FROM PREMIER_LEAGUE"
+			+ " WHERE LEAGUE = ? AND BOOKMAKER_ID = 1";
 	
 	//Расставить алиасы для повторяющихся полей, также алиасы в мапинге и имена таблиц перед поялми. 
 	private final static String GET_ALL_MATCHES_LIST = "SELECT PL.ID PL_ID, PL.DATE, PL.TEAM1, PL.TEAM2, PL.WIN1, PL.WIN2, " + 
@@ -303,9 +299,8 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 					result.put(date, list);
 				}
 				PremierLeagueBean bean = new PremierLeagueBean();
-				bean.setId(rs.getLong("PL_ID"));
+				bean.setId(rs.getLong("ID"));
 				bean.setDate(rs.getTimestamp("DATE"));
-				bean.setDateTimeStamp(rs.getTimestamp("DATE"));
 				bean.setTeam1(rs.getString("TEAM1"));
 				bean.setTeam2(rs.getString("TEAM2"));
 				bean.setWin1(rs.getDouble("WIN1"));
@@ -321,14 +316,6 @@ public class PremierLeagueDaoTemplateImpl implements PremierLeagueDao{
 				bean.setHand1(rs.getDouble("HAND1"));
 				bean.setHand2(rs.getDouble("HAND2"));
 				bean.setLeague(rs.getString("LEAGUE"));		
-				
-				BookmakerBean bookmakerBean = new BookmakerBean();
-				bookmakerBean.setBookMakerId(rs.getLong("B_ID"));
-				bookmakerBean.setName(rs.getString("NAME"));
-				bookmakerBean.setLink(rs.getString("LINK"));
-				bookmakerBean.setImage(rs.getString("IMAGE"));
-				bean.setBookmakerBean(bookmakerBean);
-				
 				list.add(bean);
 				return bean;
 			}

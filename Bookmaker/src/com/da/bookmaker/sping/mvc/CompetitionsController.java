@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.da.bookmaker.dao.DaoException;
 
 @Controller
-public class CompetishionsController extends BookmakerController {
+public class CompetitionsController extends BookmakerController {
 
 	private InputStream fis;
 	static private Properties property;

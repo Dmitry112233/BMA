@@ -15,7 +15,7 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class CompetishionsDecriptionController extends BookmakerController {
+public class CompetitionsDecriptionController extends BookmakerController {
 
 	private InputStream fis;
 	static private Properties property;

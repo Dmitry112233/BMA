@@ -5,7 +5,8 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -20,7 +21,7 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class PremierLeagueController extends BookmakerController {
+public class LeagueController extends BookmakerController {
 
 	private InputStream fis;
 	static private Properties property;
@@ -28,17 +29,12 @@ public class PremierLeagueController extends BookmakerController {
 	@RequestMapping("/{league}_матчи")
 	public ModelAndView getMainList(@PathVariable("league") String league)
 			throws DaoException, ParseException, IOException {
-		Map<String, Object> map = new HashMap<>();
-		Map<LocalDate, ArrayList<PremierLeagueBean>> map1 = DaoFactory.getPremierLeagueDao().getEventsListByDate(league);
-		List<LocalDate> dates = new ArrayList<LocalDate>(map1.keySet());
-		//getMatchesList(league);
+		Map<LocalDate, ArrayList<PremierLeagueBean>> map = DaoFactory.getPremierLeagueDao().getEventsListByDate(league);
+		List<LocalDate> dates = new ArrayList<LocalDate>(map.keySet());
+		Collections.sort(dates);
 		ModelAndView modelAndView = new ModelAndView("leagueMatches");
-		//map.putAll(getBookmakerList());
-		//map.put("leagueLower", league);
-		//map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
-		modelAndView.addAllObjects(map);
 		modelAndView.addAllObjects(getBookmakerList());
-		modelAndView.addObject("mapMatch", map1);
+		modelAndView.addObject("mapMatch", map);
 		modelAndView.addObject("dates", dates);
 		modelAndView.addObject("leagueLower", league);
 		modelAndView.addObject("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
@@ -90,19 +86,4 @@ public class PremierLeagueController extends BookmakerController {
 		return modelAndView;
 	}
 
-	private Map<LocalDate, ArrayList<PremierLeagueBean>> getMatchesList(String leagueName)
-			throws DaoException, ParseException {
-		Map<LocalDate, ArrayList<PremierLeagueBean>> map = DaoFactory.getPremierLeagueDao().getEventsListByDate(leagueName);
-		List<LocalDate> dates = new ArrayList<LocalDate>(map.keySet());
-		System.out.println(dates.size());
-		for (LocalDate date : dates) {
-			System.out.println(date);
-			for (PremierLeagueBean bean : map.get(date)) {
-				if (date.compareTo(bean.getDateTimeStamp().toLocalDateTime().toLocalDate()) == 0) {
-					System.out.println(bean.getTeam1() + " " + bean.getTeam2());
-				}
-			}
-		}
-		return map;
-	}
 }

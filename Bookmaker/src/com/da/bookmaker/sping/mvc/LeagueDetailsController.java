@@ -18,7 +18,7 @@ import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
-public class PremierLeagueDetailsController extends BookmakerController {
+public class LeagueDetailsController extends BookmakerController {
 	@RequestMapping("/{league}_{team1}_{team2}_детали")
 	public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2,
 			@PathVariable("league") String league) throws DaoException, ParseException {

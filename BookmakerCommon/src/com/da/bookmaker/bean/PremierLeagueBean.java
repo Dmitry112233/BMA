@@ -10,16 +10,6 @@ public class PremierLeagueBean {
 	private long id;
 	
 	private Date date;
-	
-	private Timestamp dateTimeStamp;
-	
-	public Timestamp getDateTimeStamp() {
-		return dateTimeStamp;
-	}
-
-	public void setDateTimeStamp(Timestamp dateTimeStamp) {
-		this.dateTimeStamp = dateTimeStamp;
-	}
 
 	public static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 	
