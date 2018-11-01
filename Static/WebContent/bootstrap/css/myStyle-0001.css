@@ -393,3 +393,57 @@
 .sideBanner, .sideLeagueTablePart {
 	margin-bottom: 15px;
 }
+
+.myExpressWrapper {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.myExpressRows {
+	display: grid;
+	grid-template-columns: 50px 2fr 1fr 1fr;
+	grid-column-gap: 16px;
+    grid-row-gap: 16px;  
+    align-items: center;
+}
+
+.sportIcon {
+	height: 18px; 
+}
+
+.myExpressRows.dark {
+	background-color: #e2e2e5;
+	height: 30px;
+	grid-template-rows: 30px;
+}
+
+.myExpressRows.light {
+	background-color: #fff;
+	height: 50px;
+	grid-template-rows: 50px;
+}
+
+.myExpressFooter {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	background-color: #fff;
+	height: 90px;
+	grid-template-rows: 90px;
+	align-items: center;
+	padding-right: 30px;
+    padding-left: 30px;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+}
+
+.exp_sports_text, .final_result_text {
+	justify-self: start;
+}
+
+.exp_itm, .exp_score, .exp_btn_replay_fr, .exp_description_btn_fr {
+	justify-self: center;
+}
+
+.sportIconFr, .exp_matches_num {
+	justify-self: end;
+}
