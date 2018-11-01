@@ -29,7 +29,7 @@ public class ExpressDescriptionController extends BookmakerController {
 		map.put("offset", getOffset(id));
 		map.putAll(getBookmakerList());
 		map.putAll(getBookmakerWeight());
-		return new ModelAndView("expressDescriptionPage", map);
+		return new ModelAndView("expressDescription", map);
 	}
 
 	public int getOffset(int id) throws DaoException {

@@ -205,18 +205,9 @@
                      ${Competishions_Txt}
                   </div>
                </div>
-               <div class="col_info_competishons_2 w-col w-col-4">
-                  <div class="banner_block">
-                     <div class="w-row">
-                        <div class="col_banner_logo w-col w-col-6">
-                           <div class="banner_logo">
-                           </div>
-                        </div>
-                        <div class="col_button w-col w-col-6">
-                        </div>
-                     </div>
-                  </div>
-               </div>
+               <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
+               <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
+               <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import>
             </div>
          </div>
       </div>

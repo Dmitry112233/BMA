@@ -37,6 +37,7 @@
                   </div>
                </div>
                <c:import url="parts/sideLeagueTable.jsp"></c:import>
+               <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
             </div>
          </div>
       </div>
