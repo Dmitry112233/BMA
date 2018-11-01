@@ -349,3 +349,42 @@
 .command_name.vs2 {
 	justify-self: start;
 }
+
+.myLeagueTable {
+	display: grid;
+	grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    grid-column-gap: 16px;
+    grid-row-gap: 0px;
+    background-color: #fff;
+}
+
+.myLeagueTableRow {
+	display: grid;
+	grid-template-columns: 0.5fr 0.5fr 4.5fr 0.7fr 0.7fr 0.7fr 0.7fr 1fr 1fr;
+    height: 50px;
+    grid-column-gap: 5px;
+    grid-row-gap: 16px;
+    grid-template-rows: 50px;
+    border-bottom: 1px solid #e2e2e5;
+    align-items: end;
+}
+
+.full_table_command_name_text.bold {
+	grid-column: 2/4;
+}
+
+.myLeagueTableTeamLogo {
+	height: 26px;
+	margin-bottom: 3px;
+}
+
+.full_table_num_text, .full_table_points_img, .full_table_points, .full_table_final_point {
+	justify-self: center;
+}
