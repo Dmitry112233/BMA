@@ -36,9 +36,7 @@
                   </div>
                   <div class="rpl_matches_block">
                      <c:forEach var="date" items="${dates}">
-                     
                         <div class="date_matches"><fmt:formatDate pattern = "dd.MM.yyyy" value = "${mapMatch.get(date).get(0).date}" /></div>
-                        
                         <c:forEach var="events" items="${mapMatch.get(date)}">
                            <div class="myLeagueMatchesWrapper">
                               <div class="myLeagueMatches" onclick="window.location.href='${contextPath}/${events.url}'; return false">

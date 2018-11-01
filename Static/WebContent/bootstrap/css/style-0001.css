@@ -2362,13 +2362,10 @@
   padding-right: 10px;
 }
 
+/* it's mine */
 .full_table_link {
   padding-right: 30px;
   float: right;
-  background-image: url("../images/5bc760871164306d3698fa0e_Arrow20go.png");
-  background-position: 100% 48%;
-  background-size: 24px;
-  background-repeat: no-repeat;
   color: #146dda;
   text-decoration: none;
 }
@@ -2378,14 +2375,11 @@
   color: #0f5cbb;
 }
 
+/* it's mine */
 .banner_link_block {
   width: 100%;
   height: 200px;
-  margin-top: 20px;
-  background-image: url("../images/5bc6c87be70a6095de7b6aa5_banner_leon_4005B200.png");
-  background-position: 0px 0px;
-  background-size: cover;
-  background-repeat: no-repeat;
+  margin-top: 20px;  
 }
 
 .rpl_bet_container {
@@ -2449,11 +2443,7 @@
   /* padding-right: 25px; */
   -webkit-align-self: center;
   -ms-flex-item-align: center;
-  align-self: center;
-  background-image: url("../images/5bc77111cb651561c017a464_lokomotiv_png.png");
-  background-position: 100% 50%;
-  background-size: 20px;
-  background-repeat: no-repeat;
+  align-self: center;  
   font-size: 16px;
   line-height: 30px;
 }
@@ -2465,9 +2455,6 @@
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-  background-image: url("../images/5bc77111d4ae71d63b1c4aeb_CSKA.png");
-  background-position: 0px 50%;
-  background-size: 20px;
 }
 
 .draw_coef {

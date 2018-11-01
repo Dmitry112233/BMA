@@ -64,7 +64,7 @@ public class LeagueDetailsController extends BookmakerController {
 		map.putAll(lastMatchesTeam1Team2);
 		map.putAll(getBookmakerList());
 
-		return new ModelAndView("details", map);
+		return new ModelAndView("matchDetails", map);
 	}
 
 	private List<GroupBean> getGroupForTeam(String team, String leagueName) throws DaoException, ParseException {

@@ -267,3 +267,85 @@
 .drow_coef_number, .coefficient_matches {
 	font-size: 14px;
 }
+
+.myHederTeamLogo {
+	height: 50px;
+}
+
+.myBkCompareTable {
+	display: grid;
+	grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 1220px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;    
+    background-color: #fff;
+}
+
+.myBkCompareRow {
+	display: grid;
+	grid-template-columns: 0.5fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
+	align-items: center;
+	justify-items: center;
+	height: 50px;
+}
+
+.myBkCompareRow.header {
+	border-bottom: 1px solid #000;	
+}
+
+.myBkCompareRow.row {
+	border-bottom: 1px solid #e2e2e5;	
+}
+
+.bookmaker_points.first {
+	justify-self: start;
+	margin-left: 20px;
+}
+
+.bmCeffListLogo {
+	height: 20px;
+}
+
+.myTeamHistoryTable {
+	display: grid;
+	grid-template-columns: 1fr;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    background-color: #fff;
+}
+
+.myTeamHistoryRow {
+	display: grid;
+	grid-template-columns: 0.8fr 1.75fr 0.7fr 1.75fr 1fr;
+	height: 60px;
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+    grid-template-rows: 60px;
+    color: #000;
+    text-decoration: none;
+    align-items: center;
+}
+
+.myTeamLogo {
+	height: 30px;
+}
+
+.tab_matches-date, .matches_score-text, .championats_min-naming {
+	justify-self: center;
+}
+
+.command_name.vs {
+	justify-self: end;
+}
+
+.command_name.vs2 {
+	justify-self: start;
+}
