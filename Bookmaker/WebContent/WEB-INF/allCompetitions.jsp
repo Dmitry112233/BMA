@@ -22,19 +22,19 @@
             <div data-duration-in="300" data-duration-out="100" class="hero_championats_tab w-tabs">
                <div class="championats_tabs_menu w-tab-menu">
                   <a data-w-tab="Tab 7" class="tab_links w-inline-block w-tab-link w--current">
-                     <div class="champ_tab_text"><img src="/Static/bootstrap/img/leagueIcon/российская премьер лига.png" onerror="this.style.display='none'" /> Премьер-Лига (Россия)</div>
+                     <div class="myChampTabs champ_tab_text"><img src="/Static/bootstrap/img/leagueIcon/российская премьер лига.png" onerror="this.style.display='none'" /><p>Премьер-Лига (Россия)</p></div>
                   </a>
                   <a data-w-tab="Tab 8" class="tab_links w-inline-block w-tab-link">
-                     <div class="champ_tab_text england"><img src="/Static/bootstrap/img/leagueIcon/английская премьер лига_dark.png" onerror="this.style.display='none'" /> Премьер-Лига (Англия)</div>
+                     <div class="myChampTabs champ_tab_text england"><img src="/Static/bootstrap/img/leagueIcon/английская премьер лига_dark.png" onerror="this.style.display='none'" /><p>Премьер-Лига (Англия)</p></div>
                   </a>
                   <a data-w-tab="Tab 11" class="tab_links w-inline-block w-tab-link">
-                     <div class="champ_tab_text spain"><img src="/Static/bootstrap/img/leagueIcon/испанская ла лига.png" onerror="this.style.display='none'" /> Ла Лига (Испания)</div>
+                     <div class="myChampTabs champ_tab_text spain"><img src="/Static/bootstrap/img/leagueIcon/испанская ла лига.png" onerror="this.style.display='none'" /><p>Ла Лига (Испания)</p></div>
                   </a>
                   <a data-w-tab="Tab 10" class="tab_links w-inline-block w-tab-link">
-                     <div class="champ_tab_text italy"><img src="/Static/bootstrap/img/leagueIcon/итальянская серия а.png" onerror="this.style.display='none'" /> Серия А (Италия)</div>
+                     <div class="myChampTabs champ_tab_text italy"><img src="/Static/bootstrap/img/leagueIcon/итальянская серия а.png" onerror="this.style.display='none'" /><p>Серия А (Италия)</p></div>
                   </a>
                   <a data-w-tab="Tab 9" class="tab_links w-inline-block w-tab-link">
-                     <div class="champ_tab_text germany"><img src="/Static/bootstrap/img/leagueIcon/немецкая бундеслига.png" onerror="this.style.display='none'" /> Бундеслига (Германия)</div>
+                     <div class="myChampTabs champ_tab_text germany"><img src="/Static/bootstrap/img/leagueIcon/немецкая бундеслига.png" onerror="this.style.display='none'" /><p>Бундеслига (Германия)</p></div>
                   </a>
                   <!-- <a data-w-tab="Tab 12" class="tab_links w-inline-block w-tab-link">
                      <div class="champ_tab_text france">Франция Лига 1</div>
@@ -197,7 +197,7 @@
          </div>
          <div class="seo_text_block">
             <div class="w-row">
-               <div class="column-20 w-col w-col-8">
+               <div class="column-13 w-col w-col-8 w-col-stack">
                   <div class="seoBlock">
                      <div class="info_bookmakers col_info_competishons">
                         <h2 class="seo_h2_text">Ставки на футбол сегодня</h2>

@@ -55,7 +55,7 @@
             </div>
             </c:forEach>
          </div>
-         <div class="seoBlock">
+         <div class="seoBlock tablepage">
             ${Table_Txt}
          </div>
       </div>

@@ -196,7 +196,9 @@
 
 .champ_tab_text {
 	padding-left: 0px;
-	margin-left: 5px;
+	margin-left: 0px;
+	padding-top: 0px;
+    padding-right: 0px;
 }
 
 .champ_tab_text img, .myLeagueIcon {
@@ -363,6 +365,7 @@
     grid-column-gap: 16px;
     grid-row-gap: 0px;
     background-color: #fff;
+    margin-bottom: 15px;
 }
 
 .myLeagueTableRow {
@@ -515,6 +518,29 @@
 	width: 100%;
 }
 
+.myChampTabs {
+	display: grid;
+	grid-template-columns: 60px 4fr;
+	align-items: center;
+	grid-column-gap: 8px;
+}
+
+.myChampTabs img {
+	justify-self: center;
+}
+
+.myChampTabs p {
+	margin-bottom: 0px;
+}
+
+.seoBlock.tablepage {
+	display: block;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 900px;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -524,6 +550,10 @@
 @media (min-width: 768px) and (max-width: 991px) {
 	.myChampionatTable {
 		width: 100%;
+	}
+	
+	.champ_description_text {
+		line-height: 1.4;
 	}
 }
 	
@@ -545,5 +575,13 @@
 	
 	.rpl_img {
 		height: 100px;
+	}
+	
+	.champ_tab_text {
+		font-size: 18px;
+	}
+	
+	.tab_panel {
+		height: 435px;
 	}
 }
