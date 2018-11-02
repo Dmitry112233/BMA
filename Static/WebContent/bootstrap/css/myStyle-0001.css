@@ -447,3 +447,28 @@
 .sportIconFr, .exp_matches_num {
 	justify-self: end;
 }
+
+.myTitleBlock {
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	grid-auto-rows: minmax(60px, auto);
+	background-color: #fff;
+	align-items: center;
+}
+
+.myPageTitle {
+	justify-self: start;
+	padding-left: 20px;
+}
+
+.allExprButton {
+	justify-self: center;	
+}
+
+.myPageTitle h1 {
+	margin-bottom: 0px;
+}
+
+.exp_sports_text {
+	grid-column: 2/5;	
+}
