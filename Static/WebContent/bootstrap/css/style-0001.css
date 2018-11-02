@@ -2385,9 +2385,10 @@
   padding-top: 20px;
 }
 
+/* it's mine */
 .button_description_grew {
   position: relative;
-  right: -120px;
+  /* right: -120px; */
   padding-top: 11px;
   padding-bottom: 7px;
   border-radius: 2px;
@@ -3549,7 +3550,7 @@
     right: -55px;
   }
   .button_description_grew.table_champ {
-    right: -95px;
+    right: 10px;
   }
   .container_table {
     padding-right: 10px;

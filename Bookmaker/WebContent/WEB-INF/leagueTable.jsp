@@ -23,7 +23,7 @@
             <div class="rpl_img">
                <img src="/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg" onerror="this.style.display='none'" />
             </div>
-            <div class="rpl_description">
+            <div class="rpl_description myLeagueTableTitleBlock">
                <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
                <h1 class="champ_title">${Table_H1}</h1>
                <a href="${contextPath}/${leagueLower}_описание" class="button_description_grew table_champ w-button">Описание</a>

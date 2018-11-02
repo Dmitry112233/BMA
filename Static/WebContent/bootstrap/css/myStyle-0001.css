@@ -541,6 +541,11 @@
     max-width: 900px;
 }
 
+.myLeagueTableTitleBlock h1 {
+	margin-top: 10px;
+	padding-left: 15px;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -553,6 +558,11 @@
 	}
 	
 	.champ_description_text {
+		line-height: 1.4;
+	}
+	
+	.myLeagueTableTitleBlock h1 {
+		padding-right: 25px;
 		line-height: 1.4;
 	}
 }
@@ -583,5 +593,10 @@
 	
 	.tab_panel {
 		height: 435px;
+	}
+	
+	.myLeagueTableTitleBlock h1 {
+		padding-left: 0px;
+		text-align: center;
 	}
 }
