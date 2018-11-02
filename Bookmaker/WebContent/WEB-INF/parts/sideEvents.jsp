@@ -15,19 +15,19 @@
          <div class="tab-menu w-tab-menu">
             <a data-w-tab="football" class="tab_link_sport w-inline-block w-clearfix w-tab-link w--current">
                <div class="text-block-13">Футбол</div>
-               <img src="/Static/bootstrap/img/sportsIcons/football.png" width="18" alt="" class="image" />
+               <img src="/Static/bootstrap/img/sportsIcons/football.png" width="18" alt="" class="image sideEventsIcons" />
             </a>
             <a data-w-tab="basketball" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Баскетбол</div>
-               <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="18" alt="" class="image-2" />
+               <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="18" alt="" class="image-2 sideEventsIcons" />
             </a>
             <a data-w-tab="hockey" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Хоккей</div>
-               <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="17" alt="" class="image-3" />
+               <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="17" alt="" class="image-3 sideEventsIcons" />
             </a>
             <a data-w-tab="tennis" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Теннис</div>
-               <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="18" alt="" class="image-4" />
+               <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="18" alt="" class="image-4 sideEventsIcons" />
             </a>
          </div>
          <div class="tabs-content w-tab-content">

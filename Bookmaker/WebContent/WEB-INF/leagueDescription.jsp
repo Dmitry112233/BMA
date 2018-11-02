@@ -21,7 +21,7 @@
       <div class="hero_rpl_section">
          <div class="hero_rpl_block">
             <div class="col_rpl w-row">
-               <div class="col_rpl_info w-col w-col-8 w-col-stack">
+               <div class="leagueDescrBlock col_rpl_info w-col w-col-8 w-col-stack">
                   <div class="rpl_img_block">
                      <div class="rpl_img">
                      	<img src="/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg" onerror="this.style.display='none'" />
@@ -29,7 +29,7 @@
                   </div>
                   <div class="rpl_description">
                   	 <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
-                     <h1 class="champ_title">${league_H1}</h1>
+                     <h1 class="champ_title myLeagueDescrTitle">${league_H1}</h1>
                      <a href="${contextPath}/competitions" class="button_all_champ w-button">Все чемпионаты</a>
                   </div>
                   <div class="seoBlock">

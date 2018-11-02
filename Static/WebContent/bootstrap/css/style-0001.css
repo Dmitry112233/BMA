@@ -483,15 +483,13 @@
   color: #fff;
 }
 
+/* it's mine */
 .col-2-new {
   position: static;
-  max-height: 600px;
-  padding-right: 0px;
+  max-height: 600px;  
 }
 
-.col-1-rating {
-  padding-left: 0px;
-}
+/* it's mine */
 
 .express {
   position: static;
@@ -1265,9 +1263,7 @@
   font-family: Helveticaneuecyr, sans-serif;
 }
 
-.column-13 {
-  padding-left: 0px;
-}
+/* it's mine */
 
 .column-14 {
   padding-right: 10px;
@@ -2222,9 +2218,7 @@
   padding-bottom: 20px;
 }
 
-.col_rpl_info {
-  padding-left: 0px;
-}
+/* it's mine */
 
 .col_table_champ {
   padding-right: 0px;
@@ -2252,10 +2246,10 @@
 /* it's mine */
 .rpl_img {
   height: 200px;
-  /* background-image: url("../images/5bc735b4e70a60a0197bd8fa_SD_414220(1).jpg");
+  /* background-image: url("../img/leagueHeader/${leagueLower}.jpg"); */
   background-position: 50% 23%;
   background-size: cover;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 }
 
 /* it's mine */
@@ -3487,6 +3481,7 @@
   .seoBlock {
     padding-right: 25px;
     padding-left: 25px;
+    max-width: none;
   }
   .comments_block {
     height: 800px;
@@ -3512,8 +3507,8 @@
   }
   .col_comments {
     margin-top: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
   .tab_content_block {
     padding-top: 2%;
@@ -3542,10 +3537,7 @@
   .col_table_champ {
     padding-right: 10px;
   }
-  .champ_title {
-    font-size: 18px;
-    line-height: 50px;
-  }
+  /* it's mine */
   .button_all_champ.all_matches {
     width: 100px;
   }
@@ -4137,10 +4129,7 @@
   .button_rate {
     margin-right: 5px;
   }
-  .col_rpl_info {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
+  /* it's mine */
   .rpl_description {
     height: 100%;
     padding-top: 15px;

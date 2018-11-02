@@ -148,10 +148,9 @@
 
 .myChampTableFooter {
 	display: grid;
-	grid-template-columns: 1fr;
-	grid-auto-rows: 60px;
-	align-items: center;
-	justify-self: end;   
+	text-align: right;
+	height: 50px;
+	align-items: center;	
 }
 
 .myTeamPlace, .myTeamPoints {
@@ -472,7 +471,7 @@
 	grid-column: 2/5;	
 }
 
-.myExpressDescrBlock {
+.myExpressDescrBlock, .leagueDescrBlock {
 	padding-left: 10px;
 }
 
@@ -491,6 +490,43 @@
     background-color: #ffffff;
 }
 
+.rpl_description {
+	margin-bottom: 20px;
+}
+
+.myLeagueDescrTitle {
+	padding-left: 20px;
+	padding-right: 20px;
+	line-height: 1.4;
+}
+
+.seoBlock {
+	margin-bottom: 15px;
+}
+
+.rpl_img {
+	position: relative;
+}
+
+.rpl_img img {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+	.sideEventsIcons {
+		display: none;
+	}
+}
+	
+@media (min-width: 768px) and (max-width: 991px) {
+	.myChampionatTable {
+		width: 100%;
+	}
+}
+	
 @media (max-width: 767px) {
 	.myExpressRows {
 		grid-row-gap: 8px;
@@ -501,5 +537,13 @@
 		padding-right: 5px;
 		padding-left: 10px;
 		grid-column-gap: 5px;
+	}
+	
+	.myChampionatTable {
+		width: 100%;
+	}
+	
+	.rpl_img {
+		height: 100px;
 	}
 }
