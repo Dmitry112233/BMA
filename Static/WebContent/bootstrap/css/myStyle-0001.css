@@ -418,9 +418,8 @@
 }
 
 .myExpressRows.light {
-	background-color: #fff;
-	height: 50px;
-	grid-template-rows: 50px;
+	background-color: #fff;	
+	grid-auto-rows: minmax(50px, auto);
 }
 
 .myExpressFooter {
@@ -471,4 +470,36 @@
 
 .exp_sports_text {
 	grid-column: 2/5;	
+}
+
+.myExpressDescrBlock {
+	padding-left: 10px;
+}
+
+.myExpressWrapper.descr {
+	margin-bottom: 15px;
+}
+
+.text-block-24 {
+	text-align: right;
+}
+
+.notFoundBlock {
+	padding-top: 200px;
+    padding-bottom: 300px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+@media (max-width: 767px) {
+	.myExpressRows {
+		grid-row-gap: 8px;
+		grid-column-gap: 8px;  
+	}
+	
+	.myExpressFooter {
+		padding-right: 5px;
+		padding-left: 10px;
+		grid-column-gap: 5px;
+	}
 }

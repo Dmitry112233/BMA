@@ -44,7 +44,7 @@
                         <h3 class="heading-8">FindBestBet.ru</h3>
                      </div>
                      <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
-                        <div class="text-block-24">Ставки на спорт</div>
+                        <div class="text-block-24">Ставки<br>на спорт</div>
                      </div>
                   </div>
                </div>

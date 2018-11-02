@@ -21,7 +21,7 @@
       <div class="bets_description-section">
          <div class="bets_description_block">
             <div class="bets_description-columns w-row">
-               <div class="beta_desc_col1 w-col w-col-8 w-col-stack">
+               <div class="myExpressDescrBlock beta_desc_col1 w-col w-col-8 w-col-stack">
                   <div class="myTitleBlock bets_discr_tabs">
                         <div class="myPageTitle">
                         	<h1 class="discr_title_text">Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet}</h1>
@@ -37,7 +37,7 @@
                            <div id="w-node-8374c0a44c1d-b178b9c7" class="date_block">Дата начала: ${express.dateStr}</div>
                         </div>
                      </div>
-                     <div class="myExpressWrapper">
+                     <div class="myExpressWrapper descr">
                         <c:set var="tableRow" value="0" />
                         <c:forEach var="ivent" items="${express.iventList}">
                            <div class="myExpressRows dark">
@@ -69,7 +69,7 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               </div>              
                <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
                <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
                <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import>
