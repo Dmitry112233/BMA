@@ -27,19 +27,18 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 		this.dataSource = dataSource;
 	}
 
-	private static final String GET_DETAILS_BY_TEAM_SQL = "SELECT md.TEAM1, md.TEAM2, md.DATE, md.GOALS_TEAM1, md.GOALS_TEAM2, md.PENALTY_TEAM1, md.PENALTY_TEAM2, md.CHAMPIONSHIP "
-			+ "FROM MATCH_DETAILS md " + "LEFT JOIN TEAM_DICTIONARY td1 " + "ON td1.WILDSTAT_NAME = md.TEAM1 "
-			+ "LEFT JOIN TEAM_DICTIONARY td2 " + "ON td2.WILDSTAT_NAME = md.TEAM2 "
-			+ "WHERE UPPER(td1.XBET_NAME) = UPPER(?) OR UPPER(td2.XBET_NAME) = UPPER(?) ORDER BY DATE DESC LIMIT 10";
+	private static final String GET_DETAILS_BY_TEAM_SQL = 
+			"SELECT TEAM1, TEAM2, DATE, GOALS_TEAM1, GOALS_TEAM2, PENALTY_TEAM1, PENALTY_TEAM2, CHAMPIONSHIP "
+			+ "FROM MATCH_DETAILS "
+			+ "WHERE UPPER(TEAM1) = UPPER(?) OR UPPER(TEAM2) = UPPER(?) LIMIT 10";
 
 	private static final String INSERT_MATCHES_DETAILS = "INSERT INTO MATCH_DETAILS (TEAM1, TEAM2, DATE, GOALS_TEAM1, GOALS_TEAM2, PENALTY_TEAM1, PENALTY_TEAM2, CHAMPIONSHIP) "
 			+ "VALUES (?,?,?,?,?,?,?,?)";
 
 	private static final String GET_DETAILS_BY_TEAMS_SQL = 
-			"Select md.TEAM1, md.TEAM2, md.DATE, md.GOALS_TEAM1, md.GOALS_TEAM2, md.PENALTY_TEAM1, md.PENALTY_TEAM2, md.CHAMPIONSHIP "
-			+ "FROM MATCH_DETAILS md LEFT JOIN TEAM_DICTIONARY td1 ON td1.WILDSTAT_NAME = md.TEAM1 "
-			+ "LEFT JOIN TEAM_DICTIONARY td2 ON td2.WILDSTAT_NAME = md.TEAM2 "
-			+ "WHERE (UPPER(td1.XBET_NAME) = UPPER(?) AND UPPER(td2.XBET_NAME) = UPPER(?)) OR (UPPER(td1.XBET_NAME) = UPPER(?) AND UPPER(td2.XBET_NAME) = UPPER(?))";
+			"SELECT TEAM1, TEAM2, DATE, GOALS_TEAM1, GOALS_TEAM2, PENALTY_TEAM1, PENALTY_TEAM2, CHAMPIONSHIP "
+			+ "FROM MATCH_DETAILS "
+			+ "WHERE UPPER(TEAM1) = UPPER(?) AND UPPER(TEAM2) = UPPER(?) OR UPPER(TEAM2) = UPPER(?) AND UPPER(TEAM1) = UPPER(?)";
 
 	private static final String GET_ALL_MATCHES = "SELECT TEAM1, TEAM2, DATE, GOALS_TEAM1, GOALS_TEAM2, PENALTY_TEAM1, PENALTY_TEAM2, CHAMPIONSHIP FROM MATCH_DETAILS";
 
@@ -53,7 +52,7 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 	@Override
 	public List<MatchDetailsBean> getDetailsByTeam(String team) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
-		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM_SQL, new Object[] { team, team },
+		List<MatchDetailsBean> beans = template.query(GET_DETAILS_BY_TEAM_SQL, new Object[] {team, team},
 				new RowMapper<MatchDetailsBean>() {
 					@Override
 					public MatchDetailsBean mapRow(ResultSet rs, int rowNum) throws SQLException {
