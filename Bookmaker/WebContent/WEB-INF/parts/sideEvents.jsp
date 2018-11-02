@@ -15,19 +15,19 @@
          <div class="tab-menu w-tab-menu">
             <a data-w-tab="football" class="tab_link_sport w-inline-block w-clearfix w-tab-link w--current">
                <div class="text-block-13">Футбол</div>
-               <img src="/Static/bootstrap/img/sportsIconsNew/soccer-ball.svg" width="18" alt="" class="image" />
+               <img src="/Static/bootstrap/img/sportsIcons/football.png" width="18" alt="" class="image" />
             </a>
             <a data-w-tab="basketball" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Баскетбол</div>
-               <img src="/Static/bootstrap/img/sportsIconsNew/volley-ball.svg" width="18" alt="" class="image-2" />
+               <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="18" alt="" class="image-2" />
             </a>
             <a data-w-tab="hockey" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Хоккей</div>
-               <img src="/Static/bootstrap/img/sportsIconsNew/hockey.svg" width="17" alt="" class="image-3" />
+               <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="17" alt="" class="image-3" />
             </a>
             <a data-w-tab="tennis" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Теннис</div>
-               <img src="/Static/bootstrap/img/sportsIconsNew/tennis-ball.svg" width="18" alt="" class="image-4" />
+               <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="18" alt="" class="image-4" />
             </a>
          </div>
          <div class="tabs-content w-tab-content">
@@ -37,7 +37,7 @@
                   <div class="football-text">
                      <div class="w-row">
                         <div class="column-16 w-col w-col-9 w-col-small-6">
-                           <img src="/Static/bootstrap/img/sportsIconsNew/soccer-ball.svg" width="20" alt="" class="ball-img" />
+                           <img src="/Static/bootstrap/img/sportsIcons/football.png" width="20" alt="" class="ball-img" />
                            <div class="text-block-14">${footballIvents.competition}</div>
                         </div>
                         <div class="w-clearfix w-col w-col-3 w-col-small-6">
@@ -65,7 +65,7 @@
                      <div class="football-text">
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
-                              <img src="/Static/bootstrap/img/sportsIconsNew/volley-ball.svg" width="20" alt="" class="ball-img" />
+                              <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="20" alt="" class="ball-img" />
                               <div class="text-block-14">${basketballIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
@@ -93,7 +93,7 @@
                      <div class="football-text">
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
-                              <img src="/Static/bootstrap/img/sportsIconsNew/hockey.svg" width="20" alt="" class="ball-img" />
+                              <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="20" alt="" class="ball-img" />
                               <div class="text-block-14">${hockeyIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
@@ -121,7 +121,7 @@
                      <div class="football-text">
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
-                              <img src="/Static/bootstrap/img/sportsIconsNew/tennis-ball.svg" width="20" alt="" class="ball-img" />
+                              <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="20" alt="" class="ball-img" />
                               <div class="text-block-14">${tennisIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
