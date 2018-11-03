@@ -5,7 +5,7 @@
 <div id="DetailsBlock" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
    <div class="details">
       <br>
-      <a class="BackButton" href="${contextPath}/${league}_матчи"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
+      <a class="BackButton" href="${contextPath}/${leagueLower}_матчи"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Список игр</a>
       <c:if test="${xBetList.size() > 0}">
          <br>
          <br>
