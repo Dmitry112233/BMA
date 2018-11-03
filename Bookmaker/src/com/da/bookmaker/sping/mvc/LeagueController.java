@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +29,7 @@ public class LeagueController extends BookmakerController {
 	public ModelAndView getMainList(@PathVariable("league") String league)
 			throws DaoException, ParseException, IOException {
 		Map<LocalDate, ArrayList<PremierLeagueBean>> map = DaoFactory.getPremierLeagueDao().getEventsListByDate(league);
+		map = setWildstatNames(map);
 		List<LocalDate> dates = new ArrayList<LocalDate>(map.keySet());
 		Collections.sort(dates);
 		ModelAndView modelAndView = new ModelAndView("leagueMatches");
@@ -84,6 +84,16 @@ public class LeagueController extends BookmakerController {
 			}
 		}
 		return modelAndView;
+	}
+	
+	private Map<LocalDate, ArrayList<PremierLeagueBean>> setWildstatNames(Map<LocalDate, ArrayList<PremierLeagueBean>> map) throws DaoException{
+		for(LocalDate date : map.keySet()){
+			for(PremierLeagueBean bean : map.get(date)){
+				bean.setTeam1(DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(bean.getTeam1()));
+				bean.setTeam2(DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(bean.getTeam2()));
+			}
+		}
+		return map;
 	}
 
 }

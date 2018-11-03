@@ -21,21 +21,20 @@ public class LeagueDetailsController extends BookmakerController {
 	public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2,
 			@PathVariable("league") String league) throws DaoException, ParseException {
 		
-		String wildstatTeam1 = DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(team1);
-		String wildstatTeam2 = DaoFactory.getMatchDetailsDao().getWildstatNameFromDictionary(team2);
+
 		Map<String, Object> map = get1xBetCeffByTeams(team1, team2);
 		map.put("leonList", DaoFactory.getPremierLeagueDao().getLeonCeffByTeams(team1, team2));
-		map.put("lastMatchesTeam1Team2", DaoFactory.getMatchDetailsDao().getDetailsByTeams(wildstatTeam1, wildstatTeam2));
+		map.put("lastMatchesTeam1Team2", DaoFactory.getMatchDetailsDao().getDetailsByTeams(team1, team2));
 		map.put("ligaList", DaoFactory.getPremierLeagueDao().getLigaCeffByTeams(team1, team2));
-		map.put("lastMatchesTeam1", DaoFactory.getMatchDetailsDao().getDetailsByTeam(wildstatTeam1));
-		map.put("lastMatchesTeam2", DaoFactory.getMatchDetailsDao().getDetailsByTeam(wildstatTeam2));
+		map.put("lastMatchesTeam1", DaoFactory.getMatchDetailsDao().getDetailsByTeam(team1));
+		map.put("lastMatchesTeam2", DaoFactory.getMatchDetailsDao().getDetailsByTeam(team2));
 		map.put("leagueTable", DaoFactory.getLeaguTableDao().getTableForLeague(league));
-		map.put("team1", wildstatTeam1);
-		map.put("team2", wildstatTeam1);
+		map.put("team1", team1);
+		map.put("team2", team1);
 		map.putAll(getBookmakerList());
 		map.put("leagueLower", league);		
 		if (league.equals("лига чемпионов") || league.equals("чемпионат мира")) {
-			getGroupForTeam(wildstatTeam1, wildstatTeam1, league, map);
+			getGroupForTeam(team1, team2, league, map);
 		}
 		return new ModelAndView("matchDetails", map);
 	}

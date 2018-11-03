@@ -24,11 +24,10 @@ public class CompetitionsTableController extends BookmakerController {
 
 	@RequestMapping("/{league}_таблица")
 	public ModelAndView getTable(@PathVariable("league") String league) throws DaoException, IOException {
-		List<LeagueTableBean> table = getLeagueTable(league);
 		Map<String, Object> map = new HashMap<String, Object>();
+		List<LeagueTableBean> table = DaoFactory.getLeaguTableDao().getTableForLeague(league);
 		map.putAll(getBookmakerList());
 		map.put("table", table);
-		//map.put("league", getFirstLetteruppercase(league));
 		map.put("leagueLower", league);
 		try {
 			if (property == null) {
@@ -76,32 +75,5 @@ public class CompetitionsTableController extends BookmakerController {
 			}
 		}
 		return new ModelAndView("leagueTable", map);
-	}
-
-	private List<LeagueTableBean> getLeagueTable(String league) throws DaoException {
-		List<LeagueTableBean> list = DaoFactory.getLeaguTableDao().getTableForLeague(league);
-		for (LeagueTableBean table : list) {
-			if (DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(table.getTeam()) != null) {
-				table.setTeam(DaoFactory.getMatchDetailsDao().getTeamNameFromDictionary(table.getTeam()));
-			}
-		}
-		return list;
-	}
-
-	private String getFirstLetteruppercase(String text) {
-		String output = "";// все слова с заглавной буквы.
-		String[] words = text.split(" ");// разделяем на массив из слов
-		int i = 0;
-		for (String word : words) {
-			String first = word.substring(0, 1).toUpperCase();
-			String all = word.substring(1);
-			if(i == 0){
-				output += first + all;
-			}else{
-				output += " " + first + all;
-			}
-			i++;
-		}
-		return output;
 	}
 }
