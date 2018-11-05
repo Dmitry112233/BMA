@@ -1,4 +1,4 @@
-/* Generated on: Tue Oct 23 2018 15:32:28 GMT+0000 (UTC) */
+/* Generated on: Sun Nov 04 2018 18:58:19 GMT+0000 (UTC) */
 /* ==========================================================================
    normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css 
    ========================================================================== */
@@ -36,7 +36,6 @@
   font-weight: 400;
 }
 
-/* it's mine */
 .container {
   display: block;
   width: 100%;
@@ -363,20 +362,24 @@
   background-color: rgba(255, 148, 0, .3);
 }
 
-/* it's mine */
 .progress._3 {
-  background: #cfcdb1;
+  background-color: rgba(255, 148, 0, .3);
 }
 
-/* it's mine */
 .processing {
   width: 80px;
   height: 5px;
+  background-color: #c4df9b;
 }
 
-/* it's mine */
+.processing._1 {
+  width: 50px;
+  background-color: #ff9400;
+}
+
 .processing._3 {
   width: 60px;
+  background-color: #ff9400;
 }
 
 .content-block-text {
@@ -483,13 +486,15 @@
   color: #fff;
 }
 
-/* it's mine */
 .col-2-new {
   position: static;
-  max-height: 600px;  
+  max-height: 600px;
+  padding-right: 0px;
 }
 
-/* it's mine */
+.col-1-rating {
+  padding-left: 0px;
+}
 
 .express {
   position: static;
@@ -852,13 +857,12 @@
   padding-bottom: 25px;
 }
 
-/* it's mine */
 .logo-fooer {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 230px;
+  width: 215px;
   height: 37px;
   margin-top: 10px;
   -webkit-box-align: center;
@@ -1138,7 +1142,13 @@
   background-color: #fff;
 }
 
-/* it's mine */
+.news-bg {
+  height: 180px;
+  background-image: url("../images/5ba6892db828fc1f9a524693_rsz_slider_img.png");
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .news-bg.next-img {
   background-image: url("../images/5ba7b34cf49b770899f09c49_2423990-50378579-640-360.jpg");
@@ -1224,7 +1234,7 @@
   width: 100%;
   height: 250px;
   border: 5px none #e9e9e9;
-  background-image: url("../img/promo/leonPromo.png");
+  background-image: url("../images/5bb6345c39cbb3ba70c35096_leon_bunner_final20(1).png");
   background-position: 0px 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1234,12 +1244,12 @@
   margin-top: 0px;
   border-width: 5px;
   border-color: #e9e9e9;
-  background-image: url("../img/promo/1xbetPromo.png");
+  background-image: url("../images/5bb633975e96657acfc2f67a_leon_bunner_final.png");
 }
 
 .slider-link-leon.liga-stavok {
   border: 5px none #e9e9e9;
-  background-image: url("../img/promo/ligaPromo.png");
+  background-image: url("../images/5bb64e9fd7637b19190e3831_liga20stavok_final.png");
 }
 
 .slide-nav-2 {
@@ -1264,7 +1274,9 @@
   font-family: Helveticaneuecyr, sans-serif;
 }
 
-/* it's mine */
+.column-13 {
+  padding-left: 0px;
+}
 
 .column-14 {
   padding-right: 10px;
@@ -1379,11 +1391,15 @@
   font-weight: 700;
 }
 
-/* it's mine */
 .criteria-rating-progress {
   width: 200px;
   height: 5px;
-  background: #cfcdb1;
+  background-color: rgba(207, 255, 131, .4);
+}
+
+.criteria-rating-progress.dynamic {
+  width: 160px;
+  color: #c5df9b;
 }
 
 .columns-3 {
@@ -1410,7 +1426,6 @@
   background-color: #000;
 }
 
-/* it's mine */
 .title-and-image-block {
   display: grid;
   grid-column-gap: 0px;
@@ -1418,8 +1433,8 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto 66px;
   background-color: #fff;
-  background-image: -webkit-linear-gradient(270deg, rgba(0, 142, 255, .6), rgba(255, 255, 9, .4)), url(../img/headers/bkDescr.jpg);
-  background-image: linear-gradient(180deg, rgba(0, 142, 255, .6), rgba(255, 255, 9, .4)), url(../img/headers/bkDescr.jpg);
+  background-image: -webkit-linear-gradient(270deg, rgba(0, 142, 255, .6), rgba(255, 255, 9, .4)), url("../images/5bb8475324337c13ee2e2905_audience-1866738_192020(1).jpg");
+  background-image: linear-gradient(180deg, rgba(0, 142, 255, .6), rgba(255, 255, 9, .4)), url("../images/5bb8475324337c13ee2e2905_audience-1866738_192020(1).jpg");
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;
@@ -1581,8 +1596,7 @@
   margin-left: auto;
 }
 
-/* it's mine */
-.pluses {
+.plus_1 {
   height: 370px;
   margin-right: 0px;
   padding: 35px 20px 30px;
@@ -1600,25 +1614,31 @@
   background-color: #fff;
 }
 
-/* it's mine */
-.blockTitle {
+.plus_title {
   margin-left: 10px;
   font-family: Helveticaneuecyr, sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
 
-/* it's mine */
-.pluses li {
+.list-item-5 {
   font-family: Helveticaneuecyr, sans-serif;
   font-size: 15px;
   font-weight: 300;
-  line-height: 24px;
 }
 
-/* it's mine */
-.pluses ul {
+.unordered-list-2 {
   margin-top: 30px;
+  margin-bottom: 7px;
+  padding-left: 20px;
+}
+
+.unordered-list-3 {
+  margin-bottom: 7px;
+  padding-left: 20px;
+}
+
+.unordered-list-4 {
   margin-bottom: 7px;
   padding-left: 20px;
 }
@@ -1658,8 +1678,7 @@
   box-shadow: 0 0 15px -2px hsla(216, 9%, 79%, .7);
 }
 
-/* it's mine */
-.seoBlock {
+.info_bookmakers {
   width: 100%;
   max-width: 800px;
   padding: 50px 30px 30px;
@@ -1679,8 +1698,7 @@
   background-color: transparent;
 }
 
-/* it's mine */
-.seoBlock p{
+.seo_text {
   font-family: Helveticaneuecyr, sans-serif;
   color: #5a5c6e;
   font-size: 16px;
@@ -1691,8 +1709,7 @@
   margin-bottom: 30px;
 }
 
-/* it's mine */
-.seoBlock h2{
+.seo_h2_text {
   font-family: Helveticaneuecyr, sans-serif;
   color: #000;
   font-size: 24px;
@@ -1707,16 +1724,14 @@
   font-weight: 700;
 }
 
-/* it's mine */
-.seoBlock li {
+.list_item_text {
   font-family: Helveticaneuecyr, sans-serif;
   color: #5a5c6e;
   font-size: 16px;
-  line-height: 30px;
+  line-height: 22px;
 }
 
-/* it's mine */
-.seoBlock ul {
+.unordered-list-5 {
   margin-bottom: 0px;
 }
 
@@ -2063,24 +2078,22 @@
   box-shadow: 0 0 50px 0 hsla(217, 6%, 75%, .5);
 }
 
-/* it's mine */
 .champ_tab_text {
   margin-bottom: 0px;
   margin-left: 10px;
   padding-top: 3px;
   padding-right: 10px;
   padding-left: 35px;
-  /* background-image: url("../images/5bc621b0b6ba2a4842ee345c_231px-Russian_Premier_League_Logo.png");
+  background-image: url("../images/5bc621b0b6ba2a4842ee345c_231px-Russian_Premier_League_Logo.png");
   background-position: 0px 50%;
   background-size: contain;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   font-size: 18px;
   line-height: 28px;
   font-weight: 700;
 }
 
-/* it's mine */
-/* .champ_tab_text.england {
+.champ_tab_text.england {
   background-image: url("../images/5bc62812b6ba2ad4ceee41b5_i.png");
 }
 
@@ -2099,7 +2112,7 @@
 .champ_tab_text.france {
   background-image: url("../images/5bc621b18ddd7a07b5425c34_france_ligue-1.png");
   background-size: 26px;
-} */
+}
 
 .chemp_tab_title {
   margin-bottom: 20px;
@@ -2191,14 +2204,13 @@
   padding-right: 0px;
 }
 
-/* it's mine */
 .banner_block {
   width: 100%;
   height: 200px;
   padding: 20px;
-  /* background-image: url("../images/5bc6c87be70a6095de7b6aa5_banner_leon_4005B200.png");
+  background-image: url("../images/5bc6c87be70a6095de7b6aa5_banner_leon_4005B200.png");
   background-position: 0px 0px;
-  background-size: cover; */
+  background-size: cover;
 }
 
 .column-20 {
@@ -2206,13 +2218,12 @@
   padding-left: 0px;
 }
 
-/* it's mine */
-/* .banner_logo {
+.banner_logo {
   background-image: url("../images/5ba6965a2756cb03c0d26c01_leon.png");
   background-position: 0px 0px;
   background-size: auto;
   background-repeat: no-repeat;
-} */
+}
 
 .hero_rpl_block {
   display: block;
@@ -2224,7 +2235,9 @@
   padding-bottom: 20px;
 }
 
-/* it's mine */
+.col_rpl_info {
+  padding-left: 0px;
+}
 
 .col_table_champ {
   padding-right: 0px;
@@ -2249,24 +2262,22 @@
   background-color: #fff;
 }
 
-/* it's mine */
 .rpl_img {
   height: 200px;
-  /* background-image: url("../img/leagueHeader/${leagueLower}.jpg"); */
+  background-image: url("../images/5bc735b4e70a60a0197bd8fa_SD_414220(1).jpg");
   background-position: 50% 23%;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-/* it's mine */
 .champ_title {
   display: inline-block;
   margin-top: 5px;
-  /* padding-left: 50px;
+  padding-left: 50px;
   background-image: url("../images/5bc621b0b6ba2a4842ee345c_231px-Russian_Premier_League_Logo.png");
   background-position: 0px 50%;
   background-size: 40px;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   font-size: 24px;
   font-weight: 400;
 }
@@ -2362,10 +2373,13 @@
   padding-right: 10px;
 }
 
-/* it's mine */
 .full_table_link {
   padding-right: 30px;
   float: right;
+  background-image: url("../images/5bc760871164306d3698fa0e_Arrow20go.png");
+  background-position: 100% 48%;
+  background-size: 24px;
+  background-repeat: no-repeat;
   color: #146dda;
   text-decoration: none;
 }
@@ -2375,11 +2389,14 @@
   color: #0f5cbb;
 }
 
-/* it's mine */
 .banner_link_block {
   width: 100%;
   height: 200px;
-  margin-top: 20px;  
+  margin-top: 20px;
+  background-image: url("../images/5bc6c87be70a6095de7b6aa5_banner_leon_4005B200.png");
+  background-position: 0px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .rpl_bet_container {
@@ -2391,10 +2408,9 @@
   padding-top: 20px;
 }
 
-/* it's mine */
 .button_description_grew {
   position: relative;
-  /* right: -120px; */
+  right: -120px;
   padding-top: 11px;
   padding-bottom: 7px;
   border-radius: 2px;
@@ -2439,23 +2455,28 @@
   font-weight: 300;
 }
 
-/* it's mine */
 .command_name {
-  /* padding-right: 25px; */
+  padding-right: 25px;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
-  align-self: center;  
+  align-self: center;
+  background-image: url("../images/5bc77111cb651561c017a464_lokomotiv_png.png");
+  background-position: 100% 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
   font-size: 16px;
   line-height: 30px;
 }
 
-/* it's mine */
 .command_name.vs {
   padding-right: 0px;
-  /* padding-left: 30px; */
+  padding-left: 30px;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+  background-image: url("../images/5bc77111d4ae71d63b1c4aeb_CSKA.png");
+  background-position: 0px 50%;
+  background-size: 20px;
 }
 
 .draw_coef {
@@ -2755,7 +2776,10 @@
   font-weight: 700;
 }
 
-/* it's mine */
+.image-5 {
+  display: none;
+}
+
 .hover_link_block {
   height: 50px;
   color: #000;
@@ -4010,9 +4034,7 @@
     font-size: 18px;
     line-height: 24px;
   }
-  
-  /* it's mine */
-  .pluses {
+  .plus_1 {
     height: 400px;
     padding-top: 30px;
     padding-right: 15px;
@@ -4040,12 +4062,10 @@
   .div-block-15 {
     margin-top: 0px;
   }
-  
-  /* it's mine */
-  .seoBlock {
+  .info_bookmakers {
+    max-width: auto;
     padding-right: 25px;
     padding-left: 25px;
-    max-width: none;
   }
   .comments_block {
     height: 800px;
@@ -4071,8 +4091,8 @@
   }
   .col_comments {
     margin-top: 20px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
   .tab_content_block {
     padding-top: 2%;
@@ -4102,7 +4122,10 @@
   .col_table_champ {
     padding-right: 10px;
   }
-  /* it's mine */
+  .champ_title {
+    font-size: 18px;
+    line-height: 50px;
+  }
   .button_all_champ.all_matches {
     width: 100px;
   }
@@ -4114,7 +4137,7 @@
     right: -55px;
   }
   .button_description_grew.table_champ {
-    right: 10px;
+    right: -95px;
   }
   .container_table {
     padding-right: 10px;
@@ -4298,9 +4321,7 @@
   .rating_general {
     grid-template-columns: 1fr 1fr;
   }
-  
-  /* it's mine */
-  .pluses {
+  .plus_1 {
     height: 300px;
     margin-right: 0px;
     padding-top: 50px;
@@ -4314,21 +4335,15 @@
     margin-bottom: 81px;
     grid-template-rows: 60px 210px 210px 100px;
   }
-  
-  /* it's mine */
-  .seoBlock p{
+  .seo_text {
     font-size: 14px;
     line-height: 24px;
   }
-  
-  /* it's mine */
-  .seoBlock h2{
+  .seo_h2_text {
     font-size: 22px;
     line-height: 30px;
   }
-  
-  /* it's mine */
-  .seoBlock li {
+  .list_item_text {
     font-size: 14px;
   }
   .comments_wrapper {
@@ -4739,9 +4754,7 @@
   .rating_general {
     grid-template-columns: 1fr 1fr;
   }
-  
-  /* it's mine */
-  .pluses {
+  .plus_1 {
     height: 350px;
   }
   .pay_system {
@@ -4751,8 +4764,7 @@
   .pay_block {
     height: 70px;
   }
-    /* it's mine */
-  .seoBlock {
+  .info_bookmakers {
     padding-right: 15px;
     padding-left: 15px;
   }
@@ -4786,7 +4798,10 @@
   .button_rate {
     margin-right: 5px;
   }
-  /* it's mine */
+  .col_rpl_info {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
   .rpl_description {
     height: 100%;
     padding-top: 15px;

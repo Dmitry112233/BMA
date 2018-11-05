@@ -60,13 +60,21 @@
                         <div class="myExpressFooter">
                            <div class="final_result_text">Итоговый коэффициент: <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${express.resultCoeff}" /></div>
                            <div class="exp_btn_replay_fr"></div>
-                           <div class="exp_description_btn_fr">
-                              <a class="exp_btn_replay w-button" rel="nofollow" href="counter?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank">Повторить ставку</a>
-                           </div>
+                           <div></div>
                         </div>
-                        <div class="seoBlock">
+                        <div class="seoBlock eventDescr">
                            <p>${express.description}</p>
                         </div>
+                        <div class="replay_matches_block">
+                      <div class="columns-4 w-row">
+                        <div class="w-col w-col-8">
+                          <div class="replay_bets-text">Хочешь повторить экспресс?</div>
+                        </div>
+                        <div class="w-clearfix w-col w-col-4">
+                          <a class="replay_bets-button w-button" rel="nofollow" href="counter?id=${BookmakerWeightList.get(randID).bookMakerId}" target="_blank">Повторить экспресс</a>
+                        </div>
+                      </div>
+                    </div>
                      </div>
                   </div>
                </div>              
