@@ -45,6 +45,8 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 	private static final String GET_DICTIONARY_NAME = "SELECT XBET_NAME FROM TEAM_DICTIONARY WHERE WILDSTAT_NAME = ?";
 	
 	private static final String GET_WILDSTAT_NAME = "SELECT WILDSTAT_NAME FROM TEAM_DICTIONARY WHERE XBET_NAME = ?";
+	
+	private static final String GET_XBET_NAME = "SELECT XBET_NAME FROM TEAM_DICTIONARY WHERE WILDSTAT_NAME = ?";
 
 	private static final String DELETE_MATCHES_FOR_LAST_SEASON = "DELETE FROM MATCH_DETAILS WHERE CHAMPIONSHIP = ? "
 			+ "AND DATE > ?";
@@ -171,5 +173,22 @@ public class MatchDetailsDaoTemplateImpl implements MatchDetailsDao {
 	public void deleteAllMatchesForLastSeason(String leagueName, String date) throws DaoException {
 		JdbcTemplate template = new JdbcTemplate(dataSource);
 		template.update(DELETE_MATCHES_FOR_LAST_SEASON, new Object[] { leagueName, date });
+	}
+
+	@Override
+	public String getXbetNameFromDictionary(String name) throws DaoException {
+		JdbcTemplate template = new JdbcTemplate(dataSource);
+		List<String> nameList = template.query(GET_XBET_NAME, new Object[] { name }, new RowMapper<String>() {
+			@Override
+			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+				String name = rs.getString("XBET_NAME");
+				return name;
+			}
+		});
+		if (nameList.size() > 0) {
+			return nameList.get(0);
+		} else {
+			return null;
+		}
 	}
 }

@@ -2,8 +2,8 @@
 <html lang="ru">
    <head>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-      <title>Сравнение коэффициентов, детали по матчу ${xBetList.get(0).team1}<c:if test = "${xBetList == Null}">${team1}</c:if> - ${xBetList.get(0).team2}<c:if test = "${xBetList == Null}">${team2}</c:if></title>
-      <meta name="Description" content="Сравнение коэффициентов, детали по матчу ${xBetList.get(0).team1}<c:if test = "${xBetList == Null}">${team1}</c:if> - ${xBetList.get(0).team2}<c:if test = "${xBetList == Null}">${team2}</c:if> | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
+      <title>Сравнение коэффициентов, детали по матчу ${team1} - ${team2}</title>
+      <meta name="Description" content="Сравнение коэффициентов, детали по матчу ${team1} - ${team2} | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -27,14 +27,14 @@
                </div>
                <div class="rpl_description">
                   <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
-                  <h1 class="champ_title">Сравнение коэффициентов, детали по матчу ${xBetList.get(0).team1}<c:if test = "${xBetList == Null}">${team1}</c:if> - ${xBetList.get(0).team2}<c:if test = "${xBetList == Null}">${team2}</c:if></h1>
+                  <h1 class="champ_title">Сравнение коэффициентов, детали по матчу ${team1}<c:if test = "${xBetList == Null}">${team1}</c:if> - ${team2}<c:if test = "${xBetList == Null}">${team2}</c:if></h1>
                   <a href="${contextPath}/${leagueLower}_матчи" class="button_all_champ all_matches w-button">Все матчи</a>
                </div>
             </div>
             <div class="hero_coeff_commands">
-               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${xBetList.get(0).team1}.png" id="w-node-a3abbcf8c5b8-dd78b9c5" alt="" />
-               <div id="w-node-2cbf9aad2789-dd78b9c5" class="match_game">${xBetList.get(0).team1}<c:if test = "${xBetList == Null}">${team1}</c:if> - ${xBetList.get(0).team2}<c:if test = "${xBetList == Null}">${team2}</c:if></div>
-               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${xBetList.get(0).team2}.png" id="w-node-57f4b3c2495a-dd78b9c5" alt="" />
+               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team1}.png" id="w-node-a3abbcf8c5b8-dd78b9c5" alt="" />
+               <div id="w-node-2cbf9aad2789-dd78b9c5" class="match_game">${team1} - ${team2}</div>
+               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team2}.png" id="w-node-57f4b3c2495a-dd78b9c5" alt="" />
                <div id="w-node-5c82e3cbf86a-dd78b9c5" class="start_matches_block">
                   <div id="w-node-2203ef7f000b-dd78b9c5" class="start_matches">Начало события: <span class="start_matches_bold"><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" /> МСК</span></div>
                   <div id="w-node-6d87023b8538-dd78b9c5" class="coeff_bookmakers">Сравнение коэффициентов букмекеров:</div>
@@ -70,13 +70,13 @@
                   <div data-duration-in="300" data-duration-out="100" class="w-tabs">
                      <div class="tabs_control-menu w-tab-menu">
                         <a data-w-tab="Tab 1" class="tab_link w-inline-block w-tab-link w--current">
-                           <div class="tabs_link-text">Последние встречи ${xBetList.get(0).team1}<c:if test = "${xBetList == Null}">${team1}</c:if></div>
+                           <div class="tabs_link-text">Последние встречи ${team1}<c:if test = "${xBetList == Null}">${team1}</c:if></div>
                         </a>
                         <a data-w-tab="Tab 2" class="tab_link w-inline-block w-tab-link">
-                           <div class="tabs_link-text">Последние встречи ${xBetList.get(0).team2}<c:if test = "${xBetList == Null}">${team2}</c:if></div>
+                           <div class="tabs_link-text">Последние встречи ${team2}<c:if test = "${xBetList == Null}">${team2}</c:if></div>
                         </a>
                         <a data-w-tab="Tab 3" class="tab_link w-inline-block w-tab-link">
-                           <div class="tabs_link-text">Личные встречи ${xBetList.get(0).team1}<c:if test = "${xBetList == Null}">${team1}</c:if> и ${xBetList.get(0).team2}<c:if test = "${xBetList == Null}">${team2}</c:if></div>
+                           <div class="tabs_link-text">Личные встречи ${team1}<c:if test = "${xBetList == Null}">${team1}</c:if> и ${team2}<c:if test = "${xBetList == Null}">${team2}</c:if></div>
                         </a>
                      </div>
                      <div class="w-tab-content">
