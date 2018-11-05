@@ -1242,9 +1242,9 @@
   background-image: url("../img/promo/ligaPromo.png");
 }
 
+/* it's mine */
 .slide-nav-2 {
-  bottom: -8px;
-  display: none;
+  bottom: -8px;  
   font-size: 10px;
 }
 

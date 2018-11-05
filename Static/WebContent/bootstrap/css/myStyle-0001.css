@@ -393,7 +393,7 @@
 }
 
 .sideBanner, .sideLeagueTablePart {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 
 .myExpressWrapper {
@@ -549,6 +549,12 @@
 
 .seoBlock.eventDescr {
 	padding-top: 15px;
+}
+
+.w-slider {
+	padding-left: 10px;
+	padding-right: 10px;
+	background: #f3f4f6;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
