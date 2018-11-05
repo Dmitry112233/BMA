@@ -27,20 +27,23 @@
                </div>
                <div class="rpl_description">
                   <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
-                  <h1 class="champ_title">Сравнение коэффициентов, детали по матчу ${team1}<c:if test = "${xBetList == Null}">${team1}</c:if> - ${team2}<c:if test = "${xBetList == Null}">${team2}</c:if></h1>
+                  <h1 class="champ_title">Сравнение коэффициентов, детали по матчу ${team1} - ${team2}</h1>
                   <a href="${contextPath}/${leagueLower}_матчи" class="button_all_champ all_matches w-button">Все матчи</a>
                </div>
             </div>
             <div class="hero_coeff_commands">
-               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team1}.png" id="w-node-a3abbcf8c5b8-dd78b9c5" alt="" />
+               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team1}.png" id="w-node-57f4b3c2495a-dd78b9c5" alt="" />
                <div id="w-node-2cbf9aad2789-dd78b9c5" class="match_game">${team1} - ${team2}</div>
-               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team2}.png" id="w-node-57f4b3c2495a-dd78b9c5" alt="" />
+               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team2}.png" id="w-node-a3abbcf8c5b8-dd78b9c5" alt="" />
                <div id="w-node-5c82e3cbf86a-dd78b9c5" class="start_matches_block">
-                  <div id="w-node-2203ef7f000b-dd78b9c5" class="start_matches">Начало события: <span class="start_matches_bold"><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" /> МСК</span></div>
+                  <c:if test="${xBetList.size() > 0}">
+                  	<div id="w-node-2203ef7f000b-dd78b9c5" class="start_matches">Начало события: <span class="start_matches_bold"><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" /> МСК</span></div>
+                  </c:if>
                   <div id="w-node-6d87023b8538-dd78b9c5" class="coeff_bookmakers">Сравнение коэффициентов букмекеров:</div>
                </div>
             </div>
          </div>
+         <c:if test="${xBetList.size() > 0}">
          <div class="myBkCompareTable">
             <div class="myBkCompareRow header">
                <div class="bookmaker_points bold first">Букмекер</div>
@@ -64,19 +67,20 @@
             <c:set var="RowListName" value="${ligaList}" scope="request"/>
             <c:import url="parts/ceffCompareRow.jsp"/>
          </div>
+         </c:if>
          <div class="matches_tab-block">
             <div class="col_tab-and-table w-row">
                <div class="col_tab-matches w-col w-col-8 w-col-stack">
                   <div data-duration-in="300" data-duration-out="100" class="w-tabs">
                      <div class="tabs_control-menu w-tab-menu">
                         <a data-w-tab="Tab 1" class="tab_link w-inline-block w-tab-link w--current">
-                           <div class="tabs_link-text">Последние встречи ${team1}<c:if test = "${xBetList == Null}">${team1}</c:if></div>
+                           <div class="tabs_link-text">Последние встречи ${team1}</div>
                         </a>
                         <a data-w-tab="Tab 2" class="tab_link w-inline-block w-tab-link">
-                           <div class="tabs_link-text">Последние встречи ${team2}<c:if test = "${xBetList == Null}">${team2}</c:if></div>
+                           <div class="tabs_link-text">Последние встречи ${team2}</div>
                         </a>
                         <a data-w-tab="Tab 3" class="tab_link w-inline-block w-tab-link">
-                           <div class="tabs_link-text">Личные встречи ${team1}<c:if test = "${xBetList == Null}">${team1}</c:if> и ${team2}<c:if test = "${xBetList == Null}">${team2}</c:if></div>
+                           <div class="tabs_link-text">Личные встречи ${team1} и ${team2}</div>
                         </a>
                      </div>
                      <div class="w-tab-content">
@@ -90,7 +94,9 @@
                                        <c:if test="${(Team1Matches.penaltyTeam1 > 0) || (Team1Matches.penaltyTeam2 > 0)}"><br>(${Team1Matches.penaltyTeam1}:${Team1Matches.penaltyTeam2})</c:if>
                                     </div>
                                     <div class="command_name vs2"><img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team1Matches.team2}.png" onerror="this.style.display='none'"> ${Team1Matches.team2}</div>
-                                    <div class="championats_min-naming">${Team1Matches.championship}</div>
+                                    <div class="championats_min-naming">
+                                    	<img class="myTeamLogo" src="/Static/bootstrap/img/leagueIcon/${Team1Matches.championship}_det.png" onerror="this.style.display='none'">
+                                    </div>
                                  </div>
                               </c:forEach>
                            </div>
@@ -105,7 +111,9 @@
                                        <c:if test="${(Team2Matches.penaltyTeam1 > 0) || (Team2Matches.penaltyTeam2 > 0)}"><br>(${Team2Matches.penaltyTeam1}:${Team2Matches.penaltyTeam2})</c:if>
                                     </div>
                                     <div class="command_name vs2"><img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team2Matches.team2}.png" onerror="this.style.display='none'"> ${Team2Matches.team2}</div>
-                                    <div class="championats_min-naming">${Team2Matches.championship}</div>
+                                    <div class="championats_min-naming">
+                                    	<img class="myTeamLogo" src="/Static/bootstrap/img/leagueIcon/${Team2Matches.championship}_det.png" onerror="this.style.display='none'">
+                                    </div>
                                  </div>
                               </c:forEach>
                            </div>
@@ -120,7 +128,9 @@
                                        <c:if test="${(Team1Team2Matches.penaltyTeam1 > 0) || (Team1Team2Matches.penaltyTeam2 > 0)}"><br>(${Team1Team2Matches.penaltyTeam1}:${Team1Team2Matches.penaltyTeam2})</c:if>
                                     </div>
                                     <div class="command_name vs2"><img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team1Team2Matches.team2}.png" onerror="this.style.display='none'"> ${Team1Team2Matches.team2}</div>
-                                    <div class="championats_min-naming">${Team1Team2Matches.championship}</div>
+                                    <div class="championats_min-naming">
+                                    	<img class="myTeamLogo" src="/Static/bootstrap/img/leagueIcon/${Team1Team2Matches.championship}_det.png" onerror="this.style.display='none'">
+                                    </div>
                                  </div>
                               </c:forEach>
                            </div>

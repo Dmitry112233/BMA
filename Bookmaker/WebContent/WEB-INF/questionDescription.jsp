@@ -23,7 +23,12 @@
       <div class="bets_description-columns w-row">
         <div class="beta_desc_col1 w-col w-col-8 w-col-stack">
           <div class="seoBlock tablepage">
-            ${Question_Txt}
+            <h1>${Question_H1}</h1>
+            <a href="${contextPath}/faq_list">Все вопросы</a>
+            <c:if test = "${Question_Txt != Null}">
+            	<div class="article">${Question_Txt}</div>
+            </c:if>
+            <div>${question.answer}</div>
          </div>
         </div>
         <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
