@@ -43,7 +43,7 @@ public class QuestionController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("lessons", map);
+		return new ModelAndView("allQuestions", map);
 	}
 
 	private Map<String, Object> getFAQList() throws DaoException {

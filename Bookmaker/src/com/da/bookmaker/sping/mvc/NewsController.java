@@ -28,7 +28,7 @@ public class NewsController extends BookmakerController {
 		map.putAll(getBookmakerList());
 		map.put("pageMass", pageMass);
 		map.put("currentPage", currentPage);
-		return new ModelAndView("news", map);
+		return new ModelAndView("allNews", map);
 	}
 
 	private int getCurrentPage(int offset) {

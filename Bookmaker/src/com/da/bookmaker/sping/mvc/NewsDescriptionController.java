@@ -20,7 +20,7 @@ public class NewsDescriptionController extends BookmakerController {
 		Map<String, Object> map = getNewsList(id);
 		map.put("offset", getOffset(currentPage));
 		map.putAll(getBookmakerList());
-		return new ModelAndView("newsDescriptionPage", map);
+		return new ModelAndView("newsDescription", map);
 	}
 	
 	// из currentPage получит offset и отправить по кнопке назад на контроллер выдачи всех кновостей

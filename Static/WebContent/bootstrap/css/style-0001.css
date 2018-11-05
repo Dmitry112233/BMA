@@ -3035,8 +3035,9 @@
   margin-left: auto;
 }
 
+/* it's mine */
 .beta_desc_col1 {
-  padding-left: 0px;
+  padding-left: 10px;
 }
 
 .title_block {
@@ -3065,8 +3066,10 @@
   background-color: rgba(0, 0, 0, .8);
 }
 
+/* it's mine */
 .bets_discription-tabs {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .discr_tab-link {

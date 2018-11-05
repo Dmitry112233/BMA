@@ -101,7 +101,7 @@ public class QuestionDescriptionController extends BookmakerController {
 				fis.close();
 			}
 		}
-		return new ModelAndView("lessonsDescriptionPage", map);
+		return new ModelAndView("questionDescription", map);
 	}
 
 	private Map<String, Object> getQuestionByID(int id) throws DaoException {

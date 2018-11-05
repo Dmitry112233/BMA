@@ -29,7 +29,7 @@ public class EventDescriptionController extends BookmakerController{
 		if (ivent == null) {
 			throw new ResourceNotFoundException();
 		}
-		ModelAndView modelAndView = new ModelAndView("eventDescriptionPage");
+		ModelAndView modelAndView = new ModelAndView("eventDescription");
 		modelAndView.addAllObjects(getBookmakerList());
 		modelAndView.addAllObjects(getBookmakerWeight());
 		modelAndView.addObject("ivent", ivent);
