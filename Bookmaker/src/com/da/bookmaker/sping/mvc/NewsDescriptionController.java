@@ -1,6 +1,8 @@
 package com.da.bookmaker.sping.mvc;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -18,12 +20,13 @@ public class NewsDescriptionController extends BookmakerController {
 	@RequestMapping("/{id}_news_{currentPage}")
 	public ModelAndView getMainList(@PathVariable("id") int id, @PathVariable("currentPage") int currentPage) throws DaoException {
 		Map<String, Object> map = getNewsList(id);
+		map.put("popularNews", getPopularNews());
 		map.put("offset", getOffset(currentPage));
 		map.putAll(getBookmakerList());
 		return new ModelAndView("newsDescription", map);
 	}
 	
-	// из currentPage получит offset и отправить по кнопке назад на контроллер выдачи всех кновостей
+	// Ð¸Ð· currentPage Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚ offset Ð¸ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¾ ÐºÐ½Ð¾Ð¿ÐºÐµ Ð½Ð°Ð·Ð°Ð´ Ð½Ð° ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð»ÐµÑ€ Ð²Ñ‹Ð´Ð°Ñ‡Ð¸ Ð²Ñ�ÐµÑ… ÐºÐ½Ð¾Ð²Ð¾Ñ�Ñ‚ÐµÐ¹
 	public int getOffset(int currentPage){
 		int offset = (currentPage - 1) * 10;	
 		return offset;
@@ -35,7 +38,18 @@ public class NewsDescriptionController extends BookmakerController {
 		map.put("news", news);	
 		return map;
 	}
-	
+		
+	private List<NewsBean> getPopularNews() throws DaoException {
+	List<NewsBean> allNews = DaoFactory.getNewsDao().getAllNews();
+	List<NewsBean> list = new ArrayList<>();
+		for (int i = 0; i < allNews.size(); i++) {
+			if(i == 0 || i % 5 == 0) {
+				list.add(allNews.get(i));
+			}
+		}
+		return list;
+	}
+
 	
 	
 	
