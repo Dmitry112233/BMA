@@ -561,6 +561,10 @@
 	margin-bottom: 20px;
 }
 
+.best_week_news {
+	margin-bottom: 20px;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
