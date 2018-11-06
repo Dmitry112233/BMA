@@ -471,7 +471,7 @@
 	margin-bottom: 0px;
 }
 
-.exp_sports_text {
+.exp_sports_text.express {
 	grid-column: 2/5;	
 }
 
@@ -564,6 +564,62 @@
 .best_week_news {
 	margin-bottom: 20px;
 }
+
+.eventRowHeader {
+	display: grid;
+	grid-template-columns: 50px 2fr 1fr 1fr 1fr;
+    height: 30px;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    grid-template-rows: 30px;
+    background-color: #e2e2e5;
+    align-items: center;
+}
+
+.bets_status {
+	grid-column: 5/6;
+}
+
+.exp_sports_text.event {
+	grid-column: 2/5;
+}
+
+.eventRowData {
+	display: grid;
+    height: 60px;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    grid-template-columns: 50px 2fr 1fr 1fr 1fr;
+    grid-template-rows: 60px;
+    align-items: center;
+    border-bottom: 1px solid #bfbfbf;    
+}
+
+.sport_matches_item.event {
+	margin-bottom: 0px;
+	cursor: pointer;
+}
+
+.sport_matches_item.event:hover {
+	background-color: #e2e2e5;
+}
+
+.bets_status.reply {
+	display: flex;
+    width: 100px;
+    height: 20px;
+    -webkit-box-pack: center;
+	border: 1px solid #000000;
+    border-radius: 2px;
+    align-items: flex-start;
+    color: #000000;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.replay_bets-link.event, .bets_status, .replyBtn, .replay_bets-link {
+	justify-self: center; 
+} 
 
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {

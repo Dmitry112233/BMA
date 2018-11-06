@@ -33,7 +33,7 @@
                      <div class="new_tags">
                         <div class="text-block-44">тег 1</div>
                         <div class="text-block-44">тег 2</div>
-                        <div class="added-date new">Добавлено: ${news.date}</div>
+                        <div class="added-date new">Добавлено: ${news.dateStr}</div>
                      </div>
                      <div class="new_text-block">
                         <h2 class="new_title">${news.title}</h2>
