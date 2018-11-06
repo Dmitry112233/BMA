@@ -36,9 +36,9 @@ public class EventController extends BookmakerController {
 		modelAndView.addAllObjects(getBookmakerWeight());
 		modelAndView.addObject("allEvents", map);
 		modelAndView.addObject("football", map.get("футбол"));
-		modelAndView.addObject("football", map.get("хоккей"));
-		modelAndView.addObject("football", map.get("теннис"));
-		modelAndView.addObject("football", map.get("баскетбол"));
+		modelAndView.addObject("hockey", map.get("хоккей"));
+		modelAndView.addObject("tennis", map.get("теннис"));
+		modelAndView.addObject("bascketball", map.get("баскетбол"));
 		
 		try {
 			if (property == null) {
