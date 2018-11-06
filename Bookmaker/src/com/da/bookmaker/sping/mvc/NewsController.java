@@ -24,11 +24,23 @@ public class NewsController extends BookmakerController {
 		int limit = 10;
 		
 		Map<String, Object> map = getNewsListForPage(limit, offset);
-		
+		List<NewsBean> popularNews = getPopularNews();
 		map.putAll(getBookmakerList());
+		map.put("popularNews", popularNews);
 		map.put("pageMass", pageMass);
 		map.put("currentPage", currentPage);
 		return new ModelAndView("allNews", map);
+	}
+	
+	private List<NewsBean> getPopularNews() throws DaoException {
+	List<NewsBean> allNews = DaoFactory.getNewsDao().getAllNews();
+	List<NewsBean> list = new ArrayList<>();
+		for (int i = 0; i < allNews.size(); i++) {
+			if(i == 0 || i % 5 == 0) {
+				list.add(allNews.get(i));
+			}
+		}
+		return list;
 	}
 
 	private int getCurrentPage(int offset) {
