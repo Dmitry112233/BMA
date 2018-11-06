@@ -77,7 +77,7 @@ public class NewsBean {
 		return date.split(" ")[4].substring(0, 5);
 	}
 	
-	public String getDateSte() {
+	public String getDateStr() {
 		return date.split(" ")[1] + " " + date.split(" ")[2] + " " + date.split(" ")[3];
 	}
 }
