@@ -23,7 +23,7 @@
          <div class="express_bets-block">
             <div class="col_express-bets w-row">
                <div class="col-1_express_bets w-col w-col-8 w-col-stack">
-                  <div class="express_block_title">
+                  <div class="express_block_title expresses">
                      <h1 class="express_bets_title_text">${Express_H1}</h1>
                   </div>
                   <c:forEach var="express" items="${expressList}">
@@ -38,13 +38,13 @@
                            <c:set var="tableRow" value="0" />
                            <c:forEach var="ivent" items="${express.iventList}">
                               <div class="myExpressRows dark">
-                                 <div class="sportIconFr"><img class="sportIcon" src="${ivent.sportIcon}"></div>
+                                 <div class="sportIconFr express"><img class="sportIcon" src="${ivent.sportIcon}"></div>
                                  <div class="exp_sports_text express">${ivent.competition}</div>
                                  <div></div>
                                  <div></div>
                               </div>
                               <div class="myExpressRows light">
-                                 <div class="exp_matches_num">
+                                 <div class="exp_matches_num express">
                                     <c:out value="${tableRow=tableRow+1}" />
                                  </div>
                                  <div class="exp_matches">${ivent.name}</div>

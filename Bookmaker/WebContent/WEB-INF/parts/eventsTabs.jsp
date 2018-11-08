@@ -14,7 +14,7 @@
             </c:if>
          </div>
          <div class="eventRowData">
-            <div class="exp_matches_num">
+            <div class="exp_matches_num events">
                <c:out value="${tableRow=tableRow+1}" />
             </div>
             <div class="exp_matches"><a href="${contextPath}/event_description_${Events.iventID}_details">${Events.name}</a></div>

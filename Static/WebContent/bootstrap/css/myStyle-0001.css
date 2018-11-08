@@ -70,15 +70,6 @@
     font-weight: 400;
 }
 
-.myNewsImg img {
-	height: 180px;
-	text-align: center;
-}
-
-.myNewsImg {
-	text-align: center;
-}
-
 .mySideNewsBlock {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -709,6 +700,21 @@
 	color: #0352b3;
 }
 
+.sportIconFr.express {
+	align-self: center;
+}
+
+.discr_title_button {
+	white-space: nowrap;
+}
+
+.news-bg {
+    height: 180px;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -716,6 +722,10 @@
 	
 	.questions_cards_block {
 		padding-left: 10px;
+	}
+	
+	.odinochnie-prognozy {
+		font-size: 14px;
 	}
 }
 	
@@ -822,7 +832,7 @@
 	    margin-left: 10px;
 	}
 	
-	.exp_matches_num {
+	.exp_matches_num.events {
 		display: none;
 	}
 	
@@ -849,5 +859,33 @@
 	.added-date.new {
 		margin-left: 4px;
 		margin-top: 10px; 
+	}
+	
+	.exp_matches_num.express, .sportIconFr.express {
+		justify-self: center; 
+	}
+	
+	.express_bets_title_text {
+		margin: 0px;
+	}
+	
+	.express_block_title.expresses {
+		padding-left: 10px;
+		padding-right: 10px;
+		text-align: center;
+	}
+	
+	.discr_title_button {
+		width: 100%;
+		text-align: center;
+		margin-top: 0px;	
+	}
+	
+	.odinochnie-prognozy {
+		font-size: 14px;
+	}
+	
+	.flex-text-block {
+		padding-top: 13%;
 	}
 }
