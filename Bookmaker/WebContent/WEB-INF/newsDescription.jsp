@@ -21,23 +21,25 @@
          <div class="bets_description_block">
             <div class="bets_description-columns w-row">
                <div class="beta_desc_col1 w-col w-col-8 w-col-stack">
-                  <div class="bets_discr_tabs">
-                     <div class="title_block w-clearfix">
-                        <h1 class="discr_title_text news">Новости</h1>
-                        <a href="${contextPath}/news_${offset}" class="all_news-button w-button">Все новости</a>
+                  <div class="title_block eventDescr questionTitle">
+                     <div class="discr_title_text_block">
+                        <h1 class="discr_title_text">Новости</h1>
+                     </div>
+                     <div class="btn_all-bets_block">
+                        <a href="${contextPath}/news_${offset}" class="btn_all-bets w-button">Все новости</a>
                      </div>
                   </div>
                   <div class="news_container new">
-                     <div class="new_bg-image">
+                     <div class="new_bg-image" style="background-image: url('${news.image}')">
                      </div>
                      <div class="new_tags">
-                        <div class="text-block-44">тег 1</div>
-                        <div class="text-block-44">тег 2</div>
+                        <div class="text-block-44 tags">${news.sport}</div>
+                        <div class="text-block-44 tags">${news.competition}</div>
                         <div class="added-date new">Добавлено: ${news.dateStr}</div>
                      </div>
                      <div class="new_text-block">
                         <h2 class="new_title">${news.title}</h2>
-                        <h3 class="heading-13">${news.sport}. ${news.competition}. ${news.description}</h3>
+                        <h3 class="heading-13">${news.description}</h3>
                         <a class="source_link" rel="nofollow" href="https://www.eurosport.ru/" target="_blank">Источник: Eurosport.ru</a>
                      </div>
                   </div>

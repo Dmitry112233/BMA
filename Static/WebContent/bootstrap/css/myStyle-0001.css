@@ -9,11 +9,7 @@
 	font-weight: 300;
 }
 
-.progressValue {
-	display: none;
-}
-
-.button_all_comments, .link_open_more {
+.progressValue, .button_all_comments, .link_open_more {
 	display: none;
 }
 
@@ -505,7 +501,7 @@
 }
 
 .seoBlock {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 
 .rpl_img {
@@ -568,12 +564,11 @@
 .eventRowHeader {
 	display: grid;
 	grid-template-columns: 50px 2fr 1fr 1fr 1fr;
-    height: 30px;
     grid-column-gap: 16px;
     grid-row-gap: 16px;
-    grid-template-rows: 30px;
     background-color: #e2e2e5;
     align-items: center;
+    grid-auto-rows: minmax(30px, auto);
 }
 
 .bets_status {
@@ -586,13 +581,12 @@
 
 .eventRowData {
 	display: grid;
-    height: 60px;
     grid-column-gap: 16px;
     grid-row-gap: 16px;
     grid-template-columns: 50px 2fr 1fr 1fr 1fr;
-    grid-template-rows: 60px;
     align-items: center;
-    border-bottom: 1px solid #bfbfbf;    
+    border-bottom: 1px solid #bfbfbf;
+    grid-auto-rows: minmax(60px, auto);    
 }
 
 .sport_matches_item.event {
@@ -672,9 +666,56 @@
     line-height: 26px;
 }
 
+.news_title-block a {
+	font-family: Helveticaneuecyr, sans-serif;
+    color: #000;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+.news_title-block a:hover {
+	color: #5a5a5a;
+}
+
+.myNewsBGImg {
+	cursor: pointer;
+}
+
+.news_container.new, .questionTitle {
+	margin-bottom: 20px;
+}
+
+.column-22 {
+	margin-bottom: 10px;
+}
+
+.cards_item {
+	padding: 20px;
+}
+
+.questions_cards_block {
+		padding-left: 10px;
+}
+
+.questionAnswer a {
+    font-family: Helveticaneuecyr, sans-serif;
+    color: #146dda;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.questionAnswer a:hover {
+	color: #0352b3;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
+	}
+	
+	.questions_cards_block {
+		padding-left: 10px;
 	}
 }
 	
@@ -690,6 +731,10 @@
 	.myLeagueTableTitleBlock h1 {
 		padding-right: 25px;
 		line-height: 1.4;
+	}
+	
+	.questions_cards_block {
+		padding-right: 0px;
 	}
 }
 	
@@ -729,6 +774,14 @@
 	.myLeagueDescrTitle {
 		text-align: center;
 	}
+	
+	.col_news-tags {
+		margin-top: 0px;
+	}
+	
+	.allNewsDateBlock {
+		display: none;
+	}
 }
 
 @media (max-width: 479px) {		
@@ -746,5 +799,55 @@
 		text-align: center;
 		padding-left: 16px;
 		padding-right: 16px;
+	}
+	
+	.eventRowHeader {
+		grid-template-columns: 3fr 1fr;
+	    grid-column-gap: 8px;
+	}
+	
+	.exp_sports_text.event {
+		grid-column: 1/2;
+		margin-left: 10px;
+	}
+	
+	.bets_status {
+		grid-column: 2/3;
+		margin-right: 10px;
+	}
+	
+	.eventRowData {
+		grid-template-columns: 2fr 0.8fr 0.5fr 1.2fr;
+	    grid-column-gap: 8px;
+	    margin-left: 10px;
+	}
+	
+	.exp_matches_num {
+		display: none;
+	}
+	
+	.bets_status {
+		grid-column: 4/5;
+	}
+	
+	.bets_status, .bets_status.red {
+		width: 68px;
+	}
+	
+	.discr_title_text {
+		text-align: center;
+	}
+	
+	.col_news-tags {
+		margin-top: 0px;
+	}
+	
+	.allNewsDateBlock {
+		display: none;
+	}
+	
+	.added-date.new {
+		margin-left: 4px;
+		margin-top: 10px; 
 	}
 }
