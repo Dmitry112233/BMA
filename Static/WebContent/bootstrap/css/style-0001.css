@@ -2630,10 +2630,8 @@
   font-weight: 700;
 }
 
+/* it's mine */
 .match_game {
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
   font-size: 24px;
   font-weight: 500;
 }
@@ -2673,6 +2671,7 @@
   -webkit-align-self: end;
   -ms-flex-item-align: end;
   align-self: end;
+  font-weight: 300;
 }
 
 .bookmaker_points.bold {
@@ -4052,10 +4051,8 @@
   .start_matches_block {
     padding-left: 20px;
   }
+  /* it's mine */
   .match_game {
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
     font-size: 20px;
   }
   .col_tab-matches {
@@ -4789,7 +4786,7 @@
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    background-image: url("../images/5bc77111cb651561c017a464_lokomotiv_png.png");
+    /* background-image: url("../images/5bc77111cb651561c017a464_lokomotiv_png.png"); */
     background-size: 18px;
     font-size: 10px;
     line-height: 20px;
@@ -4885,12 +4882,7 @@
     -ms-flex-item-align: center;
     align-self: center;
   }
-  .match_game {
-    margin-left: 20px;
-    -webkit-align-self: center;
-    -ms-flex-item-align: center;
-    align-self: center;
-  }
+  /* it's mine */
   .bookmakers_coeff {
     grid-template-columns: 80px 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
   }

@@ -29,11 +29,11 @@
                         <a href="${contextPath}/faq_list" class="btn_all-bets w-button">Все вопросы</a>
                      </div>
                   </div>
-                  <div class="seoBlock tablepage">
-                     <c:if test = "${Question_Txt != Null}">
-                        <div class="article">${Question_Txt}</div>
-                     </c:if>
-                  </div>
+                  <c:if test = "${Question_Txt != Null}">
+	                  <div class="seoBlock tablepage">
+	                  	<div class="article">${Question_Txt}</div>
+	                  </div>
+                  </c:if>
                   <div class="seoBlock tablepage questionAnswer">
                      <div>${question.answer}</div>
                   </div>
