@@ -74,10 +74,18 @@ public class NewsBean {
 	}
 	
 	public String getTime() {
-		return date.split(" ")[4].substring(0, 5);
+		String time = null;
+		if(date != null) {
+			time = date.split(" ")[4].substring(0, 5);
+		}
+		return time;
 	}
 	
 	public String getDateStr() {
-		return date.split(" ")[1] + " " + date.split(" ")[2] + " " + date.split(" ")[3];
+		String dateNew = null;
+		if(date != null) {
+			dateNew = date.split(" ")[1] + " " + date.split(" ")[2] + " " + date.split(" ")[3];
+		}
+		return dateNew;
 	}
 }
