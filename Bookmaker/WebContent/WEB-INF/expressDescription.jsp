@@ -22,13 +22,13 @@
          <div class="bets_description_block">
             <div class="bets_description-columns w-row">
                <div class="myExpressDescrBlock beta_desc_col1 w-col w-col-8 w-col-stack">
-                  <div class="myTitleBlock bets_discr_tabs">
-                        <div class="myPageTitle">
-                        	<h1 class="discr_title_text">Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet}</h1>
-                        </div>
-                        <div class="allExprButton">
-                        	<a href="${contextPath}/expresses_list_${offset}" class="discr_title_button w-button">Все экспрессы</a>
-                        </div>
+                  <div class="title_block eventDescr questionTitle">
+                     <div class="discr_title_text_block">
+                        <h1 class="discr_title_text">Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet}</h1>
+                     </div>
+                     <div class="btn_all-bets_block">
+                        <a href="${contextPath}/expresses_list_${offset}" class="discr_title_button w-button">Все экспрессы</a>
+                     </div>
                   </div>
                   <div class="exp_discr-content">
                      <div class="exp_discr-title w-clearfix">

@@ -312,13 +312,15 @@ public class BookmakerDescriptionController extends BookmakerController {
 
 	private ArrayList<IventBean> getMainList(ArrayList<IventBean> list) {
 		ArrayList<IventBean> newList = new ArrayList<>();
-		if (list.size() >= 9) {
-			for (int i = 0; i < 9; i++) {
-				newList.add(list.get(i));
-			}
-		}else{
-			for(IventBean bean : list){
-				newList.add(bean);
+		if (list != null) {
+			if (list.size() >= 9) {
+				for (int i = 0; i < 9; i++) {
+					newList.add(list.get(i));
+				}
+			} else {
+				for (IventBean bean : list) {
+					newList.add(bean);
+				}
 			}
 		}
 		return newList;

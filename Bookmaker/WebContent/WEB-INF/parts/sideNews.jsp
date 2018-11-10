@@ -12,8 +12,7 @@
       <div class="myNewsItems">
          <c:forEach var="newsItem" items="${news}">
             <div class="myNewsItem">
-               <div class="myNewsImg">
-                  <img src="${newsItem.image}" alt="${newsItem.sport} ${newsItem.competition} новости"></img>
+               <div class="news-bg" style="background-image: url('${newsItem.image}')">
                </div>
                <div class="news-text-block">${newsItem.title}</div>
                <div class="text-block-25">Опубликовано</div>

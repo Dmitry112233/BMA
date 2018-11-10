@@ -1,8 +1,8 @@
 <!DOCTYPE html>	
 <html lang="ru">
    <head>
-      <title>${Question_T}</title>      
-      <meta name="Description" content="${Question_D}"/>      
+      <title>${Question_T}</title>
+      <meta name="Description" content="${Question_D}"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -17,28 +17,33 @@
    </head>
    <body class="body">
       <c:import url="parts/nav.jsp"></c:import>
-      
       <div class="bets_description-section">
-    <div class="bets_description_block">
-      <div class="bets_description-columns w-row">
-        <div class="beta_desc_col1 w-col w-col-8 w-col-stack">
-          <div class="seoBlock tablepage">
-            <h1>${Question_H1}</h1>
-            <a href="${contextPath}/faq_list">Все вопросы</a>
-            <c:if test = "${Question_Txt != Null}">
-            	<div class="article">${Question_Txt}</div>
-            </c:if>
-            <div>${question.answer}</div>
-         </div>
-        </div>
-        <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
+         <div class="bets_description_block">
+            <div class="bets_description-columns w-row">
+               <div class="beta_desc_col1 w-col w-col-8 w-col-stack">
+                  <div class="title_block eventDescr questionTitle">
+                     <div class="discr_title_text_block">
+                        <h1 class="discr_title_text">${Question_H1}</h1>
+                     </div>
+                     <div class="btn_all-bets_block">
+                        <a href="${contextPath}/faq_list" class="btn_all-bets w-button">Все вопросы</a>
+                     </div>
+                  </div>
+                  <c:if test = "${Question_Txt != Null}">
+	                  <div class="seoBlock tablepage">
+	                  	<div class="article">${Question_Txt}</div>
+	                  </div>
+                  </c:if>
+                  <div class="seoBlock tablepage questionAnswer">
+                     <div>${question.answer}</div>
+                  </div>
+               </div>
+               <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
                <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
                <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import>
-       
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
-      
       <c:import url="parts/footer.jsp"></c:import>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
       <script src="/Static/bootstrap/js/script.js" type="text/javascript"></script>

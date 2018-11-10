@@ -20,14 +20,22 @@
       <c:import url="parts/nav.jsp"></c:import>
       <div class="hero_all_table center">
          <div id="w-node-e61cb80a12a6-bb78b9bf" class="header_content_block table_champ">
-            <div class="rpl_img">
-               <img src="/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg" onerror="this.style.display='none'" />
+            <div class="rpl_img_block">
+               <div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
             </div>
-            <div class="rpl_description myLeagueTableTitleBlock">
-               <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
-               <h1 class="champ_title">${Table_H1}</h1>
-               <a href="${contextPath}/${leagueLower}_описание" class="button_description_grew table_champ w-button">Описание</a>
-               <a href="${contextPath}/competitions" class="button_all_champ w-button">Все чемпионаты</a>
+            <div class="leagueMatchesTitleRow">
+	            <div class="myLeagueIconBlock">
+	            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
+	            </div>
+	            <div class="myLeagueH1Block">
+	            	<h1 class="champ_title myLeagueH1">${Table_H1}</h1>
+	            </div>
+	            <div class="descrButtonBlock">
+	            	<a href="${contextPath}/${leagueLower}_описание" class="descrButton">Описание</a>
+	            </div>
+	            <div class="btn_all-bets_block myS">
+	            	<a href="${contextPath}/competitions" class="allItemsBtn discr_title_button w-button">Все чемпионаты</a>
+	            </div>                     
             </div>
          </div>
          <div class="myLeagueTable">
@@ -50,7 +58,7 @@
                <div class="full_table_points">${LeagueTableRow.win}</div>
                <div class="full_table_points">${LeagueTableRow.draw}</div>
                <div class="full_table_points">${LeagueTableRow.lose}</div>
-               <div class="full_table_final_point">${LeagueTableRow.goals}</div>
+               <div class="full_table_points">${LeagueTableRow.goals}</div>
                <div class="full_table_final_point">${LeagueTableRow.points}</div>
             </div>
             </c:forEach>

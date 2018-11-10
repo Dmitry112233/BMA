@@ -24,15 +24,21 @@
             <div class="col_rpl w-row">
                <div class="col_rpl_info w-col w-col-8 w-col-stack">
                   <div class="rpl_img_block">
-                     <div class="rpl_img">
-                        <img src="/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg" onerror="this.style.display='none'" />
-                     </div>
+                     <div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
                   </div>
-                  <div class="rpl_description">
-                     <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
-                     <h1 class="champ_title">${League_H1}</h1>
-                     <a href="${contextPath}/${leagueLower}_описание" class="button_description_grew position w-button">Описание</a>
-                     <a href="${contextPath}/competitions" class="button_all_champ w-button">Все чемпионаты</a>
+                  <div class="leagueMatchesTitleRow">
+                     <div class="myLeagueIconBlock">
+                     	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
+                     </div>
+                     <div class="myLeagueH1Block">
+                     	<h1 class="champ_title myLeagueH1">${League_H1}</h1>
+                     </div>
+                     <div class="descrButtonBlock">
+                     	<a href="${contextPath}/${leagueLower}_описание" class="descrButton">Описание</a>
+                     </div>
+                     <div class="btn_all-bets_block myS">
+                     	<a href="${contextPath}/competitions" class="allItemsBtn discr_title_button w-button">Все чемпионаты</a>
+                     </div>                     
                   </div>
                   <div class="rpl_matches_block">
                      <c:forEach var="date" items="${dates}">
@@ -41,7 +47,7 @@
                            <div class="myLeagueMatchesWrapper">
                               <div class="myLeagueMatches" onclick="window.location.href='${contextPath}/${events.url}'; return false">
                                  <div class="time_msk"><fmt:formatDate pattern = "HH:mm" value = "${events.date}" /> МСК</div>
-                                 <div class="command_name vs">${events.team1}<span class="coefficient_matches"> (${events.win1}) </span><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team1}.png" onerror="this.style.display='none'"></div>
+                                 <div class="command_name vs">${events.team1} <span class="coefficient_matches">(${events.win1}) </span><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team1}.png" onerror="this.style.display='none'"></div>
                                  <div class="draw_coef">ничья<span class="drow_coef_number"> (${events.x})</span></div>
                                  <div class="command_name second_command_name"><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team2}.png" onerror="this.style.display='none'"> ${events.team2}<span class="coefficient_matches"> (${events.win2})</span></div>
                                  <div class="xceff"><a class="link_more" href="${contextPath}/${events.url}">Подробности</a></div>

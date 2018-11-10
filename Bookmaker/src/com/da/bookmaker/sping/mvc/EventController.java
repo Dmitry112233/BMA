@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.bean.BookmakerBean;
+import com.da.bookmaker.bean.IventBean;
 import com.da.bookmaker.dao.DaoException;
 import com.da.bookmaker.dao.DaoFactory;
 
@@ -29,14 +30,16 @@ public class EventController extends BookmakerController {
 
 	@RequestMapping("/events_list")
 	public ModelAndView getMainList() throws DaoException, IOException {
-		Map<String, Object> map = getIventList();
-		List<String> sports = getSortedSports(map.keySet());
-		map.put("sports", sports);
-		// map.putAll(getBookmakerWeight());
+		Map<String, Object> map = getIventList();	
 		ModelAndView modelAndView = new ModelAndView("allEvents");
 		modelAndView.addAllObjects(getBookmakerList());
 		modelAndView.addAllObjects(getBookmakerWeight());
 		modelAndView.addObject("allEvents", map);
+		modelAndView.addObject("football", map.get("футбол"));
+		modelAndView.addObject("hockey", map.get("хоккей"));
+		modelAndView.addObject("tennis", map.get("теннис"));
+		modelAndView.addObject("bascketball", map.get("баскетбол"));
+		
 		try {
 			if (property == null) {
 				property = new Properties();
@@ -62,6 +65,7 @@ public class EventController extends BookmakerController {
 	 * @param sports
 	 * @return
 	 */
+	// для старой реализации
 	private List<String> getSortedSports(Set<String> sports) {
 		List<String> list = new ArrayList<>(sports);
 		Collections.sort(list, new Comparator<String>() {

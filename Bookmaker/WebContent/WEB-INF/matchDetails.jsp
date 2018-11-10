@@ -22,25 +22,36 @@
       <div class="hero_coefficient_section">
          <div class="container_coeff">
             <div class="header_content_block">
-               <div class="rpl_img">
-                  <img src="/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg" onerror="this.style.display='none'" />
+               <div class="rpl_img_block">
+                  <div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
                </div>
-               <div class="rpl_description">
-                  <img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
-                  <h1 class="champ_title">Сравнение коэффициентов, детали по матчу ${team1} - ${team2}</h1>
-                  <a href="${contextPath}/${leagueLower}_матчи" class="button_all_champ all_matches w-button">Все матчи</a>
-               </div>
+               <div class="leagueMatchesTitleRow">
+		            <div class="myLeagueIconBlock">
+		            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
+		            </div>
+		            <div class="myLeagueH1Block oneBtn">
+		            	<h1 class="champ_title myLeagueH1">Сравнение коэффициентов, детали по матчу ${team1} - ${team2}</h1>
+		            </div>
+		            <div class="btn_all-bets_block myS oneBtn">
+		            	<a href="${contextPath}/${leagueLower}_матчи" class="allItemsBtn discr_title_button w-button">Все матчи</a>
+		            </div>                     
+       		   </div>
             </div>
-            <div class="hero_coeff_commands">
-               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team1}.png" id="w-node-57f4b3c2495a-dd78b9c5" alt="" />
-               <div id="w-node-2cbf9aad2789-dd78b9c5" class="match_game">${team1} - ${team2}</div>
-               <img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team2}.png" id="w-node-a3abbcf8c5b8-dd78b9c5" alt="" />
-               <div id="w-node-5c82e3cbf86a-dd78b9c5" class="start_matches_block">
+            <div class="myMatchDetailesComands">
+            	<div class="myStartmatchesBlock">
                   <c:if test="${xBetList.size() > 0}">
-                  	<div id="w-node-2203ef7f000b-dd78b9c5" class="start_matches">Начало события: <span class="start_matches_bold"><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" /> МСК</span></div>
-                  </c:if>
-                  <div id="w-node-6d87023b8538-dd78b9c5" class="coeff_bookmakers">Сравнение коэффициентов букмекеров:</div>
-               </div>
+                  	<div class="start_matches">Начало события:<br><span class="start_matches_bold"><fmt:formatDate pattern = "dd.MM.yyyy | HH:mm" value = "${xBetList.get(0).date}" /> МСК</span></div>
+                  </c:if>                  
+                </div>
+            	<div class="myHederTeamLogoBlock1">
+            		<img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team1}.png" alt="" />
+            	</div>
+            	<div class="match_game _t1">${team1}</div>
+            	<div class="match_game"> - </div>
+            	<div class="match_game _t2">${team2}</div>
+            	<div class="myHederTeamLogoBlock2">
+            		<img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team2}.png" alt="" />
+            	</div>
             </div>
          </div>
          <c:if test="${xBetList.size() > 0}">

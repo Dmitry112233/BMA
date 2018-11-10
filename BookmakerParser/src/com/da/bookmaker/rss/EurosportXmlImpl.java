@@ -76,6 +76,7 @@ public class EurosportXmlImpl {
 						bean.setDescription(item.getDescription());
 						bean.setImage(item.getImage().getUrl());
 						bean.setTitle(getStringUtf8(item.getTitle()));
+						bean.setDate(item.getPubDate());
 						buffer.add(bean);
 					}
 				}

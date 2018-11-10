@@ -9,11 +9,7 @@
 	font-weight: 300;
 }
 
-.progressValue {
-	display: none;
-}
-
-.button_all_comments, .link_open_more {
+.progressValue, .button_all_comments, .link_open_more {
 	display: none;
 }
 
@@ -72,15 +68,6 @@
     font-size: 12px;
     line-height: 17px;
     font-weight: 400;
-}
-
-.myNewsImg img {
-	height: 180px;
-	text-align: center;
-}
-
-.myNewsImg {
-	text-align: center;
 }
 
 .mySideNewsBlock {
@@ -243,6 +230,7 @@
 
 .draw_coef, .xceff {
 	justify-self: center;
+	text-align: center;
 }
 
 .second_command_name {
@@ -270,7 +258,8 @@
 }
 
 .myHederTeamLogo {
-	height: 50px;
+	height: auto;
+	width: 100%;
 }
 
 .myBkCompareTable {
@@ -471,7 +460,7 @@
 	margin-bottom: 0px;
 }
 
-.exp_sports_text {
+.exp_sports_text.express {
 	grid-column: 2/5;	
 }
 
@@ -505,7 +494,7 @@
 }
 
 .seoBlock {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 
 .rpl_img {
@@ -561,9 +550,274 @@
 	margin-bottom: 20px;
 }
 
+.best_week_news {
+	margin-bottom: 20px;
+}
+
+.eventRowHeader {
+	display: grid;
+	grid-template-columns: 50px 2fr 1fr 1fr 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    background-color: #e2e2e5;
+    align-items: center;
+    grid-auto-rows: minmax(30px, auto);
+}
+
+.bets_status {
+	grid-column: 5/6;
+}
+
+.exp_sports_text.event {
+	grid-column: 2/5;
+}
+
+.eventRowData {
+	display: grid;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    grid-template-columns: 50px 2fr 1fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid #bfbfbf;
+    grid-auto-rows: minmax(60px, auto);    
+}
+
+.sport_matches_item.event {
+	margin-bottom: 0px;
+	cursor: pointer;
+}
+
+.sport_matches_item.event:hover {
+	background-color: #e2e2e5;
+}
+
+.bets_status.reply {
+	display: flex;
+    width: 100px;
+    height: 20px;
+    -webkit-box-pack: center;
+	border: 1px solid #000000;
+    border-radius: 2px;
+    align-items: flex-start;
+    color: #000000;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.replay_bets-link.event, .bets_status, .replyBtn, .replay_bets-link {
+	justify-self: center; 
+}
+
+.exp_matches a {
+	font-family: Helveticaneuecyr, sans-serif;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.exp_matches a:hover {
+    text-decoration: underline;
+}
+
+.title_block {
+	height: auto; 
+}
+
+.eventDescr {
+	display: grid;
+    grid-column-gap: 16px;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    grid-auto-rows: minmax(60px, auto);
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
+.eventDescr h1 {
+    margin-bottom: 0px;
+}
+
+.btn_all-bets_block {
+	justify-self: center;	
+}
+
+.btn_all-bets {
+	white-space: nowrap;
+}
+
+.coeff_red-status.green {
+	background-color: #27ae60;
+}
+
+.eventText {
+	font-family: Helveticaneuecyr, sans-serif;
+    color: #5a5c6e;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.news_title-block a {
+	font-family: Helveticaneuecyr, sans-serif;
+    color: #000;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+.news_title-block a:hover {
+	color: #5a5a5a;
+}
+
+.myNewsBGImg {
+	cursor: pointer;
+}
+
+.news_container.new, .questionTitle {
+	margin-bottom: 20px;
+}
+
+.column-22 {
+	margin-bottom: 10px;
+}
+
+.cards_item {
+	padding: 20px;
+}
+
+.questions_cards_block {
+		padding-left: 10px;
+}
+
+.questionAnswer a {
+    font-family: Helveticaneuecyr, sans-serif;
+    color: #146dda;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.questionAnswer a:hover {
+	color: #0352b3;
+}
+
+.sportIconFr.express {
+	align-self: center;
+}
+
+.discr_title_button {
+	white-space: nowrap;
+}
+
+.news-bg {
+    height: 180px;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.league_img {
+	height: 200px;
+    background-position: 50% 23%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.leagueMatchesTitleRow {
+	display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 0.4fr 3fr 0.8fr 1.1fr;
+    align-items: center;
+    grid-auto-rows: minmax(80px, auto);
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.descrButtonBlock {
+	justify-self: center; 
+}
+
+.myLeagueIconBlock {
+	justify-self: center; 
+	padding-left: 5px;
+}
+
+.allItemsBtn {
+	white-space: nowrap;	
+}
+
+.descrButton {
+	white-space: nowrap;
+	padding-top: 11px;
+    padding-bottom: 7px;
+    padding: 10px 15px;
+    border-radius: 2px;
+    background-color: #e0e0e0;
+    color: #146dda;
+    border: 0;
+    text-decoration: none;    
+}
+
+.myLeagueH1 {
+	line-height: 36px;
+}
+
+.btn_all-bets_block.myS {
+	padding-right: 5px;
+}
+
+.btn_all-bets_block.oneBtn {
+	justify-self: end;
+	padding-right: 25px;
+}
+
+.myLeagueH1Block.oneBtn {
+	grid-column: 2/4;
+}
+
+.myMatchDetailesComands {
+	display: grid;
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    grid-column-gap: 0px;
+    grid-template-columns: 3fr 0.6fr 3fr 0.4fr 3fr 0.6fr 3fr;
+    background-color: #fff;
+    align-items: center;
+    justify-items: center; 
+}
+
+.start_matches {
+	font-weight: 300;
+	white-space: nowrap;
+}
+
+.match_game._t1 {
+	justify-self: end;
+	text-align: right;
+}
+
+.match_game._t2 {
+	justify-self: start;
+	text-align: left;
+}
+
+.command_name {
+	white-space: nowrap;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
+	}
+	
+	.questions_cards_block {
+		padding-left: 10px;
+	}
+	
+	.odinochnie-prognozy {
+		font-size: 14px;
 	}
 }
 	
@@ -580,9 +834,13 @@
 		padding-right: 25px;
 		line-height: 1.4;
 	}
+	
+	.questions_cards_block {
+		padding-right: 0px;
+	}
 }
 	
-@media (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
 	.myExpressRows {
 		grid-row-gap: 8px;
 		grid-column-gap: 8px;  
@@ -617,5 +875,293 @@
 	
 	.myLeagueDescrTitle {
 		text-align: center;
+	}
+	
+	.col_news-tags {
+		margin-top: 0px;
+	}
+	
+	.allNewsDateBlock {
+		display: none;
+	}
+	
+	.myLeagueH1 {
+		line-height: 30px;
+	}
+	
+	.leagueMatchesTitleRow {
+		grid-column-gap: 8px;
+		grid-template-columns: 40px 3fr 0.8fr 1.1fr;
+	}
+	
+	.myLeagueH1Block.oneBtn h1 {
+		font-size: 20px;
+	}
+	
+	.btn_all-bets_block.oneBtn {
+		padding-right: 10px;
+	}
+	
+	.myLeagueTableRow {
+		grid-template-columns: 0.5fr 0.5fr 3fr 0.7fr 0.7fr 0.7fr 0.7fr 1fr 1fr;
+		grid-column-gap: 0px;
+	}
+	
+	.myBkCompareRow {
+		grid-template-columns: 80px 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
+	}
+	
+	.bmCeffListLogo {
+		height: auto;
+		width: 100%;
+	}
+	
+	.myHederTeamLogo {
+		display: none;
+	}
+	
+	.myStartmatchesBlock {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.champ_description_text {
+		display: none;
+	}
+	
+	.second_command_name {
+		font-size: 12px;
+	}
+	
+	.time_msk, .xceff {
+		display: none;
+	}
+	
+	.command_name.vs {
+		grid-column: 1/3;
+	}
+	
+	.command_name.second_command_name {
+		grid-column: 4/6;
+	}
+	
+	.command_name {
+		padding-left: 0px !important;  
+		padding-right: 0px !important;
+	}
+}
+
+@media (max-width: 479px) {		
+	.eventDescr {
+	    grid-template-columns: 1fr;
+	    padding-left: 0px;
+	}
+	
+	.discr_title_text_block {
+		justify-self: center;
+	}
+	
+	.btn_all-bets_block {
+		width: 100%;
+		text-align: center;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	
+	.eventRowHeader {
+		grid-template-columns: 3fr 1fr;
+	    grid-column-gap: 8px;
+	}
+	
+	.exp_sports_text.event {
+		grid-column: 1/2;
+		margin-left: 10px;
+	}
+	
+	.bets_status {
+		grid-column: 2/3;
+		margin-right: 10px;
+	}
+	
+	.eventRowData {
+		grid-template-columns: 2fr 0.8fr 0.5fr 1.2fr;
+	    grid-column-gap: 8px;
+	    margin-left: 10px;
+	}
+	
+	.exp_matches_num.events {
+		display: none;
+	}
+	
+	.bets_status {
+		grid-column: 4/5;
+	}
+	
+	.bets_status, .bets_status.red {
+		width: 68px;
+	}
+	
+	.discr_title_text {
+		text-align: center;
+	}
+	
+	.col_news-tags {
+		margin-top: 0px;
+	}
+	
+	.allNewsDateBlock {
+		display: none;
+	}
+	
+	.added-date.new {
+		margin-left: 4px;
+		margin-top: 10px; 
+	}
+	
+	.exp_matches_num.express, .sportIconFr.express {
+		justify-self: center; 
+	}
+	
+	.express_bets_title_text {
+		margin: 0px;
+	}
+	
+	.express_block_title.expresses {
+		padding-left: 10px;
+		padding-right: 10px;
+		text-align: center;
+	}
+	
+	.discr_title_button {
+		width: 100%;
+		text-align: center;
+		margin-top: 0px;	
+	}
+	
+	.odinochnie-prognozy {
+		font-size: 14px;
+	}
+	
+	.flex-text-block {
+		padding-top: 13%;
+	}
+	
+	.leagueMatchesTitleRow {
+		grid-template-columns: 1fr;
+		grid-auto-rows: minmax(47px, auto);
+	}
+	
+	.myLeagueH1 {
+		padding-left: 0px;
+		margin-bottom: 0px;
+		margin-top: 0px;
+	}
+	
+	.myLeagueH1Block, .myLeagueH1 {
+		text-align: center;
+	}
+	
+	.allItemsBtn {
+		font-size: 12px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	
+	.descrButtonBlock {
+		width: 100%;
+		text-align: center;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	
+	.descrButton {
+		font-size: 12px;
+		width: 100%;
+		float: left;
+		padding: 10px 10px 10px;
+	}
+	
+	.btn_all-bets_block.myS {
+		padding-left: 16px;
+		padding-right: 16px;
+		padding-bottom: 4px;
+	}
+	
+	.myLeagueIconBlock {
+		display: none;
+	}
+	
+	.myLeagueH1Block.oneBtn {
+		grid-column: 1/2;
+	}
+	
+	.btn_all-bets_block.oneBtn {
+		justify-self: center;
+	}
+	
+	.myLeagueTableRow {
+		grid-template-columns: 0.5fr 0.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+		grid-column-gap: 0px;
+	}
+	
+	.myLeagueTableTeamLogo {
+		height: auto;
+		width: 100%;
+	}		
+	
+	.myBkCompareRow {
+		grid-template-columns: 80px 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
+	}
+	
+	.bmCeffListLogo {
+		height: auto;
+		width: 100%;
+	}
+	
+	.myChampTableRow {
+		grid-column-gap: 0px;
+	}
+	
+	.myChampionatTable {
+		padding-right: 10px;
+		padding-left: 10px;
+		width: 100%;
+	}
+	
+	.myStartmatchesBlock {
+		grid-column: 1/8;
+	}
+	
+	.match_game._t1 {
+		grid-column: 1/4;
+	}
+	
+	.match_game._t2 {
+		grid-column: 5/8;
+	}
+	
+	.champ_description_text {
+		display: none;
+	}
+	
+	.second_command_name {
+		font-size: 12px;
+	}
+	
+	.command_name.vs {
+		grid-column: 1/3;
+	}
+	
+	.command_name.second_command_name {
+		grid-column: 4/6;
+	}
+	
+	.command_name {
+		padding-left: 0px !important;  
+		padding-right: 0px !important;
+	}
+	
+	.drow_coef_number, .draw_coef, .coefficient_matches {
+		display: none;
 	}
 }

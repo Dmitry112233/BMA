@@ -24,7 +24,7 @@
                <div class="columns-7 w-row">
                   <c:forEach var="question" items="${questionsList}">
                      <div class="column-22 w-col w-col-3 w-col-medium-6">
-                        <div class="cards_item">
+                        <div class="cards_item" style="background-image: url('/Static/bootstrap/img/questionBGs/q_${question.questionID}.png')">
                            <div class="questions_cards_text">${question.question}</div>
                            <a href="${contextPath}/faq_list_${question.questionID}_details" class="button_questions w-button">Подробнее</a>
                         </div>
