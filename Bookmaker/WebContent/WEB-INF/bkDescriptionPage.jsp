@@ -24,13 +24,17 @@
             <div class="hero_wrapper_block">
                <div id="w-node-6a514ac2de5f-d678b9c0" class="title-and-image-block">
                   <div id="w-node-b77efebebee1-d678b9c0" class="title_bookmaker_block">
-                     <a href="${contextPath}/bookmakers" id="w-node-3a7defcb2b8b-d678b9c0" class="button-5 w-button">Все букмекеры</a>
+            <div id="w-node-bd1aa0aa0789-d678b9c0" class="div-block-21">                     
                      <a href="counter?id=${bookmaker.bookMakerId}" target="_blank" id="w-node-fe17e119559d-d678b9c0" class="btn_bookmaker_black w-button">Перейти на сайт</a>
-                     <h1 id="w-node-379fc290d712-d678b9c0" class="title_text_bookmaker">${Bookmaker_H1}</h1>
+					 <a href="${contextPath}/bookmakers" id="w-node-3a7defcb2b8b-d678b9c0" class="button-5 w-button">Все букмекеры</a>
                   </div>
                </div>
-               <div id="w-node-e810e40df812-d678b9c0" class="criteria_bookmaker">
-                  <div id="w-node-e810e40df81a-d678b9c0" class="criteria_title">
+               <div id="w-node-a54d6cda8026-d678b9c0" class="div-block-20">
+            <h1 class="title_text_bookmaker">${Bookmaker_H1}</h1>
+          </div>
+                  </div>
+        <div id="w-node-e810e40df812-d678b9c0" class="criteria_bookmaker">
+		<div id="w-node-e810e40df81a-d678b9c0" class="criteria_title">
                      <div id="w-node-e810e40df81b-d678b9c0" class="criteria-text">Критерии</div>
                      <img src="/Static/bootstrap/img/bkLogo/${bookmaker.name}.png" onerror="this.style.display='none'" width="80" height="26" id="w-node-e810e40df81d-d678b9c0" alt="${bookmaker.name} logo" />                     
                   </div>

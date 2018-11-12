@@ -42,8 +42,8 @@
                                     <div class="text-block-42">${newsItem.description}</div>
                                     <div class="col_news-tags w-row">
                                        <div class="w-col w-col-8 w-col-medium-6 w-col-small-6 w-col-tiny-12">
-                                          <div class="text-block-44 tags">${newsItem.sport}</div>
-                                          <div class="text-block-44 _2nd tags">${newsItem.competition}</div>
+                                          <div class="news-tags tags">${newsItem.sport}</div>
+                                          <div class="news-tags _2nd tags">${newsItem.competition}</div>
                                        </div>
                                        <div class="w-clearfix w-col w-col-4 w-col-medium-6 w-col-small-6 w-col-tiny-12 allNewsDateBlock">
                                           <div class="added-date all">Добавлено: ${newsItem.dateStr}</div>
@@ -54,16 +54,20 @@
                            </div>
                         </div>
                      </c:forEach>
-                     <ul>
-                        <c:forEach var="button" items="${pageMass}">
-                           <c:if test = "${button + 1 == currentPage}">
-                              <li class="page-item active"><a class="page-link" href="${contextPath}/news_${button * 10}">${button + 1}</a></li>
-                           </c:if>
-                           <c:if test = "${button + 1 != currentPage}">
-                              <li class="page-item"><a class="page-link" href="${contextPath}/news_${button * 10}">${button + 1}</a></li>
-                           </c:if>
-                        </c:forEach>
-                     </ul>
+                     <div class="pagination">
+                     <c:forEach var="button" items="${pageMass}">
+                         <c:if test = "${button + 1 == currentPage}">
+                            <a href="${contextPath}/news_${button * 10}" class="pagination_num _1 w-inline-block w--current">
+		              			<div class="pagination_num_text">${button + 1}</div>
+		            		</a>
+                         </c:if>
+                         <c:if test = "${button + 1 != currentPage}">
+                            <a href="${contextPath}/news_${button * 10}" class="pagination_num w-inline-block">
+				              <div class="pagination_num_text">${button + 1}</div>
+				            </a>
+                         </c:if>
+                      </c:forEach>
+                      </div>
                   </div>
                </div>
                <div class="bets_desc-col2 w-col w-col-4 w-col-stack">

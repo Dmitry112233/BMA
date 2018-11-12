@@ -32,9 +32,9 @@
                   <div class="news_container new">
                      <div class="new_bg-image" style="background-image: url('${news.image}')">
                      </div>
-                     <div class="new_tags">
-                        <div class="text-block-44 tags">${news.sport}</div>
-                        <div class="text-block-44 tags">${news.competition}</div>
+                     <div class="new_tags myNewsDescrTagBlock">
+                        <div class="news-tags tags">${news.sport}</div>
+                        <div class="news-tags tags">${news.competition}</div>
                         <div class="added-date new">Добавлено: ${news.dateStr}</div>
                      </div>
                      <div class="new_text-block">

@@ -95,7 +95,7 @@
 .myChampionatTable {
 	display: grid;
 	grid-template-columns: 1fr;
-	width: 400px;
+	width: 100%;
 	padding: 30px 20px 0px 20px;
 	background-color: #fff;	
 }
@@ -383,6 +383,10 @@
 
 .sideBanner, .sideLeagueTablePart {
 	margin-bottom: 20px;
+}
+
+.sideLeagueTablePart {
+	padding-right: 10px;
 }
 
 .myExpressWrapper {
@@ -732,6 +736,7 @@
     grid-auto-rows: minmax(80px, auto);
     margin-bottom: 20px;
     background-color: #fff;
+    padding-bottom: 16px;
 }
 
 .descrButtonBlock {
@@ -809,6 +814,18 @@
 
 .rpl_matches_block {
 	margin-bottom: 20px;
+}
+
+.myNewsDescrTagBlock {
+	padding-top: 10px;
+}
+
+.text-block-42 {
+	margin-bottom: 5px;
+}
+
+.news-tags.tags {
+	cursor: default;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {

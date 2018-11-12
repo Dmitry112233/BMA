@@ -6,8 +6,8 @@
 <div class="singleforecasts">
    <div class="stavka-block w-clearfix">
       <div class="odinochnie-prognozy">Одиночные прогнозы</div>
-      <div class="text-block-27">
-         <a href="#" class="link-4">Все прогнозы</a>
+      <div class="all_newstext">
+         <a href="#" class="all_newslink">Все прогнозы</a>
       </div>
    </div>
    <div class="express">
@@ -38,10 +38,10 @@
                      <div class="w-row">
                         <div class="column-16 w-col w-col-9 w-col-small-6">
                            <img src="/Static/bootstrap/img/sportsIcons/football.png" width="20" alt="" class="ball-img" />
-                           <div class="text-block-14">${footballIvents.competition}</div>
+                           <div class="tab-command_name">${footballIvents.competition}</div>
                         </div>
                         <div class="w-clearfix w-col w-col-3 w-col-small-6">
-                           <a href="${contextPath}/event_description_${footballIvents.iventID}_details" class="link-5">Подробнее</a>
+                           <a href="${contextPath}/event_description_${footballIvents.iventID}_details" class="more_link">Подробнее</a>
                         </div>
                      </div>
                   </div>
@@ -66,10 +66,10 @@
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
                               <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="20" alt="" class="ball-img" />
-                              <div class="text-block-14">${basketballIvents.competition}</div>
+                              <div class="tab-command_name">${basketballIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
-                              <a href="${contextPath}/event_description_${basketballIvents.iventID}_details" class="link-5">Подробнее</a>
+                              <a href="${contextPath}/event_description_${basketballIvents.iventID}_details" class="more_link">Подробнее</a>
                            </div>
                         </div>
                      </div>
@@ -94,10 +94,10 @@
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
                               <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="20" alt="" class="ball-img" />
-                              <div class="text-block-14">${hockeyIvents.competition}</div>
+                              <div class="tab-command_name">${hockeyIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
-                              <a href="${contextPath}/event_description_${hockeyIvents.iventID}_details" class="link-5">Подробнее</a>
+                              <a href="${contextPath}/event_description_${hockeyIvents.iventID}_details" class="more_link">Подробнее</a>
                            </div>
                         </div>
                      </div>
@@ -122,10 +122,10 @@
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
                               <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="20" alt="" class="ball-img" />
-                              <div class="text-block-14">${tennisIvents.competition}</div>
+                              <div class="tab-command_name">${tennisIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
-                              <a href="${contextPath}/event_description_${tennisIvents.iventID}_details" class="link-5">Подробнее</a>
+                              <a href="${contextPath}/event_description_${tennisIvents.iventID}_details" class="more_link">Подробнее</a>
                            </div>
                         </div>
                      </div>

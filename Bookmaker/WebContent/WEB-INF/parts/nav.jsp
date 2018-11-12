@@ -4,102 +4,38 @@
 <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="db9a7df6-37d1-925e-5aa6-efd7dadd119d" class="navbar w-nav">
    <div class="nav-container w-container">
       <a href="${contextPath}/bookmakers" class="brand w-nav-brand">
-      <img src="/Static/bootstrap/img/BMAlogoNew.png" width="160" alt="" />
+      <img src="/Static/bootstrap/img/BMAlogoNew.png" width="170" alt="findbestbet" />
       </a>
       <nav role="navigation" class="nav-menu w-nav-menu">
-         <div data-delay="0" class="mega-menu w-dropdown">
-            <div class="dropdown-toggle w-dropdown-toggle">
-               <div class="text-block-29">БУКМЕКЕРЫ</div>
-            </div>
-            <nav class="drn-list w-dropdown-list">
-               <div class="mega-menu-drn">
-                  <div class="div-block-14">
-                  </div>
-                  <div class="w-row">
-                     <div class="column-11 w-col w-col-4">
-                        <div class="dropdown-bet _1">
-                        </div>
-                     </div>
-                     <div class="column-12 w-col w-col-4">
-                        <div class="dropdown-2">
-                        </div>
-                        <div class="dropdown-2">
-                        </div>
-                     </div>
-                     <div class="col-3-dropdown w-col w-col-4">
-                        <div class="dropdown-2">
-                        </div>
-                        <div class="dropdown-2">
-                        </div>
-                     </div>
-                  </div>
+         <a href="${contextPath}/bookmakers" class="nav-link w-nav-link" data-ix="new-interaction">БУКМЕКЕРЫ</a>
+         <div data-delay="0" class="w-dropdown">
+            <div class="menu_dropdown w-dropdown-toggle">
+               <div class="menu_dropdown-icon w-icon-dropdown-toggle">
                </div>
+               <div class="menu_dropdown-text">СТАВКА НА ФУТБОЛ</div>
+            </div>
+            <nav class="w-dropdown-list">
+               <a href="${contextPath}/${'российская премьер лига'}_матчи" class="menu_dropdown_link w-dropdown-link">Премьер-Лига (Россия)</a>
+               <a href="${contextPath}/${'английская премьер лига'}_матчи" class="menu_dropdown_link w-dropdown-link">Премьер-Лига (Англия)</a>
+               <a href="${contextPath}/${'испанская ла лига'}_матчи" class="menu_dropdown_link w-dropdown-link">Ла Лига (Испания)</a>
+               <a href="${contextPath}/${'итальянская серия а'}_матчи" class="menu_dropdown_link w-dropdown-link">Серия А (Италия)</a>
+               <a href="${contextPath}/${'немецкая бундеслига'}_матчи" class="menu_dropdown_link w-dropdown-link">Бундеслига (Германия)</a>
+               <a href="${contextPath}/competitions" class="menu_dropdown_link w-dropdown-link">Все чемпионаты</a>
             </nav>
          </div>
-         <div data-delay="0" class="mega-menu w-dropdown">
-            <div class="dropdown-toggle w-dropdown-toggle">
-               <div class="text-block-31">
-                  <a href="#" class="link-2">СТАВКА НА СПОРТ</a>
+         <div data-delay="0" class="w-dropdown">
+            <div class="menu_dropdown w-dropdown-toggle">
+               <div class="menu_dropdown-icon w-icon-dropdown-toggle">
                </div>
+               <div class="menu_dropdown-text">ПРОГНОЗЫ</div>
             </div>
-            <nav class="drn-list w-dropdown-list">
-               <div class="mega-menu-drn">
-                  <div class="div-block-14">
-                  </div>
-                  <div class="w-row">
-                     <div class="column-11 w-col w-col-4">
-                        <div class="dropdown-bet _1">
-                        </div>
-                     </div>
-                     <div class="column-12 w-col w-col-4">
-                        <div class="dropdown-2">
-                        </div>
-                        <div class="dropdown-2">
-                        </div>
-                     </div>
-                     <div class="col-3-dropdown w-col w-col-4">
-                        <div class="dropdown-2">
-                        </div>
-                        <div class="dropdown-2">
-                        </div>
-                     </div>
-                  </div>
-               </div>
+            <nav class="w-dropdown-list">
+               <a href="${contextPath}/expresses_list_0" class="menu_dropdown_link w-dropdown-link">Экспрессы</a>
+               <a href="${contextPath}/events_list" class="menu_dropdown_link w-dropdown-link">Одиночные прогнозы</a>
             </nav>
          </div>
-         <div data-delay="0" class="mega-menu w-dropdown">
-            <div class="dropdown-toggle w-dropdown-toggle">
-               <div class="text-block-30">
-                  <a href="#" class="link-2">ПРОГНОЗЫ</a>
-               </div>
-            </div>
-            <nav class="drn-list w-dropdown-list">
-               <div class="mega-menu-drn">
-                  <div class="div-block-14">
-                  </div>
-                  <div class="w-row">
-                     <div class="column-11 w-col w-col-4">
-                        <div class="dropdown-bet _1">
-                        </div>
-                     </div>
-                     <div class="column-12 w-col w-col-4">
-                        <div class="dropdown-2">
-                        </div>
-                        <div class="dropdown-2">
-                        </div>
-                     </div>
-                     <div class="col-3-dropdown w-col w-col-4">
-                        <div class="dropdown-2">
-                        </div>
-                        <div class="dropdown-2">
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </nav>
-         </div>
-         <a href="#" class="nav-link w-nav-link" data-ix="new-interaction">НОВОСТИ</a>
-         <a href="#" class="nav-link w-nav-link">ПРАВИЛА</a>
+         <a href="${contextPath}/news_0" class="nav-link w-nav-link" data-ix="new-interaction">НОВОСТИ</a>
+         <a href="${contextPath}/faq_list" class="nav-link w-nav-link">ВОПРОСЫ</a>
       </nav>
       <div class="menu-btn w-nav-button">
          <div data-w-id="db9a7df6-37d1-925e-5aa6-efd7dadd11d9" class="burger-line">

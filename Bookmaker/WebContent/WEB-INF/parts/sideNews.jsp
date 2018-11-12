@@ -5,8 +5,8 @@
    <div class="mySideNewsBlock">
       <div class="stavka-block w-clearfix">
          <div class="odinochnie-prognozy">Новости</div>
-         <div class="text-block-27">
-            <a href="${contextPath}/news_0" class="link-4">Все новости</a>
+         <div class="all_newstext">
+            <a href="${contextPath}/news_0" class="all_newslink">Все новости</a>
          </div>
       </div>
       <div class="myNewsItems">
