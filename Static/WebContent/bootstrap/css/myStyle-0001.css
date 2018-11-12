@@ -9,7 +9,7 @@
 	font-weight: 300;
 }
 
-.progressValue, .button_all_comments, .link_open_more {
+.progressValue, .button_all_comments, .link_open_more, .mobileCeffs {
 	display: none;
 }
 
@@ -807,6 +807,10 @@
 	white-space: nowrap;
 }
 
+.rpl_matches_block {
+	margin-bottom: 20px;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -1145,7 +1149,7 @@
 	}
 	
 	.second_command_name {
-		font-size: 12px;
+		font-size: 10px;
 	}
 	
 	.command_name.vs {
@@ -1163,5 +1167,19 @@
 	
 	.drow_coef_number, .draw_coef, .coefficient_matches {
 		display: none;
+	}
+	
+	.eventDescr p {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	.mobileCeffs {
+		display: block;
+		white-space: nowrap;
+		justify-self: center;
+		text-align: center;
+		font-size: 10px;
+		line-height: 10px;
 	}
 }

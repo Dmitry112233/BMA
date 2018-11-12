@@ -49,6 +49,7 @@
                                  <div class="time_msk"><fmt:formatDate pattern = "HH:mm" value = "${events.date}" /> МСК</div>
                                  <div class="command_name vs">${events.team1} <span class="coefficient_matches">(${events.win1}) </span><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team1}.png" onerror="this.style.display='none'"></div>
                                  <div class="draw_coef">ничья<span class="drow_coef_number"> (${events.x})</span></div>
+                                 <div class="mobileCeffs">1: ${events.win1}<br>x: ${events.x}<br>2: ${events.win2}</div>
                                  <div class="command_name second_command_name"><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team2}.png" onerror="this.style.display='none'"> ${events.team2}<span class="coefficient_matches"> (${events.win2})</span></div>
                                  <div class="xceff"><a class="link_more" href="${contextPath}/${events.url}">Подробности</a></div>
                               </div>
@@ -56,14 +57,16 @@
                         </c:forEach>
                      </c:forEach>
                   </div>
-                  <div class="seoBlock">
-                     ${League_Txt}
-                  </div>
                </div>
                <c:import url="parts/sideLeagueTable.jsp"></c:import>
                <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
                <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
                <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import>
+               <div class="col_rpl_info w-col w-col-8 w-col-stack">    
+                  <div class="seoBlock">
+                     ${League_Txt}
+                  </div>
+               </div>
             </div>
          </div>
       </div>
