@@ -13,7 +13,7 @@
       </div>
    </div>
    <c:forEach var="bookmaker" items="${bookmakerList.values()}">
-   <div class="_1xbet">
+   <div class="_1xbet bkCard">
       <div class="w-row">
          <div class="col-1 w-col w-col-3 w-col-stack">
             <div class="logo-1xbet">

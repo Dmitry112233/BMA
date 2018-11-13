@@ -3,6 +3,8 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div class="general-slider">
    <div data-delay="6000" data-animation="outin" data-autoplay="1" data-easing="ease-in-out" data-nav-spacing="5" data-duration="500" data-infinite="1" class="slider w-clearfix w-slider">
+      <div class="slide-nav-2 w-slider-nav w-round">
+      </div>
       <div class="mask w-slider-mask">
          <div class="slider_liga-stavok w-slide">
             <a href="counter?id=${bookmakerList.get('1xBet').bookMakerId}" target="_blank" class="slider-link-leon _1xbet w-inline-block">
@@ -28,7 +30,6 @@
          <div class="slider-icon w-icon-slider-right">
          </div>
       </div>
-      <div class="slide-nav-2 w-slider-nav w-round">
-      </div>
+      
    </div>
 </div>

@@ -23,7 +23,7 @@
                <div class="beta_desc_col1 w-col w-col-8 w-col-stack">
                   <div class="title_block eventDescr questionTitle">
                      <div class="discr_title_text_block">
-                        <h1 class="discr_title_text">Новости</h1>
+                        <h1 class="discr_title_text news">Новости</h1>
                      </div>
                      <div class="btn_all-bets_block">
                         <a href="${contextPath}/news_${offset}" class="btn_all-bets w-button">Все новости</a>

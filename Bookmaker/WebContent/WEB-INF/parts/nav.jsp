@@ -6,7 +6,7 @@
 <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="db9a7df6-37d1-925e-5aa6-efd7dadd119d" class="navbar w-nav">
    <div class="nav-container w-container">
       <a href="${contextPath}/bookmakers" class="brand w-nav-brand">
-      <img src="/Static/bootstrap/img/BMAlogoNew.png" width="170" alt="findbestbet" />
+      <img src="/Static/bootstrap/img/BMAlogoNew.png" width="180" alt="findbestbet" />
       </a>
       <nav role="navigation" class="nav-menu w-nav-menu">
          <a href="${contextPath}/bookmakers" class="nav-link w-nav-link" data-ix="new-interaction">БУКМЕКЕРЫ</a>

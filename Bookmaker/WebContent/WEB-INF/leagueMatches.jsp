@@ -43,18 +43,20 @@
                   <div class="rpl_matches_block">
                      <c:forEach var="date" items="${dates}">
                         <div class="date_matches"><fmt:formatDate pattern = "dd.MM.yyyy" value = "${mapMatch.get(date).get(0).date}" /></div>
-                        <c:forEach var="events" items="${mapMatch.get(date)}">
-                           <div class="myLeagueMatchesWrapper">
-                              <div class="myLeagueMatches" onclick="window.location.href='${contextPath}/${events.url}'; return false">
-                                 <div class="time_msk"><fmt:formatDate pattern = "HH:mm" value = "${events.date}" /> МСК</div>
-                                 <div class="command_name vs">${events.team1} <span class="coefficient_matches">(${events.win1}) </span><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team1}.png" onerror="this.style.display='none'"></div>
-                                 <div class="draw_coef">ничья<span class="drow_coef_number"> (${events.x})</span></div>
-                                 <div class="mobileCeffs">1: ${events.win1}<br>x: ${events.x}<br>2: ${events.win2}</div>
-                                 <div class="command_name second_command_name"><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team2}.png" onerror="this.style.display='none'"> ${events.team2}<span class="coefficient_matches"> (${events.win2})</span></div>
-                                 <div class="xceff"><a class="link_more" href="${contextPath}/${events.url}">Подробности</a></div>
-                              </div>
-                           </div>
-                        </c:forEach>
+                        <div class="myLeagueMatchesTopWrapper">
+	                        <c:forEach var="events" items="${mapMatch.get(date)}">
+	                           <div class="myLeagueMatchesWrapper">
+	                              <div class="myLeagueMatches" onclick="window.location.href='${contextPath}/${events.url}'; return false">
+	                                 <div class="time_msk"><fmt:formatDate pattern = "HH:mm" value = "${events.date}" /> МСК</div>
+	                                 <div class="command_name vs myLeagMatchesComandName">${events.team1} <span class="coefficient_matches">(${events.win1}) </span><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team1}.png" onerror="this.style.display='none'"></div>
+	                                 <div class="draw_coef">ничья<span class="drow_coef_number"> (${events.x})</span></div>
+	                                 <div class="mobileCeffs">1: ${events.win1}<br>x: ${events.x}<br>2: ${events.win2}</div>
+	                                 <div class="command_name second_command_name myLeagMatchesComandName"><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team2}.png" onerror="this.style.display='none'"> ${events.team2}<span class="coefficient_matches"> (${events.win2})</span></div>
+	                                 <div class="xceff"><a class="link_more" href="${contextPath}/${events.url}">Подробности</a></div>
+	                              </div>
+	                           </div>
+	                        </c:forEach>
+                        </div>
                      </c:forEach>
                   </div>
                </div>

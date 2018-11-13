@@ -24,9 +24,9 @@
             <div class="hero_wrapper_block">
                <div id="w-node-6a514ac2de5f-d678b9c0" class="title-and-image-block">
                   <div id="w-node-b77efebebee1-d678b9c0" class="title_bookmaker_block">
-            <div id="w-node-bd1aa0aa0789-d678b9c0" class="div-block-21">                     
-                     <a href="counter?id=${bookmaker.bookMakerId}" target="_blank" id="w-node-fe17e119559d-d678b9c0" class="btn_bookmaker_black w-button">Перейти на сайт</a>
-					 <a href="${contextPath}/bookmakers" id="w-node-3a7defcb2b8b-d678b9c0" class="button-5 w-button">Все букмекеры</a>
+            		<div id="w-node-bd1aa0aa0789-d678b9c0" class="div-block-21">                     
+                     <a href="counter?id=${bookmaker.bookMakerId}" target="_blank" id="w-node-fe17e119559d-d678b9c0" class="btn_bookmaker_black w-button toBkSiteBtn">Перейти на сайт</a>
+					 <a href="${contextPath}/bookmakers" id="w-node-3a7defcb2b8b-d678b9c0" class="button-5 w-button allBkBtn">Все букмекеры</a>
                   </div>
                </div>
                <div id="w-node-a54d6cda8026-d678b9c0" class="div-block-20">
@@ -39,7 +39,7 @@
                      <img src="/Static/bootstrap/img/bkLogo/${bookmaker.name}.png" onerror="this.style.display='none'" width="80" height="26" id="w-node-e810e40df81d-d678b9c0" alt="${bookmaker.name} logo" />                     
                   </div>
                   <div id="w-node-e810e40df813-d678b9c0" class="columns-3 w-row">
-                     <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
+                     <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6 ratingWidth">
                         <div class="criteria-rating-text">НАДЕЖНОСТЬ</div>
                         <div class="criteria-rating-progress progressBar">
                            <div class="criteria-rating-progress dynamic progressBarDone"><p class="progressValue">${bookmaker.reliability}</p></div>
@@ -52,7 +52,7 @@
                      <div class="criteria-rating-text numeral">${bookmaker.reliability}</div>
                   </div>
                   <div id="w-node-e810e40df81e-d678b9c0" class="columns-3 w-row">
-                     <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
+                     <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6 ratingWidth">
                         <div class="criteria-rating-text">ЛИНИЯ</div>
                         <div class="criteria-rating-progress progressBar">
                            <div class="criteria-rating-progress dynamic progressBarDone"><p class="progressValue">${bookmaker.line}</p></div>
@@ -65,7 +65,7 @@
                      <div class="criteria-rating-text numeral">${bookmaker.line}</div>
                   </div>
                   <div id="w-node-e810e40df833-d678b9c0" class="columns-3 w-row">
-                     <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
+                     <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6 ratingWidth">
                         <div class="criteria-rating-text">УДОБСТВО РАБОТЫ</div>
                         <div class="criteria-rating-progress progressBar">
                            <div class="criteria-rating-progress dynamic progressBarDone"><p class="progressValue">${bookmaker.usability}</p></div>
@@ -81,8 +81,8 @@
                      <div id="w-node-e810e40df829-d678b9c0" class="rating-numeral">
                         <div class="criteria-rating-text numeral">${bookmaker.result}</div>
                      </div>
-                     <div id="w-node-e810e40df82c-d678b9c0" class="columns-3 w-row">
-                        <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6">
+                     <div id="w-node-e810e40df82c-d678b9c0" class="columns-3 w-row ratingWidth">
+                        <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6 ratingWidth">
                            <div class="criteria-rating-text">ОБЩИЙ РЕЙТИНГ</div>
                            <div class="criteria-rating-progress progressBar">
                               <div class="criteria-rating-progress dynamic progressBarDone"><p class="progressValue">${bookmaker.result}</p></div>

@@ -54,19 +54,21 @@
                            </div>
                         </div>
                      </c:forEach>
-                     <div class="pagination">
-                     <c:forEach var="button" items="${pageMass}">
-                         <c:if test = "${button + 1 == currentPage}">
-                            <a href="${contextPath}/news_${button * 10}" class="pagination_num _1 w-inline-block w--current">
-		              			<div class="pagination_num_text">${button + 1}</div>
-		            		</a>
-                         </c:if>
-                         <c:if test = "${button + 1 != currentPage}">
-                            <a href="${contextPath}/news_${button * 10}" class="pagination_num w-inline-block">
-				              <div class="pagination_num_text">${button + 1}</div>
-				            </a>
-                         </c:if>
-                      </c:forEach>
+                     <div class="myPaginationBlock">
+	                     <div class="pagination">
+	                     <c:forEach var="button" items="${pageMass}">
+	                         <c:if test = "${button + 1 == currentPage}">
+	                            <a href="${contextPath}/news_${button * 10}" class="pagination_num _1 w-inline-block w--current">
+			              			<div class="pagination_num_text">${button + 1}</div>
+			            		</a>
+	                         </c:if>
+	                         <c:if test = "${button + 1 != currentPage}">
+	                            <a href="${contextPath}/news_${button * 10}" class="pagination_num w-inline-block">
+					              <div class="pagination_num_text">${button + 1}</div>
+					            </a>
+	                         </c:if>
+	                      </c:forEach>
+	                      </div>
                       </div>
                   </div>
                </div>

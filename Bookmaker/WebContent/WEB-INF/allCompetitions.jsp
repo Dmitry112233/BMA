@@ -49,7 +49,7 @@
                                  <img src="/Static/bootstrap/img/leagueIcon/российская премьер лига.png" onerror="this.style.display='none'" width="96" alt="" />
                               </div>
                            </div>
-                           <div class="col_tab_content_2 w-col w-col-8">
+                           <div class="col_tab_content_2 w-col w-col-8 myChampShortDescr">
                               <div class="championat_title_text">
                                  <h1 class="chemp_tab_title">Российская Премьер-Лига</h1>
                                  <div class="champ_tab_text_info">Год основания: 1992</div>
@@ -197,7 +197,7 @@
          </div>
          <div class="seo_text_block">
             <div class="w-row">
-               <div class="column-13 w-col w-col-8 w-col-stack">
+               <div class="column-13 w-col w-col-8 w-col-stack myChampSeo">
                   <div class="seoBlock">
                      <div class="info_bookmakers col_info_competishons">
                         <h2 class="seo_h2_text">Ставки на футбол сегодня</h2>

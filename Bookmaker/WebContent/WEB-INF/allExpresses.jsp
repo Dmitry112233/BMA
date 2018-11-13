@@ -27,7 +27,7 @@
                      <h1 class="express_bets_title_text">${Express_H1}</h1>
                   </div>
                   <c:forEach var="express" items="${expressList}">
-                     <div class="sport_matches_item">
+                     <div class="sport_matches_item expr">
                         <div class="exp_block w-clearfix">
                            <h3 class="heading-12">Экспресс</h3>
                            <div class="date__start_game">
@@ -66,16 +66,22 @@
                         </div>
                      </div>
                   </c:forEach>
-                  <ul>
-                     <c:forEach var="button" items="${pageMass}">
-                        <c:if test = "${button + 1 == currentPage}">
-                           <li><a class="page-link" href="${contextPath}/expresses_list_${button * 20}">${button + 1}</a></li>
-                        </c:if>
-                        <c:if test = "${button + 1 != currentPage}">
-                           <li><a class="page-link" href="${contextPath}/expresses_list_${button * 20}">${button + 1}</a></li>
-                        </c:if>
-                     </c:forEach>
-                  </ul>
+                  <div class="myPaginationBlock">
+				   <div class="pagination">
+				      <c:forEach var="button" items="${pageMass}">
+				         <c:if test = "${button + 1 == currentPage}">
+				            <a href="${contextPath}/expresses_list_${button * 20}" class="pagination_num _1 w-inline-block w--current">
+				               <div class="pagination_num_text">${button + 1}</div>
+				            </a>
+				         </c:if>
+				         <c:if test = "${button + 1 != currentPage}">
+				            <a href="${contextPath}/expresses_list_${button * 20}" class="pagination_num w-inline-block">
+				               <div class="pagination_num_text">${button + 1}</div>
+				            </a>
+				         </c:if>
+				      </c:forEach>
+				   </div>
+				</div>
                   <c:if test = "${Express_Txt != Null}">
                      <div class="seoBlock">${Express_Txt}</div>
                      <br>

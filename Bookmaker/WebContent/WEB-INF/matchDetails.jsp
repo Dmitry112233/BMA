@@ -95,57 +95,18 @@
                         </a>
                      </div>
                      <div class="w-tab-content">
-                        <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
-                           <div class="myTeamHistoryTable">
-                              <c:forEach var="Team1Matches" items="${lastMatchesTeam1}">
-                                 <div class="myTeamHistoryRow">
-                                    <div class="tab_matches-date">${Team1Matches.dateStr}</div>
-                                    <div class="command_name vs">${Team1Matches.team1} <img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team1Matches.team1}.png" onerror="this.style.display='none'"></div>
-                                    <div class="matches_score-text">${Team1Matches.goalsTeam1} - ${Team1Matches.goalsTeam2}
-                                       <c:if test="${(Team1Matches.penaltyTeam1 > 0) || (Team1Matches.penaltyTeam2 > 0)}"><br>(${Team1Matches.penaltyTeam1}:${Team1Matches.penaltyTeam2})</c:if>
-                                    </div>
-                                    <div class="command_name vs2"><img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team1Matches.team2}.png" onerror="this.style.display='none'"> ${Team1Matches.team2}</div>
-                                    <div class="championats_min-naming">
-                                    	<img class="myTeamLogo" src="/Static/bootstrap/img/leagueIcon/${Team1Matches.championship}_det.png" onerror="this.style.display='none'">
-                                    </div>
-                                 </div>
-                              </c:forEach>
-                           </div>
-                        </div>
-                        <div data-w-tab="Tab 2" class="w-tab-pane">
-                           <div class="myTeamHistoryTable">
-                              <c:forEach var="Team2Matches" items="${lastMatchesTeam2}">
-                                 <div class="myTeamHistoryRow">
-                                    <div class="tab_matches-date">${Team2Matches.dateStr}</div>
-                                    <div class="command_name vs">${Team2Matches.team1} <img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team2Matches.team1}.png" onerror="this.style.display='none'"></div>
-                                    <div class="matches_score-text">${Team2Matches.goalsTeam1} - ${Team2Matches.goalsTeam2}
-                                       <c:if test="${(Team2Matches.penaltyTeam1 > 0) || (Team2Matches.penaltyTeam2 > 0)}"><br>(${Team2Matches.penaltyTeam1}:${Team2Matches.penaltyTeam2})</c:if>
-                                    </div>
-                                    <div class="command_name vs2"><img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team2Matches.team2}.png" onerror="this.style.display='none'"> ${Team2Matches.team2}</div>
-                                    <div class="championats_min-naming">
-                                    	<img class="myTeamLogo" src="/Static/bootstrap/img/leagueIcon/${Team2Matches.championship}_det.png" onerror="this.style.display='none'">
-                                    </div>
-                                 </div>
-                              </c:forEach>
-                           </div>
-                        </div>
-                        <div data-w-tab="Tab 3" class="w-tab-pane">
-                           <div class="myTeamHistoryTable">
-                              <c:forEach var="Team1Team2Matches" items="${lastMatchesTeam1Team2}">
-                                 <div class="myTeamHistoryRow">
-                                    <div class="tab_matches-date">${Team1Team2Matches.dateStr}</div>
-                                    <div class="command_name vs">${Team1Team2Matches.team1} <img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team1Team2Matches.team1}.png" onerror="this.style.display='none'"></div>
-                                    <div class="matches_score-text">${Team1Team2Matches.goalsTeam1} - ${Team1Team2Matches.goalsTeam2}
-                                       <c:if test="${(Team1Team2Matches.penaltyTeam1 > 0) || (Team1Team2Matches.penaltyTeam2 > 0)}"><br>(${Team1Team2Matches.penaltyTeam1}:${Team1Team2Matches.penaltyTeam2})</c:if>
-                                    </div>
-                                    <div class="command_name vs2"><img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Team1Team2Matches.team2}.png" onerror="this.style.display='none'"> ${Team1Team2Matches.team2}</div>
-                                    <div class="championats_min-naming">
-                                    	<img class="myTeamLogo" src="/Static/bootstrap/img/leagueIcon/${Team1Team2Matches.championship}_det.png" onerror="this.style.display='none'">
-                                    </div>
-                                 </div>
-                              </c:forEach>
-                           </div>
-                        </div>
+                     	<c:set var="TabListName" value="${lastMatchesTeam1}" scope="request"/>
+                        <c:set var="TabListNumber" value="1" scope="request"/>
+                        <c:set var="defTab" value="w--tab-active" scope="request"/>
+                        <c:import url="parts/matchDetailesTabs.jsp"/>
+                        <c:set var="TabListName" value="${lastMatchesTeam2}" scope="request"/>
+                        <c:set var="TabListNumber" value="2" scope="request"/>
+                        <c:set var="defTab" value="" scope="request"/>
+                        <c:import url="parts/matchDetailesTabs.jsp"/>
+                        <c:set var="TabListName" value="${lastMatchesTeam1Team2}" scope="request"/>
+                        <c:set var="TabListNumber" value="3" scope="request"/>
+                        <c:set var="defTab" value="" scope="request"/>
+                        <c:import url="parts/matchDetailesTabs.jsp"/>
                      </div>
                   </div>
                </div>
