@@ -32,7 +32,6 @@
                   </div>
                   <div class="exp_discr-content">
                      <div class="exp_discr-title w-clearfix">
-                        <h3 class="exp_discr-h3">Экспресс</h3>
                         <div id="w-node-8374c0a44c1c-b178b9c7" class="div-block-17 position">
                            <div id="w-node-8374c0a44c1d-b178b9c7" class="date_block">Дата начала: ${express.dateStr}</div>
                         </div>

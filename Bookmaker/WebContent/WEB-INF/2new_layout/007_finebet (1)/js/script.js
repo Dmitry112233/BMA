@@ -7393,7 +7393,7 @@ Webflow.define('dropdown', module.exports = function ($, _) {
     data.manageZ = zIndex === defaultZIndex || zIndex === defaultZIndex + 1;
 
     data.config = {
-      hover: Boolean(data.el.attr('data-hover')) && !touch,
+      hover: (data.el.attr('data-hover') === true || data.el.attr('data-hover') === '1') && !touch,
       delay: Number(data.el.attr('data-delay')) || 0
     };
   }
@@ -17390,7 +17390,9 @@ Webflow.define('touch', module.exports = function ($) {
  * Webflow: Interactions: Init
  */
 Webflow.require('ix').init([
-  {"slug":"new-interaction","name":"New Interaction","value":{"style":{},"triggers":[{"type":"click","selector":".mega-menu-section","stepsA":[{"display":"flex"}],"stepsB":[]}]}}
+  {"slug":"new-interaction","name":"New Interaction","value":{"style":{},"triggers":[{"type":"click","selector":".mega-menu-section","stepsA":[{"display":"flex"}],"stepsB":[]}]}},
+  {"slug":"menu-dropdown-list","name":"menu_dropdown-list","value":{"style":{},"triggers":[{"type":"dropdown","stepsA":[{"opacity":1,"height":"240px","transition":"height 350ms ease 0, opacity 712ms ease 0"}],"stepsB":[{"height":"0px","transition":"height 300ms ease 0"}]}]}},
+  {"slug":"menu-dropdown-list-2","name":"menu_dropdown-list 2","value":{"style":{},"triggers":[{"type":"dropdown","stepsA":[{"opacity":1,"height":"80px","transition":"height 350ms ease 0, opacity 712ms ease 0"}],"stepsB":[{"height":"0px","transition":"height 300ms ease 0"}]}]}}
 ]);
 /**
  * ----------------------------------------------------------------------

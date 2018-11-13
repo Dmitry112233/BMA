@@ -542,6 +542,8 @@
 
 .seoBlock.eventDescr {
 	padding-top: 15px;
+	grid-template-columns: 1fr;
+	padding-right: 20px;
 }
 
 .w-slider {
@@ -657,7 +659,7 @@
 }
 
 .eventText {
-	font-family: Helveticaneuecyr, sans-serif;
+	    font-family: 'Open Sans', sans-serif;
     color: #5a5c6e;
     font-size: 16px;
     line-height: 26px;
@@ -736,7 +738,6 @@
     grid-auto-rows: minmax(80px, auto);
     margin-bottom: 20px;
     background-color: #fff;
-    padding-bottom: 16px;
 }
 
 .descrButtonBlock {
@@ -1070,6 +1071,7 @@
 	.leagueMatchesTitleRow {
 		grid-template-columns: 1fr;
 		grid-auto-rows: minmax(47px, auto);
+		padding-bottom: 16px;
 	}
 	
 	.myLeagueH1 {
