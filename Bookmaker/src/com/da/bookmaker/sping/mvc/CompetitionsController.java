@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.da.bookmaker.dao.DaoException;
+import com.da.bookmaker.dao.DaoFactory;
 
 @Controller
 public class CompetitionsController extends BookmakerController {
@@ -22,6 +23,11 @@ public class CompetitionsController extends BookmakerController {
 	public ModelAndView getMainList() throws DaoException, IOException {
 		Map<String, Object> map = new HashMap<>();
 		map.putAll(getBookmakerList());
+		map.put("eng_matches", DaoFactory.getPremierLeagueDao().getAllMatchesForLeague("Английская Премьер Лига"));
+		map.put("spa_matches", DaoFactory.getPremierLeagueDao().getAllMatchesForLeague("Испанская Ла Лига"));
+		map.put("ita_matches", DaoFactory.getPremierLeagueDao().getAllMatchesForLeague("Итальянская серия А"));
+		map.put("rus_matches", DaoFactory.getPremierLeagueDao().getAllMatchesForLeague("Российская Премьер Лига"));
+		map.put("ger_matches", DaoFactory.getPremierLeagueDao().getAllMatchesForLeague("Немецкая Бундеслига"));
 		try {
 			if (property == null) {
 				property = new Properties();
