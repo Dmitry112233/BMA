@@ -418,8 +418,7 @@
 
 .myExpressRows.dark {
 	background-color: #e2e2e5;
-	height: 30px;
-	grid-template-rows: 30px;
+	grid-auto-rows: minmax(30px, auto);
 }
 
 .myExpressRows.light {
@@ -603,12 +602,8 @@
 
 .sport_matches_item.event {
 	margin-bottom: 0px;
-	cursor: pointer;
 }
 
-.sport_matches_item.event:hover {
-	background-color: #e2e2e5;
-}
 
 .bets_status.reply {
 	display: flex;
@@ -851,10 +846,49 @@
 }
 
 .myPaginationBlock {
-	width: 100%;
-	display: grid;
-	justify-items: center; 
-	margin-bottom: 20px;
+	text-align: center;
+	display: block;
+	box-sizing: border-box;
+}
+
+.pagination {
+	display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    border: none;
+}
+
+.pagination li {
+    display: inline;
+}
+
+.pagination > .active > a {
+    background-color: #dddddd;
+    border-color: #dddddd;
+    color: #5a5c6e;
+}
+
+.pagination > li > a {
+    color: black;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #5a5c6e;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
 }
 
 .criteria-rating-text {
@@ -891,7 +925,7 @@
 	box-shadow: 0 0 15px 0 #d7dae4;
 }
 
-.tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .championats_tabs_content, .rpl_img_block, .leagueMatchesTitleRow, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myBkCompareTable, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .news_container, .allComments, .sport_matches_item.expr, .exp_discr-content {
+.tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .rpl_img_block, .leagueMatchesTitleRow, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myBkCompareTable, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .allComments, .sport_matches_item.expr, .exp_discr-content {
 	box-shadow: 0 0 15px 0 #d7dae4;
 }
 
@@ -911,6 +945,11 @@
 
 .discr_title_text {
 	font-size: 24px;
+}
+
+.time_msk {
+	justify-self: center;
+	text-align: center;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -968,10 +1007,6 @@
 	
 	.champ_tab_text {
 		font-size: 18px;
-	}
-	
-	.tab_panel {
-		height: 435px;
 	}
 	
 	.myLeagueTableTitleBlock h1 {
@@ -1077,6 +1112,14 @@
 	.discr_title_text {
 		font-size: 18px;
 		margin-bottom: 10px;
+	}
+	
+	.tab_panel {
+		height: 100%;
+	}
+	
+	.tab_content_block {
+		padding-bottom: 35px;
 	}
 }
 
@@ -1387,5 +1430,13 @@
 	
 	.myCommentTitleBlock {
 		padding-left: 20px;
+	}
+	
+	.tab_panel {
+		height: 100%;
+	}
+	
+	.tab_content_block {
+		padding-bottom: 10px;
 	}
 }

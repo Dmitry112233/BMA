@@ -25,7 +25,7 @@
             </div>
             <div class="leagueMatchesTitleRow">
 	            <div class="myLeagueIconBlock">
-	            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
+	            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
 	            </div>
 	            <div class="myLeagueH1Block">
 	            	<h1 class="champ_title myLeagueH1">${Table_H1}</h1>
@@ -52,7 +52,7 @@
             <c:forEach var="LeagueTableRow" items="${table}">
             <div class="myLeagueTableRow row">
                <div class="full_table_num_text">${LeagueTableRow.place}</div>
-               <div class="full_table_points_img"><img class="myLeagueTableTeamLogo" src="/Static/bootstrap/img/teamIcons/${LeagueTableRow.team}.png" onerror="this.style.display='none'"></div>
+               <div class="full_table_points_img"><img class="myLeagueTableTeamLogo" src="/Static/bootstrap/img/teamIcons/${LeagueTableRow.team}.png" onerror="this.style.display='none'" alt="${LeagueTableRow.team} лого"></div>
                <div class="full_table_command_name_text">${LeagueTableRow.team}</div>
                <div class="full_table_points">${LeagueTableRow.games}</div>
                <div class="full_table_points">${LeagueTableRow.win}</div>

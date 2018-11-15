@@ -5,10 +5,10 @@
    <div class="bookmakers">
       <div class="columns w-row">
          <div class="w-clearfix w-col w-col-6">
-            <h1 class="home_title_h1">Рейтинги букмекеров</h1>
+            <h1 class="home_title_h1">${bookmakers_H1}</h1>
          </div>
          <div class="w-clearfix w-col w-col-6">
-            <a href="${contextPath}/competitions" class="link">Аналитика ближайших матчей</a>
+            <a href="${contextPath}/competitions" class="link">Анализ ближайших матчей по футболу</a>
          </div>
       </div>
    </div>
@@ -17,7 +17,7 @@
       <div class="w-row">
          <div class="col-1 w-col w-col-3 w-col-stack">
             <div class="logo-1xbet">
-               <img class="_1xbet-logo" src="${bookmaker.image}" width="106" alt="${bookmaker.name} logo" />
+               <img class="_1xbet-logo" src="${bookmaker.image}" width="106" onerror="this.style.display='none'" alt="${bookmaker.name} logo" />
                <div class="rating w-clearfix">
                   <div class="text-block-2">ОБЩИЙ РЕЙТИНГ</div>
                   <div class="div-block">
@@ -47,7 +47,7 @@
                   <a href="${contextPath}/bookmaker_${bookmaker.bookMakerId}" class="registration-btn _2 w-inline-block">
                      <div class="text-block-7">О БУКМЕКЕРЕ</div>
                   </a>
-                  <a href="counter?id=${bookmaker.bookMakerId}" target="_blank" class="registration-btn w-inline-block">
+                  <a href="counter?id=${bookmaker.bookMakerId}" target="_blank" rel="nofollow" class="registration-btn w-inline-block">
                      <div class="text-block-7 reg">РЕГИСТРАЦИЯ</div>
                   </a>
                </div>

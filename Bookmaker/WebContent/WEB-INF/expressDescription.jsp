@@ -40,10 +40,8 @@
                         <c:set var="tableRow" value="0" />
                         <c:forEach var="ivent" items="${express.iventList}">
                            <div class="myExpressRows dark">
-                              <div class="sportIconFr"><img class="sportIcon" src="${ivent.sportIcon}"></div>
-                              <div class="exp_sports_text">${ivent.competition}</div>
-                              <div></div>
-                              <div></div>
+                              <div class="sportIconFr"><img class="sportIcon" src="${ivent.sportIcon}" onerror="this.style.display='none'"></div>
+                              <div class="exp_sports_text express">${ivent.competition}</div>
                            </div>
                            <div class="myExpressRows light">
                               <div class="exp_matches_num">

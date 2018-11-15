@@ -27,7 +27,7 @@
                </div>
                <div class="leagueMatchesTitleRow">
 		            <div class="myLeagueIconBlock">
-		            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
+		            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" alt="${leagueLower} лого" onerror="this.style.display='none'">
 		            </div>
 		            <div class="myLeagueH1Block oneBtn">
 		            	<h1 class="champ_title myLeagueH1">Сравнение коэффициентов, детали по матчу ${team1} - ${team2}</h1>
@@ -44,13 +44,13 @@
                   </c:if>                  
                 </div>
             	<div class="myHederTeamLogoBlock1">
-            		<img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team1}.png" alt="" />
+            		<img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team1}.png" alt="${team1} лого" onerror="this.src='/Static/bootstrap/img/teamIcons/ball.png'" />
             	</div>
             	<div class="match_game _t1">${team1}</div>
             	<div class="match_game"> - </div>
             	<div class="match_game _t2">${team2}</div>
             	<div class="myHederTeamLogoBlock2">
-            		<img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team2}.png" alt="" />
+            		<img class="myHederTeamLogo logo_command none" src="/Static/bootstrap/img/teamIcons/${team2}.png" alt="${team2} лого" onerror="this.src='/Static/bootstrap/img/teamIcons/ball.png'" />
             	</div>
             </div>
          </div>

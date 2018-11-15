@@ -7,7 +7,7 @@
    <div class="stavka-block w-clearfix">
       <div class="odinochnie-prognozy">Одиночные прогнозы</div>
       <div class="all_newstext">
-         <a href="#" class="all_newslink">Все прогнозы</a>
+         <a href="${contextPath}/events_list" class="all_newslink">Все прогнозы</a>
       </div>
    </div>
    <div class="express">
@@ -15,19 +15,19 @@
          <div class="tab-menu w-tab-menu">
             <a data-w-tab="football" class="tab_link_sport w-inline-block w-clearfix w-tab-link w--current">
                <div class="text-block-13">Футбол</div>
-               <img src="/Static/bootstrap/img/sportsIcons/football.png" width="18" alt="" class="image sideEventsIcons" />
+               <img src="/Static/bootstrap/img/sportsIcons/football.png" width="18" class="image sideEventsIcons" onerror="this.style.display='none'" />
             </a>
             <a data-w-tab="basketball" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Баскетбол</div>
-               <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="18" alt="" class="image-2 sideEventsIcons" />
+               <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="18" class="image-2 sideEventsIcons" onerror="this.style.display='none'" />
             </a>
             <a data-w-tab="hockey" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Хоккей</div>
-               <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="17" alt="" class="image-3 sideEventsIcons" />
+               <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="17" class="image-3 sideEventsIcons" onerror="this.style.display='none'" />
             </a>
             <a data-w-tab="tennis" class="tab_link_sport w-inline-block w-clearfix w-tab-link">
                <div class="text-block-13">Теннис</div>
-               <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="18" alt="" class="image-4 sideEventsIcons" />
+               <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="18" class="image-4 sideEventsIcons" onerror="this.style.display='none'" />
             </a>
          </div>
          <div class="tabs-content w-tab-content">
@@ -37,7 +37,7 @@
                   <div class="football-text">
                      <div class="w-row">
                         <div class="column-16 w-col w-col-9 w-col-small-6">
-                           <img src="/Static/bootstrap/img/sportsIcons/football.png" width="20" alt="" class="ball-img" />
+                           <img src="/Static/bootstrap/img/sportsIcons/football.png" width="20" class="ball-img" onerror="this.style.display='none'" />
                            <div class="tab-command_name">${footballIvents.competition}</div>
                         </div>
                         <div class="w-clearfix w-col w-col-3 w-col-small-6">
@@ -65,7 +65,7 @@
                      <div class="football-text">
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
-                              <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="20" alt="" class="ball-img" />
+                              <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="20" onerror="this.style.display='none'" class="ball-img" />
                               <div class="tab-command_name">${basketballIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
@@ -93,7 +93,7 @@
                      <div class="football-text">
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
-                              <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="20" alt="" class="ball-img" />
+                              <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="20" onerror="this.style.display='none'" class="ball-img" />
                               <div class="tab-command_name">${hockeyIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">
@@ -121,7 +121,7 @@
                      <div class="football-text">
                         <div class="w-row">
                            <div class="column-16 w-col w-col-9 w-col-small-6">
-                              <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="20" alt="" class="ball-img" />
+                              <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="20" onerror="this.style.display='none'" class="ball-img" />
                               <div class="tab-command_name">${tennisIvents.competition}</div>
                            </div>
                            <div class="w-clearfix w-col w-col-3 w-col-small-6">

@@ -7,18 +7,18 @@
       </div>
       <div class="mask w-slider-mask">
          <div class="slider_liga-stavok w-slide">
-            <a href="counter?id=${bookmakerList.get('1xBet').bookMakerId}" target="_blank" class="slider-link-leon _1xbet w-inline-block">
-			<img src="/Static/bootstrap/img/promo/1xbetPromo.png" width="1220" alt="" />
+            <a href="counter?id=${bookmakerList.get('1xBet').bookMakerId}" rel="nofollow" target="_blank" class="slider-link-leon _1xbet w-inline-block">
+			<img src="/Static/bootstrap/img/promo/1xbetPromo.png" width="1220" alt='Букмекерская контора "1xBet" - ставки на спорт' />
 			</a>
          </div>
          <div class="slide-2 w-slide">
-            <a href="counter?id=${bookmakerList.get('БК ЛЕОН').bookMakerId}" target="_blank" class="slider-link-leon _1xbet w-inline-block">
-			<img src="/Static/bootstrap/img/promo/leonPromo.png" width="1220" alt="" />
+            <a href="counter?id=${bookmakerList.get('БК ЛЕОН').bookMakerId}" rel="nofollow" target="_blank" class="slider-link-leon _1xbet w-inline-block">
+			<img src="/Static/bootstrap/img/promo/leonPromo.png" width="1220" alt='Букмекерская контора "ЛЕОН" - ставки на спорт' />
 			</a>
          </div>         
          <div class="slider_liga-stavok w-slide">
-            <a href="counter?id=${bookmakerList.get('Лига Ставок').bookMakerId}" target="_blank" class="slider-link-leon liga-stavok w-inline-block">
-			<img src="/Static/bootstrap/img/promo/ligaPromo.png" width="1220" alt="" />
+            <a href="counter?id=${bookmakerList.get('Лига Ставок').bookMakerId}" rel="nofollow" target="_blank" class="slider-link-leon liga-stavok w-inline-block">
+			<img src="/Static/bootstrap/img/promo/ligaPromo.png" width="1220" alt='Букмекерская контора "Лига Ставок" - ставки на спорт' />
 			</a>
          </div>
       </div>

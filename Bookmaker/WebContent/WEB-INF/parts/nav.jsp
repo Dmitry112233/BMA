@@ -5,16 +5,16 @@
 <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]  }});</script>
 <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="db9a7df6-37d1-925e-5aa6-efd7dadd119d" class="navbar w-nav">
    <div class="nav-container w-container">
-      <a href="${contextPath}/bookmakers" class="brand w-nav-brand">
+      <a href="${contextPath}" class="brand w-nav-brand">
       <img src="/Static/bootstrap/img/BMAlogoNew.png" width="180" alt="findbestbet" />
       </a>
       <nav role="navigation" class="nav-menu w-nav-menu">
-         <a href="${contextPath}/bookmakers" class="nav-link w-nav-link" data-ix="new-interaction">БУКМЕКЕРЫ</a>
+         <a href="${contextPath}" class="nav-link w-nav-link" data-ix="new-interaction">БУКМЕКЕРЫ</a>
          <div data-delay="0" class="w-dropdown">
             <div class="menu_dropdown w-dropdown-toggle">
                <div class="menu_dropdown-icon w-icon-dropdown-toggle">
                </div>
-               <div class="menu_dropdown-text">СТАВКА НА ФУТБОЛ</div>
+               <div class="menu_dropdown-text">ФУТБОЛ</div>
             </div>
             <nav class="menu_dropdown-list w-dropdown-list" data-ix="menu-dropdown-list">
                <a href="${contextPath}/${'российская премьер лига'}_матчи" class="menu_dropdown_link w-dropdown-link">Премьер-Лига (Россия)</a>

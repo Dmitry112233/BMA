@@ -38,10 +38,8 @@
                            <c:set var="tableRow" value="0" />
                            <c:forEach var="ivent" items="${express.iventList}">
                               <div class="myExpressRows dark">
-                                 <div class="sportIconFr express"><img class="sportIcon" src="${ivent.sportIcon}"></div>
+                                 <div class="sportIconFr express"><img class="sportIcon" src="${ivent.sportIcon}" onerror="this.style.display='none'"></div>
                                  <div class="exp_sports_text express">${ivent.competition}</div>
-                                 <div></div>
-                                 <div></div>
                               </div>
                               <div class="myExpressRows light">
                                  <div class="exp_matches_num express">
@@ -66,22 +64,18 @@
                         </div>
                      </div>
                   </c:forEach>
-                  <div class="myPaginationBlock">
-				   <div class="pagination">
-				      <c:forEach var="button" items="${pageMass}">
-				         <c:if test = "${button + 1 == currentPage}">
-				            <a href="${contextPath}/expresses_list_${button * 20}" class="pagination_num _1 w-inline-block w--current">
-				               <div class="pagination_num_text">${button + 1}</div>
-				            </a>
-				         </c:if>
-				         <c:if test = "${button + 1 != currentPage}">
-				            <a href="${contextPath}/expresses_list_${button * 20}" class="pagination_num w-inline-block">
-				               <div class="pagination_num_text">${button + 1}</div>
-				            </a>
-				         </c:if>
-				      </c:forEach>
-				   </div>
-				</div>
+				  <nav class="myPaginationBlock">
+				      <ul class="pagination">
+				         <c:forEach var="button" items="${pageMass}">
+				            <c:if test = "${button + 1 == currentPage}">
+				               <li class="page-item active"><a class="page-link" href="${contextPath}/expresses_list_${button * 20}">${button + 1}</a></li>
+				            </c:if>
+				            <c:if test = "${button + 1 != currentPage}">
+				               <li class="page-item"><a class="page-link" href="${contextPath}/expresses_list_${button * 20}">${button + 1}</a></li>
+				            </c:if>
+				         </c:forEach>
+				      </ul>
+				  </nav>
                   <c:if test = "${Express_Txt != Null}">
                      <div class="seoBlock">${Express_Txt}</div>
                      <br>

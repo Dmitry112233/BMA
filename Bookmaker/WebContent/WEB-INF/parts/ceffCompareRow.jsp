@@ -4,7 +4,7 @@
    <div class="myBkCompareRow row" onclick="window.open('counter?id=${CeffSource.bookmakerBean.bookMakerId}', '_blank'); return false;">
       <div class="bookmaker_points first">
          <a rel="nofollow" href="counter?id=${CeffSource.bookmakerBean.bookMakerId}" target="_blank">
-         <img class="bmCeffListLogo" src="${CeffSource.bookmakerBean.image}" alt="${CeffSource.bookmakerBean.name} logo">
+         <img class="bmCeffListLogo" src="${CeffSource.bookmakerBean.image}" onerror="this.style.display='none'" alt="${CeffSource.bookmakerBean.name} logo">
          </a>
       </div>
       <div class="bookmaker_points">

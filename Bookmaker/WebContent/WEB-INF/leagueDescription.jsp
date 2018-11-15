@@ -27,7 +27,7 @@
                   </div>
                   <div class="leagueMatchesTitleRow">
 		            <div class="myLeagueIconBlock">
-		            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'">
+		            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
 		            </div>
 		            <div class="myLeagueH1Block oneBtn">
 		            	<h1 class="champ_title myLeagueH1">${league_H1}</h1>
