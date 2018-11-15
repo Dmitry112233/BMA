@@ -8,7 +8,7 @@
             <h1 class="home_title_h1">${bookmakers_H1}</h1>
          </div>
          <div class="w-clearfix w-col w-col-6">
-            <a href="${contextPath}/competitions" class="link">Анализ ближайших матчей по футболу</a>
+            <a href="${contextPath}/competitions" class="link toAllChampLink">Анализ ближайших матчей по футболу</a>
          </div>
       </div>
    </div>

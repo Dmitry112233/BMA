@@ -921,7 +921,7 @@
 	box-shadow: 0 0 15px 0 #d7dae4;
 }
 
-.tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .rpl_img_block, .leagueMatchesTitleRow, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myBkCompareTable, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .allComments, .sport_matches_item.expr, .exp_discr-content {
+.tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .rpl_img_block, .leagueMatchesTitleRow, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myBkCompareTable, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
 	box-shadow: 0 0 15px 0 #d7dae4;
 }
 
@@ -1175,6 +1175,12 @@
 	
 	.myNewsDescrTitle {
 		margin-bottom: 0px;
+	}
+	
+	.toAllChampLink {
+		padding-left: 100px;
+		padding-top: 0px;
+		padding-bottom: 10px;
 	}
 }
 
