@@ -23,7 +23,7 @@
                <div class="beta_desc_col1 w-col w-col-8 w-col-stack">
                   <div class="title_block eventDescr questionTitle">
                      <div class="discr_title_text_block">
-                        <h1 class="discr_title_text news">Новости</h1>
+                        <p class="discr_title_text news myNewsDescrTitle">Новости</p>
                      </div>
                      <div class="btn_all-bets_block">
                         <a href="${contextPath}/news_${offset}" class="btn_all-bets w-button">Все новости</a>
@@ -38,8 +38,8 @@
                         <div class="added-date new">Добавлено: ${news.dateStr}</div>
                      </div>
                      <div class="new_text-block">
-                        <h2 class="new_title">${news.title}</h2>
-                        <h3 class="heading-13">${news.description}</h3>
+                        <h1 class="new_title">${news.title}</h1>
+                        <p class="heading-13">${news.description}</p>
                         <a class="source_link" rel="nofollow" href="https://www.eurosport.ru/" target="_blank">Источник: Eurosport.ru</a>
                      </div>
                   </div>

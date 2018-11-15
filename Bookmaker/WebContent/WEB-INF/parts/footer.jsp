@@ -7,7 +7,7 @@
          <div class="column-3 w-col w-col-4">
             <c:if test = "${linkMap.size() > 0}">
             <div class="footer-links">
-               <h4 class="heading-7">Страницы</h4>
+               <p class="heading-7">Страницы</p>
                <c:forEach var="links" items="${linkMap}">
                   <div><a class="myFooterLink" href="${contextPath}/${links.value}">${links.key}</a></div>
                </c:forEach>
@@ -15,7 +15,7 @@
             </c:if>
             <c:if test = "${linkMap.size() == Null}">
             	<div class="footer-links">
-               <h4 class="heading-7">Чемпионаты</h4>
+               <p class="heading-7">Чемпионаты</p>
                <div><a class="myFooterLink" href="${contextPath}/${'российская премьер лига'}_матчи">Российская Премьер-Лига</a></div>
                <div><a class="myFooterLink" href="${contextPath}/${'английская премьер лига'}_матчи">Английская Премьер-лига</a></div>
                <div><a class="myFooterLink" href="${contextPath}/${'испанская ла лига'}_матчи">Испанская ЛаЛига</a></div>
@@ -26,7 +26,7 @@
          </div>
          <div class="column-4 w-col w-col-4">
             <div class="footer-links">
-               <h4 class="heading-7">Меню</h4>
+               <p class="heading-7">Меню</p>
                <div><a class="myFooterLink" href="${contextPath}">Букмекеры</a></div>
                <div><a class="myFooterLink" href="${contextPath}/news_0">Новости</a></div>
                <div><a class="myFooterLink" href="${contextPath}/faq_list">Популярные вопросы</a></div>
@@ -34,14 +34,14 @@
          </div>
          <div class="column-5 w-col w-col-4">
             <div class="footer-links">
-               <h4 class="heading-7">Ставки на спорт</h4>
+               <p class="heading-7">Ставки на спорт</p>
                <div><a class="myFooterLink" href="${contextPath}/competitions">Чемпионаты</a></div>
                <div><a class="myFooterLink" href="${contextPath}/expresses_list_0">Экспрессы</a></div>
                <div><a class="myFooterLink" href="${contextPath}/events_list">Ординары</a></div>
                <div class="logo-fooer">
                   <div class="w-row">
                      <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
-                        <h3 class="heading-8">FindBestBet.ru</h3>
+                        <p class="heading-8">FindBestBet.ru</p>
                      </div>
                      <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
                         <div class="text-block-24">Ставки<br>на спорт</div>

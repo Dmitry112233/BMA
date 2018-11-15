@@ -31,9 +31,9 @@
          </div>
          <div class="col-2 w-col w-col-7 w-col-stack">
             <div class="content-block-text">
-               <h4>
+               <p class="bonusesH4">
                   <strong class="bold-text">Бонусы</strong>
-               </h4>
+               </p>
                <div class="bonusShort">${bookmaker.bonus}</div>	
             </div>
          </div>

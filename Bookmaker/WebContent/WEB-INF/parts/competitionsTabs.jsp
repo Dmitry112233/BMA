@@ -12,7 +12,7 @@
          </div>
          <div class="col_tab_content_2 w-col w-col-8 myChampShortDescr">
             <div class="championat_title_text">
-               <h1 class="chemp_tab_title">${legueTitle}</h1>
+               <p class="chemp_tab_title">${legueTitle}</p>
                <div class="champ_tab_text_info">Год основания: ${foundationYear}</div>
                <div class="champ_tab_text_info">Количество команд: ${teamCount}</div>
                <div class="champ_tab_text_info">Действующий победитель: ${currentChampion}</div>

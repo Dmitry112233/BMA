@@ -650,10 +650,6 @@
     margin-bottom: 0px;
 }
 
-.eventDescr h1 {
-    margin-bottom: 0px;
-}
-
 .btn_all-bets_block {
 	justify-self: center;	
 }
@@ -952,6 +948,57 @@
 	text-align: center;
 }
 
+.myEventDescrCompetition, .heading-7, .bonusesH4 {
+	font-size: 18px;
+    line-height: 24px;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.heading-13, .heading-12 {
+	line-height: 30px;
+	font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.heading-12 {
+	margin-top: 20px;
+    font-weight: 500;
+}
+
+.heading-8 {
+	font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 30px;
+}
+
+.myNewsDescrTitle {
+	line-height: 44px;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+.seo_h2_text {
+	font-family: Helveticaneuecyr, sans-serif;
+    color: #000;
+    font-size: 24px;
+    line-height: 36px;
+    margin-top: 20px;
+}
+
+.best_week_news-text {
+	line-height: 36px;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.chemp_tab_title {
+	font-weight: bold;
+	margin: .67em 0;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -988,7 +1035,7 @@
 @media (min-width: 480px) and (max-width: 767px) {
 	.myExpressRows {
 		grid-row-gap: 8px;
-		grid-column-gap: 8px;  
+		grid-column-gap: 2px;  
 	}
 	
 	.myExpressFooter {
@@ -1120,6 +1167,14 @@
 	
 	.tab_content_block {
 		padding-bottom: 35px;
+	}
+	
+	.replay_matches_block {
+		padding: 20px;
+	}
+	
+	.myNewsDescrTitle {
+		margin-bottom: 0px;
 	}
 }
 

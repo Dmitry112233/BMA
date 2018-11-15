@@ -29,7 +29,7 @@
                   <c:forEach var="express" items="${expressList}">
                      <div class="sport_matches_item expr">
                         <div class="exp_block w-clearfix">
-                           <h3 class="heading-12">Экспресс</h3>
+                           <p class="heading-12">Экспресс</p>
                            <div class="date__start_game">
                               <div class="text-block-39">Дата начала: <span class="date_span">${express.dateStr}</span></div>
                            </div>

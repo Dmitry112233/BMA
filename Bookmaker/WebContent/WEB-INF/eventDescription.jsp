@@ -36,7 +36,7 @@
                      <div class="div-block-19">
                         <div class="columns-5 w-row">
                            <div class="w-col w-col-8 w-col-small-6">
-                              <h4>${ivent.competition}</h4>
+                              <p class="myEventDescrCompetition">${ivent.competition}</p>
                            </div>
                            <div class="w-clearfix w-col w-col-4 w-col-small-6">
                               <div class="text-block-40">Дата события: ${ivent.dateStr} ${ivent.time}</div>

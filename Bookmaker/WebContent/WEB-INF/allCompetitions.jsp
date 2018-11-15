@@ -98,7 +98,7 @@
                <div class="column-13 w-col w-col-8 w-col-stack myChampSeo">
                   <div class="seoBlock">
                      <div class="info_bookmakers col_info_competishons">
-                        <h2 class="seo_h2_text">Ставки на футбол сегодня</h2>
+                        <h1 class="seo_h2_text">Ставки на футбол сегодня</h1>
                      </div>
                      ${Competishions_Txt}
                   </div>

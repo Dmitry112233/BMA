@@ -4,7 +4,7 @@
 <c:if test="${popularNews.size() > 0}">
    <div class="best_week_news">
       <div class="best_week-news_block">
-         <h2 class="best_week_news-text">Популярные за неделю</h2>
+         <p class="best_week_news-text">Популярные за неделю</p>
       </div>
       <c:forEach var="popularNewsItems" items="${popularNews}">
          <div class="best_week_news-links">
