@@ -17,7 +17,7 @@
                <div class="champ_tab_text_info">Количество команд: ${teamCount}</div>
                <div class="champ_tab_text_info">Действующий победитель: ${currentChampion}</div>
                <div class="div-block-16">
-                  <a href="${contextPath}/${legueTitleLower}_матчи" class="button_rate w-button">Матчи</a>
+                  <a href="${contextPath}/${legueTitleLower}_матчи" class="button_rate w-button">Все Матчи</a>
                   <a href="${contextPath}/${legueTitleLower}_таблица" class="button_table w-button">Таблица</a>
                   <a href="${contextPath}/${legueTitleLower}_описание" class="button_description w-button">Описание</a>
                </div>

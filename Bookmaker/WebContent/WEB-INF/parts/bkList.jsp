@@ -17,7 +17,7 @@
       <div class="w-row">
          <div class="col-1 w-col w-col-3 w-col-stack">
             <div class="logo-1xbet">
-               <img class="_1xbet-logo" src="${bookmaker.image}" width="106" onerror="this.style.display='none'" alt="${bookmaker.name} logo" />
+               <a href="${bookmaker.link}" target="_blank"><img class="_1xbet-logo" src="${bookmaker.image}" width="106" onerror="this.style.display='none'" alt="${bookmaker.name} logo" /></a>
                <div class="rating w-clearfix">
                   <div class="text-block-2">ОБЩИЙ РЕЙТИНГ</div>
                   <div class="div-block">

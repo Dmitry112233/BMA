@@ -12,9 +12,8 @@
       <div class="myNewsItems">
          <c:forEach var="newsItem" items="${news}">
             <div class="myNewsItem">
-               <div class="news-bg" style="background-image: url('${newsItem.image}')">
-               </div>
-               <div class="news-text-block">${newsItem.title}</div>
+               <a href="${contextPath}/${newsItem.id}_news_1"><div class="news-bg" style="background-image: url('${newsItem.image}')"></div></a>
+               <a href="${contextPath}/${newsItem.id}_news_1"><div class="news-text-block">${newsItem.title}</div></a>
                <div class="text-block-25">Опубликовано</div>
                <div class="text-block-26">Сегодня ${newsItem.time}</div>
             </div>

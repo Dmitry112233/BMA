@@ -45,7 +45,7 @@
                   <c:set var="TabListName" value="${rus_matches}" scope="request"/>
                   <c:set var="TabNumber" value="7" scope="request"/>
                   <c:set var="defTab" value="w--tab-active" scope="request"/>
-                  <c:set var="legueTitle" value="Российская Премьер-Лига" scope="request"/>
+                  <c:set var="legueTitle" value="Чемпионат России по футболу" scope="request"/>
                   <c:set var="foundationYear" value="1992" scope="request"/>
                   <c:set var="teamCount" value="16" scope="request"/>
                   <c:set var="currentChampion" value="Локомотив" scope="request"/>
@@ -55,7 +55,7 @@
                   <c:set var="TabListName" value="${eng_matches}" scope="request"/>
                   <c:set var="TabNumber" value="8" scope="request"/>
                   <c:set var="defTab" value="" scope="request"/>
-                  <c:set var="legueTitle" value="Английская Премьер-лига" scope="request"/>
+                  <c:set var="legueTitle" value="Чемпионат Англии по футболу" scope="request"/>
                   <c:set var="foundationYear" value="1992" scope="request"/>
                   <c:set var="teamCount" value="20" scope="request"/>
                   <c:set var="currentChampion" value="Манчестер Сити" scope="request"/>
