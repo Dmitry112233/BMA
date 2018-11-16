@@ -41,7 +41,7 @@
                   <div id="w-node-e810e40df813-d678b9c0" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6 ratingWidth">
                         <div class="criteria-rating-text">НАДЕЖНОСТЬ</div>
-                        <div class="criteria-rating-progress progressBar">
+                        <div class="criteria-rating-progress noResultLine progressBar">
                            <div class="criteria-rating-progress dynamic progressBarDone"><p class="progressValue">${bookmaker.reliability}</p></div>
                         </div>
                      </div>
@@ -54,7 +54,7 @@
                   <div id="w-node-e810e40df81e-d678b9c0" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6 ratingWidth">
                         <div class="criteria-rating-text">ЛИНИЯ</div>
-                        <div class="criteria-rating-progress progressBar">
+                        <div class="criteria-rating-progress noResultLine progressBar">
                            <div class="criteria-rating-progress dynamic progressBarDone"><p class="progressValue">${bookmaker.line}</p></div>
                         </div>
                      </div>
@@ -67,7 +67,7 @@
                   <div id="w-node-e810e40df833-d678b9c0" class="columns-3 w-row">
                      <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6 ratingWidth">
                         <div class="criteria-rating-text">УДОБСТВО РАБОТЫ</div>
-                        <div class="criteria-rating-progress progressBar">
+                        <div class="criteria-rating-progress noResultLine progressBar">
                            <div class="criteria-rating-progress dynamic progressBarDone"><p class="progressValue">${bookmaker.usability}</p></div>
                         </div>
                      </div>
@@ -84,7 +84,7 @@
                      <div id="w-node-e810e40df82c-d678b9c0" class="columns-3 w-row ratingWidth">
                         <div class="column-rating-settings w-col w-col-10 w-col-small-6 w-col-tiny-6 ratingWidth">
                            <div class="criteria-rating-text">ОБЩИЙ РЕЙТИНГ</div>
-                           <div class="criteria-rating-progress progressBar">
+                           <div class="criteria-rating-progress resultLine progressBar">
                               <div class="criteria-rating-progress dynamic progressBarDone"><p class="progressValue">${bookmaker.result}</p></div>
                            </div>
                         </div>

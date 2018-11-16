@@ -620,6 +620,7 @@
 
 .replay_bets-link.event, .bets_status, .replyBtn, .replay_bets-link {
 	justify-self: center; 
+	text-align: center;
 }
 
 .exp_matches a {
