@@ -999,6 +999,19 @@
 	margin: .67em 0;
 }
 
+.news-text-block {
+	text-decoration: none;
+}
+
+.news-text-block:hover {
+	text-decoration: underline;
+}
+
+.sport_matches_item.event:hover {
+	background-color: #e2e2e5;
+	cursor: pointer;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;

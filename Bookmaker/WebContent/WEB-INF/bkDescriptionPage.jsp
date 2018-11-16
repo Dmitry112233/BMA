@@ -26,7 +26,7 @@
                   <div id="w-node-b77efebebee1-d678b9c0" class="title_bookmaker_block">
             		<div id="w-node-bd1aa0aa0789-d678b9c0" class="div-block-21">                     
                      <a href="counter?id=${bookmaker.bookMakerId}" rel="nofollow" target="_blank" id="w-node-fe17e119559d-d678b9c0" class="btn_bookmaker_black w-button toBkSiteBtn">Перейти на сайт</a>
-					 <a href="${contextPath}/bookmakers" id="w-node-3a7defcb2b8b-d678b9c0" class="button-5 w-button allBkBtn">Все букмекеры</a>
+					 <a href="${contextPath}/" id="w-node-3a7defcb2b8b-d678b9c0" class="button-5 w-button allBkBtn">Все букмекеры</a>
                   </div>
                </div>
                <div id="w-node-a54d6cda8026-d678b9c0" class="div-block-20">
