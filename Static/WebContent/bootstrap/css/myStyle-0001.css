@@ -129,7 +129,7 @@
 .myChampTableRow {
 	display: grid;
 	grid-template-columns: 0.5fr 3fr 1fr 1fr;
-	grid-column-gap: 10px;
+	grid-column-gap: 2px;
 	grid-auto-rows: 40px;
 	border-style: none none solid;
 	border-width: 1px;
@@ -365,17 +365,27 @@
     grid-row-gap: 0px;
     background-color: #fff;
     margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .myLeagueTableRow {
 	display: grid;
-	grid-template-columns: 0.5fr 0.5fr 4.5fr 0.7fr 0.7fr 0.7fr 0.7fr 1fr 1fr;
+	grid-template-columns: 0.5fr 0.5fr 4.5fr 0.6fr 0.6fr 0.6fr 0.7fr 1fr 0.8fr;
     height: 50px;
     grid-column-gap: 5px;
     grid-row-gap: 16px;
     grid-template-rows: 50px;
     border-bottom: 1px solid #e2e2e5;
-    align-items: end;
+    align-items: center;
+}
+
+.full_table_num_text, .full_table_command_name_text, .full_table_points, .full_table_final_point, .full_table_command_name_text.bold, .full_table_points.bold, .full_table_final_point.bold {
+	align-self: center;
+}
+
+.myLeagueTableRow.header {
+	border-bottom: 1px solid black;
 }
 
 .full_table_command_name_text.bold {
@@ -384,7 +394,6 @@
 
 .myLeagueTableTeamLogo {
 	height: 26px;
-	margin-bottom: 3px;
 }
 
 .full_table_num_text, .full_table_points_img, .full_table_points, .full_table_final_point {
@@ -1013,6 +1022,11 @@
 	cursor: pointer;
 }
 
+.matchesLine {
+	border-bottom: 1px solid black;
+	margin-bottom: 20px; 
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -1513,5 +1527,14 @@
 	
 	.tab_content_block {
 		padding-bottom: 10px;
+	}
+	
+	.myLeagueTable {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	
+	.full_table_command_name_text {
+		padding-left: 4px;
 	}
 }
