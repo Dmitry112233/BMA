@@ -165,11 +165,7 @@ public class BetFaqParser {
 			iteratorDesc.next();
 			DomElement descriptionElem = iteratorDesc.next();
 			DomElement simpleTest = descriptionElem.getFirstElementChild();
-			Iterator<DomElement> iteratorSimpleTest = simpleTest.getChildElements().iterator();
-			iteratorSimpleTest.next();
-			iteratorSimpleTest.next();
-			iteratorSimpleTest.next();
-			String description = iteratorSimpleTest.next().getTextContent().trim();
+			String description = getDescription(simpleTest);
 			bean.setDescription(description);
 			return true;
 		} catch (Exception e) {
@@ -178,6 +174,20 @@ public class BetFaqParser {
 		} finally {
 			webClient1.closeAllWindows();
 		}
+	}
+	
+	private String getDescription(DomElement elem){
+		Iterable<DomElement> listSimpleTest = elem.getChildElements();
+		String description = "";
+		for(DomElement element : listSimpleTest){
+			if(element.getTagName().equals("h2") && !element.getTextContent().equals("")){
+				description += "<br><br>" + element.getTextContent().trim() + "<br><br>";
+			}
+			if(element.getTagName().equals("p") && !element.getAttribute("class").equals("link-prognose") && !element.getTextContent().equals("")){
+				description += element.getTextContent().trim();
+			}			
+		}
+		return description;
 	}
 
 	private String editBet(String bet) {
