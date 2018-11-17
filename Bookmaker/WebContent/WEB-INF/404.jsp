@@ -18,7 +18,7 @@
       <div class="notFoundBlock">
          	
          	<h1>Страница не найдена</h1>
-         	<a class="notFoundBtn exp_description_btn w-button" href="${contextPath}/bookmakers">Перейти на главную</a>
+         	<a class="notFoundBtn exp_description_btn w-button" href="${contextPath}/">Перейти на главную</a>
          	
          	
          	

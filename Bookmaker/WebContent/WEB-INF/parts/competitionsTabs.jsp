@@ -4,7 +4,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div data-w-tab="Tab ${TabNumber}" class="tab_panel w-tab-pane ${defTab}">
    <div class="tab_content_block">
-      <div class="w-row">
+      <div class="w-row matchesLine">
          <div class="col_tab_content w-col w-col-4">
             <div class="championat_logo_block">
                <img src="/Static/bootstrap/img/leagueIcon/${legueTitleLower}_dark.png" onerror="this.style.display='none'" width="96" alt="${legueTitleLower} лого" />
@@ -17,7 +17,7 @@
                <div class="champ_tab_text_info">Количество команд: ${teamCount}</div>
                <div class="champ_tab_text_info">Действующий победитель: ${currentChampion}</div>
                <div class="div-block-16">
-                  <a href="${contextPath}/${legueTitleLower}_матчи" class="button_rate w-button">Все Матчи</a>
+                  <a href="${contextPath}/${legueTitleLower}_матчи" class="button_rate w-button">Матчи</a>
                   <a href="${contextPath}/${legueTitleLower}_таблица" class="button_table w-button">Таблица</a>
                   <a href="${contextPath}/${legueTitleLower}_описание" class="button_description w-button">Описание</a>
                </div>

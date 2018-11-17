@@ -368,7 +368,7 @@
 
 /* it's mine */
 .progress._3 {
-  background: #cfcdb1;
+  background: #ffffff;
 }
 
 /* it's mine */
@@ -1397,7 +1397,14 @@
 .criteria-rating-progress {
   width: 200px;
   height: 5px;
-  background: #cfcdb1;
+}
+
+.noResultLine {
+	background: #353539;
+}
+
+.resultLine {
+	background: #4f4f4f;
 }
 
 .columns-3 {
@@ -3889,12 +3896,7 @@
     width: 150px;
     float: right;
   }
-  .progress._3 {
-    background-color: rgba(235, 87, 87, .3);
-  }
-  .processing._3 {
-    background-color: #eb5757;
-  }
+  /* it's mine */
   .content-block-text {
     max-width: 700px;
     margin-top: 0px;

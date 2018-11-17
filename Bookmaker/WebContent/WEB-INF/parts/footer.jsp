@@ -27,7 +27,7 @@
          <div class="column-4 w-col w-col-4">
             <div class="footer-links">
                <p class="heading-7">Меню</p>
-               <div><a class="myFooterLink" href="${contextPath}">Букмекеры</a></div>
+               <div><a class="myFooterLink" href="${contextPath}/">Букмекеры</a></div>
                <div><a class="myFooterLink" href="${contextPath}/news_0">Новости</a></div>
                <div><a class="myFooterLink" href="${contextPath}/faq_list">Популярные вопросы</a></div>
             </div>

@@ -5,11 +5,11 @@
 <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]  }});</script>
 <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="db9a7df6-37d1-925e-5aa6-efd7dadd119d" class="navbar w-nav">
    <div class="nav-container w-container">
-      <a href="${contextPath}" class="brand w-nav-brand">
+      <a href="${contextPath}/" class="brand w-nav-brand">
       <img src="/Static/bootstrap/img/BMAlogoNew.png" width="180" alt="findbestbet" />
       </a>
       <nav role="navigation" class="nav-menu w-nav-menu">
-         <a href="${contextPath}" class="nav-link w-nav-link" data-ix="new-interaction">БУКМЕКЕРЫ</a>
+         <a href="${contextPath}/" class="nav-link w-nav-link" data-ix="new-interaction">БУКМЕКЕРЫ</a>
          <div data-delay="0" class="w-dropdown">
             <div class="menu_dropdown w-dropdown-toggle">
                <div class="menu_dropdown-icon w-icon-dropdown-toggle">

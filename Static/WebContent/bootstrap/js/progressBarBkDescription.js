@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		  if(number <= 4){
 			  progressBarDone.style.background = '#eb5757';			  
 		  }
-		  if(number > 4 && number <= 7){
+		  if(number > 4 && number <= 8){
 			  progressBarDone.style.background = '#f3994a';			  
 		  }
-		  if(7 < number){
+		  if(8 < number){
 			  progressBarDone.style.background = '#c5e09b';			  
 		  }
 	  }
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			if(number <= 4){
 				progressBarList[i].style.background = '#683c40';			  
 			  }
-			  if(number > 4 && number <= 7){
+			  if(number > 4 && number <= 8){
 				  progressBarList[i].style.background = '#6e533e';			  
 			  }
-			  if(7 < number){
+			  if(8 < number){
 				  progressBarList[i].style.background = '#606857';			  
 			  }
 			setColor(number,progressBarDone);
