@@ -165,8 +165,7 @@ public class BetFaqParser {
 			iteratorDesc.next();
 			DomElement descriptionElem = iteratorDesc.next();
 			DomElement simpleTest = descriptionElem.getFirstElementChild();
-			String description = getDescription(simpleTest);
-			bean.setDescription(description);
+			bean = getDescription(simpleTest, bean);
 			return true;
 		} catch (Exception e) {
 			logger.warn("can not parse sub page", e);
@@ -176,7 +175,7 @@ public class BetFaqParser {
 		}
 	}
 	
-	private String getDescription(DomElement elem){
+	private IventBean getDescription(DomElement elem, IventBean bean){
 		Iterable<DomElement> listSimpleTest = elem.getChildElements();
 		String description = "";
 		for(DomElement element : listSimpleTest){
@@ -187,7 +186,20 @@ public class BetFaqParser {
 				description += "<p class='eventDesrText'>" + element.getTextContent().trim() + "</p>";
 			}			
 		}
-		return description;
+		Iterator<DomElement> iterator = elem.getChildElements().iterator();
+		iterator.next();
+		iterator.next();
+		iterator.next();
+		iterator.next();
+		bean.setDescription(description);
+		String image = iterator.next().getFirstElementChild().getAttribute("src");
+		if (image.contains("http")) {
+			bean.setImage(image);
+		}else {
+			bean.setImage("https://betfaq.ru" + image);
+		}
+		System.out.println(bean.getImage());
+		return bean;
 	}
 
 	private String editBet(String bet) {

@@ -30,7 +30,7 @@ public class IventDaoTemplateImpl implements IventDao {
 	private final static String LINK_MY_IVENT = "INSERT INTO EXPRESS_IVENT (IVENTS_ID, EXPRESSES_ID) "
 			+ "(SELECT ?, ID FROM EXPRESSES WHERE SOURCE is NULL ORDER BY DATE DESC LIMIT 1)";
 
-	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE, TIME, RESULT) VALUES (?,?,?,?,?,?,?,?,?,?)";
+	private final static String INSERT_IVENTS_LIST = "INSERT INTO IVENTS (NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, DATE, TIME, RESULT, IMAGE) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
 	private final static String DELETE_IVENTS_LIST = "DELETE FROM IVENTS WHERE ID NOT IN (SELECT IVENTS_ID FROM EXPRESS_IVENT) AND SOURCE_IVENT = ?";
 
@@ -41,7 +41,7 @@ public class IventDaoTemplateImpl implements IventDao {
 	private final static String DELETE_OLD_BETFAQ_IVENTS = "DELETE FROM IVENTS WHERE `DATE` <= (NOW() - INTERVAL 1 DAY) AND SOURCE_IVENT = 'https://betfaq.ru'";
 
 	private final static String GET_EVENT_BY_ID = "SELECT ID, NAME, BET, COMPETITION, COEFFICIENT, SOURCE_IVENT, SPORT, DESCRIPTION, "
-			+ "DATE, TIME, RESULT FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru' AND ID = ?";
+			+ "DATE, TIME, RESULT, IMAGE FROM IVENTS WHERE SOURCE_IVENT = 'https://betfaq.ru' AND ID = ?";
 	
 	private final static String UPDATE_RESULT = "UPDATE IVENTS SET RESULT = ? WHERE ID = ?";
 
@@ -112,6 +112,7 @@ public class IventDaoTemplateImpl implements IventDao {
 					statement.setDate(8, new Date(ivent.getDate().getTime()));
 					statement.setString(9, ivent.getTime());
 					statement.setString(10, ivent.getResult());
+					statement.setString(11, ivent.getImage());
 					return statement;
 				}
 			}, holder);
@@ -153,6 +154,7 @@ public class IventDaoTemplateImpl implements IventDao {
 				bean.setDate(rs.getDate("DATE"));
 				bean.setTime(rs.getString("TIME"));
 				bean.setResult(rs.getString("RESULT"));
+				bean.setImage(rs.getString("IMAGE"));
 				list.add(bean);
 				return bean;
 			}
@@ -192,6 +194,7 @@ public class IventDaoTemplateImpl implements IventDao {
 				bean.setDate(rs.getDate("DATE"));
 				bean.setTime(rs.getString("TIME"));
 				bean.setResult(rs.getString("RESULT"));
+				bean.setImage(rs.getString("IMAGE"));
 				return bean;
 			}
 		});
