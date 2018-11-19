@@ -181,10 +181,10 @@ public class BetFaqParser {
 		String description = "";
 		for(DomElement element : listSimpleTest){
 			if(element.getTagName().equals("h2") && !element.getTextContent().equals("")){
-				description += "<br><br>" + element.getTextContent().trim() + "<br><br>";
+				description += "<p class='eventDesrHeaders'>" + element.getTextContent().trim() + "</p>";
 			}
 			if(element.getTagName().equals("p") && !element.getAttribute("class").equals("link-prognose") && !element.getTextContent().equals("")){
-				description += element.getTextContent().trim();
+				description += "<p class='eventDesrText'>" + element.getTextContent().trim() + "</p>";
 			}			
 		}
 		return description;
