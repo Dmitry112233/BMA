@@ -198,7 +198,6 @@ public class BetFaqParser {
 		}else {
 			bean.setImage("https://betfaq.ru" + image);
 		}
-		System.out.println(bean.getImage());
 		return bean;
 	}
 
