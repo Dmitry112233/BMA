@@ -20,32 +20,32 @@
               <div class="rotate_45 w-hidden-medium w-hidden-small w-hidden-tiny">
               </div>
               <div class="div-block-22 div-block-23 div-block-24 div-block-25 div-block-26 megamenu_block">
-                <a id="w-node-e7e0b2f715d1-dadd119d" href="#" class="megamenu_command_name w-inline-block">
+                <a id="w-node-e7e0b2f715d1-dadd119d" href="${contextPath}/${'российская премьер лига'}_матчи" class="megamenu_command_name w-inline-block">
                   <div class="megamenu_command_img _0" style="background-image: url('/Static/bootstrap/img/leagueIcon/российская премьер лига_dark.png')">
                   </div>
                   <div class="megamenu_command_name_text">Премьер-лига<br>(Россия)</div>
                 </a>
-                <a id="w-node-5b2fc1ac7db1-dadd119d" href="#" class="megamenu_command_name w-inline-block">
+                <a id="w-node-5b2fc1ac7db1-dadd119d" href="${contextPath}/${'английская премьер лига'}_матчи" class="megamenu_command_name w-inline-block">
                   <div class="megamenu_command_img _1" style="background-image: url('/Static/bootstrap/img/leagueIcon/английская премьер лига_dark.png')">
                   </div>
                   <div class="megamenu_command_name_text">Премьер-лига<br>(Англия)</div>
                 </a>
-                <a id="w-node-31ecdffc1bf2-dadd119d" href="#" class="megamenu_command_name w-inline-block">
+                <a id="w-node-31ecdffc1bf2-dadd119d" href="${contextPath}/${'испанская ла лига'}_матчи" class="megamenu_command_name w-inline-block">
                   <div class="megamenu_command_img _3" style="background-image: url('/Static/bootstrap/img/leagueIcon/испанская ла лига_dark.png')">
                   </div>
                   <div class="megamenu_command_name_text">Ла Лига<br>(Испания)</div>
                 </a>
-                <a id="w-node-a26f25096494-dadd119d" href="#" class="megamenu_command_name w-inline-block">
+                <a id="w-node-a26f25096494-dadd119d" href="${contextPath}/${'немецкая бундеслига'}_матчи" class="megamenu_command_name w-inline-block">
                   <div class="megamenu_command_img _4" style="background-image: url('/Static/bootstrap/img/leagueIcon/немецкая бундеслига_dark.png')">
                   </div>
                   <div class="megamenu_command_name_text">Бундеслига<br>(Германия)</div>
                 </a>
-                <a id="w-node-93172d138b0b-dadd119d" href="#" class="megamenu_command_name w-inline-block">
+                <a id="w-node-93172d138b0b-dadd119d" href="${contextPath}/${'итальянская серия а'}_матчи" class="megamenu_command_name w-inline-block">
                   <div class="megamenu_command_img" style="background-image: url('/Static/bootstrap/img/leagueIcon/итальянская серия а_dark.png')">
                   </div>
                   <div class="megamenu_command_name_text">Серия А<br>(Италия)</div>
                 </a>
-                <a id="w-node-fc029557e542-dadd119d" href="#" class="megamenu_command_name w-inline-block">
+                <a id="w-node-fc029557e542-dadd119d" href="${contextPath}/competitions" class="megamenu_command_name w-inline-block">
                   <div class="megamenu_command_img _6" style="background-image: url('/Static/bootstrap/img/leagueIcon/ball.png')">
                   </div>
                   <div class="megamenu_command_name_text">Все<br>чемпионаты</div>

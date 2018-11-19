@@ -56,7 +56,10 @@
                               </c:if>
                         </div>
                      </div>
-                     <p class="eventText">${ivent.description}</p>
+                     <div class="eventImageBlock">
+                     	<img class="eventImage" src="${ivent.image}" onerror="this.style.display='none'" />
+                     </div>
+                     <div>${ivent.description}</div>
                      <div class="replay_matches_block">
                         <div class="columns-4 w-row">
                            <div class="w-col w-col-8">

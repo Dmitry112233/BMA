@@ -1031,6 +1031,36 @@
 	justify-content: center;
 }
 
+.eventDesrText {
+	font-family: 'Open Sans', sans-serif;
+    color: #5a5c6e;
+    font-size: 16px;
+    line-height: 26px;
+    padding-left: 10px;
+}
+
+.eventDesrHeaders {
+	font-family: Helveticaneuecyr, sans-serif;
+    color: #000;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.eventImageBlock {
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.eventImage {
+	width: auto;
+	margin-bottom: 10px;
+	border: 1px solid black;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
