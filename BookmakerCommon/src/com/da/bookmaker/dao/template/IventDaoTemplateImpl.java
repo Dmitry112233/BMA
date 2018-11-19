@@ -154,7 +154,6 @@ public class IventDaoTemplateImpl implements IventDao {
 				bean.setDate(rs.getDate("DATE"));
 				bean.setTime(rs.getString("TIME"));
 				bean.setResult(rs.getString("RESULT"));
-				bean.setImage(rs.getString("IMAGE"));
 				list.add(bean);
 				return bean;
 			}
