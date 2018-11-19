@@ -1027,6 +1027,10 @@
 	margin-bottom: 20px; 
 }
 
+.tab_link_sport {
+	justify-content: center;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -1536,5 +1540,9 @@
 	
 	.full_table_command_name_text {
 		padding-left: 4px;
+	}
+	
+	.sideEventMobileBlocks {
+		width: 50%;
 	}
 }

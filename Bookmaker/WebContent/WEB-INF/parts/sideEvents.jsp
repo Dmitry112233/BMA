@@ -36,20 +36,20 @@
                <div class="express-content">
                   <div class="football-text">
                      <div class="w-row">
-                        <div class="column-16 w-col w-col-9 w-col-small-6">
+                        <div class="column-16 w-col w-col-9 w-col-small-6 sideEventMobileBlocks">
                            <img src="/Static/bootstrap/img/sportsIcons/football.png" width="20" class="ball-img" onerror="this.style.display='none'" />
                            <div class="tab-command_name">${footballIvents.competition}</div>
                         </div>
-                        <div class="w-clearfix w-col w-col-3 w-col-small-6">
+                        <div class="w-clearfix w-col w-col-3 w-col-small-6 sideEventMobileBlocks">
                            <a href="${contextPath}/event_description_${footballIvents.iventID}_details" class="more_link">Подробнее</a>
                         </div>
                      </div>
                   </div>
                   <div class="columns-2 w-row">
-                     <div class="w-clearfix w-col w-col-6 w-col-small-6">
+                     <div class="w-clearfix w-col w-col-6 w-col-small-6 sideEventMobileBlocks">
                         <div class="text-block-17">${footballIvents.name}</div>
                      </div>
-                     <div class="column-15 w-clearfix w-col w-col-6 w-col-small-6">
+                     <div class="column-15 w-clearfix w-col w-col-6 w-col-small-6 sideEventMobileBlocks">
                         <div class="text-block-16 _2">
                            <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${footballIvents.coefficient}" />
                         </div>
@@ -64,20 +64,20 @@
                   <div class="express-content">
                      <div class="football-text">
                         <div class="w-row">
-                           <div class="column-16 w-col w-col-9 w-col-small-6">
+                           <div class="column-16 w-col w-col-9 w-col-small-6 sideEventMobileBlocks">
                               <img src="/Static/bootstrap/img/sportsIcons/bascketball.png" width="20" onerror="this.style.display='none'" class="ball-img" />
                               <div class="tab-command_name">${basketballIvents.competition}</div>
                            </div>
-                           <div class="w-clearfix w-col w-col-3 w-col-small-6">
+                           <div class="w-clearfix w-col w-col-3 w-col-small-6 sideEventMobileBlocks">
                               <a href="${contextPath}/event_description_${basketballIvents.iventID}_details" class="more_link">Подробнее</a>
                            </div>
                         </div>
                      </div>
                      <div class="columns-2 w-row">
-                        <div class="w-clearfix w-col w-col-6 w-col-small-6">
+                        <div class="w-clearfix w-col w-col-6 w-col-small-6 sideEventMobileBlocks">
                            <div class="text-block-17">${basketballIvents.name}</div>
                         </div>
-                        <div class="column-15 w-clearfix w-col w-col-6 w-col-small-6">
+                        <div class="column-15 w-clearfix w-col w-col-6 w-col-small-6 sideEventMobileBlocks">
                            <div class="text-block-16 _2">
                               <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${basketballIvents.coefficient}" />
                            </div>
@@ -92,20 +92,20 @@
                   <div class="express-content">
                      <div class="football-text">
                         <div class="w-row">
-                           <div class="column-16 w-col w-col-9 w-col-small-6">
+                           <div class="column-16 w-col w-col-9 w-col-small-6 sideEventMobileBlocks">
                               <img src="/Static/bootstrap/img/sportsIcons/icehockey.png" width="20" onerror="this.style.display='none'" class="ball-img" />
                               <div class="tab-command_name">${hockeyIvents.competition}</div>
                            </div>
-                           <div class="w-clearfix w-col w-col-3 w-col-small-6">
+                           <div class="w-clearfix w-col w-col-3 w-col-small-6 sideEventMobileBlocks">
                               <a href="${contextPath}/event_description_${hockeyIvents.iventID}_details" class="more_link">Подробнее</a>
                            </div>
                         </div>
                      </div>
                      <div class="columns-2 w-row">
-                        <div class="w-clearfix w-col w-col-6 w-col-small-6">
+                        <div class="w-clearfix w-col w-col-6 w-col-small-6 sideEventMobileBlocks">
                            <div class="text-block-17">${hockeyIvents.name}</div>
                         </div>
-                        <div class="column-15 w-clearfix w-col w-col-6 w-col-small-6">
+                        <div class="column-15 w-clearfix w-col w-col-6 w-col-small-6 sideEventMobileBlocks">
                            <div class="text-block-16 _2">
                               <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${hockeyIvents.coefficient}" />
                            </div>
@@ -120,20 +120,20 @@
                   <div class="express-content">
                      <div class="football-text">
                         <div class="w-row">
-                           <div class="column-16 w-col w-col-9 w-col-small-6">
+                           <div class="column-16 w-col w-col-9 w-col-small-6 sideEventMobileBlocks">
                               <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="20" onerror="this.style.display='none'" class="ball-img" />
                               <div class="tab-command_name">${tennisIvents.competition}</div>
                            </div>
-                           <div class="w-clearfix w-col w-col-3 w-col-small-6">
+                           <div class="w-clearfix w-col w-col-3 w-col-small-6 sideEventMobileBlocks">
                               <a href="${contextPath}/event_description_${tennisIvents.iventID}_details" class="more_link">Подробнее</a>
                            </div>
                         </div>
                      </div>
                      <div class="columns-2 w-row">
-                        <div class="w-clearfix w-col w-col-6 w-col-small-6">
+                        <div class="w-clearfix w-col w-col-6 w-col-small-6 sideEventMobileBlocks">
                            <div class="text-block-17">${tennisIvents.name}</div>
                         </div>
-                        <div class="column-15 w-clearfix w-col w-col-6 w-col-small-6">
+                        <div class="column-15 w-clearfix w-col w-col-6 w-col-small-6 sideEventMobileBlocks">
                            <div class="text-block-16 _2">
                               <fmt:formatNumber type = "number" maxFractionDigits = "2" minFractionDigits = "2" value = "${tennisIvents.coefficient}" />
                            </div>
