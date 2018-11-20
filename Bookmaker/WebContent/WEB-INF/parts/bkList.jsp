@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<div class="col-1-rating w-col w-col-8 w-col-stack">
+<div class="col-1-rating w-col w-col-8 w-col-stack myBkListBlock">
    <div class="bookmakers">
       <div class="columns w-row">
          <div class="w-clearfix w-col w-col-6">

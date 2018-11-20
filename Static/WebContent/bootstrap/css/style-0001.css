@@ -2701,17 +2701,10 @@
 }
 
 .bookmaker_points {
-  margin-bottom: 3px;
-  -webkit-align-self: end;
-  -ms-flex-item-align: end;
-  align-self: end;
   font-weight: 300;
 }
 
 .bookmaker_points.bold {
-  -webkit-align-self: end;
-  -ms-flex-item-align: end;
-  align-self: end;
   font-size: 16px;
   font-weight: 700;
 }
@@ -4668,9 +4661,6 @@
     grid-template-columns: 80px 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr 0.25fr;
   }
   .bookmaker_points {
-    -webkit-align-self: end;
-    -ms-flex-item-align: end;
-    align-self: end;
     font-weight: 300;
   }
   .bookmaker_points.bold.del {
@@ -5195,15 +5185,9 @@
     padding-left: 5px;
   }
   .bookmaker_points {
-    -webkit-align-self: end;
-    -ms-flex-item-align: end;
-    align-self: end;
     font-size: 12px;
   }
   .bookmaker_points.bold {
-    -webkit-align-self: end;
-    -ms-flex-item-align: end;
-    align-self: end;
     font-size: 12px;
   }
   .bookmaker_text {

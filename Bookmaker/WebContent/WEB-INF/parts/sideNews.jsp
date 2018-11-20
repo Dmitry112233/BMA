@@ -3,7 +3,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <div class="col-2-new w-col w-col-4 w-col-stack">
    <div class="mySideNewsBlock">
-      <div class="stavka-block w-clearfix">
+      <div class="stavka-block w-clearfix mySideNewsHeader">
          <div class="odinochnie-prognozy">Новости</div>
          <div class="all_newstext">
             <a href="${contextPath}/news_0" class="all_newslink">Все новости</a>

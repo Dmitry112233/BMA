@@ -23,30 +23,33 @@
          <div class="rpl_bet_container">
             <div class="col_rpl w-row">
                <div class="col_rpl_info w-col w-col-8 w-col-stack">
-                  <div class="rpl_img_block">
-                     <div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
-                  </div>
-                  <div class="leagueMatchesTitleRow">
-                     <div class="myLeagueIconBlock">
-                     	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
-                     </div>
-                     <div class="myLeagueH1Block">
-                     	<h1 class="champ_title myLeagueH1">${League_H1}</h1>
-                     </div>
-                     <div class="descrButtonBlock">
-                     	<a href="${contextPath}/${leagueLower}_описание" class="descrButton">Описание</a>
-                     </div>
-                     <div class="btn_all-bets_block myS">
-                     	<a href="${contextPath}/competitions" class="allItemsBtn discr_title_button w-button">Все чемпионаты</a>
-                     </div>                     
+                  <div class="leaguePagesHeader">
+	                  <div class="rpl_img_block">
+	                     <div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
+	                  </div>
+	                  <div class="leagueMatchesTitleRow">
+	                     <div class="myLeagueIconBlock">
+	                     	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
+	                     </div>
+	                     <div class="myLeagueH1Block">
+	                     	<h1 class="champ_title myLeagueH1">${League_H1}</h1>
+	                     </div>
+	                     <div class="descrButtonBlock">
+	                     	<a href="${contextPath}/${leagueLower}_описание" class="descrButton">Описание</a>
+	                     </div>
+	                     <div class="btn_all-bets_block myS">
+	                     	<a href="${contextPath}/competitions" class="allItemsBtn discr_title_button w-button">Все чемпионаты</a>
+	                     </div>                     
+	                  </div>
                   </div>
                   <div class="rpl_matches_block">
                      <c:forEach var="date" items="${dates}">
                         <div class="date_matches"><fmt:formatDate pattern = "dd.MM.yyyy" value = "${mapMatch.get(date).get(0).date}" /></div>
                         <div class="myLeagueMatchesTopWrapper">
+	                        <c:set var="separator" value="false" />
 	                        <c:forEach var="events" items="${mapMatch.get(date)}">
 	                           <div class="myLeagueMatchesWrapper">
-	                              <div class="myLeagueMatches" onclick="window.location.href='${contextPath}/${events.url}'; return false">
+	                              <div class="myLeagueMatches <c:if test="${separator != false}">separatorBorder</c:if>" onclick="window.location.href='${contextPath}/${events.url}'; return false">
 	                                 <div class="time_msk"><fmt:formatDate pattern = "HH:mm" value = "${events.date}" /> МСК</div>
 	                                 <div class="command_name vs myLeagMatchesComandName">${events.team1} <span class="coefficient_matches">(${events.win1}) </span><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team1}.png" onerror="this.style.display='none'" alt="${events.team1} лого"></div>
 	                                 <div class="draw_coef">ничья<span class="drow_coef_number"> (${events.x})</span></div>
@@ -54,6 +57,7 @@
 	                                 <div class="command_name second_command_name myLeagMatchesComandName"><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team2}.png" onerror="this.style.display='none'" alt="${events.team2} лого"> ${events.team2}<span class="coefficient_matches"> (${events.win2})</span></div>
 	                                 <div class="xceff"><a class="link_more" href="${contextPath}/${events.url}">Подробности</a></div>
 	                              </div>
+	                              <c:set var="separator" value="true" />
 	                           </div>
 	                        </c:forEach>
                         </div>

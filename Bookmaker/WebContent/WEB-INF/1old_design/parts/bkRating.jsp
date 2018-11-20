@@ -11,9 +11,7 @@
          <c:forEach var="bookmaker" items="${bookmakerList.values()}">
             <tr>
                <td colspan="3">
-                  <c:if test="${separatorBk != false}">
-                     <hr>
-                  </c:if>
+                  <c:if test="${separatorBk != false}">separatorBorder</c:if>
                   <c:set var="separatorBk" value="true" />
                </td>
             </tr>

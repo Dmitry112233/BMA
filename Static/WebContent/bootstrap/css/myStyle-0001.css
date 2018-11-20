@@ -134,7 +134,7 @@
 	border-style: none none solid;
 	border-width: 1px;
 	border-color: #e2e2e5;
-	align-items: end;
+	align-items: center;
 }
 
 .myChampTableFooter {
@@ -153,7 +153,7 @@
 }
 
 .table_commands_text {
-	padding-bottom: 12px;
+	padding-bottom: 6px;
 }
 
 .fullTableLink {
@@ -267,16 +267,13 @@
 }
 
 .myBkCompareTable {
-	display: grid;
-	grid-template-columns: 1fr;
+	display: block;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1220px;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 0px;
-    padding-left: 0px;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;    
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .myBkCompareRow {
@@ -298,8 +295,13 @@
 }
 
 .bookmaker_points.first {
-	justify-self: start;
-	margin-left: 20px;
+	justify-self: center;
+}
+
+.myCeffCompareRowsWrapper {
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #fff;
 }
 
 .bmCeffListLogo {
@@ -310,12 +312,11 @@
 	display: grid;
 	grid-template-columns: 1fr;
     padding-top: 0px;
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
     grid-column-gap: 10px;
     grid-row-gap: 0px;
     background-color: #fff;
-    margin-bottom: 20px;
 }
 
 .myTeamHistoryRow {
@@ -931,8 +932,14 @@
 	box-shadow: 0 0 15px 0 #d7dae4;
 }
 
-.tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .rpl_img_block, .leagueMatchesTitleRow, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myBkCompareTable, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
-	box-shadow: 0 0 15px 0 #d7dae4;
+.leaguePagesHeader, .header_content_block, .myMatchDetailsHstoryBlock, .myCeffCompareRowsWrapper, .tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
+	box-shadow: 0 0 15px 0 #d7dae4; /* #d7dae4 */ /* #ff8000 */
+}
+
+.myLeagueMatchesTopWrapper {
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #fff;
 }
 
 .hero_championats_tab {
@@ -944,7 +951,7 @@
 	margin-left: 0px;
 }
 
-.container_coeff, .w-tab-pane, .tabs_control-menu {
+.container_coeff {
 	padding-right: 10px;
 	padding-left: 10px;
 }
@@ -1061,6 +1068,33 @@
 	border: 1px solid black;
 }
 
+.mySideNewsHeader {
+	margin-top: 0px;
+}
+
+.myBkListBlock {
+	margin-bottom: 20px;
+}
+
+.tabs_control-menu, .myMatchesTabsWrapper {
+	padding-right: 0px;
+}
+
+.separatorBorder {
+	border-top: 1px solid #e2e2e5;
+}
+
+.myMatchDetailsTabs {
+	text-align: center;
+	min-height: 60px;
+	height: auto;
+}
+
+.myMatchDetailsHstoryBlock {
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -1091,6 +1125,15 @@
 	
 	.questions_cards_block {
 		padding-right: 0px;
+	}
+	
+	.tabs_control-menu, .myMatchesTabsWrapper {
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	
+	.myMatchDetailsHstoryBlock {
+		margin-left: 0px;
 	}
 }
 	
@@ -1243,6 +1286,15 @@
 		padding-left: 100px;
 		padding-top: 0px;
 		padding-bottom: 10px;
+	}
+	
+	.tabs_control-menu, .myMatchesTabsWrapper {
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	
+	.myMatchDetailsHstoryBlock {
+		margin-left: 0px;
 	}
 }
 
@@ -1574,5 +1626,18 @@
 	
 	.sideEventMobileBlocks {
 		width: 50%;
+	}
+	
+	.tabs_control-menu, .myMatchesTabsWrapper {
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	
+	.tabs_control-menu {
+		margin-bottom: 0px;
+	}
+	
+	.myMatchDetailsHstoryBlock {
+		margin-left: 0px;
 	}
 }

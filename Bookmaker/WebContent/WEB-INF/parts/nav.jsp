@@ -14,7 +14,7 @@
             <div class="dropdown-toggle-2 w-dropdown-toggle">
               <div class="w-icon-dropdown-toggle">
               </div>
-              <div class="menu_dropdown-text">СТАВКА НА СПОРТ</div>
+              <div class="menu_dropdown-text">ФУТБОЛ</div>
             </div>
             <nav class="megamenu_dropdown_list w-dropdown-list">
               <div class="rotate_45 w-hidden-medium w-hidden-small w-hidden-tiny">

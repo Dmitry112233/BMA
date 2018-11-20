@@ -24,9 +24,10 @@
             </div>
          </div>
       </div>
+      <c:set var="separator" value="false" />
       <c:forEach var="events" items="${TabListName}">
          <div class="myLeagueMatchesWrapper">
-            <div class="myLeagueMatches" onclick="window.location.href='${contextPath}/${events.url}'; return false">
+            <div class="myLeagueMatches <c:if test="${separator != false}">separatorBorder</c:if>" onclick="window.location.href='${contextPath}/${events.url}'; return false">
                <div class="time_msk">
                   <fmt:formatDate pattern = "dd.MM.yyyy HH:mm" value = "${events.date}" />
                   МСК
@@ -37,6 +38,7 @@
                <div class="command_name second_command_name myLeagMatchesComandName"><img class="teamIcon" src="/Static/bootstrap/img/teamIcons/${events.team2}.png" onerror="this.style.display='none'" alt="${events.team2} лого"> ${events.team2}<span class="coefficient_matches"> (${events.win2})</span></div>
                <div class="xceff"><a class="link_more" href="${contextPath}/${events.url}">Подробности</a></div>
             </div>
+            <c:set var="separator" value="true" />
          </div>
       </c:forEach>
    </div>

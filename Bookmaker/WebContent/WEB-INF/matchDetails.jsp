@@ -56,57 +56,61 @@
          </div>
          <c:if test="${xBetList.size() > 0}">
          <div class="myBkCompareTable">
-            <div class="myBkCompareRow header">
-               <div class="bookmaker_points bold first">Букмекер</div>
-               <div class="bookmaker_points bold">1</div>
-               <div class="bookmaker_points bold">Х</div>
-               <div class="bookmaker_points bold">2</div>
-               <div class="bookmaker_points bold">1Х</div>
-               <div class="bookmaker_points bold">12</div>
-               <div class="bookmaker_points bold">2Х</div>
-               <div class="bookmaker_points bold del">Б</div>
-               <div class="bookmaker_points bold del">Тотал</div>
-               <div class="bookmaker_points bold d">М</div>
-               <div class="bookmaker_points bold d">1</div>
-               <div class="bookmaker_points bold del">Фора</div>
-               <div class="bookmaker_points bold d">2</div>
-            </div>
-            <c:set var="RowListName" value="${xBetList}" scope="request"/>
-            <c:import url="parts/ceffCompareRow.jsp"/>
-            <c:set var="RowListName" value="${leonList}" scope="request"/>
-            <c:import url="parts/ceffCompareRow.jsp"/>
-            <c:set var="RowListName" value="${ligaList}" scope="request"/>
-            <c:import url="parts/ceffCompareRow.jsp"/>
+	         <div class="myCeffCompareRowsWrapper">
+	            <div class="myBkCompareRow header">
+	               <div class="bookmaker_points bold first">Букмекер</div>
+	               <div class="bookmaker_points bold">1</div>
+	               <div class="bookmaker_points bold">Х</div>
+	               <div class="bookmaker_points bold">2</div>
+	               <div class="bookmaker_points bold">1Х</div>
+	               <div class="bookmaker_points bold">12</div>
+	               <div class="bookmaker_points bold">2Х</div>
+	               <div class="bookmaker_points bold del">Б</div>
+	               <div class="bookmaker_points bold del">Тотал</div>
+	               <div class="bookmaker_points bold d">М</div>
+	               <div class="bookmaker_points bold d">1</div>
+	               <div class="bookmaker_points bold del">Фора</div>
+	               <div class="bookmaker_points bold d">2</div>
+	            </div>
+	            <c:set var="RowListName" value="${xBetList}" scope="request"/>
+	            <c:import url="parts/ceffCompareRow.jsp"/>
+	            <c:set var="RowListName" value="${leonList}" scope="request"/>
+	            <c:import url="parts/ceffCompareRow.jsp"/>
+	            <c:set var="RowListName" value="${ligaList}" scope="request"/>
+	            <c:import url="parts/ceffCompareRow.jsp"/>
+	         </div>
          </div>
          </c:if>
          <div class="matches_tab-block">
             <div class="col_tab-and-table w-row">
                <div class="col_tab-matches w-col w-col-8 w-col-stack">
                   <div data-duration-in="300" data-duration-out="100" class="w-tabs">
-                     <div class="tabs_control-menu w-tab-menu">
-                        <a data-w-tab="Tab 1" class="tab_link w-inline-block w-tab-link w--current">
-                           <div class="tabs_link-text">Последние встречи ${team1}</div>
-                        </a>
-                        <a data-w-tab="Tab 2" class="tab_link w-inline-block w-tab-link">
-                           <div class="tabs_link-text">Последние встречи ${team2}</div>
-                        </a>
-                        <a data-w-tab="Tab 3" class="tab_link w-inline-block w-tab-link">
-                           <div class="tabs_link-text">Личные встречи ${team1} и ${team2}</div>
-                        </a>
-                     </div>
-                     <div class="w-tab-content">
-                     	<c:set var="TabListName" value="${lastMatchesTeam1}" scope="request"/>
-                        <c:set var="TabListNumber" value="1" scope="request"/>
-                        <c:set var="defTab" value="w--tab-active" scope="request"/>
-                        <c:import url="parts/matchDetailesTabs.jsp"/>
-                        <c:set var="TabListName" value="${lastMatchesTeam2}" scope="request"/>
-                        <c:set var="TabListNumber" value="2" scope="request"/>
-                        <c:set var="defTab" value="" scope="request"/>
-                        <c:import url="parts/matchDetailesTabs.jsp"/>
-                        <c:set var="TabListName" value="${lastMatchesTeam1Team2}" scope="request"/>
-                        <c:set var="TabListNumber" value="3" scope="request"/>
-                        <c:set var="defTab" value="" scope="request"/>
-                        <c:import url="parts/matchDetailesTabs.jsp"/>
+                     <div class="myMatchDetailsHstoryBlock">
+	                     <div class="tabs_control-menu w-tab-menu">
+	                        <a data-w-tab="Tab 1" class="myMatchDetailsTabs tab_link w-inline-block w-tab-link w--current">
+	                           <div class="tabs_link-text">Последние встречи ${team1}</div>
+	                        </a>
+	                        <a data-w-tab="Tab 2" class="myMatchDetailsTabs tab_link w-inline-block w-tab-link">
+	                           <div class="tabs_link-text">Последние встречи ${team2}</div>
+	                        </a>
+	                        <a data-w-tab="Tab 3" class="myMatchDetailsTabs tab_link w-inline-block w-tab-link">
+	                           <div class="tabs_link-text">Личные встречи ${team1} и ${team2}</div>
+	                        </a>
+	                     </div>
+	                     <div class="w-tab-content">
+	                     	<c:set var="TabListName" value="${lastMatchesTeam1}" scope="request"/>
+	                        <c:set var="TabListNumber" value="1" scope="request"/>
+	                        <c:set var="defTab" value="w--tab-active" scope="request"/>
+	                        <c:import url="parts/matchDetailesTabs.jsp"/>
+	                        <c:set var="TabListName" value="${lastMatchesTeam2}" scope="request"/>
+	                        <c:set var="TabListNumber" value="2" scope="request"/>
+	                        <c:set var="defTab" value="" scope="request"/>
+	                        <c:import url="parts/matchDetailesTabs.jsp"/>
+	                        <c:set var="TabListName" value="${lastMatchesTeam1Team2}" scope="request"/>
+	                        <c:set var="TabListNumber" value="3" scope="request"/>
+	                        <c:set var="defTab" value="" scope="request"/>
+	                        <c:import url="parts/matchDetailesTabs.jsp"/>
+	                     </div>
                      </div>
                   </div>
                </div>

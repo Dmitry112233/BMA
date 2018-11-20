@@ -1,10 +1,12 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<div data-w-tab="Tab ${TabListNumber}" class="w-tab-pane ${defTab}">
+<div data-w-tab="Tab ${TabListNumber}" class="myMatchesTabsWrapper w-tab-pane ${defTab}">
+   <c:set var="separator" value="false" />
    <div class="myTeamHistoryTable">
       <c:forEach var="Events" items="${TabListName}">
-         <div class="myTeamHistoryRow">
+         <div class="myTeamHistoryRow <c:if test="${separator != false}">separatorBorder</c:if>">
+            <c:set var="separator" value="true" />
             <div class="tab_matches-date">${Events.dateStr}</div>
             <div class="command_name vs myDetComandName team1">${Events.team1}</div>
             <div class="detTeamLogos"><img class="myTeamLogo" src="/Static/bootstrap/img/teamIcons/${Events.team1}.png" alt="${Events.team1} лого" onerror="this.src='/Static/bootstrap/img/teamIcons/ball.png'"></div>
