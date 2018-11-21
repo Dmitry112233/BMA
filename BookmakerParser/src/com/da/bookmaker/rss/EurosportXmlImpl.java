@@ -73,8 +73,13 @@ public class EurosportXmlImpl {
 						if (item.getCategorys().size() > 1){
 							bean.setCompetition(item.getCategorys().get(1));
 						}
-						bean.setDescription(item.getDescription());
-						bean.setImage(item.getImage().getUrl());
+						/*if(item.getImage() != null) {
+							bean.setImage(item.getImage().getUrl());
+						}*/
+						
+						String[] descriptionMass = item.getDescription().split("\"");								
+					    bean.setDescription(descriptionMass[5]);
+					    bean.setImage(descriptionMass[1]);
 						bean.setTitle(getStringUtf8(item.getTitle()));
 						bean.setDate(item.getPubDate());
 						buffer.add(bean);
