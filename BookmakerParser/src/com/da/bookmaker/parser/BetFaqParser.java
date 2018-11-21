@@ -121,8 +121,9 @@ public class BetFaqParser {
 			for (int i = 0; i < existIvents.size(); i++) {
 				for (int j = 0; j < size; j++) {
 					if (!beans.get(j).getDescription().equals(existIvents.get(i).getDescription())) {
-						if(existIvents.get(i).getResult() == null && beans.get(j).getResult() != null){
-							DaoFactory.getIventDao().updateResult(existIvents.get(i).getIventID(), beans.get(j).getResult());
+						if (existIvents.get(i).getResult() == null && beans.get(j).getResult() != null) {
+							DaoFactory.getIventDao().updateResult(existIvents.get(i).getIventID(),
+									beans.get(j).getResult());
 						}
 						continue;
 					} else {
@@ -174,17 +175,19 @@ public class BetFaqParser {
 			webClient1.closeAllWindows();
 		}
 	}
-	
-	private IventBean getDescription(DomElement elem, IventBean bean){
+
+	private IventBean getDescription(DomElement elem, IventBean bean) {
 		Iterable<DomElement> listSimpleTest = elem.getChildElements();
 		String description = "";
-		for(DomElement element : listSimpleTest){
-			if(element.getTagName().equals("h2") && !element.getTextContent().equals("")){
-				description += "<p class='eventDesrHeaders'>" + element.getTextContent().trim() + "</p>";
+		for (DomElement element : listSimpleTest) {
+			if (element.getTagName().equals("h2") && !element.getTextContent().equals("")) {
+				description += "<p class='eventDesrHeaders'>"
+						+ element.getTextContent().trim().replaceAll(" от BetFAQ.ru", "") + "</p>";
 			}
-			if(element.getTagName().equals("p") && !element.getAttribute("class").equals("link-prognose") && !element.getTextContent().equals("")){
+			if (element.getTagName().equals("p") && !element.getAttribute("class").equals("link-prognose")
+					&& !element.getTextContent().equals("")) {
 				description += "<p class='eventDesrText'>" + element.getTextContent().trim() + "</p>";
-			}			
+			}
 		}
 		Iterator<DomElement> iterator = elem.getChildElements().iterator();
 		iterator.next();
@@ -195,7 +198,7 @@ public class BetFaqParser {
 		String image = iterator.next().getFirstElementChild().getAttribute("src");
 		if (image.contains("http")) {
 			bean.setImage(image);
-		}else {
+		} else {
 			bean.setImage("https://betfaq.ru" + image);
 		}
 		return bean;
