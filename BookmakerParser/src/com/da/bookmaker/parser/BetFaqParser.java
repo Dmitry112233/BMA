@@ -194,7 +194,7 @@ public class BetFaqParser {
 		iterator.next();
 		iterator.next();
 		iterator.next();
-		bean.setDescription(description);
+		bean.setDescription(description.replaceAll("nbsp", ""));
 		String image = iterator.next().getFirstElementChild().getAttribute("src");
 		if (image.contains("http")) {
 			bean.setImage(image);
