@@ -5043,9 +5043,6 @@
     grid-column-gap: 0px;
   }
   .table_name_command {
-    -webkit-align-self: end;
-    -ms-flex-item-align: end;
-    align-self: end;
     font-size: 12px;
   }
   .button_description_grew {

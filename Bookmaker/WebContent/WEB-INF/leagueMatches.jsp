@@ -48,8 +48,8 @@
                         <div class="myLeagueMatchesTopWrapper">
 	                        <c:set var="separator" value="false" />
 	                        <c:forEach var="events" items="${mapMatch.get(date)}">
-	                           <div class="myLeagueMatchesWrapper">
-	                              <div class="myLeagueMatches <c:if test="${separator != false}">separatorBorder</c:if>" onclick="window.location.href='${contextPath}/${events.url}'; return false">
+	                           <div class="myLeagueMatchesWrapper" onclick="window.location.href='${contextPath}/${events.url}'; return false">
+	                              <div class="myLeagueMatches <c:if test="${separator != false}">separatorBorder</c:if>">
 	                                 <div class="time_msk"><fmt:formatDate pattern = "HH:mm" value = "${events.date}" /> МСК</div>
 	                                 <div class="command_name vs myLeagueMatchesComandName">${events.team1}<span class="coefficient_matches"> (${events.win1})</span></div>
 	                                 <div class="leagueMatchesTeamIconBlock"><img class="leagueMatchesTeamIcon" src="/Static/bootstrap/img/teamIcons/${events.team1}.png" onerror="this.style.display='none'" alt="${events.team1} лого"></div>

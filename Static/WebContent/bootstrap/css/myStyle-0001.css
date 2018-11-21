@@ -225,7 +225,10 @@
     color: #000;
     text-decoration: none;
     align-items: center;
-    cursor: pointer;
+}
+
+.myLeagueMatchesWrapper {
+	cursor: pointer;
 }
 
 .time_msk, .vs {
@@ -241,7 +244,7 @@
 	justify-self: start;
 }
 
-.myLeagueMatches:hover, .myBkCompareRow.row:hover {
+.myLeagueMatchesWrapper:hover .myLeagueMatches, .myLeagueMatchesWrapper:hover, .myLeagueMatches:hover, .myBkCompareRow.row:hover {
 	background-color: #e2e2e5;
 }
 
@@ -948,9 +951,9 @@
 	box-shadow: 0 0 15px 0 #d7dae4; /* #d7dae4 */ /* #ff8000 */
 }
 
-.myLeagueMatchesTopWrapper {
-	padding-left: 10px;
-	padding-right: 10px;
+.myLeagueMatches {
+	margin-left: 10px;
+	margin-right: 10px;
 	background-color: #fff;
 }
 

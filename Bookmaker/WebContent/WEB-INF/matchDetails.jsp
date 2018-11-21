@@ -84,8 +84,8 @@
          <div class="matches_tab-block">
             <div class="col_tab-and-table w-row">
                <div class="col_tab-matches w-col w-col-8 w-col-stack">
-                  <div data-duration-in="300" data-duration-out="100" class="w-tabs">
-                     <div class="myMatchDetailsHstoryBlock">
+                  <div class="myMatchDetailsHstoryBlock">
+                  	 <div data-duration-in="300" data-duration-out="100" class="w-tabs">
 	                     <div class="tabs_control-menu w-tab-menu">
 	                        <a data-w-tab="Tab 1" class="myMatchDetailsTabs tab_link w-inline-block w-tab-link w--current">
 	                           <div class="tabs_link-text">Последние встречи ${team1}</div>
