@@ -78,6 +78,7 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-row-gap: 10px;
+	margin-bottom: 20px;
 }
 
 .myNewsItems {
@@ -102,6 +103,7 @@
 	width: 100%;
 	padding: 30px 20px 0px 20px;
 	background-color: #fff;	
+	margin-bottom: 20px;
 }
 
 .myChampTableTitle {
@@ -412,8 +414,12 @@
 	justify-self: center;
 }
 
-.sideBanner, .sideLeagueTablePart {
+.sideBannersBlock {
 	margin-bottom: 20px;
+}
+
+.sideBanner {
+	margin-bottom: 10px;
 }
 
 .sideLeagueTablePart {
@@ -947,7 +953,7 @@
 	box-shadow: 0 0 15px 0 #d7dae4;
 }
 
-.championats_tabs_content, .leaguePagesHeader, .header_content_block, .myMatchDetailsHstoryBlock, .myCeffCompareRowsWrapper, .tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
+.sideBanner, .championats_tabs_content, .leaguePagesHeader, .header_content_block, .myMatchDetailsHstoryBlock, .myCeffCompareRowsWrapper, .tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
 	box-shadow: 0 0 15px 0 #d7dae4; /* #d7dae4 */ /* #ff8000 */
 }
 
@@ -960,6 +966,7 @@
 .hero_championats_tab {
 	padding-left: 10px;
     padding-right: 10px;
+    margin-bottom: 15px;
 }
 
 .tab_content_block {
@@ -1088,7 +1095,7 @@
 }
 
 .myBkListBlock {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .tabs_control-menu, .myMatchesTabsWrapper {
@@ -1107,6 +1114,10 @@
 
 .myMatchDetailsHstoryBlock {
 	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+.sideEvevtsTabsContent {
 	margin-bottom: 20px;
 }
 
@@ -1149,6 +1160,11 @@
 	
 	.myMatchDetailsHstoryBlock {
 		margin-left: 0px;
+	}
+	
+	.myChampSeo {
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 }
 	
@@ -1322,6 +1338,11 @@
 	
 	.myLeagueMatchesComandName {
 		line-height: 16px !important;
+	}
+	
+	.myChampSeo {
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 }
 
@@ -1688,5 +1709,24 @@
 	
 	.champMobileButtons {
 		margin: 0px 0px 5px 0px;
+	}
+}
+
+@media (max-width: 991px) {
+	.sideBannersBlock {
+		width: 100%;
+	}
+	
+	.sideBannersBlock, .sideBanner {
+		text-align: center;
+	}
+	
+	.col_second_block {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+	.col_table_champ {
+		max-height: none;
 	}
 }

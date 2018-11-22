@@ -71,9 +71,9 @@
                <div class="bets_desc-col2 w-col w-col-4 w-col-stack">
                   <c:import url="parts/sidePopularNews.jsp"></c:import>
                </div>
-               <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
+               <%-- <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
                <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
-               <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import>
+               <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import> --%>
             </div>
          </div>
       </div>

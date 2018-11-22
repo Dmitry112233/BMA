@@ -25,20 +25,18 @@
          <div class="container">
             <c:import url="parts/promoSlider.jsp"></c:import>
             <div class="col w-row">
-               <c:import url="parts/bkList.jsp"></c:import>
-               <c:import url="parts/sideNews.jsp"></c:import>
-            </div>
-         </div>
-      </div>
-      <div class="text-section">
-         <div class="flex-text-block">
-            <div class="w-row">
+               <div class="col-1-rating w-col w-col-8 w-col-stack myBkListBlock">
+               		<c:import url="parts/bkList.jsp"></c:import>
+               </div>
+               <div class="bkComparsionSidePart col-2-new w-col w-col-4 w-col-stack">
+               		<c:import url="parts/sideNews.jsp"></c:import>
+               		<c:import url="parts/sideEvents.jsp"></c:import>
+               </div>
                <div class="column-13 w-col w-col-8 w-col-stack">               
                   <div class="seoBlock">
                      ${bookmakers_Txt}
                   </div>
                </div>
-               <c:import url="parts/sideEvents.jsp"></c:import>
             </div>
          </div>
       </div>

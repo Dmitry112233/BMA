@@ -81,9 +81,9 @@
                      <br>
                   </c:if>
                </div>
-               <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
+               <%-- <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
                <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
-               <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import>
+               <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import> --%>
             </div>
          </div>
       </div>

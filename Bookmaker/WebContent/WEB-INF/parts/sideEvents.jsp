@@ -2,7 +2,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<div class="column-14 w-col w-col-4 w-col-stack">
 <div class="singleforecasts">
    <div class="stavka-block w-clearfix">
       <div class="odinochnie-prognozy">Одиночные прогнозы</div>
@@ -30,7 +29,7 @@
                <img src="/Static/bootstrap/img/sportsIcons/tennis.png" width="18" class="image-4 sideEventsIcons" onerror="this.style.display='none'" />
             </a>
          </div>
-         <div class="tabs-content w-tab-content">
+         <div class="tabs-content w-tab-content sideEvevtsTabsContent">
             <div data-w-tab="football" class="tab-pane-tab-1 w-tab-pane w--tab-active">
                <c:forEach var="footballIvents" items="${football}">
                <div class="express-content">

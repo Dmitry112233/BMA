@@ -66,10 +66,20 @@
                      </c:forEach>
                   </div>
                </div>
-               <c:import url="parts/sideLeagueTable.jsp"></c:import>
-               <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
-               <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
-               <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import>
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart">
+               		<c:import url="parts/sideLeagueTable.jsp"></c:import>
+               		<div class="sideBannersBlock">
+	               		<c:set var="bkName" value="1xBet" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+		               <c:set var="bkName" value="БК ЛЕОН" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('БК ЛЕОН').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+		               <c:set var="bkName" value="Лига Ставок" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('Лига Ставок').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+	               </div>
+               </div>
                <div class="col_rpl_info w-col w-col-8 w-col-stack">    
                   <div class="seoBlock">
                      ${League_Txt}

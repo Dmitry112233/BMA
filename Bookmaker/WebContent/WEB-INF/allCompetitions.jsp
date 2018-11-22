@@ -70,8 +70,8 @@
                   <c:set var="teamCount" value="20" scope="request"/>
                   <c:set var="currentChampion" value="Барселона" scope="request"/>
                   <c:set var="legueTitleLower" value="испанская ла лига" scope="request"/>
-                  
                   <c:import url="parts/competitionsTabs.jsp"/>
+                  
                   <c:set var="TabListName" value="${ita_matches}" scope="request"/>
                   <c:set var="TabNumber" value="10" scope="request"/>
                   <c:set var="defTab" value="" scope="request"/>
@@ -80,8 +80,8 @@
                   <c:set var="teamCount" value="20" scope="request"/>
                   <c:set var="currentChampion" value="Ювентус" scope="request"/>
                   <c:set var="legueTitleLower" value="итальянская серия а" scope="request"/>
-                  
                   <c:import url="parts/competitionsTabs.jsp"/>
+                  
                   <c:set var="TabListName" value="${ger_matches}" scope="request"/>
                   <c:set var="TabNumber" value="9" scope="request"/>
                   <c:set var="defTab" value="" scope="request"/>
@@ -103,9 +103,19 @@
                      ${Competishions_Txt}
                   </div>
                </div>
-               <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
-               <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
-               <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import>
+               <div class="col_second_block w-col w-col-4 w-col-stack">
+	               <div class="sideBannersBlock">
+		               <c:set var="bkName" value="1xBet" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+		               <c:set var="bkName" value="БК ЛЕОН" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('БК ЛЕОН').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+		               <c:set var="bkName" value="Лига Ставок" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('Лига Ставок').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+	               </div>
+               </div>
             </div>
          </div>
       </div>
