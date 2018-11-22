@@ -185,7 +185,7 @@ public class BetFaqParser {
 						+ element.getTextContent().trim().replaceAll(" от BetFAQ.ru", "") + "</p>";
 			}
 			if (element.getTagName().equals("p") && !element.getAttribute("class").equals("link-prognose")
-					&& !element.getTextContent().equals("")) {
+					&& !element.getTextContent().equals(" ") && !element.getTextContent().equals("&nbsp;")) {
 				description += "<p class='eventDesrText'>" + element.getTextContent().trim() + "</p>";
 			}
 		}
@@ -194,7 +194,7 @@ public class BetFaqParser {
 		iterator.next();
 		iterator.next();
 		iterator.next();
-		bean.setDescription(description.replaceAll("nbsp", ""));
+		bean.setDescription(description);
 		String image = iterator.next().getFirstElementChild().getAttribute("src");
 		if (image.contains("http")) {
 			bean.setImage(image);
