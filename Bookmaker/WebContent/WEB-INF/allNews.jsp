@@ -43,7 +43,9 @@
                                     <div class="col_news-tags w-row">
                                        <div class="w-col w-col-8 w-col-medium-6 w-col-small-6 w-col-tiny-12">
                                           <div class="news-tags tags">${newsItem.sport}</div>
-                                          <div class="news-tags _2nd tags">${newsItem.competition}</div>
+                                          <c:if test="${newsItem.competition != NULL}">
+                                          	<div class="news-tags _2nd tags">${newsItem.competition}</div>
+                                          </c:if>
                                        </div>
                                        <div class="w-clearfix w-col w-col-4 w-col-medium-6 w-col-small-6 w-col-tiny-12 allNewsDateBlock">
                                           <div class="added-date all">Добавлено: ${newsItem.dateStr}</div>
@@ -67,10 +69,13 @@
 					      </ul>
 					  </nav>
                   </div>
+                  <c:if test="${newsList.size() == 0}">
+      				<div class="dataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</div>
+   				  </c:if>
                </div>
-               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart leagueMatchesPage">
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart">
 	           		<c:import url="parts/sidePopularNews.jsp"></c:import>
-	           		<div class="sideBannersBlock leagueMatchesPage">
+	           		<div class="sideBannersBlock">
 	               		<c:set var="bkName" value="1xBet" scope="request"/>
 		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
 		               <c:import url="parts/sideBanner.jsp"></c:import>

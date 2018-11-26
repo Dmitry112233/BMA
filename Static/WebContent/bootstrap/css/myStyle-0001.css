@@ -1152,6 +1152,12 @@
 	margin-top: 20px;
 }
 
+.dataMissed {
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 20px; 
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;

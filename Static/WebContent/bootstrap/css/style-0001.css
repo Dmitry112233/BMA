@@ -3448,7 +3448,7 @@
 .text-block-42 {
   font-family: 'Open Sans', sans-serif;
   color: #5a5c6e;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .added-date {
@@ -5338,9 +5338,6 @@
   }
   .news_title-text {
     font-size: 14px;
-  }
-  .text-block-42 {
-    font-size: 10px;
   }
   .added-date {
     margin-top: 5px;

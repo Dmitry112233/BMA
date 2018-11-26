@@ -29,7 +29,9 @@
                		<c:import url="parts/bkList.jsp"></c:import>
                </div>
                <div class="bkComparsionSidePart col-2-new w-col w-col-4 w-col-stack">
-               		<c:import url="parts/sideNews.jsp"></c:import>
+               		<c:if test="${news.size() > 0}">
+               			<c:import url="parts/sideNews.jsp"></c:import>
+               		</c:if>
                		<c:import url="parts/sideEvents.jsp"></c:import>
                </div>
                <div class="column-13 w-col w-col-8 w-col-stack">               

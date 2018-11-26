@@ -34,7 +34,9 @@
                      </div>
                      <div class="new_tags myNewsDescrTagBlock">
                         <div class="news-tags tags">${news.sport}</div>
-                        <div class="news-tags tags">${news.competition}</div>
+                        <c:if test="${news.competition != NULL}">
+                        	<div class="news-tags tags">${news.competition}</div>
+                        </c:if>
                         <div class="added-date new">Добавлено: ${news.dateStr}</div>
                      </div>
                      <div class="new_text-block">
