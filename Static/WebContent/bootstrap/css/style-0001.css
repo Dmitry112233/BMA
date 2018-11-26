@@ -46,7 +46,6 @@
   max-width: 1220px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 20px;
 }
 
 .slaider-block {
@@ -1445,6 +1444,8 @@
 
 .hero_bookmaker_section {
   display: block;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-right: auto;
   margin-left: auto;
   -webkit-box-orient: vertical;
@@ -1468,7 +1469,6 @@
   max-width: 1220px;
   margin-right: 0px;
   margin-left: auto;
-  padding-top: 50px;
   padding-bottom: 20px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
@@ -1830,7 +1830,7 @@
 
 .commsents_user_status_text {
   margin-top: 5px;
-  padding-top: 3px;
+  padding-top: 2px;
   color: #000;
   line-height: 22px;
   text-align: center;
@@ -1952,7 +1952,6 @@
   margin-right: auto;
   margin-left: auto;
   padding-top: 20px;
-  padding-bottom: 30px;
 }
 
 .col_seo_text {
@@ -1961,6 +1960,7 @@
 
 .col_comments {
   padding-right: 0px;
+  margin-bottom: 20px;
 }
 
 .button-5 {
@@ -2216,15 +2216,12 @@
   max-width: 1220px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 30px;
-  padding-bottom: 20px;
 }
 
 /* it's mine */
 
 .col_table_champ {
   padding-right: 0px;
-  max-height: 272px;
 }
 
 .rpl_description {
@@ -2380,7 +2377,6 @@
   max-width: 1220px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 20px;
 }
 
 /* it's mine */
@@ -2481,11 +2477,6 @@
   font-size: 12px;
   font-weight: 300;
   text-decoration: underline;
-}
-
-.hero_all_table {
-  padding-top: 50px;
-  padding-bottom: 20px;
 }
 
 .hero_all_table.center {
@@ -2594,17 +2585,12 @@
   font-weight: 700;
 }
 
-.hero_coefficient_section {
-  padding-top: 50px;
-}
-
 .container_coeff {
   display: block;
   width: 100%;
   max-width: 1220px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -2806,11 +2792,6 @@
   font-size: 24px;
 }
 
-.express_bets-section {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 .express_bets-block {
   display: block;
   width: 100%;
@@ -2820,7 +2801,7 @@
 }
 
 .col-1_express_bets {
-  padding-left: 0px;
+  padding-left: 10px;
 }
 
 .express_block_title {
@@ -2969,11 +2950,6 @@
   -ms-flex-item-align: center;
   align-self: center;
   background-color: rgba(0, 0, 0, .8);
-}
-
-.bets_description-section {
-  padding-top: 50px;
-  padding-bottom: 20px;
 }
 
 .bets_description_block {
@@ -3629,6 +3605,8 @@
 
 .heading-14 {
   font-size: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .questions_cards_block {
@@ -4141,9 +4119,7 @@
     background-color: #000;
   }
   .hero_wrapper_block {
-    padding-right: 10px;
     padding-bottom: 20px;
-    padding-left: 10px;
     grid-column-gap: 10px;
     grid-template-rows: auto;
   }
@@ -4176,8 +4152,6 @@
     grid-template-rows: auto auto auto auto;
   }
   .grid_payment_systems {
-    margin-right: 10px;
-    margin-left: 10px;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-columns: 370px 290px 1fr;
@@ -4205,7 +4179,6 @@
     grid-template-rows: 60px 250px 250px auto;
   }
   .comments_text {
-    margin-left: 0px;
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
@@ -4233,11 +4206,6 @@
     align-self: end;
   }
   .col_seo_text {
-    padding-left: 10px;
-  }
-  .col_comments {
-    margin-top: 20px;
-    padding-right: 10px;
     padding-left: 10px;
   }
   .tab_content_block {
@@ -4335,9 +4303,6 @@
   }
   .link-6 {
     text-decoration: none;
-  }
-  .heading-14 {
-    margin-left: 20px;
   }
   .questions_cards_block {
     padding-right: 10px;
@@ -5410,7 +5375,6 @@
     line-height: 22px;
   }
   .heading-14 {
-    margin-left: 10px;
     font-size: 18px;
   }
   .div-block-20 {

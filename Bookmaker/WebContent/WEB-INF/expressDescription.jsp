@@ -74,10 +74,20 @@
                     </div>
                      </div>
                   </div>
-               </div>              
-               <%-- <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import>
-               <c:import url="parts/sideBanners/leonSideBanner.jsp"></c:import>
-               <c:import url="parts/sideBanners/ligaSideBanner.jsp"></c:import> --%>
+               </div>
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart leagueMatchesPage">
+               		<div class="sideBannersBlock leagueMatchesPage">
+	               		<c:set var="bkName" value="1xBet" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+		               <c:set var="bkName" value="БК ЛЕОН" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('БК ЛЕОН').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+		               <c:set var="bkName" value="Лига Ставок" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('Лига Ставок').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+	               </div>
+               </div>
             </div>
          </div>
       </div>

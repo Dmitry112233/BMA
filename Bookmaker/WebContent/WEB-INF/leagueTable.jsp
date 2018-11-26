@@ -20,22 +20,24 @@
       <c:import url="parts/nav.jsp"></c:import>
       <div class="hero_all_table center">
          <div id="w-node-e61cb80a12a6-bb78b9bf" class="header_content_block table_champ">
-            <div class="rpl_img_block">
-               <div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
-            </div>
-            <div class="leagueMatchesTitleRow">
-	            <div class="myLeagueIconBlock">
-	            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
+            <div class="leagueHeaderBlock">
+	            <div class="rpl_img_block">
+	               <div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
 	            </div>
-	            <div class="myLeagueH1Block">
-	            	<h1 class="champ_title myLeagueH1">${Table_H1}</h1>
+	            <div class="leagueMatchesTitleRow">
+		            <div class="myLeagueIconBlock">
+		            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
+		            </div>
+		            <div class="myLeagueH1Block">
+		            	<h1 class="champ_title myLeagueH1">${Table_H1}</h1>
+		            </div>
+		            <div class="descrButtonBlock">
+		            	<a href="${contextPath}/${leagueLower}_описание" class="descrButton">Описание</a>
+		            </div>
+		            <div class="btn_all-bets_block myS">
+		            	<a href="${contextPath}/competitions" class="allItemsBtn discr_title_button w-button">Все чемпионаты</a>
+		            </div>                     
 	            </div>
-	            <div class="descrButtonBlock">
-	            	<a href="${contextPath}/${leagueLower}_описание" class="descrButton">Описание</a>
-	            </div>
-	            <div class="btn_all-bets_block myS">
-	            	<a href="${contextPath}/competitions" class="allItemsBtn discr_title_button w-button">Все чемпионаты</a>
-	            </div>                     
             </div>
          </div>
          <div class="myLeagueTable">

@@ -41,6 +41,7 @@
 
 .myCommentsWrapper {
 	display: grid;
+	grid-column-gap: 4px;
 	grid-template-columns: 0.25fr 1fr;
 	background-color: #fff;
 	padding: 20px;	
@@ -426,6 +427,10 @@
 	padding-right: 10px;
 }
 
+.sideLeagueTablePart.leagueMatchesPage {
+	max-height: 300px;
+}
+
 .myExpressWrapper {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -510,7 +515,7 @@
 }
 
 .myExpressWrapper.descr {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
 }
 
 .text-block-24 {
@@ -882,7 +887,7 @@
 .pagination {
 	display: inline-block;
     padding-left: 0;
-    margin: 20px 0;
+    margin: 0 0 14px 0 !important;
     border-radius: 4px;
     box-sizing: border-box;
     list-style-type: disc;
@@ -953,7 +958,7 @@
 	box-shadow: 0 0 15px 0 #d7dae4;
 }
 
-.sideBanner, .championats_tabs_content, .leaguePagesHeader, .header_content_block, .myMatchDetailsHstoryBlock, .myCeffCompareRowsWrapper, .tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
+.news_container.new, .leagueHeaderBlock, .sideBanner, .championats_tabs_content, .header_content_block, .myMatchDetailsHstoryBlock, .myCeffCompareRowsWrapper, .tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
 	box-shadow: 0 0 15px 0 #d7dae4; /* #d7dae4 */ /* #ff8000 */
 }
 
@@ -980,6 +985,7 @@
 
 .discr_title_text {
 	font-size: 24px;
+	margin-bottom: 0px;
 }
 
 .time_msk {
@@ -1119,6 +1125,31 @@
 
 .sideEvevtsTabsContent {
 	margin-bottom: 20px;
+}
+
+.navbar {
+	margin-bottom: 50px;
+}
+
+.questions_section {
+	margin-top: -50px;
+	margin-bottom: 20px;
+}
+
+.leagueMatchesTitleRow.leagueMatchesPage {
+	margin-bottom: 2px;
+}
+
+.sideBannersBlock.leagueMatchesPage {
+	margin-bottom: 10px;
+}
+
+.exp_matches_num.express, .sportIconFr.express {
+	margin-top: 0px;
+}
+
+.myPaginationBlock.newsPage {
+	margin-top: 20px;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -1343,6 +1374,14 @@
 	.myChampSeo {
 		padding-left: 0px;
 		padding-right: 0px;
+	}
+	
+	.navbar {
+		margin-bottom: 30px;
+	}
+	
+	.questions_section {
+		margin-top: -30px;
 	}
 }
 
@@ -1710,6 +1749,14 @@
 	.champMobileButtons {
 		margin: 0px 0px 5px 0px;
 	}
+	
+	.navbar {
+		margin-bottom: 20px;
+	}
+	
+	.questions_section {
+		margin-top: -20px;
+	}
 }
 
 @media (max-width: 991px) {
@@ -1726,7 +1773,12 @@
 		padding-right: 0px;
 	}
 	
-	.col_table_champ {
+	.col_table_champ, .sideLeagueTablePart.leagueMatchesPage {
 		max-height: none;
 	}
+	
+	.col_seo_text, .col_comments {
+		padding-left: 0px;
+		padding-right: 0px;
+	} 
 }

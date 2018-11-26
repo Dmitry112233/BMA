@@ -44,10 +44,14 @@
                      </div>
                   </div>
                </div>
-               <div class="bets_desc-col2 w-col w-col-4 w-col-stack">
-                  <c:import url="parts/sidePopularNews.jsp"></c:import>
-               </div>
-               <%-- <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import> --%>
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart">
+	           		<c:import url="parts/sidePopularNews.jsp"></c:import>
+	           		<div class="sideBannersBlock leagueMatchesPage">
+	               	   <c:set var="bkName" value="1xBet" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+	               </div>
+            	</div>
             </div>
          </div>
       </div>

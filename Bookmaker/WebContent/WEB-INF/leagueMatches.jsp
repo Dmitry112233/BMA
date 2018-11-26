@@ -23,11 +23,11 @@
          <div class="rpl_bet_container">
             <div class="col_rpl w-row">
                <div class="col_rpl_info w-col w-col-8 w-col-stack">
-                  <div class="leaguePagesHeader">
+                  <div class="leagueHeaderBlock">
 	                  <div class="rpl_img_block">
 	                     <div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
 	                  </div>
-	                  <div class="leagueMatchesTitleRow">
+	                  <div class="leagueMatchesTitleRow leagueMatchesPage">
 	                     <div class="myLeagueIconBlock">
 	                     	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
 	                     </div>
@@ -66,9 +66,9 @@
                      </c:forEach>
                   </div>
                </div>
-               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart">
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart leagueMatchesPage">
                		<c:import url="parts/sideLeagueTable.jsp"></c:import>
-               		<div class="sideBannersBlock">
+               		<div class="sideBannersBlock leagueMatchesPage">
 	               		<c:set var="bkName" value="1xBet" scope="request"/>
 		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
 		               <c:import url="parts/sideBanner.jsp"></c:import>

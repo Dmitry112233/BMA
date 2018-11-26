@@ -22,26 +22,34 @@
          <div class="hero_rpl_block">
             <div class="col_rpl w-row">
                <div class="leagueDescrBlock col_rpl_info w-col w-col-8 w-col-stack">
-                  <div class="rpl_img_block">
-                  		<div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
-                  </div>
-                  <div class="leagueMatchesTitleRow">
-		            <div class="myLeagueIconBlock">
-		            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
-		            </div>
-		            <div class="myLeagueH1Block oneBtn">
-		            	<h1 class="champ_title myLeagueH1">${league_H1}</h1>
-		            </div>
-		            <div class="btn_all-bets_block myS oneBtn">
-		            	<a href="${contextPath}/competitions" class="allItemsBtn discr_title_button w-button">Все чемпионаты</a>
-		            </div>                     
+                  <div class="leagueHeaderBlock">
+	                  <div class="rpl_img_block">
+	                  		<div class="league_img" style="background-image: url('/Static/bootstrap/img/leagueHeader/${leagueLower}.jpg')"></div>
+	                  </div>
+	                  <div class="leagueMatchesTitleRow">
+			            <div class="myLeagueIconBlock">
+			            	<img class="myLeagueIcon" src="/Static/bootstrap/img/leagueIcon/${leagueLower}_dark.png" onerror="this.style.display='none'" alt="${leagueLower} лого">
+			            </div>
+			            <div class="myLeagueH1Block oneBtn">
+			            	<h1 class="champ_title myLeagueH1">${league_H1}</h1>
+			            </div>
+			            <div class="btn_all-bets_block myS oneBtn">
+			            	<a href="${contextPath}/competitions" class="allItemsBtn discr_title_button w-button">Все чемпионаты</a>
+			            </div>                     
+	           		  </div>
            		  </div>
-                  <div class="seoBlock">
+           		  <div class="seoBlock">
                      ${league_Descr}
                   </div>
                </div>
-               <c:import url="parts/sideLeagueTable.jsp"></c:import>
-               <%-- <c:import url="parts/sideBanners/1xbetSideBanner.jsp"></c:import> --%>
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart">
+               		<c:import url="parts/sideLeagueTable.jsp"></c:import>
+               		<div class="sideBannersBlock">
+	               		<c:set var="bkName" value="1xBet" scope="request"/>
+		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
+		               <c:import url="parts/sideBanner.jsp"></c:import>
+	               </div>
+               </div>
             </div>
          </div>
       </div>

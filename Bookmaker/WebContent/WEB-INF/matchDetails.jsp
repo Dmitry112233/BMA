@@ -114,7 +114,9 @@
                      </div>
                   </div>
                </div>
-               <c:import url="parts/sideLeagueTable.jsp"></c:import>
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart">
+               		<c:import url="parts/sideLeagueTable.jsp"></c:import>
+               </div>		
             </div>
          </div>
       </div>
