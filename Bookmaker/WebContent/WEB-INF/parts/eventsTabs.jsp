@@ -32,4 +32,7 @@
 		 </div>
 	  </div>
    </c:forEach>
+   <c:if test="${TabListName.size() == NULL}">
+      <div class="dataMissed events">Ординары по данному виду спора отсутствуют в данный момент</div>
+   </c:if>
 </div>

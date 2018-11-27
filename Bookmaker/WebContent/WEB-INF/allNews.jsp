@@ -70,10 +70,10 @@
 					  </nav>
                   </div>
                   <c:if test="${newsList.size() == 0}">
-      				<div class="dataMissed">Данные отсутствуют по непонятной причине.<br>Приносим свои извинения за неудобства.<br>Мы работаем над устранением проблемы.<br>Попробуйте обновить страницу через несколько минут.</div>
+      				<div class="dataMissed">Новости отсутствуют по непонятной причине.<br>Попробуйте обновить страницу через несколько минут.</div>
    				  </c:if>
                </div>
-               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart">
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart myLeagueMatchesSidePart">
 	           		<c:import url="parts/sidePopularNews.jsp"></c:import>
 	           		<div class="sideBannersBlock">
 	               		<c:set var="bkName" value="1xBet" scope="request"/>

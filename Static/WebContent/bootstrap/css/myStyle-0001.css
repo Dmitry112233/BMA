@@ -958,7 +958,7 @@
 	box-shadow: 0 0 15px 0 #d7dae4;
 }
 
-.news_container.new, .leagueHeaderBlock, .sideBanner, .championats_tabs_content, .header_content_block, .myMatchDetailsHstoryBlock, .myCeffCompareRowsWrapper, .tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
+.dataMissed, .news_container.new, .leagueHeaderBlock, .sideBanner, .championats_tabs_content, .header_content_block, .myMatchDetailsHstoryBlock, .myCeffCompareRowsWrapper, .tab-menu, .title-and-image-block, .criteria_bookmaker, .pluses, .pay_system, .myCommentTitleBlock, .leave_comments, .stvka-block, .myNewsItem, .tab_links, .myChampionatTable, .myLeagueMatchesTopWrapper, .myMatchDetailesComands, .myLeagueTable, .express_block_title, .title_block, .best_week_news, .new_1, .sport_matches_item.expr, .exp_discr-content {
 	box-shadow: 0 0 15px 0 #d7dae4; /* #d7dae4 */ /* #ff8000 */
 }
 
@@ -1155,7 +1155,25 @@
 .dataMissed {
 	text-align: center;
 	margin-bottom: 20px;
-	margin-top: 20px; 
+	margin-top: 20px;
+	background-color: white;
+	padding: 50px 30px 50px 30px;
+	font-family: 'Open Sans', sans-serif;
+    color: #5a5c6e;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.dataMissed.events, .dataMissed.sideEvents {
+	box-shadow: 0 0 0 0 #d7dae4;
+}
+
+.dataMissed.sideEvents {
+	padding: 0px 20px 0px 20px;
+}
+
+.myLeagueMatchesSidePart {
+	float: right;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {

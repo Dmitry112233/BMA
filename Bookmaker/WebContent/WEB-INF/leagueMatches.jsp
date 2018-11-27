@@ -64,11 +64,14 @@
 	                        </c:forEach>
                         </div>
                      </c:forEach>
+                     <c:if test="${dates.size() == 0}">
+         				<div class="dataMissed">Соревнование не проходит в данный момент либо матчи отсутствуют по техническим причинам.</div>
+      				 </c:if>
                   </div>
                </div>
-               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart leagueMatchesPage">
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart myLeagueMatchesSidePart">
                		<c:import url="parts/sideLeagueTable.jsp"></c:import>
-               		<div class="sideBannersBlock leagueMatchesPage">
+               		<div class="sideBannersBlock">
 	               		<c:set var="bkName" value="1xBet" scope="request"/>
 		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
 		               <c:import url="parts/sideBanner.jsp"></c:import>

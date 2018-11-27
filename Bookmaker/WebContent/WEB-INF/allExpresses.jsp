@@ -76,9 +76,12 @@
 				         </c:forEach>
 				      </ul>
 				  </nav>
+				  <c:if test="${expressList.size() == 0}">
+      				<div class="dataMissed">Экспрессы отсутствуют по непонятной причине.<br>Попробуйте обновить страницу через несколько минут.</div>
+   				  </c:if>
                </div>
-               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart leagueMatchesPage">
-               		<div class="sideBannersBlock leagueMatchesPage">
+               <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart myLeagueMatchesSidePart">
+               		<div class="sideBannersBlock">
 	               		<c:set var="bkName" value="1xBet" scope="request"/>
 		               <c:set var="bkLink" value="counter?id=${bookmakerList.get('1xBet').bookMakerId}" scope="request"/>
 		               <c:import url="parts/sideBanner.jsp"></c:import>
