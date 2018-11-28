@@ -59,18 +59,78 @@
 	         <div class="myCeffCompareRowsWrapper">
 	            <div class="myBkCompareRow header">
 	               <div class="bookmaker_points bold first">Букмекер</div>
-	               <div class="bookmaker_points bold">1</div>
-	               <div class="bookmaker_points bold">Х</div>
-	               <div class="bookmaker_points bold">2</div>
-	               <div class="bookmaker_points bold">1Х</div>
-	               <div class="bookmaker_points bold">12</div>
-	               <div class="bookmaker_points bold">2Х</div>
-	               <div class="bookmaker_points bold del">Б</div>
-	               <div class="bookmaker_points bold del">Тотал</div>
-	               <div class="bookmaker_points bold d">М</div>
-	               <div class="bookmaker_points bold d">1</div>
-	               <div class="bookmaker_points bold del">Фора</div>
-	               <div class="bookmaker_points bold d">2</div>
+	               <div class="bookmaker_points bold tooltip">1
+		               <div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>выиграет ${team1}</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold tooltip">Х
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>будет ничья</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold tooltip">2
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>выиграет ${team2}</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold tooltip">1Х
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>выиграет ${team1} или ничья</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold tooltip">12
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>ничьи не будет</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold tooltip">2Х
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>выиграет ${team2} или ничья</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold del tooltip">Б
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>тотал больше</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold del tooltip">Тотал
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>параметр тотала</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold d tooltip">М
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>тотал меньше</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold d tooltip">Ф1
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>фора ${team1}</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold del tooltip">Фора
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>параметр форы</p>
+  					   </div>
+	               </div>
+	               <div class="bookmaker_points bold d tooltip">Ф2
+	               		<div class="tooltip-content">
+						    <div class="tooltip-arrow"></div>
+    						<p>фора ${team2}</p>
+  					   </div>
+	               </div>
 	            </div>
 	            <c:set var="RowListName" value="${xBetList}" scope="request"/>
 	            <c:import url="parts/ceffCompareRow.jsp"/>
