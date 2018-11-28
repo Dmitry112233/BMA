@@ -15,7 +15,7 @@
       <div class="myChampTableRowWrapper">
          <div class="myChampTableRow">
             <div class="table_name_command myTeamPlace">${LeagueTableRow.place}</div>
-            <div class="table_name_command">${LeagueTableRow.team}</div>
+            <div class="table_name_command <c:if test="${LeagueTableRow.team eq team1 or LeagueTableRow.team eq team2}">selectedRow</c:if>">${LeagueTableRow.team}</div>
             <div class="myTeamGames">${LeagueTableRow.games}</div>
             <div class="myTeamPoints">${LeagueTableRow.points}</div>
          </div>
