@@ -41,7 +41,7 @@
                                     <a href="${contextPath}/${newsItem.id}_news_${currentPage}">${newsItem.title}</a>
                                     <div class="text-block-42">${newsItem.description}</div>
                                     <div class="col_news-tags w-row">
-                                       <div class="w-col w-col-8 w-col-medium-6 w-col-small-6 w-col-tiny-12">
+                                       <div class="w-col w-col-8 w-col-medium-6 w-col-small-6 w-col-tiny-12 allNewsTagsBlock">
                                           <div class="news-tags tags">${newsItem.sport}</div>
                                           <c:if test="${newsItem.competition != NULL}">
                                           	<div class="news-tags _2nd tags">${newsItem.competition}</div>

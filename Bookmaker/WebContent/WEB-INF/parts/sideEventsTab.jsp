@@ -30,6 +30,6 @@
       </div>
    </c:forEach>
    <c:if test="${TabListName.size() == 0}">
-      <div class="dataMissed sideEvents">Ординары по данному виду спора отсутствуют в данный момент</div>
+      <div class="dataMissed sideEvents">Прогнозы по данному виду спора отсутствуют в данный момент</div>
    </c:if>
 </div>

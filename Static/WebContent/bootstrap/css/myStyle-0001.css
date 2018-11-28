@@ -1182,7 +1182,7 @@
 
 .tooltip {
   position: relative;
-  cursor: pointer;
+  cursor: default;
 }
 
 .tooltip:hover .tooltip-content {
@@ -1453,12 +1453,6 @@
 	
 	.myNewsDescrTitle {
 		margin-bottom: 0px;
-	}
-	
-	.toAllChampLink {
-		padding-left: 100px;
-		padding-top: 0px;
-		padding-bottom: 10px;
 	}
 	
 	.tabs_control-menu, .myMatchesTabsWrapper {
@@ -1892,4 +1886,14 @@
 		padding-left: 0px;
 		padding-right: 0px;
 	} 
+}
+
+@media (max-width: 767px) {
+	.new_1 {
+		box-shadow: 0 0 0 0 #d7dae4;
+	}
+	
+	.allNewsTagsBlock {
+		width: 100%;
+	}
 }
