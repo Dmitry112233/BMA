@@ -98,37 +98,37 @@
 	               <div class="bookmaker_points bold del tooltip">Б
 	               		<div class="tooltip-content">
 						    <div class="tooltip-arrow"></div>
-    						<p>тотал больше</p>
+    						<p>команды в сумме забьют больше, чем тотал</p>
   					   </div>
 	               </div>
 	               <div class="bookmaker_points bold del tooltip">Тотал
 	               		<div class="tooltip-content">
 						    <div class="tooltip-arrow"></div>
-    						<p>параметр тотала</p>
+    						<p>значение тотала</p>
   					   </div>
 	               </div>
 	               <div class="bookmaker_points bold d tooltip">М
 	               		<div class="tooltip-content">
 						    <div class="tooltip-arrow"></div>
-    						<p>тотал меньше</p>
+    						<p>команды в сумме забьют меньше, чем тотал</p>
   					   </div>
 	               </div>
 	               <div class="bookmaker_points bold d tooltip">Ф1
 	               		<div class="tooltip-content">
 						    <div class="tooltip-arrow"></div>
-    						<p>фора ${team1}</p>
+    						<p>${team1} выиграет с форой</p>
   					   </div>
 	               </div>
 	               <div class="bookmaker_points bold del tooltip">Фора
 	               		<div class="tooltip-content">
 						    <div class="tooltip-arrow"></div>
-    						<p>параметр форы</p>
+    						<p>значение форы</p>
   					   </div>
 	               </div>
 	               <div class="bookmaker_points bold d tooltip">Ф2
 	               		<div class="tooltip-content">
 						    <div class="tooltip-arrow"></div>
-    						<p>фора ${team2}</p>
+    						<p>${team2} выиграет с форой</p>
   					   </div>
 	               </div>
 	            </div>
