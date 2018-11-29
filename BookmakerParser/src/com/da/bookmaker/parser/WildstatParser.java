@@ -112,7 +112,7 @@ public class WildstatParser {
 		}
 		try {
 			List<String> urls = new ArrayList<>();
-			/*urls.add(property.getProperty("APL_CURRENT"));
+			urls.add(property.getProperty("APL_CURRENT"));
 			urls.add(property.getProperty("ESP_CURRENT"));
 			urls.add(property.getProperty("RUS_CURRENT"));
 			urls.add(property.getProperty("GER_CURRENT"));
@@ -120,8 +120,8 @@ public class WildstatParser {
 			urls.add(property.getProperty("FLC_CURRENT"));
 			urls.add(property.getProperty("CUP_CURRENT"));
 			urls.add(property.getProperty("EUR_CL_CURRENT"));
-			urls.add(property.getProperty("EUR_EL_CURRENT"));*/
-			//urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
+			urls.add(property.getProperty("EUR_EL_CURRENT"));
+			urls.add(property.getProperty("WORLD_CHAMPIONSHIP_CURRENT"));
 			urls.add(property.getProperty("RUS_CUP_CURRENT"));
 			for (String url : urls) {
 				WebClient webClient = new WebClient(BrowserVersion.CHROME);
@@ -523,7 +523,7 @@ public class WildstatParser {
 				|| url.equals(property.getProperty("RUS_SC_17")))) {
 			team1 = "Арсенал Тула";
 		}
-		
+		System.out.println(team1);
 		return team1;
 	}
 
@@ -543,7 +543,7 @@ public class WildstatParser {
 				|| url.equals(property.getProperty("RUS_SC_17")))) {
 			team2 = "Арсенал Тула";
 		}
-		
+		System.out.println(team2);
 		return team2;
 	}
 
