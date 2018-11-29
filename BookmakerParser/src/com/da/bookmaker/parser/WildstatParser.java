@@ -523,7 +523,6 @@ public class WildstatParser {
 				|| url.equals(property.getProperty("RUS_SC_17")))) {
 			team1 = "Арсенал Тула";
 		}
-		System.out.println(team1);
 		return team1;
 	}
 
@@ -543,7 +542,6 @@ public class WildstatParser {
 				|| url.equals(property.getProperty("RUS_SC_17")))) {
 			team2 = "Арсенал Тула";
 		}
-		System.out.println(team2);
 		return team2;
 	}
 
