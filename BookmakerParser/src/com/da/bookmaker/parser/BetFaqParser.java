@@ -149,7 +149,6 @@ public class BetFaqParser {
 			iterator.next();
 			iterator.next();
 			iterator.next();
-			iterator.next();
 			DomElement grid10 = iterator.next(); // grid_10
 			DomElement grayBg = grid10.getFirstElementChild();
 			DomElement prognozSoccer = grayBg.getFirstElementChild();
