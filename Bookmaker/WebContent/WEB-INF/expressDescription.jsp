@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
    <head>
-      <title>Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet} | findbestbet.ru</title>
-      <meta name="Description" content="Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet} | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
+      <title>Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet} (${express.expressID}) | findbestbet.ru</title>
+      <meta name="Description" content="Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet} (${express.expressID}) | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -24,7 +24,7 @@
                <div class="myExpressDescrBlock beta_desc_col1 w-col w-col-8 w-col-stack">
                   <div class="title_block eventDescr questionTitle">
                      <div class="discr_title_text_block">
-                        <h1 class="discr_title_text">Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet}</h1>
+                        <h1 class="discr_title_text">Описание экспресса ${express.iventList.get(0).name}: ${express.iventList.get(0).bet}; ${express.iventList.get(express.iventList.size()-1).name}: ${express.iventList.get(express.iventList.size()-1).bet} (${express.expressID})</h1>
                      </div>
                      <div class="btn_all-bets_block">
                         <a href="${contextPath}/expresses_list_${offset}" class="discr_title_button w-button">Все экспрессы</a>
