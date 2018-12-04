@@ -34,9 +34,11 @@
 	                  	<div class="article">${Question_Txt}</div>
 	                  </div>
                   </c:if>
-                  <div class="seoBlock tablepage questionAnswer">
-                     <div>${question.answer}</div>
-                  </div>
+                  <c:if test = "${question.answer != ''}">
+	                  <div class="seoBlock tablepage questionAnswer">
+	                     <div>${question.answer}</div>
+	                  </div>
+                  </c:if>
                </div>
                <div class="col_table_champ w-col w-col-4 w-col-stack sideLeagueTablePart">
                		<div class="sideBannersBlock leagueMatchesPage">

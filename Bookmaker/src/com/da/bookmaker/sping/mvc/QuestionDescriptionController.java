@@ -93,6 +93,12 @@ public class QuestionDescriptionController extends BookmakerController {
 				map.put("Question_D", property.getProperty("Question10_D"));
 				map.put("Question_Txt", property.getProperty("Question10_Txt"));
 				break;
+			case 11:
+				map.put("Question_T", property.getProperty("Question11_T"));
+				map.put("Question_H1", property.getProperty("Question11_H1"));
+				map.put("Question_D", property.getProperty("Question11_D"));
+				map.put("Question_Txt", property.getProperty("Question11_Txt"));
+				break;
 			}
 		} catch (IOException e) {
 			System.err.println("Файл отсутствует");
