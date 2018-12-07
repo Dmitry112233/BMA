@@ -24,8 +24,8 @@ public class ExpressController extends BookmakerController {
 	private InputStream fis;
 	static private Properties property;
 
-	@RequestMapping("/expresses_list_{offset}")
-	public ModelAndView getMainList(@PathVariable("offset") int offset) throws DaoException, IOException {
+	@RequestMapping("/expresses{page}_list_{offset}")
+	public ModelAndView getMainList(@PathVariable("offset") int offset, @PathVariable("page") int page) throws DaoException, IOException {
 		ArrayList<Integer> pageMass = getPageMass(offset);
 		int currentPage = getCurrentPage(offset);
 		int limit = 20;
@@ -40,14 +40,18 @@ public class ExpressController extends BookmakerController {
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			map.put("Express_T", property.getProperty("Express_T"));
-			map.put("Express_H1", property.getProperty("Express_H1"));
-			map.put("Express_D", property.getProperty("Express_D"));
+			String title = "bookmakers" + page + "_T";
+			String h1 = "bookmakers" + page + "_H1";
+			String description = "bookmakers" + page + "_D";
+			String txt = "bookmakers" + page + "_Txt";
+			map.put("Express_T", property.getProperty(title));
+			map.put("Express_H1", property.getProperty(h1));
+			map.put("Express_D", property.getProperty(description));
 			if (currentPage == 1) {
-				map.put("Express_Txt", property.getProperty("Express_Txt"));
+				map.put("Express_Txt", property.getProperty(txt));
 			}
 		} catch (IOException e) {
-			System.err.println("Файл отсутствует");
+			System.err.println("Ð¤Ð°Ð¹Ð» Ð¾Ñ‚Ñ�ÑƒÑ‚Ñ�Ñ‚Ð²ÑƒÐµÑ‚");
 		} finally {
 			if (fis != null) {
 				fis.close();
