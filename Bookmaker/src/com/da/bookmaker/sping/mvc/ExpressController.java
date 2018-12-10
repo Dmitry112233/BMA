@@ -23,6 +23,24 @@ public class ExpressController extends BookmakerController {
 
 	private InputStream fis;
 	static private Properties property;
+	
+	private static Map<String, String> linkMap = new HashMap<>();
+
+	static {
+		linkMap.put("главная", "expresses_list_0");
+		linkMap.put("тест2", "expresses1_list_0");
+		linkMap.put("тест3", "expresses2_list_0");
+		linkMap.put("тест4", "expresses3_list_0");
+		linkMap.put("тест5", "expresses4_list_0");
+		linkMap.put("тест6", "expresses5_list_0");
+		linkMap.put("тест7", "expresses6_list_0");
+		linkMap.put("тест8", "expresses7_list_0");
+		linkMap.put("тест9", "expresses8_list_0");
+		linkMap.put("тест10", "expresses9_list_0");
+		linkMap.put("тест11", "expresses10_list_0");
+		linkMap.put("тест12", "expresses11_list_0");
+		linkMap.put("тест13", "expresses12_list_0");
+	}
 
 	@RequestMapping("/expresses{page}_list_{offset}")
 	public ModelAndView getMainList(@PathVariable("offset") int offset, @PathVariable("page") int page) throws DaoException, IOException {
@@ -34,6 +52,7 @@ public class ExpressController extends BookmakerController {
 		map.put("currentPage", currentPage);
 		map.putAll(getBookmakerList());
 		map.putAll(getBookmakerWeight());
+		map.put("linkMap", linkMap);
 		try {
 			if (property == null) {
 				property = new Properties();
