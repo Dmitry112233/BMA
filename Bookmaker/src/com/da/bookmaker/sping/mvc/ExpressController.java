@@ -27,19 +27,19 @@ public class ExpressController extends BookmakerController {
 	private static Map<String, String> linkMap = new HashMap<>();
 
 	static {
-		linkMap.put("главная", "expresses_list_0");
-		linkMap.put("тест2", "expresses1_list_0");
-		linkMap.put("тест3", "expresses2_list_0");
-		linkMap.put("тест4", "expresses3_list_0");
-		linkMap.put("тест5", "expresses4_list_0");
-		linkMap.put("тест6", "expresses5_list_0");
-		linkMap.put("тест7", "expresses6_list_0");
-		linkMap.put("тест8", "expresses7_list_0");
-		linkMap.put("тест9", "expresses8_list_0");
-		linkMap.put("тест10", "expresses9_list_0");
-		linkMap.put("тест11", "expresses10_list_0");
-		linkMap.put("тест12", "expresses11_list_0");
-		linkMap.put("тест13", "expresses12_list_0");
+		linkMap.put("Прогнозы профессионалов", "expresses1_list_0");
+		linkMap.put("Ставки с высоким коэффициентом", "expresses2_list_0");
+		linkMap.put("Лучшие ставки на спорт", "expresses3_list_0");
+		linkMap.put("Рабочие ставки на спорт", "expresses4_list_0");
+		linkMap.put("Ставки от профессионалов", "expresses5_list_0");
+		linkMap.put("Бесплатные прогнозы", "expresses6_list_0");
+		linkMap.put("Прогнозы на сегодня", "expresses7_list_0");
+		linkMap.put("Ставки на спорт", "expresses8_list_0");
+		linkMap.put("Ставки на футбол", "expresses9_list_0");
+		linkMap.put("Экспресс прогноз", "expresses10_list_0");
+		linkMap.put("Экспресс на спорт", "expresses11_list_0");
+		linkMap.put("Экспресс на футбол", "expresses12_list_0");
+		linkMap.put("Экспрессы, ставки", "expresses13_list_0");
 	}
 
 	@RequestMapping("/expresses{page}_list_{offset}")

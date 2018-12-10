@@ -1263,6 +1263,10 @@
   }
 }
 
+.express_bets_title_text {
+	margin: 0px;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;
@@ -1560,10 +1564,6 @@
 	.exp_matches_num, .sportIconFr {
 		justify-self: center; 
 		text-align: center;
-	}
-	
-	.express_bets_title_text {
-		margin: 0px;
 	}
 	
 	.express_block_title.expresses {
@@ -1895,5 +1895,10 @@
 	
 	.allNewsTagsBlock {
 		width: 100%;
+	}
+	
+	.express_bets_title_text {
+		font-size: 18px;
+		line-height: 21px;
 	}
 }
