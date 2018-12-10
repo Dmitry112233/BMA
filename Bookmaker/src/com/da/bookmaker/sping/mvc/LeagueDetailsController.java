@@ -20,8 +20,9 @@ public class LeagueDetailsController extends BookmakerController {
 	@RequestMapping("/{league}_{team1}_{team2}_детали")
 	public ModelAndView getMainList(@PathVariable("team1") String team1, @PathVariable("team2") String team2,
 			@PathVariable("league") String league) throws DaoException, ParseException {
-		
-
+		if(league.contains("примьер")) {
+			throw new ResourceNotFoundException();
+		}
 		String xBetTeam1 = DaoFactory.getMatchDetailsDao().getXbetNameFromDictionary(team1);
 		String xBetTeam2 = DaoFactory.getMatchDetailsDao().getXbetNameFromDictionary(team2);
 	

@@ -28,7 +28,7 @@ public class LeagueController extends BookmakerController {
 	@RequestMapping("/{league}_матчи")
 	public ModelAndView getMainList(@PathVariable("league") String league)
 			throws DaoException, ParseException, IOException {
-		if(league.equals("")) {
+		if(league.contains("примьер")) {
 			throw new ResourceNotFoundException();
 		}
 		Map<LocalDate, ArrayList<PremierLeagueBean>> map = DaoFactory.getPremierLeagueDao().getEventsListByDate(league);
