@@ -53,6 +53,7 @@ public class ExpressController extends BookmakerController {
 		map.putAll(getBookmakerList());
 		map.putAll(getBookmakerWeight());
 		map.put("linkMap", linkMap);
+		map.put("page", page);
 		try {
 			if (property == null) {
 				property = new Properties();
