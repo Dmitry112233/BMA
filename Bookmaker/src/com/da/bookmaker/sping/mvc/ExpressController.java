@@ -43,7 +43,7 @@ public class ExpressController extends BookmakerController {
 	}
 
 	@RequestMapping("/expresses{page}_list_{offset}")
-	public ModelAndView getMainList(@PathVariable("offset") int offset, @PathVariable("page") int page) throws DaoException, IOException {
+	public ModelAndView getMainList(@PathVariable("offset") int offset, @PathVariable("page") String page) throws DaoException, IOException {
 		ArrayList<Integer> pageMass = getPageMass(offset);
 		int currentPage = getCurrentPage(offset);
 		int limit = 20;
@@ -59,10 +59,10 @@ public class ExpressController extends BookmakerController {
 				fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("copies.properties");
 				property.load(fis);
 			}
-			String title = "bookmakers" + page + "_T";
-			String h1 = "bookmakers" + page + "_H1";
-			String description = "bookmakers" + page + "_D";
-			String txt = "bookmakers" + page + "_Txt";
+			String title = "Express" + page + "_T";
+			String h1 = "Express" + page + "_H1";
+			String description = "Express" + page + "_D";
+			String txt = "Express" + page + "_Txt";
 			map.put("Express_T", property.getProperty(title));
 			map.put("Express_H1", property.getProperty(h1));
 			map.put("Express_D", property.getProperty(description));
