@@ -6,7 +6,7 @@
       <meta name="Description" content="Сравнение коэффициентов, детали по матчу ${team1} - ${team2} | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="robots" content="all"/>
+      <meta name="robots" content="noindex"/>
       <meta http-equiv="Content-Type" content="type; charset=utf-8"/>
       <link rel="shortcut icon" href="/Static/bootstrap/img/favicon.ico" type="image/x-icon">
       <link href="/Static/bootstrap/css/style-${cssVersion}.css" rel="stylesheet">
