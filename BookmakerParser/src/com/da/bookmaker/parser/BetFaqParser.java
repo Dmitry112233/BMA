@@ -55,6 +55,7 @@ public class BetFaqParser {
 					sportName = "хоккей";
 					break;
 				case "tennis":
+					System.out.println("теннис");
 					sportName = "теннис";
 					break;
 				case "basketball":
@@ -85,12 +86,12 @@ public class BetFaqParser {
 						double coefficient = getCoefficient(tdChild.next());
 						String matchUrl = getMatchUrl(title);
 						String result = getResult(tdChild.next());
+						bean.setSport(sportName);
 
 						if (!parseMatch(matchUrl, bean)) {
 							continue;
 						}
 						bean.setResult(result);
-						bean.setSport(sportName);
 						bean.setName(name);
 						bean.setCoefficient(coefficient);
 						bean.setCompetition(competition);
@@ -194,11 +195,13 @@ public class BetFaqParser {
 		iterator.next();
 		iterator.next();
 		bean.setDescription(description);
-		String image = iterator.next().getFirstElementChild().getAttribute("src");
-		if (image.contains("http")) {
-			bean.setImage(image);
-		} else {
-			bean.setImage("https://betfaq.ru" + image);
+		if (bean.getSport().equals("футбол")) {
+			String image = iterator.next().getFirstElementChild().getAttribute("src");
+			if (image.contains("http")) {
+				bean.setImage(image);
+			} else {
+				bean.setImage("https://betfaq.ru" + image);
+			}
 		}
 		return bean;
 	}
