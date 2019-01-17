@@ -105,7 +105,13 @@ public class OneXbetParser extends AbstractParser {
 				if (names.get(0).contains("голы") || names.get(0).contains("Хозяева") || names.get(1).contains("голы")
 						|| names.get(1).contains("Гости")) {
 					continue;
-				} else {
+				} else if(names.get(0).equals("Арсенал") && url.equals(property.getProperty("RUS"))) {
+					bean.setTeam1("Арсенал Тула");
+					bean.setTeam2(names.get(1));
+				} else if(names.get(1).equals("Арсенал") && url.equals(property.getProperty("RUS"))) {
+					bean.setTeam1(names.get(0));
+					bean.setTeam2("Арсенал Тула");
+				}else {
 					bean.setTeam1(names.get(0));
 					bean.setTeam2(names.get(1));
 				}
