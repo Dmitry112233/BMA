@@ -16,9 +16,9 @@
 
 	<bean id="ligaStavok" class="com.da.bookmaker.parser.LigaStavokParser"></bean>
 
-	<task:scheduled-tasks>
+	<!-- <task:scheduled-tasks>
 		<task:scheduled ref="ligaStavok" method="parseAllChamp" cron="0 0 */1 * * ?" />
-	</task:scheduled-tasks>
+	</task:scheduled-tasks> -->
 
 	<task:scheduled-tasks>
 		<task:scheduled ref="betFaq" method="parseBetFaq" cron="0 0 */1 * * ?" />
