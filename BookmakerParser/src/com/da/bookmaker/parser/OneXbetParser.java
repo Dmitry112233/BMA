@@ -267,7 +267,8 @@ public class OneXbetParser extends AbstractParser {
 	}
 
 	private String getDate(DomElement element) {
-		String date = element.getFirstElementChild().getTextContent();
+		String date = element.getFirstElementChild().getTextContent().trim();
+		System.out.println(date);
 		String[] subStr;
 		String delimeter = " ";
 		subStr = date.split(delimeter);
