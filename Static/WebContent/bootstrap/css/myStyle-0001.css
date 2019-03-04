@@ -1267,6 +1267,11 @@
 	margin: 0px;
 }
 
+.fb_logo {
+	height: 35px;
+	margin-left: 10px;
+}
+
 @media (min-width: 992px) and (max-width: 1200px) {
 	.sideEventsIcons {
 		display: none;

@@ -67,7 +67,7 @@ public class BookmakerDescriptionController extends BookmakerController {
 			String description = "bookmakers" + page + "_D";
 			String txt = "bookmakers" + page + "_Txt";
 			if (page.equals("")) {
-				map.put("relCanonical", "<link rel='canonical' href='https://findbestbet.ru'/>");
+				map.put("relCanonical", "<link rel='canonical' href='https://5bets.ru'/>");
 			}
 			map.put("bookmakers_T", property.getProperty(title));
 			map.put("bookmakers_H1", property.getProperty(h1));

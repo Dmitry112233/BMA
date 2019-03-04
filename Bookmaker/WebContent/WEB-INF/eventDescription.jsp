@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
    <head>
-      <title>Описание прогноза ${ivent.name} (${ivent.sport}) | findbestbet.ru</title>
-      <meta name="Description" content="Описание прогноза ${ivent.name} (${ivent.sport}) | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
+      <title>Описание прогноза ${ivent.name} (${ivent.sport}) | 5bets.ru</title>
+      <meta name="Description" content="Описание прогноза ${ivent.name} (${ivent.sport}) | 5bets.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>

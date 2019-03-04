@@ -3,7 +3,7 @@
    <head>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
       <title>Сравнение коэффициентов, детали по матчу ${team1} - ${team2}</title>
-      <meta name="Description" content="Сравнение коэффициентов, детали по матчу ${team1} - ${team2} | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
+      <meta name="Description" content="Сравнение коэффициентов, детали по матчу ${team1} - ${team2} | 5bets.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="noindex"/>

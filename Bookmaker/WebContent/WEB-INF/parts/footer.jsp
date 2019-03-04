@@ -41,7 +41,7 @@
                <div class="logo-fooer">
                   <div class="w-row">
                      <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
-                        <p class="heading-8">FindBestBet.ru</p>
+                        <p class="heading-8">5bets.ru</p>
                      </div>
                      <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
                         <div class="text-block-24">Ставки<br>на спорт</div>

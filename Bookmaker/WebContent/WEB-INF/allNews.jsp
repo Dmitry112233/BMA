@@ -1,8 +1,8 @@
 <!DOCTYPE html>	
 <html lang="ru">
    <head>
-      <title>Новости спорта для ставок у букмекеров | findbestbet.ru</title>
-      <meta name="Description" content="Новости спорта для ставок у букмекеров | findbestbet.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
+      <title>Новости спорта для ставок у букмекеров | 5bets.ru</title>
+      <meta name="Description" content="Новости спорта для ставок у букмекеров | 5bets.ru ⚽ Актуальная информация о матчах, коэффициентах и ставках на спорт"/>
       <meta name="Keywords" content=""/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="robots" content="all"/>
@@ -15,7 +15,7 @@
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
       <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
       <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-      <link rel="canonical" href="https://findbestbet.ru/news_0"/>
+      <link rel="canonical" href="https://5bets.ru/news_0"/>
    </head>
    <body class="body">
       <c:import url="parts/nav.jsp"></c:import>
